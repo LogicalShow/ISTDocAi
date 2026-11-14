@@ -1,0 +1,77 @@
+/*
+ * Default trigger-box look (bordered field, matching the app's text inputs) -
+ * generalized from the ::ng-deep override that previously lived in
+ * user-edit.component.css. Guarded to skip the `nzBorderless` case so pages
+ * that supply their own outer bordered container (e.g. shared list's
+ * .filter-input) and keep their own scoped ::ng-deep overrides aren't
+ * fought over by two separate stylesheets.
+ *
+ * ::ng-deep is required because nz-select renders its selector box inside
+ * its own component view, a different Angular style-encapsulation scope
+ * than this host's.
+ */
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* nz-select's own base style is `display: inline-block` with no explicit
+   width, so it shrink-wraps to its content (e.g. the placeholder text)
+   regardless of this host already being 100% wide - most visible on a short
+   placeholder like "Select a role". Forcing it to fill the host here also
+   fixes the dropdown panel's width for free: nzDropdownMatchSelectWidth
+   defaults to true, so the panel already mirrors whatever width the select
+   ends up with. */
+:host ::ng-deep .app-select {
+  display: block;
+  width: 100%;
+}
+
+:host ::ng-deep .app-select:not(.ant-select-borderless) .ant-select-selector {
+  min-height: 36px;
+  padding: 0 var(--spacing-3, 12px);
+  border: 1px solid var(--general-unofficial-border-3, #b0b0b0) !important;
+  border-radius: var(--rounded-8, 8px) !important;
+  background: var(--general-input, #ffffff);
+  box-shadow: none !important;
+}
+
+/* Sized to vertically center in the 36px-tall field - scoped to single mode
+   only. .ant-select-selection-item is ALSO the class ng-zorro puts on each
+   individual chip in multiple mode, whose own box is the ~24px-tall chip,
+   not the field; a 34px line-height forced onto a chip pushes its text off
+   center instead of centering it. Multi-mode chips keep antd's own shorter
+   line-height and get their own skin from the dash-toolbar-field override
+   in styles.css. */
+:host ::ng-deep .app-select:not(.ant-select-borderless).ant-select-single .ant-select-selection-item,
+:host ::ng-deep .app-select:not(.ant-select-borderless) .ant-select-selection-placeholder {
+  line-height: 34px;
+  font-family: inherit;
+  font-size: var(--label-label-2-fontsize, 14px);
+  color: var(--color-neutral-solid-950, #1a1a1a);
+}
+
+:host ::ng-deep .app-select:not(.ant-select-borderless) .ant-select-selection-placeholder {
+  color: var(--general-muted-foreground, #b0b0b0);
+}
+
+/* Multiple mode wraps its chips in .ant-select-selection-wrap, which ng-zorro
+   pins to the top (align-self: flex-start) because its own control is exactly
+   one chip row tall (32px). In this 36px field that leaves the chips 3px above
+   center; centering the wrap keeps a single row centered, and once the chips
+   wrap onto more rows the wrap fills the field so nothing changes. */
+:host ::ng-deep .app-select:not(.ant-select-borderless).ant-select-multiple .ant-select-selection-wrap {
+  align-self: center;
+}
+
+:host ::ng-deep .app-select:not(.ant-select-borderless).ant-select-focused .ant-select-selector {
+  border-color: var(--general-primary, #1b35f5) !important;
+}
+
+/* nzLoading's spinner (.ant-select-arrow-loading, added by ng-zorro's
+   nz-select-arrow while loading) otherwise renders in antd's default
+   rgba(0,0,0,.25) grey - recolor it to the same brand blue used for icons
+   elsewhere in the app. */
+:host ::ng-deep .app-select .ant-select-arrow-loading {
+  color: var(--general-primary, #1b35f5);
+}

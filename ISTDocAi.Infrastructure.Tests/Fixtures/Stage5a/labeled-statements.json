@@ -1,0 +1,227 @@
+[
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S1",
+    "sha256": "a0f1272307c9e8d3e1be207393fa80f7d6bbe48b50f5c1b82963df1b8ec3b556"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S2",
+    "sha256": "bf1e884eb57a7b77cc6ae9835af9531f461d792428311e44c740ba9825bc6a8d"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S3",
+    "sha256": "187cd81ce91127b7bc4faa570a0abf7314d075d3647d7604fe3daf7734367c01"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S4a",
+    "sha256": "99ca80d558543e3aed2dbe6dfc91a5d998a9279ca4ae9ab2cdab1b322d8c2157"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S4b",
+    "sha256": "76acf8fa4cfa7502f9643c03b77f47f0c6c88fb571344e1e4555087dcaaf7f0f"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S4c",
+    "sha256": "9a0224845911a0346b780437cd00c29abc2c388234d8d36eb67ae2cdf83fde8b"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S5",
+    "sha256": "5275c1c155f86907dddf5d108aac3f55699d00b22751b8a297f9b01f51aa3119"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S6",
+    "sha256": "1621be179a9838127f5e8aefae4d61d36cd1a4366f8977c6912c1f81f388de7b"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S7",
+    "sha256": "8a30b66a15d0a6ac26b8e79a2f874152c1edfb92314b70814abcd8173b9e4752"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S8a",
+    "sha256": "57e1430791d3ab9fefcdc607ae7eb6c0e375b62e28cae6d542670ac7f9b715d9"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S8",
+    "sha256": "aaeee85f8f1d57cb63cc069c4412a678d4ebd90d142dfd1316370f3da7d7b802"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S9",
+    "sha256": "7e41de03a7bbabd83cc4adcfd91c3a42784b0341d8aae0095f6c584aa89671cd"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S10",
+    "sha256": "fccaf8ecfa66e27badc92be916e5491012cde1b2058260486368f00087336621"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S11",
+    "sha256": "190f7d422a456bca7c6b7a30bd623cb71b671c71048a906624e5bc0fd4b71453"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S12",
+    "sha256": "dd5a9ba1b3bebe2bd3c025761010e9cc639bb4dd2623734222bd7e71d3b5576f"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S13",
+    "sha256": "9ff7fbf5522d2d9dbe3d4b01ca9a7f2070665ddfe664f905c3b806cbbfb308f3"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S14",
+    "sha256": "45ab5c5b65a0aa14414ad913379e22557f5e4cf75dfe362b132b4923d0523608"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S15",
+    "sha256": "a3052902185f3c7d9d02b4ee1bc42ec647bedbfad9bdaadf8958bcb962113725"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S16",
+    "sha256": "b6398f1eb45586d4deda2be4cc3bf486e63015110458988acd085a3424ceb6cb"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S17",
+    "sha256": "49445f04e29198ec34ae91fd67b407e2eec2ce5c7304b9b1da070998c8a858b4"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S18",
+    "sha256": "1de573a785d6c59e508e2754977d9087012c5265cef01c05b22ee126244724b1"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S19",
+    "sha256": "5506f36ebf0b606fdcb3fae34105068d6b958aeafb79ca3f0d4dbbebedd0f8d2"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S20",
+    "sha256": "e73ce52b3ba8566c6a96ecd8988264c1f48db07db39554d17eb546681f19a72a"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S21",
+    "sha256": "c2ddd4124d128064244895219a19ebc0f9dd067f158f29b9d204a419e994e88f"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S23",
+    "sha256": "e2f1b25f3fbab7e2d06cfc7b1b6fbde3be536224ca432afe427eab8da46937cc"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S24",
+    "sha256": "4126649b2c3987a0ac75b989270db12178f2e2ec913b0e20de806695df5679ba"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S22",
+    "sha256": "603411b96076b16385ceef971f2c6080206417090890d95a15c8bc2edd667738"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S25",
+    "sha256": "2c9f4c0495372ae2f0dca9c54c04d7d62623a92a9dc8cd973b8db4d9393d5376"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S26",
+    "sha256": "8b8f9c2987f0051976cd8c042df5fe7736abeed78bb2750c40b8ca16dafec8e7"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S27",
+    "sha256": "64bfbf8cae9c41c4086c7e49ee4a57dbd84741bd6555f9dca75f553fe174b558"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S28",
+    "sha256": "e1dd898e41a22d67e532822704e63af42c8572ed57d15cfccd42a7a67c7d57ca"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S29",
+    "sha256": "497b8c7ee272b08ecceec0b27e70641f511d45b87ce2714f7b6ce14f6f67bcc7"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S30",
+    "sha256": "ddfffc92e89203f57f3e163902463632db7747c91b88300edbaeeafa801a28cc"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S31",
+    "sha256": "fa4489fc8107f703e49555b9546cbf26a88194c655b6e3dc0ece55ed681f16a7"
+  },
+  {
+    "file": "04_docai_billing.sql",
+    "label": "B1",
+    "sha256": "00c460dce8ab344123d6f79af9793d391f411f062ac2658da8b208245c5da323"
+  },
+  {
+    "file": "04_docai_billing.sql",
+    "label": "B2",
+    "sha256": "adc80063e34b73d54874bffd2666cf5f9ce43aea12bf77f8c04da8fd13e0e988"
+  },
+  {
+    "file": "04_docai_billing.sql",
+    "label": "B3",
+    "sha256": "b8364b9a33f31f4033c69de3cdd7589af53a5d6bc77371a4e1fc819f0f4f7e55"
+  },
+  {
+    "file": "04_docai_billing.sql",
+    "label": "B3b",
+    "sha256": "d4d47b668e8b1c24701697a909bf38b18e66fc45d78abc53159ce2012ac44a49"
+  },
+  {
+    "file": "04_docai_billing.sql",
+    "label": "B3c",
+    "sha256": "c8eedff3ba094295717e8ea8802f2d4372d5670772f1d2d9de13604fa011fffc"
+  },
+  {
+    "file": "04_docai_billing.sql",
+    "label": "B4",
+    "sha256": "22a3f7b9abd5db178f1f8f922aadfe70434092407099d635d5543752d4f3bf74"
+  },
+  {
+    "file": "04_docai_billing.sql",
+    "label": "B5",
+    "sha256": "88b69c662d717fc1bc6dbc25219d0d601c59bb978733eec98015221fdac7e9da"
+  },
+  {
+    "file": "04_docai_billing.sql",
+    "label": "B6",
+    "sha256": "63677b0218b0a36b72dd9e3056894ca7b13f693d4e10b1486f45a8a399563934"
+  },
+  {
+    "file": "04_docai_billing.sql",
+    "label": "B7",
+    "sha256": "8604b9b6cf4beeb1e22abe83e028a261f8c66ed5b4c29acc6d331f724cb6ee94"
+  },
+  {
+    "file": "04_docai_billing.sql",
+    "label": "B8",
+    "sha256": "f5d4c074aa4c4acf3d72c6aaccee003860ca9319efebcdbc8cb89476ac77ab03"
+  },
+  {
+    "file": "04_docai_billing.sql",
+    "label": "B9",
+    "sha256": "a0034fda7a48786a91c805047c3f5ed100ca56f792755a7fd301983b7c45c91e"
+  }
+]

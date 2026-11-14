@@ -1,0 +1,45 @@
+<nz-layout class="app-layout">
+  @if (isMobile() && mobileSidebarOpen()) {
+    <button type="button" class="sidebar-backdrop" (click)="closeMobileSidebar()"
+      [attr.aria-label]="'common.closeNavigation' | translate"></button>
+  }
+  <nz-sider class="menu-sidebar"
+    [class.mobile-sidebar]="isMobile()"
+    [class.mobile-sidebar-open]="isMobile() && mobileSidebarOpen()"
+    nzCollapsible
+    [nzCollapsedWidth]="60"
+    [nzWidth]="isMobile() ? 220 : 256"
+    [nzBreakpoint]="null"
+    [nzCollapsed]="isMobile() ? false : sidebarIsCollapsed()"
+    (nzCollapsedChange)="onSiderCollapsedChange($event)"
+    [nzTrigger]="null">
+    <app-sidebar [sidebarItems]="sidebarItems()"
+      [isMobile]="isMobile()"
+      [sidebarIsCollapsed]="sidebarIsCollapsed()"
+      (navigate)="scrollToTop()" />
+  </nz-sider>
+
+  <nz-layout>
+    <app-secure-header [isMobile]="isMobile()"
+      [sidebarIsCollapsed]="sidebarIsCollapsed()"
+      [mobileSidebarOpen]="mobileSidebarOpen()"
+      (toggleSidebar)="toggleSidebar()"
+      (languageChanged)="syncSidebarFromStore()" />
+    <nz-content>
+      <div class="breadcrumb-container">
+        <nz-breadcrumb>
+          @for (breadcrumb of breadcrumbs(); track breadcrumb) {
+            <nz-breadcrumb-item>
+              <span>{{ breadcrumb.label | translate }}</span>
+            </nz-breadcrumb-item>
+          }
+        </nz-breadcrumb>
+      </div>
+      <div class="inner-content">
+
+
+        <router-outlet />
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

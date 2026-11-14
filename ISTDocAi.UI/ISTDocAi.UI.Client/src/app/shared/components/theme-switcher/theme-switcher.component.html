@@ -1,0 +1,12 @@
+<button
+  type="button"
+  class="theme-switcher"
+  [class.theme-switcher--auth]="appearance() === 'auth'"
+  [class.theme-switcher--forgot]="appearance() === 'forgot'"
+  [class.theme-switcher--header]="appearance() === 'header'"
+  [attr.aria-label]="labelKey() | translate"
+  [attr.title]="labelKey() | translate"
+  [attr.aria-pressed]="theme() === 'dark'"
+  (click)="toggleTheme()">
+  <app-icon [name]="icon()" iconClass="theme-switcher__icon" />
+</button>

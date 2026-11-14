@@ -1,0 +1,723 @@
+{
+  "auth": {
+    "login": {
+      "copyright": "حقوق النشر ©2026",
+      "forgotPassword": "نسيت كلمة المرور؟",
+      "incorrectCredentials": "اسم المستخدم أو كلمة المرور غير صحيحة",
+      "hidePassword": "إخفاء كلمة المرور",
+      "password": {
+        "label": "كلمة المرور",
+        "minLength": "يجب ألا تقل كلمة المرور عن 6 أحرف.",
+        "required": "كلمة المرور مطلوبة."
+      },
+      "rememberMe": "تذكرني",
+      "showPassword": "إظهار كلمة المرور",
+      "subtitle": "أدخل اسم المستخدم وكلمة المرور للمتابعة.",
+      "submit": "تسجيل الدخول",
+      "submitting": "جارٍ تسجيل الدخول…",
+      "title": "مرحباً بك في ISTDocAi",
+      "userName": {
+        "label": "اسم المستخدم",
+        "placeholder": "أدخل اسم المستخدم",
+        "required": "اسم المستخدم مطلوب."
+      }
+    },
+    "forgotPassword": {
+      "backToSignIn": "العودة إلى تسجيل الدخول",
+      "email": {
+        "title": "هل نسيت كلمة المرور؟",
+        "description": "أدخل بريدك الإلكتروني وسنرسل إليك رمز تحقق.",
+        "label": "البريد الإلكتروني",
+        "placeholder": "name@email.com",
+        "invalid": "أدخل عنوان بريد إلكتروني صالحاً.",
+        "submit": "إرسال رمز التحقق",
+        "sending": "جارٍ إرسال الرمز…"
+      },
+      "code": {
+        "title": "أدخل رمز التحقق",
+        "sentTo": "أرسلنا رمزاً مكوناً من 6 أرقام إلى",
+        "submit": "تأكيد الرمز",
+        "verifying": "جارٍ تأكيد الرمز…"
+      },
+      "password": {
+        "title": "إنشاء كلمة مرور جديدة",
+        "description": "اختر كلمة مرور قوية لم تستخدمها من قبل.",
+        "submit": "إعادة تعيين كلمة المرور",
+        "submitting": "جارٍ إعادة تعيين كلمة المرور…"
+      },
+      "success": {
+        "title": "تم تحديث كلمة المرور",
+        "description": "يمكنك الآن تسجيل الدخول باستخدام كلمة المرور الجديدة."
+      }
+    },
+    "changePassword": {
+      "title": "تغيير كلمة المرور",
+      "send": {
+        "description": "سنرسل رمز تحقق إلى",
+        "submit": "إرسال الرمز",
+        "sending": "جارٍ إرسال الرمز…"
+      },
+      "code": {
+        "sentTo": "أدخل الرمز المرسل إلى",
+        "submit": "تأكيد الرمز",
+        "verifying": "جارٍ تأكيد الرمز…"
+      },
+      "password": {
+        "description": "اختر كلمة مرور قوية لم تستخدمها من قبل.",
+        "submit": "تغيير كلمة المرور",
+        "submitting": "جارٍ تغيير كلمة المرور…"
+      }
+    },
+    "otp": {
+      "label": "رمز التحقق",
+      "digit": "رقم رمز التحقق",
+      "invalid": "أدخل رمز التحقق الكامل المكون من 6 أرقام.",
+      "expires": "تنتهي صلاحيته خلال {{time}}.",
+      "expired": "انتهت صلاحية الرمز. اطلب رمزاً جديداً للمتابعة.",
+      "notReceived": "لم يصلك الرمز؟",
+      "resend": "إعادة إرسال الرمز"
+    },
+    "passwordFields": {
+      "new": "كلمة المرور الجديدة",
+      "confirm": "تأكيد كلمة المرور الجديدة",
+      "loadingPolicy": "جارٍ تحميل متطلبات كلمة المرور…",
+      "mismatch": "كلمتا المرور غير متطابقتين."
+    },
+    "passwordRules": {
+      "minimum": "{{count}} أحرف على الأقل",
+      "unique": "{{count}} أحرف مختلفة على الأقل",
+      "uppercase": "حرف إنجليزي كبير واحد",
+      "lowercase": "حرف إنجليزي صغير واحد",
+      "digit": "رقم واحد",
+      "nonAlphanumeric": "رمز واحد"
+    }
+  },
+  "feedback": {
+    "realtime": {
+      "reconnecting": {
+        "title": "إعادة الاتصال",
+        "message": "تجري محاولة إعادة الاتصال بالخادم..."
+      }
+    },
+    "access": {
+      "accessDenied": {
+        "title": "العنصر مقيد",
+        "message": "ليس لديك صلاحية للوصول إلى هذا المورد."
+      },
+      "permissionsChanged": {
+        "title": "تم تحديث الصلاحيات",
+        "message": "تم تغيير صلاحياتك وتم نقلك إلى صفحة مسموح لك بالوصول إليها."
+      },
+      "popupBlocked": {
+        "title": "تم حظر النافذة المنبثقة",
+        "message": "اسمح بالنوافذ المنبثقة لهذا الموقع لفتح التقرير."
+      }
+    },
+    "system": {
+      "unexpected": {
+        "title": "خطأ غير متوقع",
+        "message": "حدث خطأ ما. يرجى المحاولة مرة أخرى."
+      },
+      "concurrency": {
+        "title": "تم تعديل البيانات بواسطة مستخدم آخر",
+        "message": "قام شخص آخر بتحديث هذا السجل. أعد تحميل الصفحة للحصول على أحدث نسخة ثم حاول مرة أخرى."
+      },
+      "updateAvailable": {
+        "title": "يتوفر إصدار جديد",
+        "message": "أعد تحميل لوحة لات للحصول على أحدث إصدار. ستفقد أي تغييرات غير محفوظة."
+      }
+    },
+    "validation": {
+      "invalidInput": {
+        "title": "خطأ في التحقق",
+        "message": "يرجى مراجعة المدخلات والمحاولة مرة أخرى."
+      }
+    },
+    "navigation": {
+      "unsavedChanges": {
+        "title": "تجاهل التغييرات غير المحفوظة؟",
+        "message": "لديك تغييرات غير محفوظة. إذا غادرت هذه الصفحة فستفقدها."
+      }
+    },
+    "auth": {
+      "otpExpired": {
+        "title": "انتهت صلاحية الرمز",
+        "message": "انتهت صلاحية رمز التحقق. اضغط على إعادة إرسال الرمز للحصول على رمز جديد."
+      },
+      "otpSent": {
+        "title": "تم إرسال الرمز",
+        "message": "تم إرسال رمز التحقق إلى بريدك الإلكتروني."
+      },
+      "otpVerified": {
+        "title": "تم التحقق من الرمز",
+        "message": "تم التحقق من رمز التحقق بنجاح."
+      },
+      "passwordChanged": {
+        "title": "تم تغيير كلمة المرور",
+        "message": "تم تحديث كلمة المرور الخاصة بك."
+      },
+      "resetCodeVerified": {
+        "title": "تم التحقق من الرمز",
+        "message": "تم تأكيد رمز التحقق الخاص بك."
+      },
+      "resetCodeSent": {
+        "title": "تم إرسال رمز إعادة التعيين",
+        "message": "تم إرسال رمز التحقق إلى بريدك الإلكتروني."
+      },
+      "passwordReset": {
+        "title": "تمت إعادة تعيين كلمة المرور",
+        "message": "تمت إعادة تعيين كلمة المرور بنجاح."
+      }
+    },
+    "role": {
+      "created": {
+        "title": "تم إنشاء الدور",
+        "message": "تم إنشاء الدور بنجاح."
+      },
+      "updated": {
+        "title": "تم تحديث الدور",
+        "message": "تم تحديث الدور بنجاح."
+      },
+      "selectionRequired": {
+        "title": "التحديد مطلوب",
+        "message": "يرجى اختيار دور واحد على الأقل للحذف."
+      },
+      "deleteConfirmation": {
+        "title": "حذف الأدوار المحددة؟",
+        "message": "سيتم حذف {{count}} دور نهائيًا وإزالتها من جميع المستخدمين. لا يمكن التراجع عن هذا الإجراء.",
+        "messageOne": "سيتم حذف دور واحد نهائيًا وإزالته من جميع المستخدمين. لا يمكن التراجع عن هذا الإجراء."
+      },
+      "deleted": {
+        "title": "تم حذف الأدوار",
+        "message": "تمت إزالة الأدوار المحددة."
+      }
+    },
+    "permissions": {
+      "allSelected": {
+        "title": "تم تحديد الكل",
+        "message": "تم تحديد جميع الصلاحيات."
+      },
+      "allDeselected": {
+        "title": "تم إلغاء تحديد الكل",
+        "message": "تم إلغاء تحديد جميع الصلاحيات."
+      },
+      "deselectAllConfirmation": {
+        "title": "مسح جميع الصلاحيات؟",
+        "message": "سيتم إلغاء تحديد جميع الصلاحيات في القائمة. لن يتم حفظ أي شيء حتى تضغط على حفظ."
+      },
+      "roleUpdated": {
+        "title": "تم حفظ الصلاحيات",
+        "message": "تم تحديث صلاحيات الدور."
+      },
+      "userUpdated": {
+        "title": "تم حفظ الصلاحيات",
+        "message": "تم تحديث صلاحيات المستخدم."
+      },
+      "userRoleRequired": {
+        "title": "الدور مطلوب",
+        "message": "لا يوجد دور معين للمستخدم. يرجى تعيين دور للمستخدم أولاً."
+      },
+      "importConfirmation": {
+        "title": "استيراد الصلاحيات",
+        "message": "هل أنت متأكد من استيراد جميع الصلاحيات من دور المستخدم؟ سيؤدي ذلك إلى استبدال الصلاحيات المحددة أدناه. لن يتم حفظ أي شيء حتى تضغط حفظ."
+      },
+      "importedFromRole": {
+        "title": "تم استيراد الصلاحيات",
+        "message": "تم تحميل صلاحيات الدور في النموذج. اضغط حفظ لتطبيقها."
+      }
+    },
+    "user": {
+      "created": {
+        "title": "تم إنشاء المستخدم",
+        "message": "تم إنشاء المستخدم بنجاح."
+      },
+      "updated": {
+        "title": "تم تحديث المستخدم",
+        "message": "تم تحديث المستخدم بنجاح."
+      },
+      "selectionRequired": {
+        "title": "التحديد مطلوب",
+        "message": "يرجى اختيار مستخدم واحد على الأقل للحذف."
+      },
+      "deleteConfirmation": {
+        "title": "حذف المستخدمين المحددين؟",
+        "message": "سيتم حذف {{count}} مستخدم نهائيًا وإلغاء وصولهم. لا يمكن التراجع عن هذا الإجراء.",
+        "messageOne": "سيتم حذف مستخدم واحد نهائيًا وإلغاء وصوله. لا يمكن التراجع عن هذا الإجراء."
+      },
+      "deleted": {
+        "title": "تم حذف المستخدمين",
+        "message": "تمت إزالة المستخدمين المحددين."
+      },
+      "passwordChanged": {
+        "title": "تم تغيير كلمة المرور",
+        "message": "تم تحديث كلمة مرور المستخدم."
+      }
+    },
+    "notificationSettings": {
+      "detailsLoadFailed": {
+        "title": "التفاصيل غير متاحة",
+        "message": "تعذر تحميل تفاصيل الإشعار."
+      },
+      "selectionRequired": {
+        "title": "التحديد مطلوب",
+        "message": "يرجى اختيار إشعار."
+      },
+      "usersUpdated": {
+        "title": "تم تحديث قائمة المستلمين",
+        "message": "تم حفظ مستخدمي الإشعار."
+      }
+    },
+    "settings": {
+      "unsupportedImageFormat": {
+        "title": "صيغة غير مدعومة",
+        "message": "اختر صورة بصيغة PNG أو JPG أو SVG."
+      },
+      "imageTooLarge": {
+        "title": "الملف يتجاوز الحجم المسموح",
+        "message": "يجب ألا يزيد حجم الصورة عن 5 ميجابايت."
+      },
+      "imageDownloadFailed": {
+        "title": "فشل التنزيل",
+        "message": "تعذر تنزيل الصورة."
+      },
+      "requiredFields": {
+        "title": "بيانات غير مكتملة",
+        "message": "يرجى استكمال جميع البيانات المطلوبة."
+      },
+      "updated": {
+        "title": "تم حفظ الإعدادات",
+        "message": "تم تحديث إعداداتك."
+      }
+    },
+    "attachment": {
+      "saveBeforeManage": {
+        "title": "يرجى الحفظ أولاً",
+        "message": "لا يمكن إدارة المرفقات قبل حفظ التغييرات."
+      },
+      "added": {
+        "title": "تمت إضافة المرفق",
+        "message": "تم إرفاق الملف."
+      },
+      "updated": {
+        "title": "تم تحديث المرفق",
+        "message": "تم حفظ المرفق."
+      },
+      "deleted": {
+        "title": "تم حذف المرفق",
+        "message": "تمت إزالة المرفق."
+      },
+      "notFound": {
+        "title": "المرفق غير موجود",
+        "message": "لم يتم العثور على المرفق. يرجى المحاولة مرة أخرى."
+      },
+      "noSelection": {
+        "title": "لم يتم اختيار مرفق",
+        "message": "يرجى اختيار مرفق واحد على الأقل."
+      },
+      "deletedMany": {
+        "title": "تم حذف المرفقات",
+        "message": "تمت إزالة المرفقات المحددة."
+      },
+      "partiallyDeleted": {
+        "title": "حذف جزئي",
+        "message": "تعذر حذف بعض المرفقات."
+      }
+    }
+  },
+  "breadcrumb": {
+    "iam": {
+      "rolePermissions": "صلاحيات الدور",
+      "roles": "الأدوار",
+      "userPermissions": "صلاحيات المستخدم",
+      "users": "المستخدمون"
+    },
+    "notFound": "غير موجود",
+    "public": {
+      "notificationSettings": "إعدادات الإشعارات",
+      "settings": "الإعدادات"
+    }
+  },
+  "common": {
+    "cancel": "إلغاء",
+    "changeLanguage": "تغيير اللغة",
+    "clear": "مسح",
+    "close": "إغلاق",
+    "closeNavigation": "إغلاق قائمة التنقل",
+    "confirm": "تأكيد",
+    "delete": "حذف",
+    "discard": "تجاهل",
+    "done": "تم",
+    "error": "خطأ",
+    "import": "استيراد",
+    "info": "معلومات",
+    "later": "لاحقًا",
+    "online": "متصل",
+    "reload": "إعادة التحميل",
+    "reloadNow": "إعادة التحميل الآن",
+    "save": "حفظ",
+    "saving": "جارٍ الحفظ…",
+    "search": "بحث",
+    "switchToDarkMode": "التبديل إلى الوضع الداكن",
+    "switchToLightMode": "التبديل إلى الوضع الفاتح",
+    "toggleNavigation": "فتح أو إغلاق قائمة التنقل",
+    "user": "مستخدم",
+    "warning": "تحذير"
+  },
+  "settingsPage": {
+    "title": "الإعدادات",
+    "save": "حفظ الإعدادات",
+    "saving": "جارٍ حفظ الإعدادات…",
+    "companyInformation": {
+      "title": "معلومات الشركة",
+      "nameEnglish": "اسم الشركة (بالإنجليزية)",
+      "nameEnglishPlaceholder": "أدخل اسم الشركة بالإنجليزية",
+      "nameArabic": "اسم الشركة (بالعربية)",
+      "nameArabicPlaceholder": "أدخل اسم الشركة بالعربية",
+      "address": "العنوان",
+      "addressPlaceholder": "أدخل عنوان الشركة"
+    },
+    "contactInformation": {
+      "title": "معلومات الاتصال",
+      "phoneOne": "الهاتف 1",
+      "phoneOnePlaceholder": "أدخل رقم الهاتف الأساسي",
+      "phoneTwo": "الهاتف 2",
+      "phoneTwoPlaceholder": "أدخل رقم الهاتف الثانوي",
+      "fax": "الفاكس",
+      "faxPlaceholder": "أدخل رقم الفاكس",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريد الشركة الإلكتروني",
+      "website": "الموقع الإلكتروني",
+      "websitePlaceholder": "أدخل موقع الشركة الإلكتروني"
+    },
+    "emailConfiguration": {
+      "title": "إعدادات البريد الإلكتروني",
+      "enable": "تفعيل خدمة البريد الإلكتروني",
+      "description": "تفعيل إرسال رسائل التنبيهات وإعادة تعيين كلمات المرور وإشعارات النظام.",
+      "advanced": "إعدادات البريد المتقدمة",
+      "host": "مضيف SMTP",
+      "port": "المنفذ",
+      "ssl": "تفعيل SSL",
+      "useSsl": "استخدام SSL/TLS",
+      "userName": "اسم المستخدم",
+      "password": "كلمة المرور",
+      "senderEmail": "بريد المرسل"
+    },
+    "branding": {
+      "title": "هوية الشركة",
+      "companyLogo": "شعار الشركة",
+      "reportHeader": "مقدمة التقرير",
+      "reportFooter": "نهاية التقرير",
+      "clickToUpload": "اضغط للرفع",
+      "fileHint": "PNG أو JPG أو SVG حتى 5 ميجابايت",
+      "replace": "استبدال الصورة",
+      "download": "تنزيل الصورة",
+      "delete": "حذف الصورة",
+      "deleteNotice": "سيتم حذف الصورة عند الحفظ."
+    },
+    "systemSettings": {
+      "title": "إعدادات النظام",
+      "attachmentFolder": "مسار مجلد المرفقات",
+      "attachmentFolderPlaceholder": "أدخل مسار تخزين المرفقات",
+      "maximumFileSize": "الحد الأقصى لحجم الملف المرفق (ميجابايت)"
+    }
+  },
+  "layout": {
+    "user": {
+      "changePassword": "تغيير كلمة المرور",
+      "email": "البريد الإلكتروني",
+      "signOut": "تسجيل الخروج",
+      "userName": "اسم المستخدم"
+    }
+  },
+  "modal": {
+    "actions": {
+      "cancel": "إلغاء",
+      "close": "إغلاق",
+      "save": "حفظ",
+      "saveAndAddAnother": "حفظ وإضافة آخر",
+      "search": "بحث"
+    },
+    "title": {
+      "add": "إضافة {{title}}",
+      "edit": "تعديل {{title}}",
+      "view": "عرض {{title}}"
+    }
+  },
+  "notFound": {
+    "home": "العودة إلى الرئيسية",
+    "message": "عذرا، الصفحة التي تبحث عنها غير موجودة.",
+    "title": "الصفحة غير موجودة"
+  },
+  "permissionsPage": {
+    "title": "تحديد صلاحيات {{subjectType}}: {{subjectName}}",
+    "subjectTypes": {
+      "role": "الدور",
+      "user": "المستخدم"
+    },
+    "loading": "جارٍ تحميل الصلاحيات",
+    "searchAriaLabel": "البحث في الصلاحيات",
+    "searchPlaceholder": "البحث عن التطبيقات أو الوحدات أو الصفحات",
+    "selectAll": "تحديد الكل",
+    "clearAll": "إلغاء تحديد الكل",
+    "importFromRole": "استيراد من الدور",
+    "importingFromRole": "جارٍ الاستيراد…",
+    "expand": "توسيع {{name}}",
+    "collapse": "طي {{name}}",
+    "selectAllFor": "تحديد جميع صلاحيات {{name}}",
+    "deselectAllFor": "إلغاء تحديد جميع صلاحيات {{name}}"
+  },
+  "role": {
+    "title": "الأدوار",
+    "entityName": "الدور",
+    "add": "إضافة دور جديد",
+    "delete": "حذف",
+    "search": {
+      "title": "تصفية",
+      "nameLabel": "اسم الدور",
+      "namePlaceholder": "أدخل اسم الدور"
+    },
+    "filter": "تصفية",
+    "table": {
+      "name": "الاسم",
+      "arabicName": "الاسم بالعربية",
+      "order": "الترتيب",
+      "status": "الحالة",
+      "action": "الإجراء",
+      "notAvailable": "غير متوفر",
+      "setPermissions": "تحديد الصلاحيات"
+    },
+    "status": {
+      "active": "نشط",
+      "inactive": "غير نشط"
+    },
+    "edit": {
+      "nameLabel": "الدور بالإنجليزية",
+      "namePlaceholder": "أدخل اسم الدور بالإنجليزية",
+      "arabicNameLabel": "الدور بالعربية",
+      "arabicNamePlaceholder": "أدخل اسم الدور بالعربية",
+      "displayOrderLabel": "ترتيب العرض",
+      "active": "نشط"
+    },
+    "pagination": {
+      "previous": "السابق",
+      "next": "التالي"
+    }
+  },
+  "searchToolbar": {
+    "filters": "الفلاتر",
+    "placeholder": "بحث...",
+    "quickSearch": "بحث سريع"
+  },
+  "shared": {
+    "attachment": {
+      "add": "إضافة مرفق",
+      "chooseFile": "اختيار ملف",
+      "confirmDelete": "هل أنت متأكد من حذف \"{{name}}\"؟",
+      "confirmDeleteMany": "هل أنت متأكد من حذف {{count}} مرفق؟",
+      "delete": "حذف",
+      "deleteSelected": "حذف المرفقات المحددة",
+      "deleteTooltip": "حذف المرفق",
+      "enterFileName": "يرجى إدخال اسم الملف.",
+      "file": "الملف",
+      "headers": {
+        "delete": "حذف",
+        "fileName": "اسم الملف",
+        "fileSize": "حجم الملف",
+        "note": "ملاحظة",
+        "view": "عرض"
+      },
+      "missingAttachment": "بيانات المرفق غير مكتملة.",
+      "missingReference": "بيانات المرجع غير مكتملة.",
+      "noFileSelected": "لم يتم اختيار ملف",
+      "none": "لم تتم إضافة أي مرفقات بعد.",
+      "note": "ملاحظة",
+      "notePlaceholder": "أدخل ملاحظة...",
+      "selectFile": "يرجى اختيار ملف.",
+      "title": {
+        "add": "إضافة مرفق",
+        "attachments": "المرفقات",
+        "delete": "حذف مرفق",
+        "deleteMany": "حذف المرفقات",
+        "edit": "تعديل مرفق"
+      },
+      "units": {
+        "bytes": "بايت",
+        "gb": "جيجابايت",
+        "kb": "كيلوبايت",
+        "mb": "ميجابايت"
+      },
+      "view": "عرض",
+      "viewTooltip": "عرض المرفق"
+    },
+    "qr": {
+      "errors": {
+        "notFound": "لا توجد كاميرا متاحة على هذا الجهاز.",
+        "notReadable": "الكاميرا مستخدمة بواسطة تطبيق آخر.",
+        "permissionDenied": "تم رفض إذن الكاميرا.",
+        "unableToStart": "تعذر تشغيل الكاميرا."
+      },
+      "instruction": "ضع رمز QR داخل الإطار",
+      "startingCamera": "جار تشغيل الكاميرا..."
+    }
+  },
+  "user": {
+    "title": "المستخدمون",
+    "entityName": "المستخدم",
+    "add": "إضافة مستخدم جديد",
+    "delete": "حذف",
+    "search": {
+      "title": "تصفية",
+      "userNameLabel": "اسم المستخدم",
+      "userNamePlaceholder": "أدخل اسم المستخدم",
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني"
+    },
+    "filter": "تصفية",
+    "table": {
+      "userName": "اسم المستخدم",
+      "fullName": "الاسم الكامل",
+      "email": "البريد الإلكتروني",
+      "status": "الحالة",
+      "action": "الإجراء",
+      "notAvailable": "غير متوفر",
+      "setPermissions": "تحديد الصلاحيات",
+      "changePassword": "تغيير كلمة المرور"
+    },
+    "status": {
+      "active": "نشط",
+      "inactive": "غير نشط"
+    },
+    "edit": {
+      "userNameLabel": "اسم المستخدم",
+      "userNamePlaceholder": "أدخل اسم المستخدم",
+      "fullNameLabel": "الاسم الكامل",
+      "fullNamePlaceholder": "أدخل الاسم الكامل",
+      "emailLabel": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل بريدك الإلكتروني",
+      "passwordLabel": "كلمة المرور",
+      "passwordPlaceholder": "أدخل كلمة المرور",
+      "roleLabel": "الدور",
+      "rolePlaceholder": "اختر دورا",
+      "administrator": "مسؤول النظام",
+      "active": "نشط"
+    },
+    "changePassword": {
+      "title": "تغيير كلمة مرور المستخدم",
+      "submit": "تغيير كلمة المرور",
+      "submitting": "جارٍ تغيير كلمة المرور…"
+    },
+    "pagination": {
+      "previous": "السابق",
+      "next": "التالي"
+    }
+  },
+  "validation": {
+    "auth": {
+      "confirmPassword": {
+        "mismatch": "كلمتا المرور غير متطابقتين",
+        "required": "يرجى تأكيد كلمة المرور"
+      },
+      "newPassword": {
+        "minLength": "يجب ألا تقل كلمة المرور عن 6 أحرف",
+        "required": "كلمة المرور مطلوبة"
+      },
+      "otp": {
+        "length": "يجب أن يتكون رمز OTP من 6 أرقام",
+        "required": "رمز OTP مطلوب"
+      }
+    },
+    "common": {
+      "invalid": "قيمة غير صالحة"
+    },
+    "password": {
+      "minLength": "يجب ألا تقل كلمة المرور عن 6 أحرف.",
+      "requireDigit": "يجب أن تحتوي كلمة المرور على رقم واحد على الأقل.",
+      "requireLowercase": "يجب أن تحتوي كلمة المرور على حرف صغير واحد على الأقل.",
+      "requireNonAlphanumeric": "يجب أن تحتوي كلمة المرور على رمز خاص واحد على الأقل.",
+      "requireUniqueChars": "يجب أن تستخدم كلمة المرور حرفا مختلفا واحدا على الأقل.",
+      "requireUppercase": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل.",
+      "required": "كلمة المرور مطلوبة"
+    },
+    "role": {
+      "nameEn": {
+        "maxLength": "لا يمكن أن يتجاوز اسم الدور 256 حرفا",
+        "required": "اسم الدور (بالإنجليزية) مطلوب"
+      }
+    },
+    "setting": {
+      "companyAddress": {
+        "maxLength": "لا يمكن أن يتجاوز العنوان 500 حرف",
+        "required": "العنوان مطلوب"
+      },
+      "companyEmail": {
+        "email": "يرجى إدخال بريد إلكتروني صالح",
+        "maxLength": "لا يمكن أن يتجاوز البريد الإلكتروني 100 حرف"
+      },
+      "companyFax": {
+        "maxLength": "لا يمكن أن يتجاوز الفاكس 50 حرفا"
+      },
+      "companyNameAr": {
+        "maxLength": "لا يمكن أن يتجاوز اسم الشركة (بالعربية) 200 حرف"
+      },
+      "companyNameEn": {
+        "maxLength": "لا يمكن أن يتجاوز اسم الشركة (بالإنجليزية) 200 حرف",
+        "required": "اسم الشركة (بالإنجليزية) مطلوب"
+      },
+      "companyPhoneOne": {
+        "maxLength": "لا يمكن أن يتجاوز الهاتف 1 عدد 50 حرفا",
+        "required": "الهاتف 1 مطلوب"
+      },
+      "companyPhoneTwo": {
+        "maxLength": "لا يمكن أن يتجاوز الهاتف 2 عدد 50 حرفا"
+      },
+      "companyWebsite": {
+        "maxLength": "لا يمكن أن يتجاوز الموقع الإلكتروني 200 حرف"
+      },
+      "defaultCurrencyId": {
+        "required": "العملة الافتراضية مطلوبة"
+      },
+      "emailHost": {
+        "maxLength": "لا يمكن أن يتجاوز مضيف SMTP عدد 255 حرفا",
+        "required": "مضيف SMTP مطلوب"
+      },
+      "emailPassword": {
+        "maxLength": "لا يمكن أن تتجاوز كلمة المرور 255 حرفا",
+        "minLength": "يجب ألا تقل كلمة المرور عن 6 أحرف",
+        "required": "كلمة المرور مطلوبة"
+      },
+      "emailPort": {
+        "max": "لا يمكن أن يتجاوز المنفذ 65535",
+        "min": "يجب ألا يقل المنفذ عن 1",
+        "required": "منفذ SMTP مطلوب"
+      },
+      "emailUsername": {
+        "email": "يرجى إدخال بريد إلكتروني صالح",
+        "maxLength": "لا يمكن أن يتجاوز اسم المستخدم 255 حرفا",
+        "required": "اسم المستخدم مطلوب"
+      },
+      "senderEmail": {
+        "email": "يرجى إدخال بريد إلكتروني صالح",
+        "maxLength": "لا يمكن أن يتجاوز بريد المرسل 255 حرفا",
+        "required": "بريد المرسل مطلوب"
+      }
+    },
+    "user": {
+      "email": {
+        "email": "صيغة البريد الإلكتروني غير صالحة",
+        "maxLength": "لا يمكن أن يتجاوز البريد الإلكتروني 256 حرفا",
+        "required": "البريد الإلكتروني مطلوب"
+      },
+      "fullName": {
+        "maxLength": "لا يمكن أن يتجاوز الاسم الكامل 100 حرف",
+        "required": "الاسم الكامل مطلوب"
+      },
+      "roleId": {
+        "required": "الدور مطلوب"
+      },
+      "userName": {
+        "maxLength": "لا يمكن أن يتجاوز اسم المستخدم 256 حرفا",
+        "required": "اسم المستخدم مطلوب"
+      }
+    }
+  }
+}

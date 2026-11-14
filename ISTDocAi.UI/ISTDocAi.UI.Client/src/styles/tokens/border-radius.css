@@ -1,0 +1,20 @@
+/*
+ * Border radius scale, generated from the IST-Foundations Figma file
+ * (border radius collection: https://www.figma.com/design/M5oUKZaCAtK2c7i6KI5RCv/IST-Foundations).
+ * Names match what the codebase already references with fallback values
+ * (e.g. var(--rounded-16, 16px) in styles.css) - those fallbacks now resolve
+ * to real tokens instead of relying on the hardcoded fallback.
+ */
+
+:root {
+  --rounded-4: 4px;
+  --rounded-6: 6px;
+  --rounded-8: 8px;
+  --rounded-10: 10px;
+  --rounded-12: 12px;
+  --rounded-16: 16px;
+  --rounded-20: 20px;
+  --rounded-24: 24px;
+  --rounded-32: 32px;
+  --rounded-infinite: 9999px;
+}

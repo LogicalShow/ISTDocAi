@@ -1,0 +1,46 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/usage/topups/1/documents?limit=2\u0026afterChargeId=1",
+    "headers": [
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "X-Api-Key",
+        "values": [
+          "test-key-one"
+        ]
+      }
+    ],
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "headers": [
+      {
+        "name": "Cache-Control",
+        "values": [
+          "no-store"
+        ]
+      },
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "Content-Type",
+        "values": [
+          "application/json; charset=utf-8"
+        ]
+      }
+    ],
+    "bodyText": "{\u0022topUpGrantId\u0022:1,\u0022documents\u0022:[],\u0022nextAfterChargeId\u0022:null}"
+  }
+}

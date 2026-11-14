@@ -1,0 +1,168 @@
+[
+    {
+        "output":  "14-register-model.sql",
+        "parameters":  {
+                           "Environment":  "dev",
+                           "MinimumAccuracy":  "0.95",
+                           "ModelId":  "bl-v3",
+                           "TestFieldAccuracy":  "0.97"
+                       },
+        "boundary":  "Full copied script; Yes confirmation replaced with no-op"
+    },
+    {
+        "output":  "15-full.sql",
+        "parameters":  {
+                           "BlModelId":  "bl-v3",
+                           "BlTestFieldAccuracy":  0.97,
+                           "ClassifierModelId":  "IST-Classifier-v6",
+                           "ClassifierTestFieldAccuracy":  0.91,
+                           "Environment":  "dev",
+                           "ManifestModelId":  "manifest-v3",
+                           "ManifestTestFieldAccuracy":  0.92
+                       },
+        "boundary":  "Full copied script; Yes confirmation replaced with no-op"
+    },
+    {
+        "output":  "15-rerun.sql",
+        "parameters":  {
+                           "BlModelId":  "bl-v3",
+                           "BlTestFieldAccuracy":  0.97,
+                           "ClassifierModelId":  "IST-Classifier-v6",
+                           "ClassifierTestFieldAccuracy":  0.91,
+                           "Environment":  "dev",
+                           "ManifestModelId":  "manifest-v3",
+                           "ManifestTestFieldAccuracy":  0.92
+                       },
+        "boundary":  "Full copied script; Yes confirmation replaced with no-op"
+    },
+    {
+        "output":  "15-manifest-only.sql",
+        "parameters":  {
+                           "BlModelId":  "bl-v3",
+                           "BlTestFieldAccuracy":  0.97,
+                           "Environment":  "dev",
+                           "ManifestModelId":  "manifest-v3",
+                           "ManifestTestFieldAccuracy":  0.92
+                       },
+        "boundary":  "Full copied script; Yes confirmation replaced with no-op"
+    },
+    {
+        "output":  "16-mapping.sql",
+        "parameters":  {
+                           "DocumentTypeCode":  "MANIFEST",
+                           "MappingFile":  "deploy/mapping-example.json",
+                           "ModelId":  "baseline-manifest"
+                       },
+        "boundary":  "Full copied script; stdout joined with CRLF, no appended newline"
+    },
+    {
+        "output":  "mapping-helper.sql",
+        "parameters":  {
+                           "DocumentTypeCode":  "MANIFEST",
+                           "MappingFile":  "deploy/mapping-example.json",
+                           "ModelId":  "baseline-manifest"
+                       },
+        "boundary":  "Unchanged copied helper function"
+    },
+    {
+        "output":  "bl-activation.sql",
+        "parameters":  {
+                           "MinFieldConfidence":  "0.8",
+                           "MinimumAccuracy":  "0.95",
+                           "ModelId":  "bl-v3",
+                           "TestFieldAccuracy":  "0.97"
+                       },
+        "boundary":  "Unchanged copied helper function"
+    },
+    {
+        "output":  "router-registration.sql",
+        "parameters":  {
+                           "ClassifierModelId":  "IST-Classifier-v6",
+                           "ClassifierTestFieldAccuracy":  "0.91",
+                           "ManifestModelId":  "manifest-v3",
+                           "ManifestTestFieldAccuracy":  "0.92"
+                       },
+        "boundary":  "Unchanged copied helper function, other parameters default"
+    },
+    {
+        "output":  "router-activation.sql",
+        "parameters":  {
+                           "ClassifierMinConfidence":  "0.5",
+                           "ClassifierModelId":  "IST-Classifier-v6",
+                           "ClassifierTestFieldAccuracy":  "0.91",
+                           "ManifestModelId":  "manifest-v3",
+                           "ManifestTestFieldAccuracy":  "0.92",
+                           "MinimumAccuracy":  "0.6"
+                       },
+        "boundary":  "Unchanged copied helper function"
+    },
+    {
+        "output":  "03-app-login.sql",
+        "parameters":  {
+                           "Database":  "DocAi",
+                           "SqlLoginName":  "FAKE\\DocAiApp"
+                       },
+        "boundary":  "Unchanged helper; original Set-Content UTF8 output boundary"
+    },
+    {
+        "output":  "04-operators.sql",
+        "parameters":  {
+                           "Database":  "DocAi",
+                           "ModelTeamGroupName":  "FAKE\\DocAiModels",
+                           "OperatorGroupName":  "FAKE\\DocAiOperators"
+                       },
+        "boundary":  "Unchanged helper; original Set-Content UTF8 output boundary"
+    },
+    {
+        "output":  "appsettings.Production.json",
+        "parameters":  {
+                           "Database":  "DocAi",
+                           "identity":  {
+                                            "tenantId":  "00000000-0000-4000-8000-000000000001",
+                                            "clientId":  "00000000-0000-4000-8000-000000000002",
+                                            "thumbprint":  "0000000000000000000000000000000000000000"
+                                        },
+                           "infra":  {
+                                         "blobEndpoint":  {
+                                                              "value":  "https://fakebaseline.blob.core.windows.net"
+                                                          },
+                                         "documentIntelligenceEndpoint":  {
+                                                                              "value":  "https://fakebaseline.cognitiveservices.azure.com"
+                                                                          }
+                                     },
+                           "SqlServer":  "FAKE-SQL",
+                           "TrustServerCertificate":  false
+                       },
+        "boundary":  "Verbatim $config block from copied 12; publishing and other orchestration excluded"
+    },
+    {
+        "output":  "13-register-consumer.sql",
+        "parameters":  {
+                           "CallbackValue":  "NULL",
+                           "Code":  "FWD-BASELINE",
+                           "FakeApiKey":  "OBVIOUSLY-FAKE-BASELINE-API-KEY",
+                           "KeyHash":  "0xE3B7DC949E531EB5CD5099DA0911DF334BABAF69C872405FA54AA3770597EA9D",
+                           "Name":  "Fake Baseline",
+                           "ProductCode":  "FWD",
+                           "RotateKey":  false,
+                           "SecretValue":  "NULL",
+                           "TenantCode":  "BASELINE"
+                       },
+        "boundary":  "Verbatim SQL construction block from copied 13; Git/RNG/XML/backup orchestration excluded"
+    },
+    {
+        "output":  "13-rotate-consumer.sql",
+        "parameters":  {
+                           "CallbackValue":  "NULL",
+                           "Code":  "FWD-BASELINE",
+                           "FakeApiKey":  "OBVIOUSLY-FAKE-BASELINE-API-KEY",
+                           "KeyHash":  "0xE3B7DC949E531EB5CD5099DA0911DF334BABAF69C872405FA54AA3770597EA9D",
+                           "Name":  "Fake Baseline",
+                           "ProductCode":  "FWD",
+                           "RotateKey":  true,
+                           "SecretValue":  "NULL",
+                           "TenantCode":  "BASELINE"
+                       },
+        "boundary":  "Verbatim SQL construction block from copied 13; Git/RNG/XML/backup orchestration excluded"
+    }
+]

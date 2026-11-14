@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><TargetFramework>net10.0</TargetFramework><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable><IsPackable>false</IsPackable></PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="NUnit" />
+    <PackageReference Include="NUnit.Analyzers" PrivateAssets="all" />
+    <PackageReference Include="NUnit3TestAdapter" />
+  </ItemGroup>
+  <ItemGroup><ProjectReference Include="../ISTDocAi.Infrastructure/ISTDocAi.Infrastructure.csproj" /></ItemGroup>
+<ItemGroup>
+<None Include="Fixtures/LegacySql/03*.sql;Fixtures/LegacySql/04*.sql;Fixtures/LegacySql/05*.sql;Fixtures/LegacySql/06*.sql;Fixtures/LegacySql/07*.sql;Fixtures/LegacySql/08*.sql" Link="Legacy/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+<None Include="Fixtures/LegacySql/01_docai_schema.sql" Link="OracleSchema.sql" CopyToOutputDirectory="PreserveNewest" />
+<None Include="Fixtures/LegacySql/02_docai_grants.sql" Link="OracleRoles.sql" CopyToOutputDirectory="PreserveNewest" />
+<None Include="Fixtures/**/*" Exclude="Fixtures/LegacySql/**/*.sql" CopyToOutputDirectory="PreserveNewest" />
+</ItemGroup><ItemGroup>
+<None Include="../ISTDocAi.Infrastructure/Sql/03_docai_statements.sql;../ISTDocAi.Infrastructure/Sql/04_docai_billing.sql;Fixtures/LegacySql/01_docai_schema.sql;Fixtures/LegacySql/03_auto_manifest_upgrade.sql;Fixtures/LegacySql/04_consumer_page_limit_upgrade.sql;Fixtures/LegacySql/05_run_mapping_fingerprint_upgrade.sql;Fixtures/LegacySql/06_page_quota_upgrade.sql;Fixtures/LegacySql/07_topup_reporting_upgrade.sql;Fixtures/LegacySql/08_operator_cost_report_upgrade.sql" Link="%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" />
+</ItemGroup><ItemGroup><None Include="mapping-appsettings.json" CopyToOutputDirectory="PreserveNewest" /></ItemGroup><ItemGroup><InternalsVisibleTo Include="ISTDocAi.UI.Server.Tests" /><InternalsVisibleTo Include="ISTDocAi.Setup.Tests" /></ItemGroup></Project>

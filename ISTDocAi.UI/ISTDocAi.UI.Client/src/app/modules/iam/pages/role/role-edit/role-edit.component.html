@@ -1,0 +1,35 @@
+<div class="role-edit">
+  <form [formGroup]="form" (ngSubmit)="save()" class="role-edit__form" autocomplete="off">
+    <div class="role-edit__field">
+      <label class="role-edit__label" for="nameEn">{{ 'role.edit.nameLabel' | translate }}</label>
+      <input id="nameEn" dir="auto" class="role-edit__input" formControlName="nameEn" [placeholder]="'role.edit.namePlaceholder' | translate" />
+      @if (getErrorMessage('nameEn')) {
+        <div class="role-edit__error">
+          {{ getErrorMessage('nameEn') | translate }}
+        </div>
+      }
+    </div>
+
+    <div class="role-edit__field">
+      <label class="role-edit__label" for="nameAr">{{ 'role.edit.arabicNameLabel' | translate }}</label>
+      <input id="nameAr" dir="auto" class="role-edit__input" formControlName="nameAr" [placeholder]="'role.edit.arabicNamePlaceholder' | translate" />
+    </div>
+
+    <div class="role-edit__field">
+      <label class="role-edit__label" for="displayOrder">{{ 'role.edit.displayOrderLabel' | translate }}</label>
+      <div class="number-stepper">
+        <input type="number" id="displayOrder" class="role-edit__input" formControlName="displayOrder" min="0" step="1" placeholder="0" />
+        <div class="number-stepper__buttons">
+          <button type="button" class="number-stepper__btn" (click)="stepNumberField('displayOrder', 1, 0)">
+            <app-icon name="caret-down-light" [width]="8" [height]="5" iconClass="number-stepper__icon number-stepper__icon--up" />
+          </button>
+          <button type="button" class="number-stepper__btn" (click)="stepNumberField('displayOrder', -1, 0)">
+            <app-icon name="caret-down-light" [width]="8" [height]="5" iconClass="number-stepper__icon" />
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <label class="role-edit__checkbox" nz-checkbox formControlName="isActive">{{ 'role.edit.active' | translate }}</label>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+.header-section {
+  display: flex;
+  gap: var(--spacing-2_5, 10px);
+  margin-bottom: var(--spacing-4, 16px);
+}
+
+.result-section {
+  margin-top: var(--spacing-4, 16px);
+}
+
+.clickable-row {
+  cursor: pointer;
+}
+
+.clickable-row:hover {
+  background-color: var(--general-unofficial-accent-0, #f6f6f6);
+}

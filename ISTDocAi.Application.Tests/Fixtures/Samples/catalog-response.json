@@ -1,0 +1,4 @@
+{ "consumerCode": "FWD-UNF",
+  "items": [ { "documentTypeCode": "BL", "shippingLineCode": null,     "minFieldConfidence": 0.80 },
+             { "documentTypeCode": "BL", "shippingLineCode": "MAERSK", "minFieldConfidence": 0.80 } ],
+  "autoDetect": [ { "documentTypeCode": "BL" } ] }

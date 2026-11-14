@@ -1,0 +1,95 @@
+.app-dropdown-panel .ant-select-dropdown,
+.app-dropdown-panel.ant-dropdown .ant-dropdown-menu {
+  padding: var(--spacing-1, 4px) 0;
+  background: var(--general-background, #ffffff);
+  border: 1px solid var(--general-border, #d1d1d1);
+  border-radius: var(--rounded-8, 8px);
+  box-shadow: var(--shadow-md-ringless);
+}
+
+.app-dropdown-panel .ant-select-item,
+.app-dropdown-panel.ant-dropdown .ant-dropdown-menu-item {
+  margin: 0 var(--spacing-2, 8px);
+  padding: var(--spacing-1_5, 6px) var(--spacing-1, 4px);
+  width: calc(100% - 2 * var(--spacing-2, 8px));
+  border-radius: var(--rounded-4, 4px);
+  color: var(--general-foreground, #1a1a1a);
+  font-family: var(--font-family-base, "IBM Plex Sans", system-ui, sans-serif);
+  font-size: var(--label-label-2-fontsize, 14px);
+  line-height: var(--label-label-2-lineheight, 20px);
+  letter-spacing: var(--label-label-2-letterspacing, -0.16px);
+}
+
+.app-dropdown-panel .ant-select-item-option-active:not(.ant-select-item-option-disabled),
+.app-dropdown-panel .ant-select-item-option-selected:not(.ant-select-item-option-disabled),
+.app-dropdown-panel.ant-dropdown .ant-dropdown-menu-item:hover,
+.app-dropdown-panel.ant-dropdown .ant-dropdown-menu-item-active {
+  background: var(--general-unofficial-ghost-hover, rgba(0, 0, 0, 0.05));
+}
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled),
+.ant-dropdown-menu-item-selected {
+  color: var(--general-primary, #1b35f5);
+}
+
+.nz-tabs-dropdown .ant-dropdown-menu {
+  padding: var(--spacing-1, 4px) 0 !important;
+  background: var(--general-background, #ffffff) !important;
+  border: 1px solid var(--general-border, #d1d1d1) !important;
+  border-radius: var(--rounded-8, 8px) !important;
+  box-shadow: var(--shadow-md-ringless) !important;
+}
+
+.nz-tabs-dropdown .ant-dropdown-menu-item {
+  margin: 0 var(--spacing-2, 8px) !important;
+  padding: var(--spacing-1_5, 6px) var(--spacing-1, 4px) !important;
+  width: calc(100% - 2 * var(--spacing-2, 8px)) !important;
+  border-radius: var(--rounded-4, 4px) !important;
+  color: var(--general-foreground, #1a1a1a) !important;
+  font-family: var(--font-family-base, "IBM Plex Sans", system-ui, sans-serif) !important;
+  font-size: var(--label-label-2-fontsize, 14px) !important;
+  line-height: var(--label-label-2-lineheight, 20px) !important;
+  letter-spacing: var(--label-label-2-letterspacing, -0.16px) !important;
+}
+
+.nz-tabs-dropdown .ant-dropdown-menu-item:hover,
+.nz-tabs-dropdown .ant-dropdown-menu-item-active {
+  background: var(--general-unofficial-ghost-hover, rgba(0, 0, 0, 0.05)) !important;
+}
+
+.nz-tabs-dropdown .ant-dropdown-menu-item-selected {
+  color: var(--general-primary, #1b35f5) !important;
+}
+
+.app-dropdown-panel .ant-select-dropdown,
+.app-dropdown-panel .cdk-virtual-scroll-viewport,
+.app-dropdown-panel .cdk-virtual-scroll-viewport .cdk-virtual-scroll-content-wrapper,
+.app-dropdown-panel.ant-dropdown .ant-dropdown-menu,
+.nz-tabs-dropdown .ant-dropdown-menu {
+  overflow-x: hidden !important;
+}
+
+.app-dropdown-panel .cdk-virtual-scroll-viewport,
+.app-dropdown-panel.ant-dropdown .ant-dropdown-menu,
+.nz-tabs-dropdown .ant-dropdown-menu {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-neutral-solid-200, #d1d1d1) transparent;
+}
+
+.app-dropdown-panel .cdk-virtual-scroll-viewport::-webkit-scrollbar,
+.app-dropdown-panel.ant-dropdown .ant-dropdown-menu::-webkit-scrollbar,
+.nz-tabs-dropdown .ant-dropdown-menu::-webkit-scrollbar {
+  width: 8px;
+}
+
+.app-dropdown-panel .cdk-virtual-scroll-viewport::-webkit-scrollbar-track,
+.app-dropdown-panel.ant-dropdown .ant-dropdown-menu::-webkit-scrollbar-track,
+.nz-tabs-dropdown .ant-dropdown-menu::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.app-dropdown-panel .cdk-virtual-scroll-viewport::-webkit-scrollbar-thumb,
+.app-dropdown-panel.ant-dropdown .ant-dropdown-menu::-webkit-scrollbar-thumb,
+.nz-tabs-dropdown .ant-dropdown-menu::-webkit-scrollbar-thumb {
+  background: var(--color-neutral-solid-200, #d1d1d1);
+  border-radius: var(--rounded-infinite, 9999px);
+}

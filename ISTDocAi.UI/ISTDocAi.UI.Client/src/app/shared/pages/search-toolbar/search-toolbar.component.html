@@ -1,0 +1,27 @@
+<div class="search-buttons">
+  <div class="quick-search" [style.width]="computedWidth()">
+    <nz-input-wrapper>
+      <input nz-input
+        [placeholder]="placeholder() | translate"
+        [ngModel]="value()"
+        (ngModelChange)="onInput($event)"
+        (keyup.enter)="onSearch()"
+        [attr.aria-label]="'searchToolbar.quickSearch' | translate" />
+      <span nzInputSuffix class="qs-icon-btn"
+        (click)="onSearch()"
+        [attr.aria-label]="'common.search' | translate"
+        role="button"
+        tabindex="0">
+        <app-icon name="magnifying-glass-light" iconClass="qs-icon" />
+      </span>
+    </nz-input-wrapper>
+    </div>
+
+    @if (!hideActions()) {
+      <button nz-button nzType="primary" (click)="onOpenFilters()" type="button">{{ 'searchToolbar.filters' | translate }}</button>
+    }
+
+    @if (!hideActions()) {
+      <button nz-button type="button" (click)="onClear()">{{ 'common.clear' | translate }}</button>
+    }
+  </div>

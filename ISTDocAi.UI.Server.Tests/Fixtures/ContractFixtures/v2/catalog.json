@@ -1,0 +1,8 @@
+{
+  "status": 200,
+  "headers": {
+    "Content-Type": "application/json; charset=utf-8",
+    "X-Correlation-Id": "kit-contract-correlation"
+  },
+  "bodyText": "{\u0022Value\u0022:{\u0022ConsumerCode\u0022:\u0022TEST\u0022,\u0022Items\u0022:[{\u0022DocumentTypeCode\u0022:\u0022BL\u0022,\u0022ShippingLineCode\u0022:null,\u0022MinFieldConfidence\u0022:0.8},{\u0022DocumentTypeCode\u0022:\u0022BL\u0022,\u0022ShippingLineCode\u0022:\u0022LINE\u0022,\u0022MinFieldConfidence\u0022:0.8},{\u0022DocumentTypeCode\u0022:\u0022MANIFEST\u0022,\u0022ShippingLineCode\u0022:null,\u0022MinFieldConfidence\u0022:0.8}],\u0022AutoDetect\u0022:[{\u0022DocumentTypeCode\u0022:\u0022BL\u0022},{\u0022DocumentTypeCode\u0022:\u0022MANIFEST\u0022},{\u0022DocumentTypeCode\u0022:\u0022AUTO\u0022}]},\u0022IsSuccess\u0022:true,\u0022IsFailure\u0022:false,\u0022Error\u0022:{\u0022Code\u0022:\u0022\u0022,\u0022Message\u0022:\u0022\u0022,\u0022Type\u0022:\u0022None\u0022},\u0022HasValidationErrors\u0022:false,\u0022ValidationErrors\u0022:[]}"
+}

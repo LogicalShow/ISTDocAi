@@ -1,0 +1,153 @@
+<div class="permission-toolbar">
+  <nz-input-wrapper class="permission-search">
+    <app-icon nzInputPrefix name="magnifying-glass-light" [width]="20" [height]="20" />
+    <input
+      nz-input
+      type="search"
+      [attr.aria-label]="'permissionsPage.searchAriaLabel' | translate"
+      [placeholder]="'permissionsPage.searchPlaceholder' | translate"
+      [(ngModel)]="searchTerm" />
+  </nz-input-wrapper>
+
+    <div class="permission-toolbar__actions">
+      <app-button size="sm" hierarchy="gray-outline" icon="check-square-offset-light" iconPosition="leading"
+        (clicked)="selectAll()">
+        {{ 'permissionsPage.selectAll' | translate }}
+      </app-button>
+      <app-button size="sm" hierarchy="gray-outline" icon="minus-square-light" iconPosition="leading"
+        (clicked)="clearAll()">
+        {{ 'permissionsPage.clearAll' | translate }}
+      </app-button>
+      @if (importAction()) {
+        <app-button size="sm" hierarchy="gray-outline"
+          icon="arrow-square-down-right-light" iconPosition="leading" [disabled]="importDisabled()"
+          [loading]="importing()" [loadingLabel]="'permissionsPage.importingFromRole' | translate"
+          (clicked)="runImport()">
+          {{ 'permissionsPage.importFromRole' | translate }}
+        </app-button>
+      }
+    </div>
+  </div>
+
+  <div class="permission-tree">
+    @for (application of localizedApplications(); track trackById($index, application)) {
+      @if (isApplicationVisible(application)) {
+        <section class="tree-application">
+          <div class="tree-row tree-row--application">
+            <button type="button" class="tree-row__disclosure"
+              [class.tree-row__disclosure--expanded]="isApplicationExpanded(application)"
+              (click)="toggleApplicationExpansion(application)"
+              [attr.aria-expanded]="isApplicationExpanded(application)"
+              [attr.aria-label]="(isApplicationExpanded(application) ? 'permissionsPage.collapse' : 'permissionsPage.expand') | translate: { name: application.Name }">
+              <app-icon name="caret-right-light" [width]="24" [height]="24" />
+            </button>
+            <span class="tree-row__title tree-row__title--application">{{ application.Name }}</span>
+          </div>
+          <div class="tree-collapse" [class.tree-collapse--closed]="!isApplicationExpanded(application)"
+            [attr.aria-hidden]="!isApplicationExpanded(application)">
+            <div class="tree-collapse__inner">
+              <ng-container *ngTemplateOutlet="moduleTree; context: { modules: application.Modules, level: 0 }" />
+            </div>
+          </div>
+        </section>
+      }
+    }
+  </div>
+
+  <ng-template #moduleTree let-modules="modules" let-level="level">
+    @for (module of modules; track trackById($index, module)) {
+      @if (isModuleVisible(module)) {
+        <section class="tree-module">
+          <div class="tree-row tree-row--module" [style.padding-inline-start.px]="24 + level * 24">
+            <button type="button" class="tree-row__disclosure"
+              [class.tree-row__disclosure--expanded]="isModuleExpanded(module)"
+              (click)="toggleModuleExpansion(module)"
+              [attr.aria-expanded]="isModuleExpanded(module)"
+              [attr.aria-label]="(isModuleExpanded(module) ? 'permissionsPage.collapse' : 'permissionsPage.expand') | translate: { name: module.Name }">
+              <app-icon name="caret-right-light" [width]="24" [height]="24" />
+            </button>
+            <span class="tree-row__title">{{ module.Name }}</span>
+            <div class="tree-row__select-all">
+              <button type="button" class="tree-row__checkbox"
+                [class.tree-row__checkbox--selected]="isModuleAllSelected(module)"
+                [attr.aria-pressed]="isModuleAllSelected(module)"
+                [attr.aria-label]="(isModuleAllSelected(module) ? 'permissionsPage.deselectAllFor' : 'permissionsPage.selectAllFor') | translate: { name: module.Name }"
+                (click)="toggleModule(module)">
+                <span class="tree-row__checkbox-box">
+                  @if (isModuleAllSelected(module)) {
+                    <app-icon name="check-light"
+                    [width]="14" [height]="14" />
+                  }
+                </span>
+              </button>
+              <span>{{ 'permissionsPage.selectAll' | translate }}</span>
+            </div>
+          </div>
+          <div class="tree-collapse" [class.tree-collapse--closed]="!isModuleExpanded(module)"
+            [attr.aria-hidden]="!isModuleExpanded(module)">
+            <div class="tree-collapse__inner">
+              @for (page of getModuleOwnPages(module); track trackById($index, page)) {
+                <ng-container *ngTemplateOutlet="pageTree; context: { pages: [page], level: level }" />
+              }
+              @if (module.Children?.length) {
+                <ng-container [ngTemplateOutlet]="moduleTree" [ngTemplateOutletContext]="{ modules: module.Children, level: level + 1 }" />
+              }
+            </div>
+          </div>
+        </section>
+      }
+    }
+  </ng-template>
+
+  <ng-template #pageTree let-pages="pages" let-level="level">
+    @for (page of pages; track trackById($index, page)) {
+      @if (isPageVisible(page)) {
+        <div class="tree-row tree-row--page" [style.padding-inline-start.px]="56 + level * 24">
+          @if (hasChildPages(page)) {
+            <button type="button" class="tree-row__disclosure"
+              [class.tree-row__disclosure--expanded]="isPageExpanded(page)"
+              (click)="togglePageExpansion(page)" [attr.aria-expanded]="isPageExpanded(page)"
+              [attr.aria-label]="(isPageExpanded(page) ? 'permissionsPage.collapse' : 'permissionsPage.expand') | translate: { name: page.Name }">
+              <app-icon name="caret-right-light" [width]="24" [height]="24" />
+            </button>
+          }
+          @if (!hasChildPages(page)) {
+            <span class="tree-row__disclosure-spacer"></span>
+          }
+          <button type="button" class="tree-row__checkbox"
+            [class.tree-row__checkbox--selected]="isPageAllSelected(page)"
+            [attr.aria-pressed]="isPageAllSelected(page)"
+            [attr.aria-label]="(isPageAllSelected(page) ? 'permissionsPage.deselectAllFor' : 'permissionsPage.selectAllFor') | translate: { name: page.Name }"
+            (click)="togglePage(page)">
+            <span class="tree-row__checkbox-box">
+              @if (isPageAllSelected(page)) {
+                <app-icon name="check-light"
+                [width]="14" [height]="14" />
+              }
+            </span>
+          </button>
+          <span class="tree-row__title tree-row__title--page">{{ page.Name }}</span>
+          <div class="tree-row__actions">
+            @for (action of page.Actions; track trackById($index, action)) {
+              <button type="button" class="permission-pill"
+                [class.permission-pill--selected]="isActionAssigned(action)" [attr.aria-pressed]="isActionAssigned(action)"
+                (click)="toggleAction(action)">
+                @if (isActionAssigned(action)) {
+                  <app-icon name="check-light" [width]="12" [height]="12" />
+                }
+                <span>{{ action.ActionName }}</span>
+              </button>
+            }
+          </div>
+        </div>
+        @if (hasChildPages(page)) {
+          <div class="tree-collapse"
+            [class.tree-collapse--closed]="!isPageExpanded(page)" [attr.aria-hidden]="!isPageExpanded(page)">
+            <div class="tree-collapse__inner">
+              <ng-container *ngTemplateOutlet="pageTree; context: { pages: getChildPages(page), level: level + 1 }" />
+            </div>
+          </div>
+        }
+      }
+    }
+  </ng-template>

@@ -1,0 +1,44 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/api/v1/jobs",
+    "headers": [
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "X-Api-Key",
+        "values": [
+          "test-key-one"
+        ]
+      }
+    ],
+    "body": {
+      "contentType": "multipart/form-data; boundary=\u0022baseline-fixed-boundary\u0022",
+      "sha256": "dde9fb0fc857b2484580bba06bfbfb99a3b308c5fe32949dc0d2ce4cb01d0637",
+      "length": 457
+    }
+  },
+  "response": {
+    "status": 400,
+    "contentType": "application/problem\u002Bjson",
+    "headers": [
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "Content-Type",
+        "values": [
+          "application/problem\u002Bjson"
+        ]
+      }
+    ],
+    "bodyText": "{\u0022type\u0022:\u0022urn:docai:error:invalid-request\u0022,\u0022title\u0022:\u0022Invalid request\u0022,\u0022status\u0022:400,\u0022code\u0022:\u0022INVALID_REQUEST\u0022,\u0022detail\u0022:\u0022The submitted fields or document are invalid.\u0022,\u0022correlationId\u0022:\u0022baseline-correlation-1\u0022}"
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "calls": [
+    "position",
+    "catalog",
+    "original",
+    "reserve",
+    "begin",
+    "post:bl-v1",
+    "close-Failed",
+    "retry"
+  ],
+  "meterEntries": [],
+  "retrySeconds": 30,
+  "retryError": "AZURE_UNAVAILABLE",
+  "complete": false,
+  "failure": null,
+  "classification": null,
+  "result": null,
+  "logs": [
+    {
+      "level": "Information",
+      "text": "job.claimed errorCode=(null) operationId=(null) durationMs=0"
+    },
+    {
+      "level": "Information",
+      "text": "operation.sending errorCode=(null) operationId=2 durationMs=0"
+    },
+    {
+      "level": "Warning",
+      "text": "job.retry errorCode=AZURE_UNAVAILABLE operationId=2 durationMs=0"
+    }
+  ]
+}

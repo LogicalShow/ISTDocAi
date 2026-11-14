@@ -1,0 +1,56 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "appData": {
+    "name": "ISTDocAi"
+  },
+  "navigationUrls": [
+    "/**",
+    "!/**/*.*",
+    "!/**/*__*",
+    "!/**/*__*/**",
+    "!/api/**",
+    "!/realtimeHub",
+    "!/realtimeHub/**",
+    "!/_fr/**",
+    "!/fastreport/**",
+    "!/uploads/**",
+    "!/scalar/**",
+    "!/openapi/**"
+  ],
+  "navigationRequestStrategy": "freshness",
+  "assetGroups": [
+    {
+      "name": "app-shell",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/index.html",
+          "/manifest.webmanifest",
+          "/*.css"
+        ]
+      }
+    },
+    {
+      "name": "app-scripts",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/*.js"
+        ]
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "lazy",
+      "resources": {
+        "files": [
+          "/**/*.(svg|cur|jpg|jpeg|png|apng|webp|avif|gif|ico|otf|ttf|woff|woff2)"
+        ]
+      }
+    }
+  ]
+}

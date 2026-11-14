@@ -1,0 +1,723 @@
+{
+  "auth": {
+    "login": {
+      "copyright": "Copyright ©2026",
+      "forgotPassword": "Forgot Password?",
+      "incorrectCredentials": "Incorrect username or password",
+      "hidePassword": "Hide password",
+      "password": {
+        "label": "Password",
+        "minLength": "Password must be at least 6 characters.",
+        "required": "Password is required."
+      },
+      "rememberMe": "Remember Me",
+      "showPassword": "Show password",
+      "subtitle": "Enter your username and password to continue.",
+      "submit": "Sign in",
+      "submitting": "Signing in…",
+      "title": "Welcome to ISTDocAi",
+      "userName": {
+        "label": "Username",
+        "placeholder": "Enter your username",
+        "required": "Username is required."
+      }
+    },
+    "forgotPassword": {
+      "backToSignIn": "Back to sign in",
+      "email": {
+        "title": "Forgot your password?",
+        "description": "Enter your sign-in email and we'll send you a verification code.",
+        "label": "Email address",
+        "placeholder": "name@email.com",
+        "invalid": "Enter a valid email address.",
+        "submit": "Send verification code",
+        "sending": "Sending code…"
+      },
+      "code": {
+        "title": "Enter the verification code",
+        "sentTo": "We sent a 6-digit code to",
+        "submit": "Verify code",
+        "verifying": "Verifying code…"
+      },
+      "password": {
+        "title": "Create a new password",
+        "description": "Choose a strong password you haven't used before.",
+        "submit": "Reset password",
+        "submitting": "Resetting password…"
+      },
+      "success": {
+        "title": "Password updated",
+        "description": "You can now sign in with your new password."
+      }
+    },
+    "changePassword": {
+      "title": "Change Password",
+      "send": {
+        "description": "We'll send a verification code to",
+        "submit": "Send code",
+        "sending": "Sending code…"
+      },
+      "code": {
+        "sentTo": "Enter the code sent to",
+        "submit": "Verify code",
+        "verifying": "Verifying code…"
+      },
+      "password": {
+        "description": "Choose a strong password you haven't used before.",
+        "submit": "Change password",
+        "submitting": "Changing password…"
+      }
+    },
+    "otp": {
+      "label": "Verification code",
+      "digit": "Verification code digit",
+      "invalid": "Enter the complete 6-digit code.",
+      "expires": "It expires in {{time}}.",
+      "expired": "Your code has expired. Request a new one to continue.",
+      "notReceived": "Didn't get the code?",
+      "resend": "Resend code"
+    },
+    "passwordFields": {
+      "new": "New password",
+      "confirm": "Confirm new password",
+      "loadingPolicy": "Loading password requirements…",
+      "mismatch": "Passwords do not match."
+    },
+    "passwordRules": {
+      "minimum": "At least {{count}} characters",
+      "unique": "At least {{count}} unique characters",
+      "uppercase": "One uppercase letter",
+      "lowercase": "One lowercase letter",
+      "digit": "One number",
+      "nonAlphanumeric": "One symbol"
+    }
+  },
+  "feedback": {
+    "realtime": {
+      "reconnecting": {
+        "title": "Reconnecting",
+        "message": "Attempting to reconnect to the server..."
+      }
+    },
+    "access": {
+      "accessDenied": {
+        "title": "Resource Restricted",
+        "message": "You don't have permission to access this resource."
+      },
+      "permissionsChanged": {
+        "title": "Access Updated",
+        "message": "Your permissions have changed. You were moved to a page you can access."
+      },
+      "popupBlocked": {
+        "title": "Pop-up Blocked",
+        "message": "Allow pop-ups for this site to open the report."
+      }
+    },
+    "system": {
+      "unexpected": {
+        "title": "Unexpected Error",
+        "message": "Something went wrong. Please try again."
+      },
+      "concurrency": {
+        "title": "Data changed by another user",
+        "message": "This record was updated by someone else. Reload the page to get the latest version and try again."
+      },
+      "updateAvailable": {
+        "title": "A new version is available",
+        "message": "Reload ISTDocAi to get the latest version. Any unsaved changes will be lost."
+      }
+    },
+    "validation": {
+      "invalidInput": {
+        "title": "Validation Error",
+        "message": "Please check your input and try again."
+      }
+    },
+    "navigation": {
+      "unsavedChanges": {
+        "title": "Discard unsaved changes?",
+        "message": "You have unsaved changes. If you leave this page, they will be lost."
+      }
+    },
+    "auth": {
+      "otpSent": {
+        "title": "Code Sent",
+        "message": "Verification code sent to your email."
+      },
+      "otpExpired": {
+        "title": "Code Expired",
+        "message": "Your verification code has expired. Click Resend code to get a new one."
+      },
+      "otpVerified": {
+        "title": "Code Verified",
+        "message": "Verification code confirmed."
+      },
+      "passwordChanged": {
+        "title": "Password Changed",
+        "message": "Your password has been updated."
+      },
+      "resetCodeVerified": {
+        "title": "Code Verified",
+        "message": "Your verification code has been confirmed."
+      },
+      "resetCodeSent": {
+        "title": "Reset Code Sent",
+        "message": "Verification code sent to your email."
+      },
+      "passwordReset": {
+        "title": "Password Reset",
+        "message": "Your password has been reset successfully."
+      }
+    },
+    "role": {
+      "created": {
+        "title": "Role Created",
+        "message": "Role created successfully."
+      },
+      "updated": {
+        "title": "Role Updated",
+        "message": "Role updated successfully."
+      },
+      "selectionRequired": {
+        "title": "Selection Required",
+        "message": "Please select at least one role to delete."
+      },
+      "deleteConfirmation": {
+        "title": "Delete selected roles?",
+        "message": "This will permanently delete {{count}} roles and remove them from every user. This action can't be undone.",
+        "messageOne": "This will permanently delete 1 role and remove it from every user. This action can't be undone."
+      },
+      "deleted": {
+        "title": "Roles Deleted",
+        "message": "The selected roles have been removed."
+      }
+    },
+    "permissions": {
+      "allSelected": {
+        "title": "All Selected",
+        "message": "All permissions selected."
+      },
+      "allDeselected": {
+        "title": "All Deselected",
+        "message": "All permissions deselected."
+      },
+      "deselectAllConfirmation": {
+        "title": "Clear all permissions?",
+        "message": "This will deselect every permission in the list. Nothing is saved until you click Save."
+      },
+      "roleUpdated": {
+        "title": "Permissions Saved",
+        "message": "Role permissions have been updated."
+      },
+      "userUpdated": {
+        "title": "Permissions Saved",
+        "message": "User permissions have been updated."
+      },
+      "userRoleRequired": {
+        "title": "Role Required",
+        "message": "No role assigned to this user. Please assign a role first."
+      },
+      "importConfirmation": {
+        "title": "Import Permissions",
+        "message": "Are you sure you want to import all permissions from the user's role? This will replace the permissions currently selected below. Nothing is saved until you press Save."
+      },
+      "importedFromRole": {
+        "title": "Permissions Imported",
+        "message": "Role permissions loaded into the form. Press Save to apply them."
+      }
+    },
+    "user": {
+      "created": {
+        "title": "User Created",
+        "message": "User created successfully."
+      },
+      "updated": {
+        "title": "User Updated",
+        "message": "User updated successfully."
+      },
+      "selectionRequired": {
+        "title": "Selection Required",
+        "message": "Please select at least one user to delete."
+      },
+      "deleteConfirmation": {
+        "title": "Delete selected users?",
+        "message": "This will permanently delete {{count}} users and remove their access. This action can't be undone.",
+        "messageOne": "This will permanently delete 1 user and remove their access. This action can't be undone."
+      },
+      "deleted": {
+        "title": "Users Deleted",
+        "message": "The selected users have been removed."
+      },
+      "passwordChanged": {
+        "title": "Password Changed",
+        "message": "The user's password has been updated."
+      }
+    },
+    "notificationSettings": {
+      "detailsLoadFailed": {
+        "title": "Details Unavailable",
+        "message": "Notification details could not be loaded."
+      },
+      "selectionRequired": {
+        "title": "Selection Required",
+        "message": "Please select a notification."
+      },
+      "usersUpdated": {
+        "title": "Recipients Updated",
+        "message": "Notification users have been saved."
+      }
+    },
+    "settings": {
+      "unsupportedImageFormat": {
+        "title": "Unsupported Format",
+        "message": "Choose a PNG, JPG, or SVG image."
+      },
+      "imageTooLarge": {
+        "title": "File too Large",
+        "message": "The image must be 5 MB or smaller."
+      },
+      "imageDownloadFailed": {
+        "title": "Download Failed",
+        "message": "Failed to download image."
+      },
+      "requiredFields": {
+        "title": "Missing Information",
+        "message": "Please fill in all required fields."
+      },
+      "updated": {
+        "title": "Settings Saved",
+        "message": "Your settings have been updated."
+      }
+    },
+    "attachment": {
+      "saveBeforeManage": {
+        "title": "Please Save First",
+        "message": "Save your changes to manage attachments."
+      },
+      "added": {
+        "title": "Attachment Added",
+        "message": "The file has been attached."
+      },
+      "updated": {
+        "title": "Attachment Updated",
+        "message": "The attachment has been saved."
+      },
+      "deleted": {
+        "title": "Attachment Deleted",
+        "message": "The attachment has been removed."
+      },
+      "notFound": {
+        "title": "Attachment Not Found",
+        "message": "We couldn't find the attachment. Please try again."
+      },
+      "noSelection": {
+        "title": "No Attachment Selected",
+        "message": "Please select at least one attachment."
+      },
+      "deletedMany": {
+        "title": "Attachments Deleted",
+        "message": "The selected attachments have been removed."
+      },
+      "partiallyDeleted": {
+        "title": "Partially Deleted",
+        "message": "Some attachments could not be deleted."
+      }
+    }
+  },
+  "breadcrumb": {
+    "iam": {
+      "rolePermissions": "Role Permissions",
+      "roles": "Roles",
+      "userPermissions": "User Permissions",
+      "users": "Users"
+    },
+    "notFound": "Not Found",
+    "public": {
+      "notificationSettings": "Notification Settings",
+      "settings": "Settings"
+    }
+  },
+  "common": {
+    "cancel": "Cancel",
+    "changeLanguage": "Change language",
+    "clear": "Clear",
+    "close": "Close",
+    "closeNavigation": "Close navigation",
+    "confirm": "Confirm",
+    "delete": "Delete",
+    "discard": "Discard",
+    "done": "Done",
+    "error": "Error",
+    "import": "Import",
+    "info": "Information",
+    "later": "Later",
+    "online": "Online",
+    "reload": "Reload",
+    "reloadNow": "Reload now",
+    "save": "Save",
+    "saving": "Saving…",
+    "search": "Search",
+    "switchToDarkMode": "Switch to dark mode",
+    "switchToLightMode": "Switch to light mode",
+    "toggleNavigation": "Toggle navigation",
+    "user": "User",
+    "warning": "Warning"
+  },
+  "settingsPage": {
+    "title": "Settings",
+    "save": "Save Settings",
+    "saving": "Saving settings…",
+    "companyInformation": {
+      "title": "Company Information",
+      "nameEnglish": "Company Name (English)",
+      "nameEnglishPlaceholder": "Enter company name in English",
+      "nameArabic": "Company Name (Arabic)",
+      "nameArabicPlaceholder": "Enter company name in Arabic",
+      "address": "Address",
+      "addressPlaceholder": "Enter company address"
+    },
+    "contactInformation": {
+      "title": "Contact Information",
+      "phoneOne": "Phone 1",
+      "phoneOnePlaceholder": "Enter primary phone",
+      "phoneTwo": "Phone 2",
+      "phoneTwoPlaceholder": "Enter secondary phone",
+      "fax": "Fax",
+      "faxPlaceholder": "Enter fax number",
+      "email": "Email",
+      "emailPlaceholder": "Enter company email",
+      "website": "Website",
+      "websitePlaceholder": "Enter company website"
+    },
+    "emailConfiguration": {
+      "title": "Email Configuration",
+      "enable": "Enable Email Service",
+      "description": "Enable email sending capabilities for notifications, password resets, and system alerts.",
+      "advanced": "Advanced email settings",
+      "host": "SMTP Host",
+      "port": "Port",
+      "ssl": "Enable SSL",
+      "useSsl": "Use SSL/TLS",
+      "userName": "Username",
+      "password": "Password",
+      "senderEmail": "Sender Email"
+    },
+    "branding": {
+      "title": "Company Branding",
+      "companyLogo": "Company Logo",
+      "reportHeader": "Report Header",
+      "reportFooter": "Report Footer",
+      "clickToUpload": "Click to upload",
+      "fileHint": "PNG, JPG, SVG up to 5MB",
+      "replace": "Replace image",
+      "download": "Download image",
+      "delete": "Delete image",
+      "deleteNotice": "Image will be deleted when you save."
+    },
+    "systemSettings": {
+      "title": "System Settings",
+      "attachmentFolder": "Attachment Folder Path",
+      "attachmentFolderPlaceholder": "Enter attachment storage path",
+      "maximumFileSize": "Attached File Max Size (MB)"
+    }
+  },
+  "layout": {
+    "user": {
+      "changePassword": "Change Password",
+      "email": "Email",
+      "signOut": "Sign Out",
+      "userName": "Username"
+    }
+  },
+  "modal": {
+    "actions": {
+      "cancel": "Cancel",
+      "close": "Close",
+      "save": "Save",
+      "saveAndAddAnother": "Save and add another",
+      "search": "Search"
+    },
+    "title": {
+      "add": "Add {{title}}",
+      "edit": "Edit {{title}}",
+      "view": "View {{title}}"
+    }
+  },
+  "notFound": {
+    "home": "Go Back Home",
+    "message": "Sorry, the page you are looking for does not exist.",
+    "title": "Page Not Found"
+  },
+  "permissionsPage": {
+    "title": "Set permissions for {{subjectType}}: {{subjectName}}",
+    "subjectTypes": {
+      "role": "role",
+      "user": "user"
+    },
+    "loading": "Loading permissions",
+    "searchAriaLabel": "Search permissions",
+    "searchPlaceholder": "Search for applications, modules, or pages",
+    "selectAll": "Select all",
+    "clearAll": "Clear all",
+    "importFromRole": "Import from role",
+    "importingFromRole": "Importing…",
+    "expand": "Expand {{name}}",
+    "collapse": "Collapse {{name}}",
+    "selectAllFor": "Select all permissions for {{name}}",
+    "deselectAllFor": "Deselect all permissions for {{name}}"
+  },
+  "role": {
+    "title": "Roles",
+    "entityName": "Role",
+    "add": "Add new role",
+    "delete": "Delete",
+    "search": {
+      "title": "Filter",
+      "nameLabel": "Role Name",
+      "namePlaceholder": "Enter role name"
+    },
+    "filter": "Filter",
+    "table": {
+      "name": "Name",
+      "arabicName": "Arabic name",
+      "order": "Order",
+      "status": "Status",
+      "action": "Action",
+      "notAvailable": "Not available",
+      "setPermissions": "Set permissions"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "edit": {
+      "nameLabel": "Role in English",
+      "namePlaceholder": "Enter role name in english",
+      "arabicNameLabel": "Role in Arabic",
+      "arabicNamePlaceholder": "Enter role name in arabic",
+      "displayOrderLabel": "Display order",
+      "active": "Active"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    }
+  },
+  "searchToolbar": {
+    "filters": "Filters",
+    "placeholder": "Search...",
+    "quickSearch": "Quick search"
+  },
+  "shared": {
+    "attachment": {
+      "add": "Add Attachment",
+      "chooseFile": "Choose File",
+      "confirmDelete": "Are you sure you want to delete \"{{name}}\"?",
+      "confirmDeleteMany": "Are you sure you want to delete {{count}} attachment(s)?",
+      "delete": "Delete",
+      "deleteSelected": "Delete selected Attachments",
+      "deleteTooltip": "Delete Attachment",
+      "enterFileName": "Please enter a file name.",
+      "file": "File",
+      "headers": {
+        "delete": "Delete",
+        "fileName": "File Name",
+        "fileSize": "File Size",
+        "note": "Note",
+        "view": "View"
+      },
+      "missingAttachment": "Missing attachment information.",
+      "missingReference": "Missing reference information.",
+      "noFileSelected": "No file selected",
+      "none": "No attachments added yet.",
+      "note": "Note",
+      "notePlaceholder": "Enter note...",
+      "selectFile": "Please select a file.",
+      "title": {
+        "add": "Add Attachment",
+        "attachments": "Attachments",
+        "delete": "Delete Attachment",
+        "deleteMany": "Delete Attachments",
+        "edit": "Edit Attachment"
+      },
+      "units": {
+        "bytes": "Bytes",
+        "gb": "GB",
+        "kb": "KB",
+        "mb": "MB"
+      },
+      "view": "view",
+      "viewTooltip": "View Attachment"
+    },
+    "qr": {
+      "errors": {
+        "notFound": "No camera is available on this device.",
+        "notReadable": "The camera is being used by another application.",
+        "permissionDenied": "Camera permission was denied.",
+        "unableToStart": "Unable to start the camera."
+      },
+      "instruction": "Place the QR code inside the frame",
+      "startingCamera": "Starting camera..."
+    }
+  },
+  "user": {
+    "title": "Users",
+    "entityName": "User",
+    "add": "Add new user",
+    "delete": "Delete",
+    "search": {
+      "title": "Filter",
+      "userNameLabel": "User Name",
+      "userNamePlaceholder": "Enter user name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email"
+    },
+    "filter": "Filter",
+    "table": {
+      "userName": "Username",
+      "fullName": "Full name",
+      "email": "Email",
+      "status": "Status",
+      "action": "Action",
+      "notAvailable": "Not available",
+      "setPermissions": "Set permissions",
+      "changePassword": "Change password"
+    },
+    "status": {
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "edit": {
+      "userNameLabel": "Username",
+      "userNamePlaceholder": "Enter user name",
+      "fullNameLabel": "Full name",
+      "fullNamePlaceholder": "Enter full name",
+      "emailLabel": "Email",
+      "emailPlaceholder": "Enter your email",
+      "passwordLabel": "Password",
+      "passwordPlaceholder": "Enter password",
+      "roleLabel": "Role",
+      "rolePlaceholder": "Select a role",
+      "administrator": "System administrator",
+      "active": "Active"
+    },
+    "changePassword": {
+      "title": "Change User Password",
+      "submit": "Change password",
+      "submitting": "Changing password…"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next"
+    }
+  },
+  "validation": {
+    "auth": {
+      "confirmPassword": {
+        "mismatch": "Passwords do not match",
+        "required": "Please confirm your password"
+      },
+      "newPassword": {
+        "minLength": "Password must be at least 6 characters",
+        "required": "Password is required"
+      },
+      "otp": {
+        "length": "OTP must be 6 digits",
+        "required": "OTP code is required"
+      }
+    },
+    "common": {
+      "invalid": "Invalid value"
+    },
+    "password": {
+      "minLength": "Passwords must be at least 6 characters.",
+      "requireDigit": "Passwords must have at least one digit ('0'-'9').",
+      "requireLowercase": "Passwords must have at least one lowercase ('a'-'z').",
+      "requireNonAlphanumeric": "Passwords must have at least one non alphanumeric character.",
+      "requireUniqueChars": "Passwords must use at least 1 different characters.",
+      "requireUppercase": "Passwords must have at least one uppercase ('A'-'Z').",
+      "required": "Password is required"
+    },
+    "role": {
+      "nameEn": {
+        "maxLength": "Role name cannot exceed 256 characters",
+        "required": "Role name (English) is required"
+      }
+    },
+    "setting": {
+      "companyAddress": {
+        "maxLength": "Address cannot exceed 500 characters",
+        "required": "Address is required"
+      },
+      "companyEmail": {
+        "email": "Please enter a valid email address",
+        "maxLength": "Email cannot exceed 100 characters"
+      },
+      "companyFax": {
+        "maxLength": "Fax cannot exceed 50 characters"
+      },
+      "companyNameAr": {
+        "maxLength": "Company Name (Arabic) cannot exceed 200 characters"
+      },
+      "companyNameEn": {
+        "maxLength": "Company Name (English) cannot exceed 200 characters",
+        "required": "Company Name (English) is required"
+      },
+      "companyPhoneOne": {
+        "maxLength": "Phone 1 cannot exceed 50 characters",
+        "required": "Phone 1 is required"
+      },
+      "companyPhoneTwo": {
+        "maxLength": "Phone 2 cannot exceed 50 characters"
+      },
+      "companyWebsite": {
+        "maxLength": "Website cannot exceed 200 characters"
+      },
+      "defaultCurrencyId": {
+        "required": "Default Currency is required"
+      },
+      "emailHost": {
+        "maxLength": "SMTP Host cannot exceed 255 characters",
+        "required": "SMTP Host is required"
+      },
+      "emailPassword": {
+        "maxLength": "Password cannot exceed 255 characters",
+        "minLength": "Password must be at least 6 characters",
+        "required": "Password is required"
+      },
+      "emailPort": {
+        "max": "Port cannot exceed 65535",
+        "min": "Port must be at least 1",
+        "required": "SMTP Port is required"
+      },
+      "emailUsername": {
+        "email": "Please enter a valid email address",
+        "maxLength": "Username cannot exceed 255 characters",
+        "required": "Username is required"
+      },
+      "senderEmail": {
+        "email": "Please enter a valid email address",
+        "maxLength": "Sender Email cannot exceed 255 characters",
+        "required": "Sender Email is required"
+      }
+    },
+    "user": {
+      "email": {
+        "email": "Invalid email format",
+        "maxLength": "Email cannot exceed 256 characters",
+        "required": "Email is required"
+      },
+      "fullName": {
+        "maxLength": "Full name cannot exceed 100 characters",
+        "required": "Full name is required"
+      },
+      "roleId": {
+        "required": "Role is required"
+      },
+      "userName": {
+        "maxLength": "Username cannot exceed 256 characters",
+        "required": "Username is required"
+      }
+    }
+  }
+}

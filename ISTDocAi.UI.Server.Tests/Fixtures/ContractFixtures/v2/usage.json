@@ -1,0 +1,9 @@
+{
+  "status": 200,
+  "headers": {
+    "Cache-Control": "no-store",
+    "Content-Type": "application/json; charset=utf-8",
+    "X-Correlation-Id": "kit-contract-correlation"
+  },
+  "bodyText": "{\u0022Value\u0022:{\u0022AsOfUtc\u0022:\u00222026-10-25T12:00:00\u002B00:00\u0022,\u0022Unit\u0022:\u0022pages\u0022,\u0022QuotaMode\u0022:\u0022Prepaid\u0022,\u0022Status\u0022:\u0022Low\u0022,\u0022Granted\u0022:100,\u0022Used\u0022:90,\u0022Reserved\u0022:0,\u0022Remaining\u0022:10,\u0022WarningPercent\u0022:10,\u0022CycleBase\u0022:100,\u0022WarningAtPages\u0022:10,\u0022LastTopUp\u0022:{\u0022RecordedAtUtc\u0022:\u00222026-10-25T12:00:00\u002B00:00\u0022,\u0022Pages\u0022:100},\u0022MaxPagesPerJob\u0022:10,\u0022DailyCap\u0022:100,\u0022SubmittedTodayPages\u0022:2,\u0022ChargedTodayPages\u0022:2,\u0022DayBoundary\u0022:\u0022UTC\u0022,\u0022Months\u0022:[{\u0022Month\u0022:\u00222026-08\u0022,\u0022ChargedPages\u0022:0,\u0022ChargedDocuments\u0022:0},{\u0022Month\u0022:\u00222026-09\u0022,\u0022ChargedPages\u0022:0,\u0022ChargedDocuments\u0022:0},{\u0022Month\u0022:\u00222026-10\u0022,\u0022ChargedPages\u0022:0,\u0022ChargedDocuments\u0022:0}]},\u0022IsSuccess\u0022:true,\u0022IsFailure\u0022:false,\u0022Error\u0022:{\u0022Code\u0022:\u0022\u0022,\u0022Message\u0022:\u0022\u0022,\u0022Type\u0022:\u0022None\u0022},\u0022HasValidationErrors\u0022:false,\u0022ValidationErrors\u0022:[]}"
+}

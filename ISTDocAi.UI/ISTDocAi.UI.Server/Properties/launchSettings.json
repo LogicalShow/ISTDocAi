@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "ISTDocAiLocal": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "https://localhost:7443",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "DOTNET_ENVIRONMENT": "Development",
+        "AZURE_TOKEN_CREDENTIALS": "AzureCliCredential",
+        "APPLICATIONINSIGHTS_CONNECTION_STRING": " ",
+        "DocAi__Telemetry__UseEntra": "false",
+        "DocAi__Blob__AccountUrl": "https://docaidevtalliv5j.blob.core.windows.net/",
+        "DocAi__DocumentIntelligence__Endpoint": "https://ist.cognitiveservices.azure.com/",
+        "DocAi__Secrets__Provider": "ProtectedFile",
+        "DocAi__Secrets__ProtectedFile__Path": "C:\\ProgramData\\DocAi\\secrets\\webhook-secrets.json",
+        "DocAi__Sql__RetentionTimeoutSeconds": "1800",
+        "Worker__Enabled": "true",
+        "Worker__MaxParallelJobs": "4",
+        "Retention__Enabled": "true",
+        "Retention__RunAtUtc": "02:00:00",
+        "Signals__Enabled": "true",
+        "Webhooks__Enabled": "true",
+        "Webhooks__MaxParallelSends": "4"
+      }
+    },
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": false,
+      "applicationUrl": "http://localhost:5209",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  }
+}

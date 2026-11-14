@@ -1,0 +1,152 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:docai:canonical-result:v1",
+  "title": "DocAi canonical result v1",
+  "type": "object",
+  "required": [
+    "contractVersion",
+    "documentTypeCode",
+    "shippingLineCode",
+    "modelId",
+    "pageCount",
+    "fields",
+    "containers",
+    "flags"
+  ],
+  "properties": {
+    "contractVersion": {
+      "type": "string",
+      "pattern": "^1\\.[0-9]+$"
+    },
+    "documentTypeCode": {
+      "type": "string",
+      "minLength": 1
+    },
+    "shippingLineCode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "modelId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pageCount": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/field"
+      },
+      "properties": {
+        "bookingNumber": {
+          "$ref": "#/$defs/field"
+        },
+        "shipperAddress": {
+          "$ref": "#/$defs/field"
+        },
+        "consigneeAddress": {
+          "$ref": "#/$defs/field"
+        },
+        "notifyParty": {
+          "$ref": "#/$defs/field"
+        },
+        "freightTerms": {
+          "$ref": "#/$defs/field"
+        },
+        "hsCode": {
+          "$ref": "#/$defs/field"
+        },
+        "totalGrossWeightKg": {
+          "$ref": "#/$defs/field"
+        }
+      }
+    },
+    "containers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "containerNumber"
+        ],
+        "properties": {
+          "containerNumber": {
+            "$ref": "#/$defs/field"
+          },
+          "sealNumber": {
+            "$ref": "#/$defs/field"
+          },
+          "containerType": {
+            "$ref": "#/$defs/field"
+          },
+          "packages": {
+            "$ref": "#/$defs/field"
+          },
+          "grossWeightKg": {
+            "$ref": "#/$defs/field"
+          },
+          "measurementCbm": {
+            "$ref": "#/$defs/field"
+          }
+        }
+      }
+    },
+    "flags": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "field",
+          "reason"
+        ],
+        "properties": {
+          "field": {
+            "type": "string",
+            "minLength": 1
+          },
+          "reason": {
+            "enum": [
+              "LOW_CONFIDENCE",
+              "CHECK_DIGIT",
+              "TOTALS_MISMATCH",
+              "TOTALS_UNVERIFIED"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "field": {
+      "type": "object",
+      "required": [
+        "value",
+        "confidence",
+        "page"
+      ],
+      "properties": {
+        "value": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rawText": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "page": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    }
+  }
+}

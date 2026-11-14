@@ -1,0 +1,1 @@
+{"eventId":"5b1d7c3e-2f4a-4c7b-9e1d-0a6f3b2c8d47","eventType":"job.failed","jobId":"0192f0a4-7c1e-7b3a-9d2e-5f6a7b8c9d01","clientRequestId":"7d2e9a41-58c3-4f0b-a6d5-3e1c8b9f2a64","status":"Failed","error":{"code":"MODEL_NOT_FOUND","message":"No active model for BL / ZIM"},"result":null,"occurredAtUtc":"2026-10-29T10:15:20Z"}

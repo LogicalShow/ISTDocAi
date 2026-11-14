@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.VisualStudio.JavaScript.Sdk/1.0.2191419">
+  <PropertyGroup>
+    <StartupCommand>npm start</StartupCommand>
+    <JavaScriptTestFramework>Vitest</JavaScriptTestFramework>
+    <!-- Locked installation and production builds are performed by scripts/Verify.ps1. -->
+    <ShouldRunNpmInstall>false</ShouldRunNpmInstall>
+    <ShouldRunBuildScript>false</ShouldRunBuildScript>
+    <BuildOutputFolder>$(MSBuildProjectDirectory)\dist\istdocai\browser\</BuildOutputFolder>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove=".vscode\**" />
+    <TypeScriptConfiguration Remove=".vscode\**" />
+  </ItemGroup>
+</Project>

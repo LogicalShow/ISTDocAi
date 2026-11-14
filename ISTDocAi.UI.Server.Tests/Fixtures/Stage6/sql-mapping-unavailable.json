@@ -1,0 +1,44 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/api/v1/jobs",
+    "headers": [
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "X-Api-Key",
+        "values": [
+          "test-key-one"
+        ]
+      }
+    ],
+    "body": {
+      "contentType": "multipart/form-data; boundary=\u0022baseline-fixed-boundary\u0022",
+      "sha256": "4e86b9213bacfcf9b5062e95269d77c77db46fe0310e6c25411fa6542cd6218a",
+      "length": 3673
+    }
+  },
+  "response": {
+    "status": 500,
+    "contentType": "application/problem\u002Bjson",
+    "headers": [
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "Content-Type",
+        "values": [
+          "application/problem\u002Bjson"
+        ]
+      }
+    ],
+    "bodyText": "{\u0022type\u0022:\u0022urn:docai:error:internal-error\u0022,\u0022title\u0022:\u0022Internal error\u0022,\u0022status\u0022:500,\u0022code\u0022:\u0022INTERNAL_ERROR\u0022,\u0022detail\u0022:\u0022An unexpected error occurred. Quote the correlationId when reporting it.\u0022,\u0022correlationId\u0022:\u0022baseline-correlation-1\u0022}"
+  }
+}

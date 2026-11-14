@@ -1,0 +1,94 @@
+:host {
+  display: block;
+}
+
+.permissions-page {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  min-height: calc(100vh - 132px);
+  border: 1px solid var(--general-border, #d1d1d1);
+  border-radius: var(--rounded-20, 20px);
+  background: var(--general-background, #ffffff);
+}
+
+.permissions-page__header {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+  padding: var(--spacing-4, 16px) var(--spacing-6, 24px);
+  border-bottom: 1px solid var(--general-border, #d1d1d1);
+}
+
+.permissions-page__header h2 {
+  margin: 0;
+  color: var(--general-foreground, #1a1a1a);
+  font-family: var(--font-family-base, "IBM Plex Sans", system-ui, sans-serif);
+  font-size: var(--heading-h6-fontsize, 20px);
+  font-weight: var(--font-weight-medium, 500);
+  line-height: var(--heading-h6-lineheight, 24px);
+  letter-spacing: var(--heading-h6-letterspacing, 0);
+}
+
+.permissions-page__body {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: var(--spacing-4, 16px) var(--spacing-6, 24px) 40px;
+}
+
+.permissions-page__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-2, 8px);
+  padding-top: var(--spacing-4, 16px);
+}
+
+.permissions-page__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+}
+
+@media (max-width: 768px) {
+  .permissions-page {
+    min-height: calc(100vh - 112px);
+    border-radius: var(--rounded-12, 12px);
+  }
+
+  .permissions-page__header,
+  .permissions-page__body {
+    padding-inline: var(--spacing-4, 16px);
+  }
+
+  .permissions-page__header h2 {
+    overflow-wrap: anywhere;
+  }
+
+  .permissions-page__footer app-button {
+    flex: 1 1 0;
+  }
+
+  .permissions-page__footer ::ng-deep .app-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 420px) {
+  .permissions-page {
+    border-radius: var(--rounded-8, 8px);
+  }
+
+  .permissions-page__header,
+  .permissions-page__body {
+    padding-inline: var(--spacing-3, 12px);
+  }
+
+  .permissions-page__footer {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+}

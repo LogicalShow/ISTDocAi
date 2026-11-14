@@ -1,0 +1,12 @@
+<app-permission-editor subjectType="user"
+  [subjectName]="userName()"
+  [applications]="permissions()?.Applications ?? null"
+  [loading]="loading()"
+  [saving]="saving()"
+  [importAction]="importFromRoleAction"
+  [importDisabled]="!userRoleId()"
+  [importing]="importing()"
+  [importedSelection]="importedSelection()"
+  (selectionChange)="onSelectionChange($event)"
+  (cancelRequested)="cancel()"
+  (saveRequested)="save()" />

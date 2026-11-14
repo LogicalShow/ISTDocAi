@@ -1,0 +1,8 @@
+<app-permission-editor subjectType="role"
+  [subjectName]="roleName()"
+  [applications]="permissions()?.Applications ?? null"
+  [loading]="loading()"
+  [saving]="saving()"
+  (selectionChange)="onSelectionChange($event)"
+  (cancelRequested)="cancel()"
+  (saveRequested)="save()" />

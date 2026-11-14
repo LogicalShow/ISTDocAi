@@ -1,0 +1,12 @@
+.angular/
+coverage/
+dist/
+node_modules/
+out-tsc/
+
+# Generated assets
+src/app/shared/icons/app-icons.ts
+src/assets/icons/app-icons.svg
+
+# Third-party styles
+src/styles/vendor/

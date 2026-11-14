@@ -1,0 +1,71 @@
+/* Verification code boxes - Figma "Code inputs" (ISTDocAi, node
+   1933:8163): 6 equal boxes, 10px apart, 40px tall, 8px radius. */
+:host {
+  display: block;
+}
+
+.otp-field {
+  display: flex;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  flex-direction: column;
+  gap: var(--spacing-2, 8px);
+  border: 0;
+  font-family: var(--font-family-base, "IBM Plex Sans", system-ui, sans-serif);
+}
+
+.otp-field legend {
+  padding: 0;
+  font-size: var(--label-label-2-fontsize, 14px);
+  line-height: var(--label-label-2-lineheight, 20px);
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: var(--label-label-2-letterspacing, -0.16px);
+  color: var(--general-foreground, #1a1a1a);
+}
+
+.otp-field__inputs {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.otp-field input {
+  width: 100%;
+  min-width: 0;
+  min-height: 40px;
+  padding: 9px 4px;
+  border: 1px solid var(--general-unofficial-border-3, #b0b0b0);
+  border-radius: var(--rounded-8, 8px);
+  background: var(--general-input, #fff);
+  color: var(--general-foreground, #1a1a1a);
+  font: var(--font-weight-regular, 400) var(--label-label-2-fontsize, 14px)/var(--label-label-2-lineheight, 20px) 'IBM Plex Sans', system-ui, sans-serif;
+  letter-spacing: var(--label-label-2-letterspacing, -0.16px);
+  text-align: center;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.otp-field input:focus {
+  border-color: var(--general-primary, #1b35f5);
+  box-shadow: 0 0 0 3px var(--color-primary-alpha-8);
+}
+
+.otp-field input:disabled {
+  background: var(--general-muted, #e7e7e7);
+  color: var(--general-muted-foreground, #6d6d6d);
+  cursor: not-allowed;
+}
+
+.otp-field__error {
+  margin: 0;
+  font-size: var(--body-body-4-fontsize, 12px);
+  line-height: var(--body-body-4-lineheight, 16px);
+  color: var(--color-error-solid-600, #dc2626);
+}
+
+@media (max-width: 600px) {
+  .otp-field__inputs {
+    gap: 6px;
+  }
+}

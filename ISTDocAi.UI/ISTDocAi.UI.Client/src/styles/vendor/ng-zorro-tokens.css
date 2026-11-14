@@ -1,0 +1,4365 @@
+/* ---- base ---- */
+body {
+  color: var(--general-foreground);
+  background-color: var(--general-background);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--general-foreground);
+}
+
+a {
+  color: var(--general-primary);
+  background-color: transparent;
+}
+
+a:hover {
+  color: var(--general-unofficial-primary-hover);
+}
+
+a:active {
+  color: var(--general-primary-active);
+}
+
+a[disabled] {
+  color: var(--general-icon-muted);
+}
+
+caption {
+  color: var(--general-muted-foreground);
+}
+
+input, button, select, optgroup, textarea {
+  color: inherit;
+}
+
+legend {
+  color: inherit;
+}
+
+::selection {
+  color: var(--color-primitives-base-white);
+  background: var(--general-primary);
+}
+
+/* ---- layout ---- */
+.ant-layout {
+  background: var(--general-unofficial-accent-0);
+}
+
+.ant-layout-header {
+  color: var(--general-foreground);
+  background: var(--general-unofficial-contrast);
+}
+
+.ant-layout-footer {
+  color: var(--general-foreground);
+  background: var(--general-unofficial-accent-0);
+}
+
+.ant-layout-sider {
+  background: var(--general-unofficial-contrast);
+}
+
+.ant-layout-sider-trigger {
+  color: var(--color-primitives-base-white);
+}
+
+.ant-layout-sider-zero-width-trigger {
+  color: var(--color-primitives-base-white);
+  background: var(--general-unofficial-contrast);
+}
+
+.ant-layout-sider-zero-width-trigger::after {
+  background: transparent;
+}
+
+.ant-layout-sider-light {
+  background: var(--general-background);
+}
+
+.ant-layout-sider-light .ant-layout-sider-trigger,
+.ant-layout-sider-light .ant-layout-sider-zero-width-trigger {
+  color: var(--general-foreground);
+  background: var(--general-background);
+}
+
+/* ---- btn ---- */
+.ant-btn {
+  border: 1px solid transparent;
+  color: var(--general-foreground);
+  border-color: var(--general-border);
+  background: var(--general-background);
+}
+
+.ant-btn > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn:hover, .ant-btn:focus {
+  color: var(--general-unofficial-primary-hover);
+  border-color: var(--general-unofficial-primary-hover);
+  background: var(--general-background);
+}
+
+.ant-btn:hover > a:only-child, .ant-btn:focus > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn:hover > a:only-child::after, .ant-btn:focus > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn:active {
+  color: var(--general-primary-active);
+  border-color: var(--general-primary-active);
+  background: var(--general-background);
+}
+
+.ant-btn:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn[disabled], .ant-btn[disabled]:hover, .ant-btn[disabled]:focus, .ant-btn[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: var(--general-border);
+  background: var(--general-elevated);
+}
+
+.ant-btn[disabled] > a:only-child, .ant-btn[disabled]:hover > a:only-child, .ant-btn[disabled]:focus > a:only-child, .ant-btn[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn[disabled] > a:only-child::after, .ant-btn[disabled]:hover > a:only-child::after, .ant-btn[disabled]:focus > a:only-child::after, .ant-btn[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn:hover, .ant-btn:focus, .ant-btn:active {
+  background: var(--general-background);
+}
+
+.ant-btn-primary {
+  color: var(--color-primitives-base-white);
+  border-color: var(--general-primary);
+  background: var(--general-primary);
+}
+
+.ant-btn-primary > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-primary > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-primary:hover, .ant-btn-primary:focus {
+  color: var(--color-primitives-base-white);
+  border-color: var(--general-unofficial-primary-hover);
+  background: var(--general-unofficial-primary-hover);
+}
+
+.ant-btn-primary:hover > a:only-child, .ant-btn-primary:focus > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-primary:hover > a:only-child::after, .ant-btn-primary:focus > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-primary:active {
+  color: var(--color-primitives-base-white);
+  border-color: var(--general-primary-active);
+  background: var(--general-primary-active);
+}
+
+.ant-btn-primary:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-primary:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-primary[disabled], .ant-btn-primary[disabled]:hover, .ant-btn-primary[disabled]:focus, .ant-btn-primary[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: var(--general-border);
+  background: var(--general-elevated);
+}
+
+.ant-btn-primary[disabled] > a:only-child, .ant-btn-primary[disabled]:hover > a:only-child, .ant-btn-primary[disabled]:focus > a:only-child, .ant-btn-primary[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-primary[disabled] > a:only-child::after, .ant-btn-primary[disabled]:hover > a:only-child::after, .ant-btn-primary[disabled]:focus > a:only-child::after, .ant-btn-primary[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-group .ant-btn-primary:not(:first-child):not(:last-child) {
+  border-right-color: var(--general-unofficial-primary-hover);
+  border-left-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-btn-group .ant-btn-primary:not(:first-child):not(:last-child):disabled {
+  border-color: var(--general-border);
+}
+
+.ant-btn-group .ant-btn-primary:first-child:not(:last-child) {
+  border-right-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-btn-group .ant-btn-primary:first-child:not(:last-child)[disabled] {
+  border-right-color: var(--general-border);
+}
+
+.ant-btn-group .ant-btn-primary:last-child:not(:first-child), .ant-btn-group .ant-btn-primary + .ant-btn-primary {
+  border-left-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-btn-group .ant-btn-primary:last-child:not(:first-child)[disabled], .ant-btn-group .ant-btn-primary + .ant-btn-primary[disabled] {
+  border-left-color: var(--general-border);
+}
+
+.ant-btn-ghost {
+  color: var(--general-foreground);
+  border-color: var(--general-border);
+  background: transparent;
+}
+
+.ant-btn-ghost > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-ghost > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-ghost:hover, .ant-btn-ghost:focus {
+  color: var(--general-unofficial-primary-hover);
+  border-color: var(--general-unofficial-primary-hover);
+  background: transparent;
+}
+
+.ant-btn-ghost:hover > a:only-child, .ant-btn-ghost:focus > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-ghost:hover > a:only-child::after, .ant-btn-ghost:focus > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-ghost:active {
+  color: var(--general-primary-active);
+  border-color: var(--general-primary-active);
+  background: transparent;
+}
+
+.ant-btn-ghost:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-ghost:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-ghost[disabled], .ant-btn-ghost[disabled]:hover, .ant-btn-ghost[disabled]:focus, .ant-btn-ghost[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: var(--general-border);
+  background: var(--general-elevated);
+}
+
+.ant-btn-ghost[disabled] > a:only-child, .ant-btn-ghost[disabled]:hover > a:only-child, .ant-btn-ghost[disabled]:focus > a:only-child, .ant-btn-ghost[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-ghost[disabled] > a:only-child::after, .ant-btn-ghost[disabled]:hover > a:only-child::after, .ant-btn-ghost[disabled]:focus > a:only-child::after, .ant-btn-ghost[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dashed {
+  color: var(--general-foreground);
+  border-color: var(--general-border);
+  background: var(--general-background);
+}
+
+.ant-btn-dashed > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dashed > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dashed:hover, .ant-btn-dashed:focus {
+  color: var(--general-unofficial-primary-hover);
+  border-color: var(--general-unofficial-primary-hover);
+  background: var(--general-background);
+}
+
+.ant-btn-dashed:hover > a:only-child, .ant-btn-dashed:focus > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dashed:hover > a:only-child::after, .ant-btn-dashed:focus > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dashed:active {
+  color: var(--general-primary-active);
+  border-color: var(--general-primary-active);
+  background: var(--general-background);
+}
+
+.ant-btn-dashed:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dashed:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dashed[disabled], .ant-btn-dashed[disabled]:hover, .ant-btn-dashed[disabled]:focus, .ant-btn-dashed[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: var(--general-border);
+  background: var(--general-elevated);
+}
+
+.ant-btn-dashed[disabled] > a:only-child, .ant-btn-dashed[disabled]:hover > a:only-child, .ant-btn-dashed[disabled]:focus > a:only-child, .ant-btn-dashed[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dashed[disabled] > a:only-child::after, .ant-btn-dashed[disabled]:hover > a:only-child::after, .ant-btn-dashed[disabled]:focus > a:only-child::after, .ant-btn-dashed[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-danger {
+  color: var(--color-primitives-base-white);
+  border-color: var(--general-destructive);
+  background: var(--general-destructive);
+}
+
+.ant-btn-danger > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-danger > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-danger:hover, .ant-btn-danger:focus {
+  color: var(--color-primitives-base-white);
+  border-color: var(--color-error-solid-400);
+  background: var(--color-error-solid-400);
+}
+
+.ant-btn-danger:hover > a:only-child, .ant-btn-danger:focus > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-danger:hover > a:only-child::after, .ant-btn-danger:focus > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-danger:active {
+  color: var(--color-primitives-base-white);
+  border-color: var(--color-error-solid-700);
+  background: var(--color-error-solid-700);
+}
+
+.ant-btn-danger:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-danger:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-danger[disabled], .ant-btn-danger[disabled]:hover, .ant-btn-danger[disabled]:focus, .ant-btn-danger[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: var(--general-border);
+  background: var(--general-elevated);
+}
+
+.ant-btn-danger[disabled] > a:only-child, .ant-btn-danger[disabled]:hover > a:only-child, .ant-btn-danger[disabled]:focus > a:only-child, .ant-btn-danger[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-danger[disabled] > a:only-child::after, .ant-btn-danger[disabled]:hover > a:only-child::after, .ant-btn-danger[disabled]:focus > a:only-child::after, .ant-btn-danger[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-link {
+  color: var(--general-primary);
+  border-color: transparent;
+  background: transparent;
+}
+
+.ant-btn-link > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-link > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-link:hover, .ant-btn-link:focus {
+  color: var(--general-unofficial-primary-hover);
+  border-color: var(--general-unofficial-primary-hover);
+  background: transparent;
+}
+
+.ant-btn-link:hover > a:only-child, .ant-btn-link:focus > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-link:hover > a:only-child::after, .ant-btn-link:focus > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-link:active {
+  color: var(--general-primary-active);
+  border-color: var(--general-primary-active);
+  background: transparent;
+}
+
+.ant-btn-link:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-link:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-link[disabled], .ant-btn-link[disabled]:hover, .ant-btn-link[disabled]:focus, .ant-btn-link[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: var(--general-border);
+  background: var(--general-elevated);
+}
+
+.ant-btn-link[disabled] > a:only-child, .ant-btn-link[disabled]:hover > a:only-child, .ant-btn-link[disabled]:focus > a:only-child, .ant-btn-link[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-link[disabled] > a:only-child::after, .ant-btn-link[disabled]:hover > a:only-child::after, .ant-btn-link[disabled]:focus > a:only-child::after, .ant-btn-link[disabled]:active > a:only-child::after,
+.ant-btn-link:hover {
+  background: transparent;
+}
+
+.ant-btn-link:hover, .ant-btn-link:focus, .ant-btn-link:active {
+  border-color: transparent;
+}
+
+.ant-btn-link[disabled], .ant-btn-link[disabled]:hover, .ant-btn-link[disabled]:focus, .ant-btn-link[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: transparent;
+  background: transparent;
+}
+
+.ant-btn-link[disabled] > a:only-child, .ant-btn-link[disabled]:hover > a:only-child, .ant-btn-link[disabled]:focus > a:only-child, .ant-btn-link[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-link[disabled] > a:only-child::after, .ant-btn-link[disabled]:hover > a:only-child::after, .ant-btn-link[disabled]:focus > a:only-child::after, .ant-btn-link[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-text {
+  color: var(--general-foreground);
+  border-color: transparent;
+  background: transparent;
+}
+
+.ant-btn-text > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-text > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-text:hover, .ant-btn-text:focus {
+  color: var(--general-unofficial-primary-hover);
+  border-color: var(--general-unofficial-primary-hover);
+  background: transparent;
+}
+
+.ant-btn-text:hover > a:only-child, .ant-btn-text:focus > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-text:hover > a:only-child::after, .ant-btn-text:focus > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-text:active {
+  color: var(--general-primary-active);
+  border-color: var(--general-primary-active);
+  background: transparent;
+}
+
+.ant-btn-text:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-text:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-text[disabled], .ant-btn-text[disabled]:hover, .ant-btn-text[disabled]:focus, .ant-btn-text[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: var(--general-border);
+  background: var(--general-elevated);
+}
+
+.ant-btn-text[disabled] > a:only-child, .ant-btn-text[disabled]:hover > a:only-child, .ant-btn-text[disabled]:focus > a:only-child, .ant-btn-text[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-text[disabled] > a:only-child::after, .ant-btn-text[disabled]:hover > a:only-child::after, .ant-btn-text[disabled]:focus > a:only-child::after, .ant-btn-text[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-text:hover, .ant-btn-text:focus,
+.ant-btn-text:active {
+  color: var(--general-foreground);
+  background: var(--color-neutral-alpha-8);
+  border-color: transparent;
+}
+
+.ant-btn-text[disabled], .ant-btn-text[disabled]:hover, .ant-btn-text[disabled]:focus, .ant-btn-text[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: transparent;
+  background: transparent;
+}
+
+.ant-btn-text[disabled] > a:only-child, .ant-btn-text[disabled]:hover > a:only-child, .ant-btn-text[disabled]:focus > a:only-child, .ant-btn-text[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-text[disabled] > a:only-child::after, .ant-btn-text[disabled]:hover > a:only-child::after, .ant-btn-text[disabled]:focus > a:only-child::after, .ant-btn-text[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous {
+  color: var(--general-destructive);
+  border-color: var(--general-destructive);
+  background: var(--general-background);
+}
+
+.ant-btn-dangerous > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous:hover, .ant-btn-dangerous:focus {
+  color: var(--color-error-solid-400);
+  border-color: var(--color-error-solid-400);
+  background: var(--general-background);
+}
+
+.ant-btn-dangerous:hover > a:only-child, .ant-btn-dangerous:focus > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous:hover > a:only-child::after, .ant-btn-dangerous:focus > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous:active {
+  color: var(--color-error-solid-700);
+  border-color: var(--color-error-solid-700);
+  background: var(--general-background);
+}
+
+.ant-btn-dangerous:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous[disabled], .ant-btn-dangerous[disabled]:hover, .ant-btn-dangerous[disabled]:focus, .ant-btn-dangerous[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: var(--general-border);
+  background: var(--general-elevated);
+}
+
+.ant-btn-dangerous[disabled] > a:only-child, .ant-btn-dangerous[disabled]:hover > a:only-child, .ant-btn-dangerous[disabled]:focus > a:only-child, .ant-btn-dangerous[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous[disabled] > a:only-child::after, .ant-btn-dangerous[disabled]:hover > a:only-child::after, .ant-btn-dangerous[disabled]:focus > a:only-child::after, .ant-btn-dangerous[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-primary {
+  color: var(--color-primitives-base-white);
+  border-color: var(--general-destructive);
+  background: var(--general-destructive);
+}
+
+.ant-btn-dangerous.ant-btn-primary > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-primary > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-primary:hover, .ant-btn-dangerous.ant-btn-primary:focus {
+  color: var(--color-primitives-base-white);
+  border-color: var(--color-error-solid-400);
+  background: var(--color-error-solid-400);
+}
+
+.ant-btn-dangerous.ant-btn-primary:hover > a:only-child, .ant-btn-dangerous.ant-btn-primary:focus > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-primary:hover > a:only-child::after, .ant-btn-dangerous.ant-btn-primary:focus > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-primary:active {
+  color: var(--color-primitives-base-white);
+  border-color: var(--color-error-solid-700);
+  background: var(--color-error-solid-700);
+}
+
+.ant-btn-dangerous.ant-btn-primary:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-primary:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-primary[disabled], .ant-btn-dangerous.ant-btn-primary[disabled]:hover, .ant-btn-dangerous.ant-btn-primary[disabled]:focus, .ant-btn-dangerous.ant-btn-primary[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: var(--general-border);
+  background: var(--general-elevated);
+}
+
+.ant-btn-dangerous.ant-btn-primary[disabled] > a:only-child, .ant-btn-dangerous.ant-btn-primary[disabled]:hover > a:only-child, .ant-btn-dangerous.ant-btn-primary[disabled]:focus > a:only-child, .ant-btn-dangerous.ant-btn-primary[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-primary[disabled] > a:only-child::after, .ant-btn-dangerous.ant-btn-primary[disabled]:hover > a:only-child::after, .ant-btn-dangerous.ant-btn-primary[disabled]:focus > a:only-child::after, .ant-btn-dangerous.ant-btn-primary[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-link {
+  color: var(--general-destructive);
+  border-color: transparent;
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-link > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-link > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-link:hover, .ant-btn-dangerous.ant-btn-link:focus {
+  color: var(--general-unofficial-primary-hover);
+  border-color: var(--general-unofficial-primary-hover);
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-link:hover > a:only-child, .ant-btn-dangerous.ant-btn-link:focus > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-link:hover > a:only-child::after, .ant-btn-dangerous.ant-btn-link:focus > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-link:active {
+  color: var(--general-primary-active);
+  border-color: var(--general-primary-active);
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-link:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-link:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-link[disabled], .ant-btn-dangerous.ant-btn-link[disabled]:hover, .ant-btn-dangerous.ant-btn-link[disabled]:focus, .ant-btn-dangerous.ant-btn-link[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: var(--general-border);
+  background: var(--general-elevated);
+}
+
+.ant-btn-dangerous.ant-btn-link[disabled] > a:only-child, .ant-btn-dangerous.ant-btn-link[disabled]:hover > a:only-child, .ant-btn-dangerous.ant-btn-link[disabled]:focus > a:only-child, .ant-btn-dangerous.ant-btn-link[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-link[disabled] > a:only-child::after, .ant-btn-dangerous.ant-btn-link[disabled]:hover > a:only-child::after, .ant-btn-dangerous.ant-btn-link[disabled]:focus > a:only-child::after, .ant-btn-dangerous.ant-btn-link[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-link:hover, .ant-btn-dangerous.ant-btn-link:focus {
+  color: var(--color-error-solid-400);
+  border-color: transparent;
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-link:hover > a:only-child, .ant-btn-dangerous.ant-btn-link:focus > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-link:hover > a:only-child::after, .ant-btn-dangerous.ant-btn-link:focus > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-link:active {
+  color: var(--color-error-solid-700);
+  border-color: transparent;
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-link:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-link:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-link[disabled], .ant-btn-dangerous.ant-btn-link[disabled]:hover, .ant-btn-dangerous.ant-btn-link[disabled]:focus, .ant-btn-dangerous.ant-btn-link[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: transparent;
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-link[disabled] > a:only-child, .ant-btn-dangerous.ant-btn-link[disabled]:hover > a:only-child, .ant-btn-dangerous.ant-btn-link[disabled]:focus > a:only-child, .ant-btn-dangerous.ant-btn-link[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-link[disabled] > a:only-child::after, .ant-btn-dangerous.ant-btn-link[disabled]:hover > a:only-child::after, .ant-btn-dangerous.ant-btn-link[disabled]:focus > a:only-child::after, .ant-btn-dangerous.ant-btn-link[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-text {
+  color: var(--general-destructive);
+  border-color: transparent;
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-text > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-text > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-text:hover, .ant-btn-dangerous.ant-btn-text:focus {
+  color: var(--general-unofficial-primary-hover);
+  border-color: var(--general-unofficial-primary-hover);
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-text:hover > a:only-child, .ant-btn-dangerous.ant-btn-text:focus > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-text:hover > a:only-child::after, .ant-btn-dangerous.ant-btn-text:focus > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-text:active {
+  color: var(--general-primary-active);
+  border-color: var(--general-primary-active);
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-text:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-text:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-text[disabled], .ant-btn-dangerous.ant-btn-text[disabled]:hover, .ant-btn-dangerous.ant-btn-text[disabled]:focus, .ant-btn-dangerous.ant-btn-text[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: var(--general-border);
+  background: var(--general-elevated);
+}
+
+.ant-btn-dangerous.ant-btn-text[disabled] > a:only-child, .ant-btn-dangerous.ant-btn-text[disabled]:hover > a:only-child, .ant-btn-dangerous.ant-btn-text[disabled]:focus > a:only-child, .ant-btn-dangerous.ant-btn-text[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-text[disabled] > a:only-child::after, .ant-btn-dangerous.ant-btn-text[disabled]:hover > a:only-child::after, .ant-btn-dangerous.ant-btn-text[disabled]:focus > a:only-child::after, .ant-btn-dangerous.ant-btn-text[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-text:hover, .ant-btn-dangerous.ant-btn-text:focus {
+  color: var(--color-error-solid-400);
+  border-color: transparent;
+  background: var(--color-neutral-alpha-8);
+}
+
+.ant-btn-dangerous.ant-btn-text:hover > a:only-child, .ant-btn-dangerous.ant-btn-text:focus > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-text:hover > a:only-child::after, .ant-btn-dangerous.ant-btn-text:focus > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-text:active {
+  color: var(--color-error-solid-700);
+  border-color: transparent;
+  background: var(--color-neutral-alpha-8);
+}
+
+.ant-btn-dangerous.ant-btn-text:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-text:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-text[disabled], .ant-btn-dangerous.ant-btn-text[disabled]:hover, .ant-btn-dangerous.ant-btn-text[disabled]:focus, .ant-btn-dangerous.ant-btn-text[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: transparent;
+  background: transparent;
+}
+
+.ant-btn-dangerous.ant-btn-text[disabled] > a:only-child, .ant-btn-dangerous.ant-btn-text[disabled]:hover > a:only-child, .ant-btn-dangerous.ant-btn-text[disabled]:focus > a:only-child, .ant-btn-dangerous.ant-btn-text[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-dangerous.ant-btn-text[disabled] > a:only-child::after, .ant-btn-dangerous.ant-btn-text[disabled]:hover > a:only-child::after, .ant-btn-dangerous.ant-btn-text[disabled]:focus > a:only-child::after, .ant-btn-dangerous.ant-btn-text[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn::before {
+  background: var(--general-background);
+}
+
+.ant-btn.ant-btn-background-ghost {
+  color: var(--color-primitives-base-white);
+  border-color: var(--general-background);
+}
+
+.ant-btn.ant-btn-background-ghost, .ant-btn.ant-btn-background-ghost:hover, .ant-btn.ant-btn-background-ghost:active, .ant-btn.ant-btn-background-ghost:focus {
+  background: transparent;
+}
+
+.ant-btn.ant-btn-background-ghost:hover, .ant-btn.ant-btn-background-ghost:focus {
+  color: var(--general-unofficial-primary-hover);
+  border-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-btn.ant-btn-background-ghost:active {
+  color: var(--general-primary-active);
+  border-color: var(--general-primary-active);
+}
+
+.ant-btn.ant-btn-background-ghost[disabled] {
+  color: var(--general-icon-muted);
+  background: transparent;
+  border-color: var(--general-border);
+}
+
+.ant-btn-background-ghost.ant-btn-primary {
+  color: var(--general-primary);
+  border-color: var(--general-primary);
+}
+
+.ant-btn-background-ghost.ant-btn-primary > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-background-ghost.ant-btn-primary > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-primary:hover, .ant-btn-background-ghost.ant-btn-primary:focus {
+  color: var(--general-unofficial-primary-hover);
+  border-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-btn-background-ghost.ant-btn-primary:hover > a:only-child, .ant-btn-background-ghost.ant-btn-primary:focus > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-background-ghost.ant-btn-primary:hover > a:only-child::after, .ant-btn-background-ghost.ant-btn-primary:focus > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-primary:active {
+  color: var(--general-primary-active);
+  border-color: var(--general-primary-active);
+}
+
+.ant-btn-background-ghost.ant-btn-primary:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-background-ghost.ant-btn-primary:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-primary[disabled], .ant-btn-background-ghost.ant-btn-primary[disabled]:hover, .ant-btn-background-ghost.ant-btn-primary[disabled]:focus, .ant-btn-background-ghost.ant-btn-primary[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: var(--general-border);
+  background: var(--general-elevated);
+}
+
+.ant-btn-background-ghost.ant-btn-primary[disabled] > a:only-child, .ant-btn-background-ghost.ant-btn-primary[disabled]:hover > a:only-child, .ant-btn-background-ghost.ant-btn-primary[disabled]:focus > a:only-child, .ant-btn-background-ghost.ant-btn-primary[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-background-ghost.ant-btn-primary[disabled] > a:only-child::after, .ant-btn-background-ghost.ant-btn-primary[disabled]:hover > a:only-child::after, .ant-btn-background-ghost.ant-btn-primary[disabled]:focus > a:only-child::after, .ant-btn-background-ghost.ant-btn-primary[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-danger {
+  color: var(--general-destructive);
+  border-color: var(--general-destructive);
+}
+
+.ant-btn-background-ghost.ant-btn-danger > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-background-ghost.ant-btn-danger > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-danger:hover, .ant-btn-background-ghost.ant-btn-danger:focus {
+  color: var(--color-error-solid-400);
+  border-color: var(--color-error-solid-400);
+}
+
+.ant-btn-background-ghost.ant-btn-danger:hover > a:only-child, .ant-btn-background-ghost.ant-btn-danger:focus > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-background-ghost.ant-btn-danger:hover > a:only-child::after, .ant-btn-background-ghost.ant-btn-danger:focus > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-danger:active {
+  color: var(--color-error-solid-700);
+  border-color: var(--color-error-solid-700);
+}
+
+.ant-btn-background-ghost.ant-btn-danger:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-background-ghost.ant-btn-danger:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-danger[disabled], .ant-btn-background-ghost.ant-btn-danger[disabled]:hover, .ant-btn-background-ghost.ant-btn-danger[disabled]:focus, .ant-btn-background-ghost.ant-btn-danger[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: var(--general-border);
+  background: var(--general-elevated);
+}
+
+.ant-btn-background-ghost.ant-btn-danger[disabled] > a:only-child, .ant-btn-background-ghost.ant-btn-danger[disabled]:hover > a:only-child, .ant-btn-background-ghost.ant-btn-danger[disabled]:focus > a:only-child, .ant-btn-background-ghost.ant-btn-danger[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-background-ghost.ant-btn-danger[disabled] > a:only-child::after, .ant-btn-background-ghost.ant-btn-danger[disabled]:hover > a:only-child::after, .ant-btn-background-ghost.ant-btn-danger[disabled]:focus > a:only-child::after, .ant-btn-background-ghost.ant-btn-danger[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous {
+  color: var(--general-destructive);
+  border-color: var(--general-destructive);
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous:hover, .ant-btn-background-ghost.ant-btn-dangerous:focus {
+  color: var(--color-error-solid-400);
+  border-color: var(--color-error-solid-400);
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous:hover > a:only-child, .ant-btn-background-ghost.ant-btn-dangerous:focus > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous:hover > a:only-child::after, .ant-btn-background-ghost.ant-btn-dangerous:focus > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous:active {
+  color: var(--color-error-solid-700);
+  border-color: var(--color-error-solid-700);
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous[disabled], .ant-btn-background-ghost.ant-btn-dangerous[disabled]:hover, .ant-btn-background-ghost.ant-btn-dangerous[disabled]:focus, .ant-btn-background-ghost.ant-btn-dangerous[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: var(--general-border);
+  background: var(--general-elevated);
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous[disabled] > a:only-child, .ant-btn-background-ghost.ant-btn-dangerous[disabled]:hover > a:only-child, .ant-btn-background-ghost.ant-btn-dangerous[disabled]:focus > a:only-child, .ant-btn-background-ghost.ant-btn-dangerous[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous[disabled] > a:only-child::after, .ant-btn-background-ghost.ant-btn-dangerous[disabled]:hover > a:only-child::after, .ant-btn-background-ghost.ant-btn-dangerous[disabled]:focus > a:only-child::after, .ant-btn-background-ghost.ant-btn-dangerous[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link {
+  color: var(--general-destructive);
+  border-color: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link:hover, .ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link:focus {
+  color: var(--color-error-solid-400);
+  border-color: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link:hover > a:only-child, .ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link:focus > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link:hover > a:only-child::after, .ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link:focus > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link:active {
+  color: var(--color-error-solid-700);
+  border-color: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link:active > a:only-child::after {
+  background: transparent;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link[disabled], .ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link[disabled]:hover, .ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link[disabled]:focus, .ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link[disabled]:active {
+  color: var(--general-icon-muted);
+  border-color: var(--general-border);
+  background: var(--general-elevated);
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link[disabled] > a:only-child, .ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link[disabled]:hover > a:only-child, .ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link[disabled]:focus > a:only-child, .ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link[disabled]:active > a:only-child {
+  color: currentcolor;
+}
+
+.ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link[disabled] > a:only-child::after, .ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link[disabled]:hover > a:only-child::after, .ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link[disabled]:focus > a:only-child::after, .ant-btn-background-ghost.ant-btn-dangerous.ant-btn-link[disabled]:active > a:only-child::after {
+  background: transparent;
+}
+
+a.ant-btn-disabled, a.ant-btn-disabled:hover, a.ant-btn-disabled:focus, a.ant-btn-disabled:active {
+  color: var(--general-icon-muted);
+  border-color: transparent;
+  background: transparent;
+}
+
+.ant-btn-compact-item.ant-btn-primary:not([disabled]) + .ant-btn-compact-item.ant-btn-primary:not([disabled]):not([ant-click-animating-without-extra-node=true])::after,
+.ant-btn-compact-vertical-item.ant-btn-primary:not([disabled]) + .ant-btn-compact-vertical-item.ant-btn-primary:not([disabled]):not([ant-click-animating-without-extra-node=true])::after {
+  background-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-btn-group-rtl.ant-btn-group .ant-btn-primary:last-child:not(:first-child), .ant-btn-group-rtl.ant-btn-group .ant-btn-primary + .ant-btn-primary {
+  border-right-color: var(--general-unofficial-primary-hover);
+  border-left-color: var(--general-border);
+}
+
+.ant-btn-group-rtl.ant-btn-group .ant-btn-primary:last-child:not(:first-child)[disabled], .ant-btn-group-rtl.ant-btn-group .ant-btn-primary + .ant-btn-primary[disabled] {
+  border-right-color: var(--general-border);
+  border-left-color: var(--general-unofficial-primary-hover);
+}
+
+/* ---- input ---- */
+.ant-input-affix-wrapper {
+  color: var(--general-foreground);
+  background-color: var(--general-background);
+  border: 1px solid var(--general-border);
+}
+
+.ant-input-affix-wrapper::placeholder {
+  color: var(--color-neutral-solid-300);
+}
+
+.ant-input-affix-wrapper:hover {
+  border-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-input-affix-wrapper:focus, .ant-input-affix-wrapper-focused {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+}
+
+.ant-input-affix-wrapper-disabled {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-input-affix-wrapper-disabled:hover {
+  border-color: var(--general-border);
+}
+
+.ant-input-affix-wrapper[disabled] {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-input-affix-wrapper[disabled]:hover {
+  border-color: var(--general-border);
+}
+
+.ant-input-affix-wrapper.ant-input-affix-wrapper-borderless, .ant-input-affix-wrapper.ant-input-affix-wrapper-borderless:hover, .ant-input-affix-wrapper.ant-input-affix-wrapper-borderless:focus, .ant-input-affix-wrapper.ant-input-affix-wrapper-borderless.ant-input-affix-wrapper-focused, .ant-input-affix-wrapper.ant-input-affix-wrapper-borderless.ant-input-affix-wrapper-disabled, .ant-input-affix-wrapper.ant-input-affix-wrapper-borderless.ant-input-affix-wrapper[disabled] {
+  background-color: transparent;
+  border: none;
+}
+
+.ant-input-affix-wrapper.ant-input-affix-wrapper-filled {
+  background-color: var(--general-elevated);
+  border-color: transparent;
+}
+
+.ant-input-affix-wrapper.ant-input-affix-wrapper-filled:hover {
+  background-color: var(--general-muted);
+}
+
+.ant-input-affix-wrapper.ant-input-affix-wrapper-filled:focus, .ant-input-affix-wrapper.ant-input-affix-wrapper-filled.ant-input-affix-wrapper-focused {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+  background-color: transparent;
+}
+
+.ant-input-affix-wrapper.ant-input-affix-wrapper-filled.ant-input-affix-wrapper-disabled, .ant-input-affix-wrapper.ant-input-affix-wrapper-filled.ant-input-affix-wrapper[disabled] {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-input-affix-wrapper.ant-input-affix-wrapper-filled.ant-input-affix-wrapper-disabled:hover, .ant-input-affix-wrapper.ant-input-affix-wrapper-filled.ant-input-affix-wrapper[disabled]:hover {
+  border-color: var(--general-border);
+}
+
+.ant-input-affix-wrapper.ant-input-affix-wrapper-underlined, .ant-input-affix-wrapper.ant-input-affix-wrapper-underlined:hover, .ant-input-affix-wrapper.ant-input-affix-wrapper-underlined:focus, .ant-input-affix-wrapper.ant-input-affix-wrapper-underlined.ant-input-affix-wrapper-focused, .ant-input-affix-wrapper.ant-input-affix-wrapper-underlined.ant-input-affix-wrapper-disabled, .ant-input-affix-wrapper.ant-input-affix-wrapper-underlined.ant-input-affix-wrapper[disabled] {
+  background-color: transparent;
+}
+
+.ant-input-affix-wrapper.ant-input-affix-wrapper-underlined:hover:not(.ant-input-affix-wrapper-focused):not(:focus) {
+  border-color: var(--general-border);
+}
+
+.ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover {
+  border-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-input-affix-wrapper > .ant-input {
+  border: none;
+}
+
+.ant-input-show-count-suffix {
+  color: var(--general-muted-foreground);
+}
+
+.anticon.ant-input-clear-icon, .ant-input-clear-icon {
+  color: var(--general-icon-muted);
+}
+
+.anticon.ant-input-clear-icon:hover, .ant-input-clear-icon:hover {
+  color: var(--general-muted-foreground);
+}
+
+.anticon.ant-input-clear-icon:active, .ant-input-clear-icon:active {
+  color: var(--general-foreground);
+}
+
+.ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input, .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover {
+  background: var(--general-background);
+  border-color: var(--general-destructive);
+}
+
+.ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus, .ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input-focused {
+  border-color: var(--color-error-solid-400);
+  box-shadow: 0 0 0 2px var(--color-error-alpha-24);
+}
+
+.ant-input-status-error .ant-input-prefix {
+  color: var(--general-destructive);
+}
+
+.ant-input-status-warning:not(.ant-input-disabled):not(.ant-input-borderless).ant-input, .ant-input-status-warning:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover {
+  background: var(--general-background);
+  border-color: var(--general-warning);
+}
+
+.ant-input-status-warning:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:focus, .ant-input-status-warning:not(.ant-input-disabled):not(.ant-input-borderless).ant-input-focused {
+  border-color: var(--color-warning-solid-400);
+  box-shadow: 0 0 0 2px var(--color-warning-alpha-24);
+}
+
+.ant-input-status-warning .ant-input-prefix {
+  color: var(--general-warning);
+}
+
+.ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper, .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:hover {
+  background: var(--general-background);
+  border-color: var(--general-destructive);
+}
+
+.ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:focus, .ant-input-affix-wrapper-status-error:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper-focused {
+  border-color: var(--color-error-solid-400);
+  box-shadow: 0 0 0 2px var(--color-error-alpha-24);
+}
+
+.ant-input-affix-wrapper-status-error .ant-input-prefix {
+  color: var(--general-destructive);
+}
+
+.ant-input-affix-wrapper-status-warning:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper, .ant-input-affix-wrapper-status-warning:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:hover {
+  background: var(--general-background);
+  border-color: var(--general-warning);
+}
+
+.ant-input-affix-wrapper-status-warning:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper:focus, .ant-input-affix-wrapper-status-warning:not(.ant-input-affix-wrapper-disabled):not(.ant-input-affix-wrapper-borderless).ant-input-affix-wrapper-focused {
+  border-color: var(--color-warning-solid-400);
+  box-shadow: 0 0 0 2px var(--color-warning-alpha-24);
+}
+
+.ant-input-affix-wrapper-status-warning .ant-input-prefix {
+  color: var(--general-warning);
+}
+
+.ant-input-group-wrapper-status-error .ant-input-group-addon {
+  color: var(--general-destructive);
+  border-color: var(--general-destructive);
+}
+
+.ant-input-group-wrapper-status-warning .ant-input-group-addon {
+  color: var(--general-warning);
+  border-color: var(--general-warning);
+}
+
+.ant-input {
+  color: var(--general-foreground);
+  background-color: var(--general-background);
+  border: 1px solid var(--general-border);
+}
+
+.ant-input::placeholder {
+  color: var(--color-neutral-solid-300);
+}
+
+.ant-input:hover {
+  border-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-input:focus, .ant-input-focused {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+}
+
+.ant-input-disabled {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-input-disabled:hover {
+  border-color: var(--general-border);
+}
+
+.ant-input[disabled] {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-input[disabled]:hover {
+  border-color: var(--general-border);
+}
+
+.ant-input.ant-input-borderless, .ant-input.ant-input-borderless:hover, .ant-input.ant-input-borderless:focus, .ant-input.ant-input-borderless.ant-input-focused, .ant-input.ant-input-borderless.ant-input-disabled, .ant-input.ant-input-borderless.ant-input[disabled] {
+  background-color: transparent;
+  border: none;
+}
+
+.ant-input.ant-input-filled {
+  background-color: var(--general-elevated);
+  border-color: transparent;
+}
+
+.ant-input.ant-input-filled:hover {
+  background-color: var(--general-muted);
+}
+
+.ant-input.ant-input-filled:focus, .ant-input.ant-input-filled.ant-input-focused {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+  background-color: transparent;
+}
+
+.ant-input.ant-input-filled.ant-input-disabled, .ant-input.ant-input-filled.ant-input[disabled] {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-input.ant-input-filled.ant-input-disabled:hover, .ant-input.ant-input-filled.ant-input[disabled]:hover {
+  border-color: var(--general-border);
+}
+
+.ant-input.ant-input-underlined, .ant-input.ant-input-underlined:hover, .ant-input.ant-input-underlined:focus, .ant-input.ant-input-underlined.ant-input-focused, .ant-input.ant-input-underlined.ant-input-disabled, .ant-input.ant-input-underlined.ant-input[disabled] {
+  background-color: transparent;
+}
+
+.ant-input.ant-input-underlined:hover:not(.ant-input-focused):not(:focus) {
+  border-color: var(--general-border);
+}
+
+.ant-input-group {
+  color: var(--general-foreground);
+}
+
+.ant-input-group-addon {
+  color: var(--general-foreground);
+  background-color: var(--general-unofficial-accent-0);
+  border: 1px solid var(--general-border);
+}
+
+.ant-input-group-addon .ant-select.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  background-color: inherit;
+  border: 1px solid transparent;
+}
+
+.ant-input-group-addon .ant-select-open .ant-select-selector, .ant-input-group-addon .ant-select-focused .ant-select-selector {
+  color: var(--general-primary);
+}
+
+.ant-input-group-addon .ant-cascader-picker {
+  background-color: transparent;
+}
+
+.ant-input-group-addon .ant-cascader-picker .ant-cascader-input {
+  border: 0;
+}
+
+.ant-input-group-rtl .ant-input-group-addon:first-child {
+  border-right: 1px solid var(--general-border);
+}
+
+.ant-input-group-rtl .ant-input-group-addon:last-child {
+  border-left: 1px solid var(--general-border);
+}
+
+.ant-input-group-rtl .ant-input-group-addon:first-child {
+  border-right: 1px solid var(--general-border);
+}
+
+.ant-input-group-rtl .ant-input-group-addon:last-child {
+  border-left: 1px solid var(--general-border);
+}
+
+.ant-input-password-icon {
+  color: var(--general-muted-foreground);
+}
+
+.ant-input-password-icon:hover {
+  color: var(--general-foreground);
+}
+
+.ant-input-disabled .ant-input-password-icon:hover,
+.ant-input-textarea-show-count::after {
+  color: var(--general-muted-foreground);
+}
+
+.ant-input-out-of-range .ant-input, .ant-input-out-of-range .ant-input-show-count-suffix {
+  color: var(--general-destructive);
+}
+
+.ant-input-search .ant-input:hover, .ant-input-search .ant-input:focus {
+  border-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-input-search .ant-input:hover + .ant-input-group-addon .ant-input-search-button:not(.ant-btn-primary), .ant-input-search .ant-input:focus + .ant-input-group-addon .ant-input-search-button:not(.ant-btn-primary) {
+  border-left-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-input-search > .ant-input-group > .ant-input-group-addon:last-child {
+  border: 0;
+}
+
+.ant-input-search > .ant-input-group > .ant-input-group-addon:last-child .ant-input-search-button:not(.ant-btn-primary) {
+  color: var(--general-muted-foreground);
+}
+
+.ant-input-affix-wrapper.ant-input-affix-wrapper-rtl > input.ant-input {
+  border: none;
+}
+
+.ant-input-search-rtl .ant-input:hover + .ant-input-group-addon .ant-input-search-button:not(.ant-btn-primary), .ant-input-search-rtl .ant-input:focus + .ant-input-group-addon .ant-input-search-button:not(.ant-btn-primary) {
+  border-left-color: var(--general-border);
+}
+
+.ant-input-search-rtl .ant-input:hover + .ant-input-group-addon .ant-input-search-button:not(.ant-btn-primary):hover, .ant-input-search-rtl .ant-input:focus + .ant-input-group-addon .ant-input-search-button:not(.ant-btn-primary):hover {
+  border-left-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-input-search-rtl > .ant-input-group > .ant-input-affix-wrapper:hover, .ant-input-search-rtl > .ant-input-group > .ant-input-affix-wrapper-focused {
+  border-right-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-input-number-affix-wrapper {
+  color: var(--general-foreground);
+  background-color: var(--general-background);
+  border: 1px solid var(--general-border);
+}
+
+.ant-input-number-affix-wrapper::placeholder {
+  color: var(--color-neutral-solid-300);
+}
+
+.ant-input-number-affix-wrapper:hover {
+  border-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-input-number-affix-wrapper:focus, .ant-input-number-affix-wrapper-focused {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+}
+
+.ant-input-number-affix-wrapper-disabled {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-input-number-affix-wrapper-disabled:hover {
+  border-color: var(--general-border);
+}
+
+.ant-input-number-affix-wrapper[disabled] {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-input-number-affix-wrapper[disabled]:hover {
+  border-color: var(--general-border);
+}
+
+.ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-borderless, .ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-borderless:hover, .ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-borderless:focus, .ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-borderless.ant-input-number-affix-wrapper-focused, .ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-borderless.ant-input-number-affix-wrapper-disabled, .ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-borderless.ant-input-number-affix-wrapper[disabled] {
+  background-color: transparent;
+  border: none;
+}
+
+.ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-filled {
+  background-color: var(--general-elevated);
+  border-color: transparent;
+}
+
+.ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-filled:hover {
+  background-color: var(--general-muted);
+}
+
+.ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-filled:focus, .ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-filled.ant-input-number-affix-wrapper-focused {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+  background-color: transparent;
+}
+
+.ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-filled.ant-input-number-affix-wrapper-disabled, .ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-filled.ant-input-number-affix-wrapper[disabled] {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-filled.ant-input-number-affix-wrapper-disabled:hover, .ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-filled.ant-input-number-affix-wrapper[disabled]:hover {
+  border-color: var(--general-border);
+}
+
+.ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-underlined, .ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-underlined:hover, .ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-underlined:focus, .ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-underlined.ant-input-number-affix-wrapper-focused, .ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-underlined.ant-input-number-affix-wrapper-disabled, .ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-underlined.ant-input-number-affix-wrapper[disabled] {
+  background-color: transparent;
+}
+
+.ant-input-number-affix-wrapper.ant-input-number-affix-wrapper-underlined:hover:not(.ant-input-number-affix-wrapper-focused):not(:focus) {
+  border-color: var(--general-border);
+}
+
+.ant-input-number-affix-wrapper:not(.ant-input-number-affix-wrapper-disabled):hover {
+  border-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-input-number-affix-wrapper-disabled .ant-input-number[disabled] {
+  background: transparent;
+}
+
+.ant-input-number-affix-wrapper > div.ant-input-number {
+  border: none;
+}
+
+.ant-input-number-status-error:not(.ant-input-number-disabled):not(.ant-input-number-borderless).ant-input-number, .ant-input-number-status-error:not(.ant-input-number-disabled):not(.ant-input-number-borderless).ant-input-number:hover {
+  background: var(--general-background);
+  border-color: var(--general-destructive);
+}
+
+.ant-input-number-status-error:not(.ant-input-number-disabled):not(.ant-input-number-borderless).ant-input-number:focus, .ant-input-number-status-error:not(.ant-input-number-disabled):not(.ant-input-number-borderless).ant-input-number-focused {
+  border-color: var(--color-error-solid-400);
+  box-shadow: 0 0 0 2px var(--color-error-alpha-24);
+}
+
+.ant-input-number-status-error .ant-input-number-prefix {
+  color: var(--general-destructive);
+}
+
+.ant-input-number-status-warning:not(.ant-input-number-disabled):not(.ant-input-number-borderless).ant-input-number, .ant-input-number-status-warning:not(.ant-input-number-disabled):not(.ant-input-number-borderless).ant-input-number:hover {
+  background: var(--general-background);
+  border-color: var(--general-warning);
+}
+
+.ant-input-number-status-warning:not(.ant-input-number-disabled):not(.ant-input-number-borderless).ant-input-number:focus, .ant-input-number-status-warning:not(.ant-input-number-disabled):not(.ant-input-number-borderless).ant-input-number-focused {
+  border-color: var(--color-warning-solid-400);
+  box-shadow: 0 0 0 2px var(--color-warning-alpha-24);
+}
+
+.ant-input-number-status-warning .ant-input-number-prefix {
+  color: var(--general-warning);
+}
+
+.ant-input-number-affix-wrapper-status-error:not(.ant-input-number-affix-wrapper-disabled):not(.ant-input-number-affix-wrapper-borderless).ant-input-number-affix-wrapper, .ant-input-number-affix-wrapper-status-error:not(.ant-input-number-affix-wrapper-disabled):not(.ant-input-number-affix-wrapper-borderless).ant-input-number-affix-wrapper:hover {
+  background: var(--general-background);
+  border-color: var(--general-destructive);
+}
+
+.ant-input-number-affix-wrapper-status-error:not(.ant-input-number-affix-wrapper-disabled):not(.ant-input-number-affix-wrapper-borderless).ant-input-number-affix-wrapper:focus, .ant-input-number-affix-wrapper-status-error:not(.ant-input-number-affix-wrapper-disabled):not(.ant-input-number-affix-wrapper-borderless).ant-input-number-affix-wrapper-focused {
+  border-color: var(--color-error-solid-400);
+  box-shadow: 0 0 0 2px var(--color-error-alpha-24);
+}
+
+.ant-input-number-affix-wrapper-status-error .ant-input-number-prefix {
+  color: var(--general-destructive);
+}
+
+.ant-input-number-affix-wrapper-status-warning:not(.ant-input-number-affix-wrapper-disabled):not(.ant-input-number-affix-wrapper-borderless).ant-input-number-affix-wrapper, .ant-input-number-affix-wrapper-status-warning:not(.ant-input-number-affix-wrapper-disabled):not(.ant-input-number-affix-wrapper-borderless).ant-input-number-affix-wrapper:hover {
+  background: var(--general-background);
+  border-color: var(--general-warning);
+}
+
+.ant-input-number-affix-wrapper-status-warning:not(.ant-input-number-affix-wrapper-disabled):not(.ant-input-number-affix-wrapper-borderless).ant-input-number-affix-wrapper:focus, .ant-input-number-affix-wrapper-status-warning:not(.ant-input-number-affix-wrapper-disabled):not(.ant-input-number-affix-wrapper-borderless).ant-input-number-affix-wrapper-focused {
+  border-color: var(--color-warning-solid-400);
+  box-shadow: 0 0 0 2px var(--color-warning-alpha-24);
+}
+
+.ant-input-number-affix-wrapper-status-warning .ant-input-number-prefix {
+  color: var(--general-warning);
+}
+
+.ant-input-number-group-wrapper-status-error .ant-input-number-group-addon {
+  color: var(--general-destructive);
+  border-color: var(--general-destructive);
+}
+
+.ant-input-number-group-wrapper-status-warning .ant-input-number-group-addon {
+  color: var(--general-warning);
+  border-color: var(--general-warning);
+}
+
+.ant-input-number {
+  color: var(--general-foreground);
+  background-color: var(--general-background);
+  border: 1px solid var(--general-border);
+}
+
+.ant-input-number::placeholder {
+  color: var(--color-neutral-solid-300);
+}
+
+.ant-input-number:hover {
+  border-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-input-number:focus, .ant-input-number-focused {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+}
+
+.ant-input-number-disabled {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-input-number-disabled:hover {
+  border-color: var(--general-border);
+}
+
+.ant-input-number[disabled] {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-input-number[disabled]:hover {
+  border-color: var(--general-border);
+}
+
+.ant-input-number.ant-input-number-borderless, .ant-input-number.ant-input-number-borderless:hover, .ant-input-number.ant-input-number-borderless:focus, .ant-input-number.ant-input-number-borderless.ant-input-number-focused, .ant-input-number.ant-input-number-borderless.ant-input-number-disabled, .ant-input-number.ant-input-number-borderless.ant-input-number[disabled] {
+  background-color: transparent;
+  border: none;
+}
+
+.ant-input-number.ant-input-number-filled {
+  background-color: var(--general-elevated);
+  border-color: transparent;
+}
+
+.ant-input-number.ant-input-number-filled:hover {
+  background-color: var(--general-muted);
+}
+
+.ant-input-number.ant-input-number-filled:focus, .ant-input-number.ant-input-number-filled.ant-input-number-focused {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+  background-color: transparent;
+}
+
+.ant-input-number.ant-input-number-filled.ant-input-number-disabled, .ant-input-number.ant-input-number-filled.ant-input-number[disabled] {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-input-number.ant-input-number-filled.ant-input-number-disabled:hover, .ant-input-number.ant-input-number-filled.ant-input-number[disabled]:hover {
+  border-color: var(--general-border);
+}
+
+.ant-input-number.ant-input-number-underlined, .ant-input-number.ant-input-number-underlined:hover, .ant-input-number.ant-input-number-underlined:focus, .ant-input-number.ant-input-number-underlined.ant-input-number-focused, .ant-input-number.ant-input-number-underlined.ant-input-number-disabled, .ant-input-number.ant-input-number-underlined.ant-input-number[disabled] {
+  background-color: transparent;
+}
+
+.ant-input-number.ant-input-number-underlined:hover:not(.ant-input-number-focused):not(:focus) {
+  border-color: var(--general-border);
+}
+
+.ant-input-number-group {
+  color: var(--general-foreground);
+}
+
+.ant-input-number-group-addon {
+  color: var(--general-foreground);
+  background-color: var(--general-unofficial-accent-0);
+  border: 1px solid var(--general-border);
+}
+
+.ant-input-number-group-addon .ant-select.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  background-color: inherit;
+  border: 1px solid transparent;
+}
+
+.ant-input-number-group-addon .ant-select-open .ant-select-selector, .ant-input-number-group-addon .ant-select-focused .ant-select-selector {
+  color: var(--general-primary);
+}
+
+.ant-input-number-group-addon .ant-cascader-picker {
+  background-color: transparent;
+}
+
+.ant-input-number-group-rtl .ant-input-number-group-addon:first-child {
+  border-right: 1px solid var(--general-border);
+}
+
+.ant-input-number-group-rtl .ant-input-number-group-addon:last-child {
+  border-left: 1px solid var(--general-border);
+}
+
+.ant-input-number-group-rtl .ant-input-number-group-addon:first-child {
+  border-right: 1px solid var(--general-border);
+}
+
+.ant-input-number-group-rtl .ant-input-number-group-addon:last-child {
+  border-left: 1px solid var(--general-border);
+}
+
+.ant-input-number-handler {
+  color: var(--general-muted-foreground);
+  border-left: 1px solid var(--general-border);
+}
+
+.ant-input-number-handler:active {
+  background: var(--general-elevated);
+}
+
+.ant-input-number-handler:hover .ant-input-number-handler-up-inner, .ant-input-number-handler:hover .ant-input-number-handler-down-inner {
+  color: var(--general-unofficial-primary-hover);
+}
+
+.ant-input-number-handler-up-inner, .ant-input-number-handler-down-inner {
+  color: inherit;
+  color: var(--general-muted-foreground);
+}
+
+.ant-input-number-focused {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+}
+
+.ant-input-number-disabled {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-input-number-disabled:hover {
+  border-color: var(--general-border);
+}
+
+.ant-input-number-input::placeholder {
+  color: var(--color-neutral-solid-300);
+}
+
+.ant-input-number-handler-wrap {
+  background: var(--general-background);
+}
+
+.ant-input-number-handler-down,
+.ant-input-number:hover:not(.ant-input-number-borderless) .ant-input-number-handler-down, .ant-input-number-focused:not(.ant-input-number-borderless) .ant-input-number-handler-down {
+  border-top: 1px solid var(--general-border);
+}
+
+.ant-input-number-handler-up-disabled:hover .ant-input-number-handler-up-inner, .ant-input-number-handler-down-disabled:hover .ant-input-number-handler-down-inner {
+  color: var(--general-icon-muted);
+}
+
+.ant-input-number-out-of-range input {
+  color: var(--general-destructive);
+}
+
+.ant-input-number-rtl .ant-input-number-handler {
+  border-right: 1px solid var(--general-border);
+}
+
+/* ---- select ---- */
+.ant-select-single.ant-select.ant-select-open .ant-select-selection-item,
+.ant-select-single.ant-select-sm.ant-select-open .ant-select-selection-item,
+.ant-select-single.ant-select-lg.ant-select-open .ant-select-selection-item {
+  color: var(--color-neutral-solid-300);
+}
+
+.ant-select-multiple.ant-select .ant-select-selection-item {
+  background: var(--general-elevated);
+  border: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-select-disabled.ant-select-multiple.ant-select .ant-select-selection-item {
+  color: var(--color-neutral-solid-300);
+  border-color: var(--general-border);
+}
+
+.ant-select-multiple.ant-select .ant-select-selection-item-remove {
+  color: inherit;
+  color: var(--general-muted-foreground);
+}
+
+.ant-select-multiple.ant-select .ant-select-selection-item-remove:hover {
+  color: var(--general-unofficial-foreground-alt);
+}
+
+.ant-select-disabled.ant-select-multiple.ant-select .ant-select-selector {
+  background: var(--general-elevated);
+}
+
+.ant-select-multiple.ant-select-sm .ant-select-selection-item {
+  background: var(--general-elevated);
+  border: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-select-disabled.ant-select-multiple.ant-select-sm .ant-select-selection-item {
+  color: var(--color-neutral-solid-300);
+  border-color: var(--general-border);
+}
+
+.ant-select-multiple.ant-select-sm .ant-select-selection-item-remove {
+  color: inherit;
+  color: var(--general-muted-foreground);
+}
+
+.ant-select-multiple.ant-select-sm .ant-select-selection-item-remove:hover {
+  color: var(--general-unofficial-foreground-alt);
+}
+
+.ant-select-disabled.ant-select-multiple.ant-select-sm .ant-select-selector {
+  background: var(--general-elevated);
+}
+
+.ant-select-multiple.ant-select-lg .ant-select-selection-item {
+  background: var(--general-elevated);
+  border: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-select-disabled.ant-select-multiple.ant-select-lg .ant-select-selection-item {
+  color: var(--color-neutral-solid-300);
+  border-color: var(--general-border);
+}
+
+.ant-select-multiple.ant-select-lg .ant-select-selection-item-remove {
+  color: inherit;
+  color: var(--general-muted-foreground);
+}
+
+.ant-select-multiple.ant-select-lg .ant-select-selection-item-remove:hover {
+  color: var(--general-unofficial-foreground-alt);
+}
+
+.ant-select-disabled.ant-select-multiple.ant-select-lg .ant-select-selector {
+  background: var(--general-elevated);
+}
+
+.ant-select-status-error.ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer) .ant-select-selector {
+  background-color: var(--general-background);
+  border-color: var(--general-destructive) !important;
+}
+
+.ant-select-status-error.ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer).ant-select-open .ant-select-selector, .ant-select-status-error.ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer).ant-select-focused .ant-select-selector {
+  border-color: var(--color-error-solid-400);
+  box-shadow: 0 0 0 2px var(--color-error-alpha-24);
+}
+
+.ant-select-status-warning.ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer) .ant-select-selector {
+  background-color: var(--general-background);
+  border-color: var(--general-warning) !important;
+}
+
+.ant-select-status-warning.ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer).ant-select-open .ant-select-selector, .ant-select-status-warning.ant-select:not(.ant-select-disabled):not(.ant-select-customize-input):not(.ant-pagination-size-changer).ant-select-focused .ant-select-selector {
+  border-color: var(--color-warning-solid-400);
+  box-shadow: 0 0 0 2px var(--color-warning-alpha-24);
+}
+
+.ant-select {
+  color: var(--general-foreground);
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  background-color: var(--general-background);
+  border: 1px solid var(--general-border);
+}
+
+.ant-select-disabled.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  color: var(--general-icon-muted);
+  background: var(--general-elevated);
+}
+
+.ant-select-multiple.ant-select-disabled.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  background: var(--general-elevated);
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector .ant-select-selection-search-input {
+  background: transparent;
+  border: none;
+}
+
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-select:not(.ant-select-disabled).ant-select-focused .ant-select-selector {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+}
+
+.ant-select-selection-placeholder {
+  color: var(--color-neutral-solid-300);
+}
+
+.ant-select-arrow {
+  color: inherit;
+  color: var(--general-icon-muted);
+}
+
+.ant-select-clear {
+  color: var(--general-icon-muted);
+  background: var(--general-background);
+}
+
+.ant-select-clear:hover {
+  color: var(--general-muted-foreground);
+}
+
+.ant-select-dropdown {
+  color: var(--general-foreground);
+  background-color: var(--general-background);
+}
+
+.ant-select-dropdown-empty {
+  color: var(--general-icon-muted);
+}
+
+.ant-select-item-empty {
+  color: var(--general-foreground);
+  color: var(--general-icon-muted);
+}
+
+.ant-select-item {
+  color: var(--general-foreground);
+}
+
+.ant-select-item-group {
+  color: var(--general-muted-foreground);
+}
+
+.ant-select-item-option-active:not(.ant-select-item-option-disabled) {
+  background-color: var(--general-elevated);
+}
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  color: var(--general-foreground);
+  background-color: var(--general-selected);
+}
+
+.ant-select-item-option-selected:not(.ant-select-item-option-disabled) .ant-select-item-option-state {
+  color: var(--general-primary);
+}
+
+.ant-select-item-option-disabled {
+  color: var(--general-icon-muted);
+}
+
+.ant-select-item-option-disabled.ant-select-item-option-selected {
+  background-color: var(--general-elevated);
+}
+
+.ant-select.ant-select-borderless .ant-select-selector, .ant-select.ant-select-borderless:hover .ant-select-selector, .ant-select.ant-select-borderless:focus .ant-select-selector, .ant-select.ant-select-borderless.ant-select-focused .ant-select-selector, .ant-select.ant-select-borderless.ant-select-disabled .ant-select-selector, .ant-select.ant-select-borderless.ant-select[disabled] .ant-select-selector {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.ant-select.ant-select-filled .ant-select-selector {
+  background-color: var(--general-elevated);
+  border-color: transparent;
+}
+
+.ant-select.ant-select-filled:hover .ant-select-selector {
+  background-color: var(--general-muted);
+  border-color: transparent;
+}
+
+.ant-select.ant-select-filled:focus .ant-select-selector, .ant-select.ant-select-filled.ant-select-focused .ant-select-selector {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+  background-color: transparent;
+}
+
+.ant-select.ant-select-filled.ant-select-disabled .ant-select-selector, .ant-select.ant-select-filled.ant-select[disabled] .ant-select-selector {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-select.ant-select-filled.ant-select-disabled .ant-select-selector:hover, .ant-select.ant-select-filled.ant-select[disabled] .ant-select-selector:hover {
+  border-color: var(--general-border);
+}
+
+.ant-select.ant-select-underlined .ant-select-selector, .ant-select.ant-select-underlined:hover .ant-select-selector, .ant-select.ant-select-underlined:focus .ant-select-selector, .ant-select.ant-select-underlined.ant-select-focused .ant-select-selector, .ant-select.ant-select-underlined.ant-select-disabled .ant-select-selector, .ant-select.ant-select-underlined.ant-select[disabled] .ant-select-selector {
+  background-color: transparent;
+}
+
+.ant-select.ant-select-underlined:hover:not(.ant-select-focused):not(:focus) .ant-select-selector {
+  border-color: var(--general-border);
+}
+
+.ant-select-auto-complete,
+.ant-select-tree-checkbox {
+  color: var(--general-foreground);
+}
+
+.ant-select-tree-checkbox-wrapper:hover .ant-select-tree-checkbox-inner, .ant-select-tree-checkbox:hover .ant-select-tree-checkbox-inner, .ant-select-tree-checkbox-input:focus + .ant-select-tree-checkbox-inner {
+  border-color: var(--general-primary);
+}
+
+.ant-select-tree-checkbox-checked::after {
+  border: 1px solid var(--general-primary);
+}
+
+.ant-select-tree-checkbox-inner {
+  background-color: var(--general-input);
+  border: 1px solid var(--general-unofficial-border-3);
+  border-radius: var(--rounded-4, 4px);
+  box-shadow: var(--shadow-xs);
+}
+
+.ant-select-tree-checkbox-inner::after,
+.ant-select-tree-checkbox-checked .ant-select-tree-checkbox-inner::after {
+  border-color: var(--general-background);
+}
+
+.ant-select-tree-checkbox-checked .ant-select-tree-checkbox-inner {
+  background-color: var(--general-primary);
+  border-color: var(--general-primary);
+  box-shadow: none;
+}
+
+.ant-select-tree-checkbox-disabled.ant-select-tree-checkbox-checked .ant-select-tree-checkbox-inner::after {
+  border-color: var(--general-border);
+}
+
+.ant-select-tree-checkbox-disabled .ant-select-tree-checkbox-inner {
+  background-color: var(--general-elevated);
+  border-color: var(--general-border) !important;
+}
+
+.ant-select-tree-checkbox-disabled .ant-select-tree-checkbox-inner::after {
+  border-color: var(--general-unofficial-border-1);
+}
+
+.ant-select-tree-checkbox-disabled + span {
+  color: var(--general-icon-muted);
+}
+
+.ant-select-tree-checkbox-wrapper,
+.ant-select-tree-checkbox-group {
+  color: var(--general-foreground);
+}
+
+.ant-select-tree-checkbox-indeterminate .ant-select-tree-checkbox-inner {
+  background-color: var(--general-input);
+  border-color: var(--general-unofficial-border-3);
+}
+
+.ant-select-tree-checkbox-indeterminate .ant-select-tree-checkbox-inner::after {
+  background-color: var(--general-primary);
+  border: 0;
+}
+
+.ant-select-tree-checkbox-indeterminate.ant-select-tree-checkbox-disabled .ant-select-tree-checkbox-inner::after {
+  background-color: var(--general-unofficial-accent-3);
+  border-color: var(--general-border);
+}
+
+.ant-select-tree {
+  color: var(--general-foreground);
+  background: var(--general-background);
+}
+
+.ant-select-tree-focused:not(:hover):not(.ant-select-tree-active-focused) {
+  background: var(--general-selected);
+}
+
+.ant-select-tree .ant-select-tree-treenode-disabled .ant-select-tree-node-content-wrapper {
+  color: var(--general-icon-muted);
+}
+
+.ant-select-tree .ant-select-tree-treenode-disabled .ant-select-tree-node-content-wrapper:hover {
+  background: transparent;
+}
+
+.ant-select-tree .ant-select-tree-treenode-active .ant-select-tree-node-content-wrapper {
+  background: var(--general-elevated);
+}
+
+.ant-select-tree-switcher-loading-icon {
+  color: var(--general-primary);
+}
+
+.ant-select-tree-switcher-leaf-line::before {
+  border-right: 1px solid var(--general-border);
+}
+
+.ant-select-tree-switcher-leaf-line::after {
+  border-bottom: 1px solid var(--general-border);
+}
+
+.ant-select-tree .ant-select-tree-node-content-wrapper {
+  color: inherit;
+  background: transparent;
+}
+
+.ant-select-tree .ant-select-tree-node-content-wrapper:hover {
+  background-color: var(--general-elevated);
+}
+
+.ant-select-tree .ant-select-tree-node-content-wrapper.ant-select-tree-node-selected {
+  background-color: var(--color-primary-solid-100);
+}
+
+.ant-select-tree-unselectable .ant-select-tree-node-content-wrapper:hover {
+  background-color: transparent;
+}
+
+.ant-select-tree-node-content-wrapper .ant-tree-drop-indicator {
+  background-color: var(--general-primary);
+}
+
+.ant-select-tree-node-content-wrapper .ant-tree-drop-indicator::after {
+  background-color: transparent;
+  border: 2px solid var(--general-primary);
+}
+
+.ant-select-tree-show-line .ant-select-tree-indent-unit::before {
+  border-right: 1px solid var(--general-border);
+}
+
+.ant-select-tree-show-line .ant-select-tree-switcher {
+  background: var(--general-background);
+}
+
+/* ---- picker ---- */
+.ant-picker-status-error.ant-picker, .ant-picker-status-error.ant-picker:not(.ant-picker-disabled):hover {
+  background-color: var(--general-background);
+  border-color: var(--general-destructive);
+}
+
+.ant-picker-status-error.ant-picker-focused, .ant-picker-status-error.ant-picker:focus {
+  border-color: var(--color-error-solid-400);
+  box-shadow: 0 0 0 2px var(--color-error-alpha-24);
+}
+
+.ant-picker-status-error.ant-picker .ant-picker-active-bar {
+  background: var(--color-error-solid-400);
+}
+
+.ant-picker-status-warning.ant-picker, .ant-picker-status-warning.ant-picker:not(.ant-picker-disabled):hover {
+  background-color: var(--general-background);
+  border-color: var(--general-warning);
+}
+
+.ant-picker-status-warning.ant-picker-focused, .ant-picker-status-warning.ant-picker:focus {
+  border-color: var(--color-warning-solid-400);
+  box-shadow: 0 0 0 2px var(--color-warning-alpha-24);
+}
+
+.ant-picker-status-warning.ant-picker .ant-picker-active-bar {
+  background: var(--color-warning-solid-400);
+}
+
+.ant-picker {
+  color: var(--general-foreground);
+  background: var(--general-background);
+  border: 1px solid var(--general-border);
+}
+
+.ant-picker:hover, .ant-picker-focused {
+  border-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-picker-focused {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+}
+
+.ant-picker.ant-picker-disabled {
+  background: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-picker.ant-picker-disabled .ant-picker-suffix {
+  color: var(--general-icon-muted);
+}
+
+.ant-picker.ant-picker-borderless {
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.ant-picker.ant-picker-filled {
+  background-color: var(--general-elevated);
+  border-color: transparent;
+}
+
+.ant-picker.ant-picker-filled:hover {
+  background-color: var(--general-muted);
+  border-color: transparent;
+}
+
+.ant-picker.ant-picker-filled:focus, .ant-picker.ant-picker-filled.ant-picker-focused {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+  background-color: transparent;
+}
+
+.ant-picker.ant-picker-filled.ant-picker-disabled, .ant-picker.ant-picker-filled.ant-picker[disabled] {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-picker.ant-picker-filled.ant-picker-disabled:hover, .ant-picker.ant-picker-filled.ant-picker[disabled]:hover {
+  border-color: var(--general-border);
+}
+
+.ant-picker.ant-picker-underlined, .ant-picker.ant-picker-underlined:hover, .ant-picker.ant-picker-underlined:focus, .ant-picker.ant-picker-underlined.ant-picker-focused, .ant-picker.ant-picker-underlined.ant-picker-disabled, .ant-picker.ant-picker-underlined.ant-picker[disabled] {
+  background-color: transparent;
+}
+
+.ant-picker.ant-picker-underlined:hover:not(.ant-picker-focused):not(:focus) {
+  border-color: var(--general-border);
+}
+
+.ant-picker-input > input {
+  color: var(--general-foreground);
+  background-color: var(--general-background);
+  border: 1px solid var(--general-border);
+  background: transparent;
+  border: 0;
+}
+
+.ant-picker-input > input::placeholder {
+  color: var(--color-neutral-solid-300);
+}
+
+.ant-picker-input > input:hover {
+  border-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-picker-input > input:focus, .ant-picker-input > input-focused {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+}
+
+.ant-picker-input > input-disabled {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-picker-input > input-disabled:hover {
+  border-color: var(--general-border);
+}
+
+.ant-picker-input > input[disabled] {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-picker-input > input[disabled]:hover {
+  border-color: var(--general-border);
+}
+
+.ant-picker-input > input.ant-picker-input > input-borderless, .ant-picker-input > input.ant-picker-input > input-borderless:hover, .ant-picker-input > input.ant-picker-input > input-borderless:focus, .ant-picker-input > input.ant-picker-input > input-borderless.ant-picker-input > input-focused, .ant-picker-input > input.ant-picker-input > input-borderless.ant-picker-input > input-disabled, .ant-picker-input > input.ant-picker-input > input-borderless.ant-picker-input > input[disabled] {
+  background-color: transparent;
+  border: none;
+}
+
+.ant-picker-input > input.ant-picker-input > input-filled {
+  background-color: var(--general-elevated);
+  border-color: transparent;
+}
+
+.ant-picker-input > input.ant-picker-input > input-filled:hover {
+  background-color: var(--general-muted);
+}
+
+.ant-picker-input > input.ant-picker-input > input-filled:focus, .ant-picker-input > input.ant-picker-input > input-filled.ant-picker-input > input-focused {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+  background-color: transparent;
+}
+
+.ant-picker-input > input.ant-picker-input > input-filled.ant-picker-input > input-disabled, .ant-picker-input > input.ant-picker-input > input-filled.ant-picker-input > input[disabled] {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-picker-input > input.ant-picker-input > input-filled.ant-picker-input > input-disabled:hover, .ant-picker-input > input.ant-picker-input > input-filled.ant-picker-input > input[disabled]:hover {
+  border-color: var(--general-border);
+}
+
+.ant-picker-input > input.ant-picker-input > input-underlined:hover:not(.ant-picker-input > input-focused):not(:focus) {
+  border-color: var(--general-border);
+}
+
+.ant-picker-input > input[disabled] {
+  background: transparent;
+}
+
+.ant-picker-input-placeholder > input {
+  color: var(--color-neutral-solid-300);
+}
+
+.ant-picker-suffix {
+  color: var(--general-icon-muted);
+}
+
+.ant-picker-clear {
+  color: var(--general-icon-muted);
+  background: var(--general-background);
+}
+
+.ant-picker-clear:hover {
+  color: var(--general-muted-foreground);
+}
+
+.ant-picker-separator {
+  color: var(--general-icon-muted);
+}
+
+.ant-picker-focused .ant-picker-separator {
+  color: var(--general-muted-foreground);
+}
+
+.ant-picker-range .ant-picker-active-bar {
+  background: var(--general-primary);
+}
+
+.ant-picker-dropdown {
+  color: var(--general-foreground);
+}
+
+.ant-picker-ranges .ant-picker-preset > .ant-tag-blue {
+  color: var(--general-primary);
+  background: var(--general-selected);
+  border-color: var(--color-primary-solid-300);
+}
+
+.ant-picker-range-arrow::before {
+  background: var(--antd-arrow-background-color);
+}
+
+.ant-picker-range-arrow::after {
+  background: transparent;
+}
+
+.ant-picker-panel-container {
+  background: var(--general-background);
+}
+
+.ant-picker-panel-container .ant-picker-panel {
+  background: transparent;
+  border: none;
+}
+
+.ant-picker-panel {
+  background: var(--general-background);
+  border: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-picker-panel-focused {
+  border-color: var(--general-primary);
+}
+
+.ant-picker-header {
+  color: var(--general-foreground);
+  border-bottom: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-picker-header button {
+  color: var(--general-icon-muted);
+  background: transparent;
+  border: 0;
+}
+
+.ant-picker-header > button:hover {
+  color: var(--general-foreground);
+}
+
+.ant-picker-header-view button {
+  color: inherit;
+}
+
+.ant-picker-header-view button:hover {
+  color: var(--general-primary);
+}
+
+.ant-picker-prev-icon::before, .ant-picker-next-icon::before, .ant-picker-super-prev-icon::before, .ant-picker-super-next-icon::before,
+.ant-picker-super-prev-icon::after, .ant-picker-super-next-icon::after {
+  border: 0 solid currentcolor;
+}
+
+.ant-picker-content th {
+  color: var(--general-foreground);
+}
+
+.ant-picker-cell {
+  color: var(--general-icon-muted);
+}
+
+.ant-picker-cell-in-view {
+  color: var(--general-foreground);
+}
+
+.ant-picker-cell:hover:not(.ant-picker-cell-in-view) .ant-picker-cell-inner, .ant-picker-cell:hover:not(.ant-picker-cell-selected):not(.ant-picker-cell-range-start):not(.ant-picker-cell-range-end):not(.ant-picker-cell-range-hover-start):not(.ant-picker-cell-range-hover-end) .ant-picker-cell-inner {
+  background: var(--general-elevated);
+}
+
+.ant-picker-cell-in-view.ant-picker-cell-today .ant-picker-cell-inner::before {
+  border: 1px solid var(--general-primary);
+}
+
+.ant-picker-cell-in-view.ant-picker-cell-in-range::before {
+  background: var(--general-selected);
+}
+
+.ant-picker-cell-in-view.ant-picker-cell-selected .ant-picker-cell-inner, .ant-picker-cell-in-view.ant-picker-cell-range-start .ant-picker-cell-inner, .ant-picker-cell-in-view.ant-picker-cell-range-end .ant-picker-cell-inner {
+  color: var(--color-primitives-base-white);
+  background: var(--general-primary);
+}
+
+.ant-picker-cell-in-view.ant-picker-cell-range-start:not(.ant-picker-cell-range-start-single)::before, .ant-picker-cell-in-view.ant-picker-cell-range-end:not(.ant-picker-cell-range-end-single)::before {
+  background: var(--general-selected);
+}
+
+.ant-picker-cell-in-view.ant-picker-cell-range-hover-start:not(.ant-picker-cell-in-range):not(.ant-picker-cell-range-start):not(.ant-picker-cell-range-end)::after, .ant-picker-cell-in-view.ant-picker-cell-range-hover-end:not(.ant-picker-cell-in-range):not(.ant-picker-cell-range-start):not(.ant-picker-cell-range-end)::after, .ant-picker-cell-in-view.ant-picker-cell-range-hover-start.ant-picker-cell-range-start-single::after, .ant-picker-cell-in-view.ant-picker-cell-range-hover-start.ant-picker-cell-range-start.ant-picker-cell-range-end.ant-picker-cell-range-end-near-hover::after, .ant-picker-cell-in-view.ant-picker-cell-range-hover-end.ant-picker-cell-range-start.ant-picker-cell-range-end.ant-picker-cell-range-start-near-hover::after, .ant-picker-cell-in-view.ant-picker-cell-range-hover-end.ant-picker-cell-range-end-single::after, .ant-picker-cell-in-view.ant-picker-cell-range-hover:not(.ant-picker-cell-in-range)::after {
+  border-top: 1px dashed var(--focus-ring);
+  border-bottom: 1px dashed var(--focus-ring);
+}
+
+.ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover::before, .ant-picker-cell-in-view.ant-picker-cell-range-start.ant-picker-cell-range-hover::before, .ant-picker-cell-in-view.ant-picker-cell-range-end.ant-picker-cell-range-hover::before, .ant-picker-cell-in-view.ant-picker-cell-range-start:not(.ant-picker-cell-range-start-single).ant-picker-cell-range-hover-start::before, .ant-picker-cell-in-view.ant-picker-cell-range-end:not(.ant-picker-cell-range-end-single).ant-picker-cell-range-hover-end::before, .ant-picker-panel > :not(.ant-picker-date-panel) .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-start::before, .ant-picker-panel > :not(.ant-picker-date-panel) .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-end::before,
+.ant-picker-date-panel .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-start .ant-picker-cell-inner::after, .ant-picker-date-panel .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-end .ant-picker-cell-inner::after {
+  background: var(--color-primary-solid-100);
+}
+
+tr > .ant-picker-cell-in-view.ant-picker-cell-range-hover:first-child::after, tr > .ant-picker-cell-in-view.ant-picker-cell-range-hover-end:first-child::after, .ant-picker-cell-in-view.ant-picker-cell-start.ant-picker-cell-range-hover-edge-start.ant-picker-cell-range-hover-edge-start-near-range::after, .ant-picker-cell-in-view.ant-picker-cell-range-hover-edge-start:not(.ant-picker-cell-range-hover-edge-start-near-range)::after, .ant-picker-cell-in-view.ant-picker-cell-range-hover-start::after {
+  border-left: 1px dashed var(--focus-ring);
+}
+
+tr > .ant-picker-cell-in-view.ant-picker-cell-range-hover:last-child::after, tr > .ant-picker-cell-in-view.ant-picker-cell-range-hover-start:last-child::after, .ant-picker-cell-in-view.ant-picker-cell-end.ant-picker-cell-range-hover-edge-end.ant-picker-cell-range-hover-edge-end-near-range::after, .ant-picker-cell-in-view.ant-picker-cell-range-hover-edge-end:not(.ant-picker-cell-range-hover-edge-end-near-range)::after, .ant-picker-cell-in-view.ant-picker-cell-range-hover-end::after {
+  border-right: 1px dashed var(--focus-ring);
+}
+
+.ant-picker-cell-disabled {
+  color: var(--general-icon-muted);
+}
+
+.ant-picker-cell-disabled .ant-picker-cell-inner {
+  background: transparent;
+}
+
+.ant-picker-cell-disabled::before {
+  background: var(--general-unofficial-ghost-hover);
+}
+
+.ant-picker-cell-disabled.ant-picker-cell-today .ant-picker-cell-inner::before {
+  border-color: var(--general-border);
+}
+
+.ant-picker-panel .ant-picker-footer {
+  border-top: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-picker-footer-extra:not(:last-child) {
+  border-bottom: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-picker-today-btn {
+  color: var(--general-primary);
+}
+
+.ant-picker-today-btn:hover {
+  color: var(--general-unofficial-primary-hover);
+}
+
+.ant-picker-today-btn:active {
+  color: var(--general-primary-active);
+}
+
+.ant-picker-today-btn.ant-picker-today-btn-disabled {
+  color: var(--general-icon-muted);
+}
+
+.ant-picker-year-panel .ant-picker-cell-range-hover-start::after, .ant-picker-quarter-panel .ant-picker-cell-range-hover-start::after, .ant-picker-month-panel .ant-picker-cell-range-hover-start::after {
+  border-left: 1px dashed var(--focus-ring);
+}
+
+.ant-picker-panel-rtl .ant-picker-year-panel .ant-picker-cell-range-hover-start::after, .ant-picker-panel-rtl .ant-picker-quarter-panel .ant-picker-cell-range-hover-start::after, .ant-picker-panel-rtl .ant-picker-month-panel .ant-picker-cell-range-hover-start::after,
+.ant-picker-year-panel .ant-picker-cell-range-hover-end::after, .ant-picker-quarter-panel .ant-picker-cell-range-hover-end::after, .ant-picker-month-panel .ant-picker-cell-range-hover-end::after {
+  border-right: 1px dashed var(--focus-ring);
+}
+
+.ant-picker-panel-rtl .ant-picker-year-panel .ant-picker-cell-range-hover-end::after, .ant-picker-panel-rtl .ant-picker-quarter-panel .ant-picker-cell-range-hover-end::after, .ant-picker-panel-rtl .ant-picker-month-panel .ant-picker-cell-range-hover-end::after {
+  border-left: 1px dashed var(--focus-ring);
+}
+
+.ant-picker-week-panel .ant-picker-cell:hover .ant-picker-cell-inner, .ant-picker-week-panel .ant-picker-cell-selected .ant-picker-cell-inner, .ant-picker-week-panel .ant-picker-cell .ant-picker-cell-inner {
+  background: transparent !important;
+}
+
+.ant-picker-week-panel-row:hover td {
+  background: var(--general-elevated);
+}
+
+.ant-picker-week-panel-row-selected td, .ant-picker-week-panel-row-selected:hover td {
+  background: var(--general-primary);
+}
+
+.ant-picker-week-panel-row-selected td.ant-picker-cell-today .ant-picker-cell-inner::before, .ant-picker-week-panel-row-selected:hover td.ant-picker-cell-today .ant-picker-cell-inner::before {
+  border-color: var(--general-background);
+}
+
+.ant-picker-week-panel-row-selected td .ant-picker-cell-inner, .ant-picker-week-panel-row-selected:hover td .ant-picker-cell-inner {
+  color: var(--color-primitives-base-white);
+}
+
+.ant-picker-datetime-panel .ant-picker-time-panel,
+.ant-picker-time-panel-column:not(:first-child) {
+  border-left: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-picker-time-panel-column > li.ant-picker-time-panel-cell .ant-picker-time-panel-cell-inner {
+  color: var(--general-foreground);
+}
+
+.ant-picker-time-panel-column > li.ant-picker-time-panel-cell .ant-picker-time-panel-cell-inner:hover {
+  background: var(--general-elevated);
+}
+
+.ant-picker-time-panel-column > li.ant-picker-time-panel-cell-selected .ant-picker-time-panel-cell-inner {
+  background: var(--general-selected);
+}
+
+.ant-picker-time-panel-column > li.ant-picker-time-panel-cell-disabled .ant-picker-time-panel-cell-inner {
+  color: var(--general-icon-muted);
+  background: transparent;
+}
+
+.ant-picker-panel-rtl tr > .ant-picker-cell-in-view.ant-picker-cell-range-hover:not(.ant-picker-cell-selected):first-child::after, .ant-picker-panel-rtl .ant-picker-cell-in-view.ant-picker-cell-start.ant-picker-cell-range-hover-edge-start.ant-picker-cell-range-hover-edge-start-near-range::after, .ant-picker-panel-rtl .ant-picker-cell-in-view.ant-picker-cell-range-hover-edge-start:not(.ant-picker-cell-range-hover-edge-start-near-range)::after, .ant-picker-panel-rtl .ant-picker-cell-in-view.ant-picker-cell-range-hover-start::after {
+  border-right: 1px dashed var(--focus-ring);
+}
+
+.ant-picker-panel-rtl tr > .ant-picker-cell-in-view.ant-picker-cell-range-hover:not(.ant-picker-cell-selected):last-child::after, .ant-picker-panel-rtl .ant-picker-cell-in-view.ant-picker-cell-end.ant-picker-cell-range-hover-edge-end.ant-picker-cell-range-hover-edge-end-near-range::after, .ant-picker-panel-rtl .ant-picker-cell-in-view.ant-picker-cell-range-hover-edge-end:not(.ant-picker-cell-range-hover-edge-end-near-range)::after, .ant-picker-panel-rtl .ant-picker-cell-in-view.ant-picker-cell-range-hover-end::after {
+  border-left: 1px dashed var(--focus-ring);
+}
+
+.ant-picker-panel-rtl tr > .ant-picker-cell-in-view.ant-picker-cell-range-hover-start:last-child::after, .ant-picker-panel-rtl tr > .ant-picker-cell-in-view.ant-picker-cell-range-hover-end:first-child::after, .ant-picker-panel-rtl .ant-picker-cell-in-view.ant-picker-cell-start.ant-picker-cell-range-hover-edge-start:not(.ant-picker-cell-range-hover)::after, .ant-picker-panel-rtl .ant-picker-cell-in-view.ant-picker-cell-start.ant-picker-cell-range-hover-end.ant-picker-cell-range-hover-edge-start:not(.ant-picker-cell-range-hover)::after, .ant-picker-panel-rtl .ant-picker-cell-in-view.ant-picker-cell-end.ant-picker-cell-range-hover-start.ant-picker-cell-range-hover-edge-end:not(.ant-picker-cell-range-hover)::after, .ant-picker-panel-rtl tr > .ant-picker-cell-in-view.ant-picker-cell-start.ant-picker-cell-range-hover.ant-picker-cell-range-hover-edge-start:last-child::after, .ant-picker-panel-rtl tr > .ant-picker-cell-in-view.ant-picker-cell-end.ant-picker-cell-range-hover.ant-picker-cell-range-hover-edge-end:first-child::after {
+  border-right: 1px dashed var(--focus-ring);
+  border-left: 1px dashed var(--focus-ring);
+}
+
+.ant-picker-inline {
+  border: none;
+}
+
+.ant-picker-calendar {
+  color: var(--general-foreground);
+  background: var(--general-background);
+}
+
+.ant-picker-calendar .ant-picker-panel {
+  background: var(--general-background);
+  border: 0;
+  border-top: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-picker-calendar-full .ant-picker-panel {
+  background: var(--general-background);
+  border: 0;
+}
+
+.ant-picker-calendar-full .ant-picker-panel .ant-picker-cell:hover .ant-picker-calendar-date {
+  background: var(--general-elevated);
+}
+
+.ant-picker-calendar-full .ant-picker-panel .ant-picker-cell-selected .ant-picker-calendar-date, .ant-picker-calendar-full .ant-picker-panel .ant-picker-cell-selected:hover .ant-picker-calendar-date, .ant-picker-calendar-full .ant-picker-panel .ant-picker-cell-selected .ant-picker-calendar-date-today, .ant-picker-calendar-full .ant-picker-panel .ant-picker-cell-selected:hover .ant-picker-calendar-date-today {
+  background: var(--general-selected);
+}
+
+.ant-picker-calendar-full .ant-picker-panel .ant-picker-cell-selected .ant-picker-calendar-date .ant-picker-calendar-date-value, .ant-picker-calendar-full .ant-picker-panel .ant-picker-cell-selected:hover .ant-picker-calendar-date .ant-picker-calendar-date-value, .ant-picker-calendar-full .ant-picker-panel .ant-picker-cell-selected .ant-picker-calendar-date-today .ant-picker-calendar-date-value, .ant-picker-calendar-full .ant-picker-panel .ant-picker-cell-selected:hover .ant-picker-calendar-date-today .ant-picker-calendar-date-value {
+  color: var(--general-primary);
+}
+
+.ant-picker-calendar-full .ant-picker-panel .ant-picker-calendar-date {
+  border: 0;
+  border-top: 2px solid var(--general-unofficial-border-1);
+}
+
+.ant-picker-calendar-full .ant-picker-panel .ant-picker-calendar-date-content {
+  color: var(--general-foreground);
+}
+
+.ant-picker-calendar-full .ant-picker-panel .ant-picker-calendar-date-today {
+  border-color: var(--general-primary);
+}
+
+.ant-picker-calendar-full .ant-picker-panel .ant-picker-calendar-date-today .ant-picker-calendar-date-value {
+  color: var(--general-foreground);
+}
+
+/* ---- checkbox ---- */
+.ant-checkbox {
+  color: var(--general-foreground);
+}
+
+.ant-checkbox-wrapper:hover .ant-checkbox-inner, .ant-checkbox:hover .ant-checkbox-inner, .ant-checkbox-input:focus + .ant-checkbox-inner {
+  border-color: var(--general-primary);
+}
+
+.ant-checkbox-checked::after {
+  border: 1px solid var(--general-primary);
+}
+
+.ant-checkbox-inner {
+  background-color: var(--general-input);
+  border: 1px solid var(--general-unofficial-border-3);
+  border-radius: var(--rounded-4, 4px);
+  box-shadow: var(--shadow-xs);
+}
+
+.ant-checkbox-inner::after,
+.ant-checkbox-checked .ant-checkbox-inner::after {
+  border-color: var(--general-background);
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--general-primary);
+  border-color: var(--general-primary);
+  box-shadow: none;
+}
+
+.ant-checkbox-disabled.ant-checkbox-checked .ant-checkbox-inner::after {
+  border-color: var(--general-border);
+}
+
+.ant-checkbox-disabled .ant-checkbox-inner {
+  background-color: var(--general-elevated);
+  border-color: var(--general-border) !important;
+}
+
+.ant-checkbox-disabled .ant-checkbox-inner::after {
+  border-color: var(--general-unofficial-border-1);
+}
+
+.ant-checkbox-disabled + span {
+  color: var(--general-icon-muted);
+}
+
+.ant-checkbox-wrapper,
+.ant-checkbox-group {
+  color: var(--general-foreground);
+}
+
+.ant-checkbox-indeterminate .ant-checkbox-inner {
+  background-color: var(--general-input);
+  border-color: var(--general-unofficial-border-3);
+}
+
+.ant-checkbox-indeterminate .ant-checkbox-inner::after {
+  background-color: var(--general-primary);
+  border: 0;
+}
+
+.ant-checkbox-indeterminate.ant-checkbox-disabled .ant-checkbox-inner::after {
+  background-color: var(--general-unofficial-accent-3);
+  border-color: var(--general-border);
+}
+
+/* ---- form ---- */
+.ant-form-item-explain-error {
+  color: var(--general-destructive);
+}
+
+.ant-form-item-explain-warning,
+.ant-form-item-has-warning .ant-form-item-split {
+  color: var(--general-warning);
+}
+
+.ant-form-item-has-error .ant-form-item-split {
+  color: var(--general-destructive);
+}
+
+.ant-form {
+  color: var(--general-foreground);
+}
+
+.ant-form legend {
+  color: var(--general-muted-foreground);
+  border: 0;
+  border-bottom: 1px solid var(--general-border);
+}
+
+.ant-form output,
+.ant-form-item,
+.ant-form-item-label > label {
+  color: var(--general-foreground);
+}
+
+.ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional):not(.ant-form-item-required-mark-hidden)::before {
+  color: var(--general-destructive);
+}
+
+.ant-form-item-label > label .ant-form-item-optional,
+.ant-form-item-label > label .ant-form-item-tooltip,
+.ant-form-item-explain, .ant-form-item-extra {
+  color: var(--general-muted-foreground);
+}
+
+.ant-form-item-feedback-icon-success {
+  color: var(--general-success);
+}
+
+.ant-form-item-feedback-icon-error {
+  color: var(--general-destructive);
+}
+
+.ant-form-item-feedback-icon-warning {
+  color: var(--general-warning);
+}
+
+.ant-form-item-feedback-icon-validating {
+  color: var(--general-primary);
+}
+
+/* ---- table ---- */
+.ant-table.ant-table-bordered > .ant-table-title {
+  border: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-table.ant-table-bordered > .ant-table-container {
+  border-left: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > thead > tr > th, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > thead > tr > th, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > thead > tr > th, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > thead > tr > th, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > tbody > tr > td, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > tbody > tr > td, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > tbody > tr > td, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > tbody > tr > td, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > tfoot > tr > th, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > tfoot > tr > th, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > tfoot > tr > th, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > tfoot > tr > th, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > tfoot > tr > td, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > tfoot > tr > td, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > tfoot > tr > td, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > tfoot > tr > td {
+  border-right: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > thead > tr:not(:last-child) > th, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > thead > tr:not(:last-child) > th, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > thead > tr:not(:last-child) > th, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > thead > tr:not(:last-child) > th {
+  border-bottom: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > thead > tr > th::before, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > thead > tr > th::before, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > thead > tr > th::before, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > thead > tr > th::before {
+  background-color: transparent !important;
+}
+
+.ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > thead > tr > .ant-table-cell-fix-right-first::after, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > thead > tr > .ant-table-cell-fix-right-first::after, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > thead > tr > .ant-table-cell-fix-right-first::after, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > thead > tr > .ant-table-cell-fix-right-first::after, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > tbody > tr > .ant-table-cell-fix-right-first::after, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > tbody > tr > .ant-table-cell-fix-right-first::after, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > tbody > tr > .ant-table-cell-fix-right-first::after, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > tbody > tr > .ant-table-cell-fix-right-first::after, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > tfoot > tr > .ant-table-cell-fix-right-first::after, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > tfoot > tr > .ant-table-cell-fix-right-first::after, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > tfoot > tr > .ant-table-cell-fix-right-first::after, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > tfoot > tr > .ant-table-cell-fix-right-first::after,
+.ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table > tbody > tr > td > .ant-table-expanded-row-fixed::after, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table > tbody > tr > td > .ant-table-expanded-row-fixed::after, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-body > table > tbody > tr > td > .ant-table-expanded-row-fixed::after, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-summary > table > tbody > tr > td > .ant-table-expanded-row-fixed::after {
+  border-right: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-table.ant-table-bordered > .ant-table-container > .ant-table-content > table, .ant-table.ant-table-bordered > .ant-table-container > .ant-table-header > table {
+  border-top: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-table.ant-table-bordered > .ant-table-footer {
+  border: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-table-cell-scrollbar:not([rowspan]) {
+  box-shadow: 0 1px 0 1px var(--general-unofficial-accent-0);
+}
+
+.ant-table {
+  color: var(--general-foreground);
+  background: var(--general-background);
+}
+
+.ant-table-footer {
+  color: var(--general-foreground);
+  background: var(--general-unofficial-accent-0);
+}
+
+.ant-table-thead > tr > th {
+  color: var(--general-foreground);
+  background: var(--general-unofficial-accent-0);
+  border-bottom: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-table-thead > tr > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+  background-color: var(--color-neutral-alpha-8);
+}
+
+.ant-table-tbody > tr > td {
+  border-bottom: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-table-tbody > tr.ant-table-row:hover > td, .ant-table-tbody > tr > td.ant-table-cell-row-hover {
+  background: var(--general-unofficial-accent-0);
+}
+
+.ant-table-tbody > tr.ant-table-row-selected > td {
+  background: var(--general-selected);
+  border-color: var(--color-neutral-alpha-8);
+}
+
+.ant-table-tbody > tr.ant-table-row-selected:hover > td {
+  background: var(--color-primary-solid-100);
+}
+
+.ant-table-summary {
+  background: var(--general-background);
+}
+
+div.ant-table-summary {
+  box-shadow: 0 -1px 0 var(--general-unofficial-border-1);
+}
+
+.ant-table-summary > tr > th, .ant-table-summary > tr > td {
+  border-bottom: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-table-thead th.ant-table-column-has-sorters:hover {
+  background: var(--general-unofficial-ghost-hover);
+}
+
+.ant-table-thead th.ant-table-column-has-sorters:hover::before {
+  background-color: transparent !important;
+}
+
+.ant-table-thead th.ant-table-column-has-sorters:focus-visible {
+  color: var(--general-primary);
+}
+
+.ant-table-thead th.ant-table-column-has-sorters.ant-table-cell-fix-left:hover, .ant-table-thead th.ant-table-column-has-sorters.ant-table-cell-fix-right:hover,
+.ant-table-thead th.ant-table-column-sort {
+  background: var(--general-elevated);
+}
+
+.ant-table-thead th.ant-table-column-sort::before {
+  background-color: transparent !important;
+}
+
+td.ant-table-column-sort {
+  background: var(--general-unofficial-accent-0);
+}
+
+.ant-table-column-sorter,
+.ant-table-filter-trigger {
+  color: var(--color-neutral-solid-300);
+}
+
+.ant-table-filter-trigger:hover {
+  color: var(--general-muted-foreground);
+  background: var(--general-unofficial-ghost-hover);
+}
+
+.ant-table-filter-dropdown {
+  color: var(--general-foreground);
+  background-color: var(--general-background);
+}
+
+.ant-table-filter-dropdown .ant-dropdown-menu {
+  border: 0;
+}
+
+.ant-table-filter-dropdown .ant-dropdown-menu:empty::after {
+  color: var(--general-icon-muted);
+}
+
+.ant-table-filter-dropdown-tree .ant-tree-treenode .ant-tree-node-content-wrapper:hover {
+  background-color: var(--general-elevated);
+}
+
+.ant-table-filter-dropdown-tree .ant-tree-treenode-checkbox-checked .ant-tree-node-content-wrapper, .ant-table-filter-dropdown-tree .ant-tree-treenode-checkbox-checked .ant-tree-node-content-wrapper:hover {
+  background-color: var(--color-primary-solid-100);
+}
+
+.ant-table-filter-dropdown-search {
+  border-bottom: 1px var(--general-unofficial-border-1) solid;
+}
+
+.ant-table-filter-dropdown-search-input .anticon {
+  color: var(--general-icon-muted);
+}
+
+.ant-table-filter-dropdown-btns {
+  background-color: inherit;
+  border-top: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-table-selection-extra .anticon {
+  color: var(--color-neutral-solid-300);
+}
+
+.ant-table-row-expand-icon {
+  color: var(--general-primary);
+  color: inherit;
+  background: var(--general-background);
+  border: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-table-row-expand-icon:focus-visible, .ant-table-row-expand-icon:hover {
+  color: var(--general-unofficial-primary-hover);
+}
+
+.ant-table-row-expand-icon:active {
+  color: var(--general-primary-active);
+}
+
+.ant-table-row-expand-icon::before, .ant-table-row-expand-icon::after {
+  background: currentcolor;
+}
+
+.ant-table-row-expand-icon-spaced {
+  background: transparent;
+  border: 0;
+}
+
+.ant-table-empty .ant-table-tbody > tr.ant-table-placeholder {
+  color: var(--general-icon-muted);
+}
+
+.ant-table-tbody > tr.ant-table-placeholder:hover > td,
+.ant-table-cell-fix-left, .ant-table-cell-fix-right {
+  background: var(--general-background);
+}
+
+.ant-table-sticky-holder {
+  background: var(--general-background);
+}
+
+.ant-table-sticky-scroll {
+  background: var(--general-background);
+  border-top: 1px solid var(--general-unofficial-border-1);
+}
+
+.nz-table-out-bordered > .ant-table-title,
+.nz-table-out-bordered > .ant-table-container,
+.nz-table-out-bordered > .ant-table-footer {
+  border: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-table.ant-table-bordered > .ant-table-container > .cdk-virtual-scroll-viewport > .cdk-virtual-scroll-content-wrapper > table > thead > tr > th, .ant-table.ant-table-bordered > .ant-table-container > .cdk-virtual-scroll-viewport > .cdk-virtual-scroll-content-wrapper > table > tbody > tr > td, .ant-table.ant-table-bordered > .ant-table-container > .cdk-virtual-scroll-viewport > .cdk-virtual-scroll-content-wrapper > table > tfoot > tr > th, .ant-table.ant-table-bordered > .ant-table-container > .cdk-virtual-scroll-viewport > .cdk-virtual-scroll-content-wrapper > table > tfoot > tr > td {
+  border-right: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-table.ant-table-bordered > .ant-table-container > .cdk-virtual-scroll-viewport > .cdk-virtual-scroll-content-wrapper > table > thead > tr:not(:last-child) > th {
+  border-bottom: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-table.ant-table-bordered > .ant-table-container > .cdk-virtual-scroll-viewport > .cdk-virtual-scroll-content-wrapper > table > thead > tr > .ant-table-cell-fix-right-first::after, .ant-table.ant-table-bordered > .ant-table-container > .cdk-virtual-scroll-viewport > .cdk-virtual-scroll-content-wrapper > table > tbody > tr > .ant-table-cell-fix-right-first::after, .ant-table.ant-table-bordered > .ant-table-container > .cdk-virtual-scroll-viewport > .cdk-virtual-scroll-content-wrapper > table > tfoot > tr > .ant-table-cell-fix-right-first::after,
+.ant-table.ant-table-bordered > .ant-table-container > .cdk-virtual-scroll-viewport > .cdk-virtual-scroll-content-wrapper > table > tbody > tr > td > .ant-table-expanded-row-fixed::after {
+  border-right: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-table {
+  background: var(--general-background, #ffffff);
+  border: 1px solid var(--general-unofficial-border-1, #e7e7e7);
+  box-shadow: var(--color-neutral-alpha-8) 0px 2px 8px;
+}
+
+/* ---- pagination ---- */
+.ant-pagination {
+  color: var(--general-foreground);
+}
+
+.ant-pagination-item {
+  background-color: var(--general-background);
+  border: 1px solid var(--general-border);
+}
+
+.ant-pagination-item a {
+  color: var(--general-foreground);
+}
+
+.ant-pagination-item:hover {
+  border-color: var(--general-primary);
+}
+
+.ant-pagination-item:hover a {
+  color: var(--general-primary);
+}
+
+.ant-pagination-item:focus-visible {
+  border-color: var(--general-primary);
+}
+
+.ant-pagination-item:focus-visible a {
+  color: var(--general-primary);
+}
+
+.ant-pagination-item-active {
+  background: var(--general-background);
+  border-color: var(--general-primary);
+}
+
+.ant-pagination-item-active a {
+  color: var(--general-primary);
+}
+
+.ant-pagination-item-active:hover,
+.ant-pagination-item-active:focus-visible {
+  border-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-pagination-item-active:hover a,
+.ant-pagination-item-active:focus-visible a {
+  color: var(--general-unofficial-primary-hover);
+}
+
+.ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-link-icon, .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-link-icon {
+  color: var(--general-primary);
+}
+
+.ant-pagination-jump-prev .ant-pagination-item-container .ant-pagination-item-ellipsis, .ant-pagination-jump-next .ant-pagination-item-container .ant-pagination-item-ellipsis {
+  color: var(--general-icon-muted);
+}
+
+.ant-pagination-prev, .ant-pagination-next, .ant-pagination-jump-prev, .ant-pagination-jump-next,
+.ant-pagination-prev button, .ant-pagination-next button {
+  color: var(--general-foreground);
+}
+
+.ant-pagination-prev:hover button, .ant-pagination-next:hover button {
+  border-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-pagination-prev .ant-pagination-item-link, .ant-pagination-next .ant-pagination-item-link {
+  background-color: var(--general-background);
+  border: 1px solid var(--general-border);
+}
+
+.ant-pagination-prev:focus-visible .ant-pagination-item-link, .ant-pagination-next:focus-visible .ant-pagination-item-link,
+.ant-pagination-prev:hover .ant-pagination-item-link, .ant-pagination-next:hover .ant-pagination-item-link {
+  color: var(--general-primary);
+  border-color: var(--general-primary);
+}
+
+.ant-pagination-disabled .ant-pagination-item-link, .ant-pagination-disabled:hover .ant-pagination-item-link,
+.ant-pagination-disabled:focus-visible .ant-pagination-item-link {
+  color: var(--general-icon-muted);
+  border-color: var(--general-border);
+}
+
+.ant-pagination-options-quick-jumper input {
+  color: var(--general-foreground);
+  background-color: var(--general-background);
+  border: 1px solid var(--general-border);
+}
+
+.ant-pagination-options-quick-jumper input::placeholder {
+  color: var(--color-neutral-solid-300);
+}
+
+.ant-pagination-options-quick-jumper input:hover {
+  border-color: var(--general-unofficial-primary-hover);
+}
+
+.ant-pagination-options-quick-jumper input:focus, .ant-pagination-options-quick-jumper input-focused {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+}
+
+.ant-pagination-options-quick-jumper input-disabled {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-pagination-options-quick-jumper input-disabled:hover {
+  border-color: var(--general-border);
+}
+
+.ant-pagination-options-quick-jumper input[disabled] {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-pagination-options-quick-jumper input[disabled]:hover {
+  border-color: var(--general-border);
+}
+
+.ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-borderless, .ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-borderless:hover, .ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-borderless:focus, .ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-borderless.ant-pagination-options-quick-jumper input-focused, .ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-borderless.ant-pagination-options-quick-jumper input-disabled, .ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-borderless.ant-pagination-options-quick-jumper input[disabled] {
+  background-color: transparent;
+  border: none;
+}
+
+.ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-filled {
+  background-color: var(--general-elevated);
+  border-color: transparent;
+}
+
+.ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-filled:hover {
+  background-color: var(--general-muted);
+}
+
+.ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-filled:focus, .ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-filled.ant-pagination-options-quick-jumper input-focused {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+  background-color: transparent;
+}
+
+.ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-filled.ant-pagination-options-quick-jumper input-disabled, .ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-filled.ant-pagination-options-quick-jumper input[disabled] {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-filled.ant-pagination-options-quick-jumper input-disabled:hover, .ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-filled.ant-pagination-options-quick-jumper input[disabled]:hover {
+  border-color: var(--general-border);
+}
+
+.ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-underlined, .ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-underlined:hover, .ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-underlined:focus, .ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-underlined.ant-pagination-options-quick-jumper input-focused, .ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-underlined.ant-pagination-options-quick-jumper input-disabled, .ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-underlined.ant-pagination-options-quick-jumper input[disabled] {
+  background-color: transparent;
+}
+
+.ant-pagination-options-quick-jumper input.ant-pagination-options-quick-jumper input-underlined:hover:not(.ant-pagination-options-quick-jumper input-focused):not(:focus) {
+  border-color: var(--general-border);
+}
+
+.ant-pagination-simple .ant-pagination-prev .ant-pagination-item-link, .ant-pagination-simple .ant-pagination-next .ant-pagination-item-link {
+  background-color: transparent;
+  border: 0;
+}
+
+.ant-pagination-simple .ant-pagination-simple-pager input {
+  background-color: var(--general-background);
+  border: 1px solid var(--general-border);
+}
+
+.ant-pagination-simple .ant-pagination-simple-pager input:hover {
+  border-color: var(--general-primary);
+}
+
+.ant-pagination-simple .ant-pagination-simple-pager input:focus {
+  border-color: var(--general-unofficial-primary-hover);
+  box-shadow: 0 0 0 2px var(--color-primary-alpha-24);
+}
+
+.ant-pagination-simple .ant-pagination-simple-pager input[disabled] {
+  color: var(--general-icon-muted);
+  background: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-pagination.ant-pagination-mini .ant-pagination-item:not(.ant-pagination-item-active),
+.ant-pagination.ant-pagination-mini .ant-pagination-prev .ant-pagination-item-link, .ant-pagination.ant-pagination-mini .ant-pagination-next .ant-pagination-item-link {
+  background: transparent;
+  border-color: transparent;
+}
+
+.ant-pagination.ant-pagination-disabled .ant-pagination-item {
+  background: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-pagination.ant-pagination-disabled .ant-pagination-item a {
+  color: var(--general-icon-muted);
+  background: transparent;
+  border: none;
+}
+
+.ant-pagination.ant-pagination-disabled .ant-pagination-item-active {
+  background: var(--general-muted);
+}
+
+.ant-pagination.ant-pagination-disabled .ant-pagination-item-active a {
+  color: var(--general-icon-muted);
+}
+
+.ant-pagination.ant-pagination-disabled .ant-pagination-item-link {
+  color: var(--general-icon-muted);
+  background: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-pagination.ant-pagination-disabled .ant-pagination-simple-pager {
+  color: var(--general-icon-muted);
+}
+
+/* ---- tabs ---- */
+.ant-tabs-top > .ant-tabs-nav::before, .ant-tabs-bottom > .ant-tabs-nav::before, .ant-tabs-top > div > .ant-tabs-nav::before, .ant-tabs-bottom > div > .ant-tabs-nav::before {
+  border-bottom: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-tabs-left > .ant-tabs-content-holder, .ant-tabs-left > div > .ant-tabs-content-holder {
+  border-left: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-tabs-right > .ant-tabs-content-holder, .ant-tabs-right > div > .ant-tabs-content-holder {
+  border-right: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-tabs-dropdown {
+  color: var(--general-foreground);
+}
+
+.ant-tabs-dropdown-menu {
+  background-color: var(--general-background);
+}
+
+.ant-tabs-dropdown-menu-item {
+  color: var(--general-foreground);
+}
+
+.ant-tabs-dropdown-menu-item-remove {
+  color: var(--general-muted-foreground);
+  background: transparent;
+  border: 0;
+}
+
+.ant-tabs-dropdown-menu-item-remove:hover {
+  color: var(--general-unofficial-primary-hover);
+}
+
+.ant-tabs-dropdown-menu-item:hover {
+  background: var(--general-elevated);
+}
+
+.ant-tabs-dropdown-menu-item-disabled, .ant-tabs-dropdown-menu-item-disabled:hover {
+  color: var(--general-icon-muted);
+  background: transparent;
+}
+
+.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab, .ant-tabs-card > div > .ant-tabs-nav .ant-tabs-tab {
+  background: var(--general-unofficial-accent-0);
+  border: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-tabs-card > .ant-tabs-nav .ant-tabs-tab-active, .ant-tabs-card > div > .ant-tabs-nav .ant-tabs-tab-active {
+  color: var(--general-primary);
+  background: var(--general-background);
+}
+
+.ant-tabs-card.ant-tabs-top > .ant-tabs-nav .ant-tabs-tab-active, .ant-tabs-card.ant-tabs-top > div > .ant-tabs-nav .ant-tabs-tab-active {
+  border-bottom-color: var(--general-background);
+}
+
+.ant-tabs-card.ant-tabs-bottom > .ant-tabs-nav .ant-tabs-tab-active, .ant-tabs-card.ant-tabs-bottom > div > .ant-tabs-nav .ant-tabs-tab-active {
+  border-top-color: var(--general-background);
+}
+
+.ant-tabs-card.ant-tabs-left > .ant-tabs-nav .ant-tabs-tab-active, .ant-tabs-card.ant-tabs-left > div > .ant-tabs-nav .ant-tabs-tab-active {
+  border-right-color: var(--general-background);
+}
+
+.ant-tabs-card.ant-tabs-right > .ant-tabs-nav .ant-tabs-tab-active, .ant-tabs-card.ant-tabs-right > div > .ant-tabs-nav .ant-tabs-tab-active {
+  border-left-color: var(--general-background);
+}
+
+.ant-tabs {
+  color: var(--general-foreground);
+}
+
+.ant-tabs > .ant-tabs-nav .ant-tabs-nav-more, .ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-more {
+  background: transparent;
+  border: 0;
+}
+
+.ant-tabs > .ant-tabs-nav .ant-tabs-nav-add, .ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-add {
+  background: var(--general-unofficial-accent-0);
+  border: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-tabs > .ant-tabs-nav .ant-tabs-nav-add:hover, .ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-add:hover {
+  color: var(--general-unofficial-primary-hover);
+}
+
+.ant-tabs > .ant-tabs-nav .ant-tabs-nav-add:active, .ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-add:active, .ant-tabs > .ant-tabs-nav .ant-tabs-nav-add:focus, .ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-add:focus {
+  color: var(--general-primary-active);
+}
+
+.ant-tabs-ink-bar {
+  background: var(--general-primary);
+}
+
+.ant-tabs-tab {
+  background: transparent;
+  border: 0;
+}
+
+.ant-tabs-tab-btn:focus, .ant-tabs-tab-remove:focus, .ant-tabs-tab-btn:active, .ant-tabs-tab-remove:active {
+  color: var(--general-primary-active);
+}
+
+.ant-tabs-tab-remove {
+  color: var(--general-muted-foreground);
+  background: transparent;
+  border: none;
+}
+
+.ant-tabs-tab-remove:hover {
+  color: var(--general-foreground);
+}
+
+.ant-tabs-tab:hover {
+  color: var(--general-unofficial-primary-hover);
+}
+
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--general-primary);
+}
+
+.ant-tabs-tab.ant-tabs-tab-disabled,
+.ant-tabs-tab.ant-tabs-tab-disabled .ant-tabs-tab-btn:focus, .ant-tabs-tab.ant-tabs-tab-disabled .ant-tabs-tab-remove:focus, .ant-tabs-tab.ant-tabs-tab-disabled .ant-tabs-tab-btn:active, .ant-tabs-tab.ant-tabs-tab-disabled .ant-tabs-tab-remove:active {
+  color: var(--general-icon-muted);
+}
+
+.ant-tabs-tab-disabled a {
+  color: var(--general-icon-muted);
+}
+
+/* ---- segmented ---- */
+.ant-segmented {
+  color: var(--general-foreground);
+  color: var(--general-unofficial-foreground-alt);
+  background-color: var(--general-unofficial-ghost-hover);
+}
+
+.ant-segmented:not(.ant-segmented-disabled):hover, .ant-segmented:not(.ant-segmented-disabled):focus {
+  background-color: var(--color-neutral-alpha-8);
+}
+
+.ant-segmented-item-selected {
+  background-color: var(--general-background);
+  color: var(--general-foreground);
+}
+
+.ant-segmented-item:hover, .ant-segmented-item:focus {
+  color: var(--general-foreground);
+}
+
+.ant-segmented-item-disabled, .ant-segmented-item-disabled:hover, .ant-segmented-item-disabled:focus {
+  color: var(--general-icon-muted);
+}
+
+.ant-segmented-thumb {
+  background-color: var(--general-background);
+}
+
+/* ---- list ---- */
+.ant-list {
+  color: var(--general-foreground);
+}
+
+.ant-list-empty-text {
+  color: var(--general-icon-muted);
+}
+
+.ant-list-item,
+.ant-list-item-meta-content,
+.ant-list-item-meta-title,
+.ant-list-item-meta-title > a {
+  color: var(--general-foreground);
+}
+
+.ant-list-item-meta-title > a:hover {
+  color: var(--general-primary);
+}
+
+.ant-list-item-meta-description,
+.ant-list-item-action > li {
+  color: var(--general-muted-foreground);
+}
+
+.ant-list-item-action-split {
+  background-color: var(--general-muted);
+}
+
+.ant-list-empty {
+  color: var(--general-muted-foreground);
+}
+
+.ant-list-split .ant-list-item,
+.ant-list-split .ant-list-header {
+  border-bottom: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-list-split.ant-list-empty .ant-list-footer {
+  border-top: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-list-split.ant-list-something-after-last-item .ant-spin-container > .ant-list-items > .ant-list-item:last-child {
+  border-bottom: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-list-vertical .ant-list-item-meta-title {
+  color: var(--general-foreground);
+}
+
+.ant-list-bordered {
+  border: 1px solid var(--general-border);
+}
+
+/* ---- menu ---- */
+.ant-menu-item-danger.ant-menu-item,
+.ant-menu-item-danger.ant-menu-item:hover, .ant-menu-item-danger.ant-menu-item-active {
+  color: var(--general-destructive);
+}
+
+.ant-menu-item-danger.ant-menu-item:active {
+  background: var(--general-unofficial-destructive-subtle);
+}
+
+.ant-menu-item-danger.ant-menu-item-selected,
+.ant-menu-item-danger.ant-menu-item-selected > a, .ant-menu-item-danger.ant-menu-item-selected > a:hover {
+  color: var(--general-destructive);
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-danger.ant-menu-item-selected {
+  background-color: var(--general-unofficial-destructive-subtle);
+}
+
+.ant-menu-inline .ant-menu-item-danger.ant-menu-item::after {
+  border-right-color: var(--general-destructive);
+}
+
+.ant-menu-dark .ant-menu-item-danger.ant-menu-item, .ant-menu-dark .ant-menu-item-danger.ant-menu-item:hover, .ant-menu-dark .ant-menu-item-danger.ant-menu-item > a {
+  color: var(--general-destructive);
+}
+
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-danger.ant-menu-item-selected {
+  color: var(--color-primitives-base-white);
+  background-color: var(--general-destructive);
+}
+
+.ant-menu {
+  color: var(--general-foreground);
+  background: var(--general-background);
+}
+
+.ant-menu.ant-menu-root:focus-visible {
+  box-shadow: 0 0 0 2px var(--color-primary-solid-100);
+}
+
+.ant-menu-item-group-title {
+  color: var(--general-muted-foreground);
+}
+
+.ant-menu-submenu-selected {
+  color: var(--general-primary);
+}
+
+.ant-menu-item:active, .ant-menu-submenu-title:active {
+  background: var(--general-selected);
+}
+
+.ant-menu-item a {
+  color: var(--general-foreground);
+}
+
+.ant-menu-item a:hover {
+  color: var(--general-primary);
+}
+
+.ant-menu-item a::before {
+  background-color: transparent;
+}
+
+.ant-menu-item > .ant-badge a {
+  color: var(--general-foreground);
+}
+
+.ant-menu-item > .ant-badge a:hover {
+  color: var(--general-primary);
+}
+
+.ant-menu-item-divider {
+  border-color: var(--general-unofficial-border-1);
+}
+
+.ant-menu-horizontal > .ant-menu-item:hover, .ant-menu-horizontal > .ant-menu-item-active, .ant-menu-horizontal > .ant-menu-submenu .ant-menu-submenu-title:hover {
+  background-color: transparent;
+}
+
+.ant-menu-item-selected,
+.ant-menu-item-selected a, .ant-menu-item-selected a:hover {
+  color: var(--general-primary);
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: var(--general-selected);
+}
+
+.ant-menu-inline, .ant-menu-vertical, .ant-menu-vertical-left {
+  border-right: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-menu-vertical-right {
+  border-left: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-menu-item:not(.ant-menu-item-disabled):focus-visible, .ant-menu-submenu-title:not(.ant-menu-item-disabled):focus-visible {
+  box-shadow: 0 0 0 2px var(--color-primary-solid-100);
+}
+
+.ant-menu-submenu-popup {
+  background: transparent;
+}
+
+.ant-menu-submenu > .ant-menu,
+.ant-menu-submenu-popup > .ant-menu {
+  background-color: var(--general-background);
+}
+
+.ant-menu-submenu-expand-icon, .ant-menu-submenu-arrow {
+  color: var(--general-foreground);
+}
+
+.ant-menu-submenu-arrow::before, .ant-menu-submenu-arrow::after {
+  background-color: currentcolor;
+}
+
+.ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-expand-icon, .ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow,
+.ant-menu-vertical .ant-menu-submenu-selected, .ant-menu-vertical-left .ant-menu-submenu-selected, .ant-menu-vertical-right .ant-menu-submenu-selected {
+  color: var(--general-primary);
+}
+
+.ant-menu-horizontal {
+  border: 0;
+  border-bottom: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected {
+  color: var(--general-primary);
+}
+
+.ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item:hover::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu:hover::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-active::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-active::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-open::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-open::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-item-selected::after, .ant-menu-horizontal:not(.ant-menu-dark) > .ant-menu-submenu-selected::after {
+  border-bottom: 2px solid var(--general-primary);
+}
+
+.ant-menu-horizontal > .ant-menu-item a {
+  color: var(--general-foreground);
+}
+
+.ant-menu-horizontal > .ant-menu-item a:hover,
+.ant-menu-horizontal > .ant-menu-item-selected a {
+  color: var(--general-primary);
+}
+
+.ant-menu-vertical .ant-menu-item::after, .ant-menu-vertical-left .ant-menu-item::after, .ant-menu-vertical-right .ant-menu-item::after, .ant-menu-inline .ant-menu-item::after {
+  border-right: 3px solid var(--general-primary);
+}
+
+.ant-menu-sub.ant-menu-inline {
+  background: var(--general-unofficial-accent-0);
+  border: 0;
+}
+
+.ant-menu-item-disabled, .ant-menu-submenu-disabled {
+  color: var(--general-icon-muted) !important;
+  background: none;
+}
+
+.ant-menu-item-disabled::after, .ant-menu-submenu-disabled::after {
+  border-color: transparent !important;
+}
+
+.ant-menu-item-disabled a, .ant-menu-submenu-disabled a,
+.ant-menu-item-disabled > .ant-menu-submenu-title, .ant-menu-submenu-disabled > .ant-menu-submenu-title {
+  color: var(--general-icon-muted) !important;
+}
+
+.ant-menu-item-disabled > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-submenu-disabled > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-item-disabled > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-submenu-disabled > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after {
+  background: var(--general-unofficial-accent-3) !important;
+}
+
+.ant-menu-inline-collapsed-tooltip a, .ant-menu-inline-collapsed-tooltip a:hover {
+  color: var(--color-primitives-base-white);
+}
+
+.ant-menu-light .ant-menu-item:hover, .ant-menu-light .ant-menu-item-active, .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-light .ant-menu-submenu-active, .ant-menu-light .ant-menu-submenu-title:hover {
+  color: var(--general-primary);
+}
+
+.ant-menu.ant-menu-root:focus-visible,
+.ant-menu-dark .ant-menu-item:focus-visible, .ant-menu-dark .ant-menu-submenu-title:focus-visible {
+  box-shadow: 0 0 0 2px var(--general-primary-active);
+}
+
+.ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub, .ant-menu.ant-menu-dark .ant-menu-sub {
+  background: var(--general-unofficial-contrast);
+}
+
+.ant-menu.ant-menu-dark .ant-menu-submenu-title .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-sub .ant-menu-submenu-title .ant-menu-submenu-arrow::after, .ant-menu.ant-menu-dark .ant-menu-sub .ant-menu-submenu-title .ant-menu-submenu-arrow::after, .ant-menu.ant-menu-dark .ant-menu-submenu-title .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-sub .ant-menu-submenu-title .ant-menu-submenu-arrow::before, .ant-menu.ant-menu-dark .ant-menu-sub .ant-menu-submenu-title .ant-menu-submenu-arrow::before {
+  background: var(--general-background);
+}
+
+.ant-menu-dark.ant-menu-submenu-popup {
+  background: transparent;
+}
+
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item, .ant-menu-dark.ant-menu-horizontal > .ant-menu-submenu {
+  border-color: var(--general-unofficial-contrast);
+}
+
+.ant-menu-dark.ant-menu-horizontal > .ant-menu-item:hover {
+  background-color: var(--general-primary);
+}
+
+.ant-menu-dark .ant-menu-item:hover, .ant-menu-dark .ant-menu-item-active, .ant-menu-dark .ant-menu-submenu-active, .ant-menu-dark .ant-menu-submenu-open, .ant-menu-dark .ant-menu-submenu-selected, .ant-menu-dark .ant-menu-submenu-title:hover {
+  color: var(--color-primitives-base-white);
+  background-color: transparent;
+}
+
+.ant-menu-dark .ant-menu-item:hover > a, .ant-menu-dark .ant-menu-item-active > a, .ant-menu-dark .ant-menu-submenu-active > a, .ant-menu-dark .ant-menu-submenu-open > a, .ant-menu-dark .ant-menu-submenu-selected > a, .ant-menu-dark .ant-menu-submenu-title:hover > a, .ant-menu-dark .ant-menu-item:hover > span > a, .ant-menu-dark .ant-menu-item-active > span > a, .ant-menu-dark .ant-menu-submenu-active > span > a, .ant-menu-dark .ant-menu-submenu-open > span > a, .ant-menu-dark .ant-menu-submenu-selected > span > a, .ant-menu-dark .ant-menu-submenu-title:hover > span > a {
+  color: var(--color-primitives-base-white);
+}
+
+.ant-menu-dark .ant-menu-item:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-item-active > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-active > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-open > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-selected > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-title:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-item:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-item-active > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-active > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-open > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-selected > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-title:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before {
+  background: var(--general-background);
+}
+
+.ant-menu-dark .ant-menu-item:hover {
+  background-color: transparent;
+}
+
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: var(--general-primary);
+}
+
+.ant-menu-dark .ant-menu-item-selected,
+.ant-menu-dark .ant-menu-item-selected > a, .ant-menu-dark .ant-menu-item-selected > span > a, .ant-menu-dark .ant-menu-item-selected > a:hover, .ant-menu-dark .ant-menu-item-selected > span > a:hover,
+.ant-menu-dark .ant-menu-item-selected .ant-menu-item-icon, .ant-menu-dark .ant-menu-item-selected .anticon,
+.ant-menu-dark .ant-menu-item-selected .ant-menu-item-icon + span, .ant-menu-dark .ant-menu-item-selected .anticon + span {
+  color: var(--color-primitives-base-white);
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item-selected, .ant-menu-submenu-popup.ant-menu-dark .ant-menu-item-selected {
+  background-color: var(--general-primary);
+}
+
+.ant-menu-rtl.ant-menu-inline, .ant-menu-rtl.ant-menu-vertical {
+  border-left: 1px solid var(--general-unofficial-border-1);
+}
+
+/* ---- dropdown ---- */
+.ant-dropdown-menu-item.ant-dropdown-menu-item-danger {
+  color: var(--general-destructive);
+}
+
+.ant-dropdown-menu-item.ant-dropdown-menu-item-danger:hover {
+  color: var(--color-primitives-base-white);
+  background-color: var(--general-destructive);
+}
+
+.ant-dropdown {
+  color: var(--general-foreground);
+}
+
+.ant-dropdown-arrow::before {
+  background: var(--antd-arrow-background-color);
+}
+
+.ant-dropdown-arrow::after {
+  background: transparent;
+}
+
+.ant-dropdown-arrow::before {
+  background: var(--antd-arrow-background-color);
+}
+
+.ant-dropdown-menu {
+  background-color: var(--general-background);
+}
+
+.ant-dropdown-menu-item-group-title {
+  color: var(--general-muted-foreground);
+}
+
+.ant-dropdown-menu-submenu-popup {
+  background: transparent;
+}
+
+.ant-dropdown-menu-title-content > a,
+.ant-dropdown-menu-title-content > a:hover {
+  color: inherit;
+}
+
+.ant-dropdown-menu-item, .ant-dropdown-menu-submenu-title {
+  color: var(--general-foreground);
+}
+
+.ant-dropdown-menu-item-selected, .ant-dropdown-menu-submenu-title-selected {
+  color: var(--general-primary);
+  background-color: var(--general-selected);
+}
+
+.ant-dropdown-menu-item:hover, .ant-dropdown-menu-submenu-title:hover, .ant-dropdown-menu-item.ant-dropdown-menu-item-active, .ant-dropdown-menu-item.ant-dropdown-menu-submenu-title-active, .ant-dropdown-menu-submenu-title.ant-dropdown-menu-item-active, .ant-dropdown-menu-submenu-title.ant-dropdown-menu-submenu-title-active {
+  background-color: var(--general-elevated);
+}
+
+.ant-dropdown-menu-item.ant-dropdown-menu-item-disabled, .ant-dropdown-menu-item.ant-dropdown-menu-submenu-title-disabled, .ant-dropdown-menu-submenu-title.ant-dropdown-menu-item-disabled, .ant-dropdown-menu-submenu-title.ant-dropdown-menu-submenu-title-disabled {
+  color: var(--general-icon-muted);
+}
+
+.ant-dropdown-menu-item.ant-dropdown-menu-item-disabled:hover, .ant-dropdown-menu-item.ant-dropdown-menu-submenu-title-disabled:hover, .ant-dropdown-menu-submenu-title.ant-dropdown-menu-item-disabled:hover, .ant-dropdown-menu-submenu-title.ant-dropdown-menu-submenu-title-disabled:hover {
+  color: var(--general-icon-muted);
+  background-color: var(--general-background);
+}
+
+.ant-dropdown-menu-item-divider, .ant-dropdown-menu-submenu-title-divider {
+  background-color: var(--general-muted);
+}
+
+.ant-dropdown-menu-item .ant-dropdown-menu-submenu-expand-icon .ant-dropdown-menu-submenu-arrow-icon, .ant-dropdown-menu-submenu-title .ant-dropdown-menu-submenu-expand-icon .ant-dropdown-menu-submenu-arrow-icon {
+  color: var(--general-muted-foreground);
+}
+
+.ant-dropdown-menu-submenu.ant-dropdown-menu-submenu-disabled .ant-dropdown-menu-submenu-title, .ant-dropdown-menu-submenu.ant-dropdown-menu-submenu-disabled .ant-dropdown-menu-submenu-title .ant-dropdown-menu-submenu-arrow-icon {
+  color: var(--general-icon-muted);
+  background-color: var(--general-background);
+}
+
+.ant-dropdown-menu-submenu-selected .ant-dropdown-menu-submenu-title {
+  color: var(--general-primary);
+}
+
+.ant-dropdown-menu-dark, .ant-dropdown-menu-dark .ant-dropdown-menu {
+  background: var(--general-unofficial-contrast);
+}
+
+.ant-dropdown-menu-dark .ant-dropdown-menu-item:hover, .ant-dropdown-menu-dark .ant-dropdown-menu-submenu-title:hover, .ant-dropdown-menu-dark .ant-dropdown-menu-item > a:hover, .ant-dropdown-menu-dark .ant-dropdown-menu-item > .anticon + span > a:hover {
+  color: var(--color-primitives-base-white);
+  background: transparent;
+}
+
+.ant-dropdown-menu-dark .ant-dropdown-menu-item-selected, .ant-dropdown-menu-dark .ant-dropdown-menu-item-selected:hover, .ant-dropdown-menu-dark .ant-dropdown-menu-item-selected > a {
+  color: var(--color-primitives-base-white);
+  background: var(--general-primary);
+}
+
+.nz-tabs-dropdown.ant-dropdown .ant-dropdown-menu {
+  background-color: var(--general-background);
+}
+
+.nz-tabs-dropdown.ant-dropdown .ant-dropdown-menu-item {
+  color: var(--general-foreground);
+}
+
+.nz-tabs-dropdown.ant-dropdown .ant-dropdown-menu-item:hover {
+  background: var(--general-elevated);
+}
+
+.nz-tabs-dropdown.ant-dropdown .ant-dropdown-menu-item-disabled, .nz-tabs-dropdown.ant-dropdown .ant-dropdown-menu-item-disabled:hover {
+  color: var(--general-icon-muted);
+  background: transparent;
+}
+
+.nz-tabs-dropdown.ant-dropdown .ant-dropdown-menu-item-disabled a, .nz-tabs-dropdown.ant-dropdown .ant-dropdown-menu-item-disabled:hover a {
+  color: var(--general-icon-muted);
+}
+
+.nz-tabs-dropdown .ant-dropdown-menu {
+  background: var(--general-background, #ffffff) !important;
+  border: 1px solid var(--general-border, #d1d1d1) !important;
+  box-shadow: 0px 12px 12px -6px var(--general-unofficial-ghost-hover),
+    0px 6px 6px -3px var(--general-unofficial-ghost-hover),
+    0px 3px 3px -1.5px var(--general-unofficial-ghost-hover),
+    0px 1px 1px -0.5px var(--general-unofficial-ghost-hover) !important;
+}
+
+/* ---- breadcrumb ---- */
+.ant-breadcrumb {
+  color: var(--general-foreground);
+  color: var(--general-muted-foreground);
+}
+
+.ant-breadcrumb a {
+  color: var(--general-muted-foreground);
+}
+
+.ant-breadcrumb a:hover,
+.ant-breadcrumb li:last-child,
+.ant-breadcrumb li:last-child a {
+  color: var(--general-foreground);
+}
+
+.ant-breadcrumb-separator {
+  color: var(--general-muted-foreground);
+}
+
+.ant-breadcrumb > nz-breadcrumb-item:last-child,
+.ant-breadcrumb > nz-breadcrumb-item:last-child a {
+  color: var(--general-foreground);
+}
+
+/* ---- avatar ---- */
+.ant-avatar {
+  color: var(--general-foreground);
+  color: var(--color-primitives-base-white);
+  background: var(--general-unofficial-accent-2);
+}
+
+.ant-avatar-group .ant-avatar {
+  border: 1px solid var(--general-background);
+}
+
+/* ---- badge ---- */
+.ant-badge {
+  color: var(--general-foreground);
+}
+
+.ant-badge-count {
+  color: var(--color-primitives-base-white);
+  background: var(--general-destructive);
+  box-shadow: 0 0 0 1px var(--general-background);
+}
+
+.ant-badge-count a, .ant-badge-count a:hover {
+  color: var(--color-primitives-base-white);
+}
+
+.ant-badge-dot {
+  background: var(--general-destructive);
+  box-shadow: 0 0 0 1px var(--general-background);
+}
+
+.ant-badge-status-success {
+  background-color: var(--general-success);
+}
+
+.ant-badge-status-processing {
+  background-color: var(--general-primary);
+}
+
+.ant-badge-status-processing::after {
+  border: 1px solid var(--general-primary);
+}
+
+.ant-badge-status-default {
+  background-color: var(--general-unofficial-accent-2);
+}
+
+.ant-badge-status-error {
+  background-color: var(--general-destructive);
+}
+
+.ant-badge-status-warning {
+  background-color: var(--general-warning);
+}
+
+.ant-badge-status-red {
+  background: var(--color-error-solid-600);
+}
+
+.ant-badge-status-gold {
+  background: var(--general-warning);
+}
+
+.ant-badge-status-green {
+  background: var(--general-success);
+}
+
+.ant-badge-status-blue {
+  background: var(--general-primary);
+}
+
+.ant-badge-status-text {
+  color: var(--general-foreground);
+}
+
+/* ---- spin ---- */
+.ant-spin {
+  color: var(--general-foreground);
+  color: var(--general-primary);
+}
+
+.ant-spin-container::after {
+  background: var(--general-background);
+}
+
+.ant-spin-tip {
+  color: var(--general-muted-foreground);
+}
+
+.ant-spin-dot-item {
+  background-color: var(--general-primary);
+}
+
+/* ---- progress ---- */
+.ant-progress {
+  color: var(--general-foreground);
+}
+
+.ant-progress-steps-item {
+  background: var(--general-elevated);
+}
+
+.ant-progress-steps-item-active {
+  background: var(--general-primary);
+}
+
+.ant-progress-inner {
+  background-color: var(--general-elevated);
+}
+
+.ant-progress-circle-trail {
+  stroke: var(--general-unofficial-border-1);
+}
+
+.ant-progress-inner:not(.ant-progress-circle-gradient) .ant-progress-circle-path {
+  stroke: var(--general-primary);
+}
+
+.ant-progress-success-bg, .ant-progress-bg {
+  background-color: var(--general-primary);
+}
+
+.ant-progress-success-bg {
+  background-color: var(--general-success);
+}
+
+.ant-progress-text {
+  color: var(--general-foreground);
+}
+
+.ant-progress-status-active .ant-progress-bg::before {
+  background: var(--general-background);
+}
+
+.ant-progress-status-exception .ant-progress-bg {
+  background-color: var(--general-destructive);
+}
+
+.ant-progress-status-exception .ant-progress-text {
+  color: var(--general-destructive);
+}
+
+.ant-progress-status-exception .ant-progress-inner:not(.ant-progress-circle-gradient) .ant-progress-circle-path {
+  stroke: var(--general-destructive);
+}
+
+.ant-progress-status-success .ant-progress-bg {
+  background-color: var(--general-success);
+}
+
+.ant-progress-status-success .ant-progress-text {
+  color: var(--general-success);
+}
+
+.ant-progress-status-success .ant-progress-inner:not(.ant-progress-circle-gradient) .ant-progress-circle-path {
+  stroke: var(--general-success);
+}
+
+.ant-progress-circle .ant-progress-text {
+  color: var(--general-foreground);
+}
+
+.ant-progress-circle.ant-progress-status-exception .ant-progress-text {
+  color: var(--general-destructive);
+}
+
+.ant-progress-circle.ant-progress-status-success .ant-progress-text {
+  color: var(--general-success);
+}
+
+/* ---- tooltip ---- */
+.ant-tooltip {
+  color: var(--general-foreground);
+}
+
+.ant-tooltip-inner {
+  color: var(--color-primitives-base-white);
+  background-color: var(--popover-popover);
+}
+
+.ant-tooltip-red .ant-tooltip-inner {
+  background-color: var(--color-error-solid-600);
+}
+
+.ant-tooltip-gold .ant-tooltip-inner {
+  background-color: var(--general-warning);
+}
+
+.ant-tooltip-green .ant-tooltip-inner {
+  background-color: var(--general-success);
+}
+
+.ant-tooltip-blue .ant-tooltip-inner {
+  background-color: var(--general-primary);
+}
+
+/* ---- popover ---- */
+.ant-popover {
+  color: var(--general-foreground);
+}
+
+.ant-popover-inner {
+  background-color: var(--general-background);
+}
+
+.ant-popover-title {
+  color: var(--general-foreground);
+  border-bottom: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-popover-inner-content,
+.ant-popover-message {
+  color: var(--general-foreground);
+}
+
+.ant-popover-message-icon {
+  color: var(--general-warning);
+}
+
+.ant-popover-red .ant-popover-inner,
+.ant-popover-red .ant-popover-arrow {
+  background-color: var(--color-error-solid-600);
+}
+
+.ant-popover-gold .ant-popover-inner,
+.ant-popover-gold .ant-popover-arrow {
+  background-color: var(--general-warning);
+}
+
+.ant-popover-green .ant-popover-inner,
+.ant-popover-green .ant-popover-arrow {
+  background-color: var(--general-success);
+}
+
+.ant-popover-blue .ant-popover-inner,
+.ant-popover-blue .ant-popover-arrow {
+  background-color: var(--general-primary);
+}
+
+/* ---- modal ---- */
+.ant-modal {
+  color: var(--general-foreground);
+}
+
+.ant-modal-mask {
+  background-color: var(--general-unofficial-backdrop);
+}
+
+.ant-modal-title {
+  color: var(--general-foreground);
+}
+
+.ant-modal-content {
+  background-color: var(--general-background);
+  border: 0;
+}
+
+.ant-modal-close {
+  color: var(--general-muted-foreground);
+  background: transparent;
+  border: 0;
+}
+
+.ant-modal-close:focus, .ant-modal-close:hover {
+  color: var(--general-unofficial-foreground-alt);
+}
+
+.ant-modal-header {
+  color: var(--general-foreground);
+  background: var(--general-background);
+  border-bottom: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-modal-footer {
+  background: transparent;
+  border-top: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-modal-confirm-body .ant-modal-confirm-title,
+.ant-modal-confirm-body .ant-modal-confirm-content {
+  color: var(--general-foreground);
+}
+
+.ant-modal-confirm-error .ant-modal-confirm-body > .anticon {
+  color: var(--general-destructive);
+}
+
+.ant-modal-confirm-warning .ant-modal-confirm-body > .anticon, .ant-modal-confirm-confirm .ant-modal-confirm-body > .anticon {
+  color: var(--general-warning);
+}
+
+.ant-modal-confirm-info .ant-modal-confirm-body > .anticon {
+  color: var(--general-primary);
+}
+
+.ant-modal-confirm-success .ant-modal-confirm-body > .anticon {
+  color: var(--general-success);
+}
+
+/* ---- notification ---- */
+.ant-notification {
+  color: var(--general-foreground);
+}
+
+.ant-notification-notice {
+  background: var(--general-background);
+}
+
+.ant-notification-notice-message {
+  color: var(--general-foreground);
+}
+
+.anticon.ant-notification-notice-icon-success {
+  color: var(--general-success);
+}
+
+.anticon.ant-notification-notice-icon-info {
+  color: var(--general-primary);
+}
+
+.anticon.ant-notification-notice-icon-warning {
+  color: var(--general-warning);
+}
+
+.anticon.ant-notification-notice-icon-error {
+  color: var(--general-destructive);
+}
+
+.ant-notification-notice-close {
+  color: var(--general-muted-foreground);
+}
+
+/* ---- message ---- */
+.ant-message {
+  color: var(--general-foreground);
+}
+
+.ant-message-notice-content {
+  background: var(--general-background);
+}
+
+.ant-message-success .anticon {
+  color: var(--general-success);
+}
+
+.ant-message-error .anticon {
+  color: var(--general-destructive);
+}
+
+.ant-message-warning .anticon {
+  color: var(--general-warning);
+}
+
+.ant-message-info .anticon, .ant-message-loading .anticon {
+  color: var(--general-primary);
+}
+
+/* ---- empty ---- */
+.ant-empty-normal,
+.ant-empty-small {
+  color: var(--general-icon-muted);
+}
+
+.ant-empty-img-default-ellipse {
+  fill: var(--general-elevated);
+}
+
+.ant-empty-img-default-path-1 {
+  fill: var(--general-unofficial-accent-3);
+}
+
+.ant-empty-img-default-path-2 {
+  fill: url(#linearGradient-1);
+}
+
+.ant-empty-img-default-path-3 {
+  fill: var(--general-unofficial-accent-0);
+}
+
+.ant-empty-img-default-path-4,
+.ant-empty-img-default-path-5 {
+  fill: var(--general-unofficial-border-1);
+}
+
+.ant-empty-img-default-g {
+  fill: var(--general-background);
+}
+
+.ant-empty-img-simple-ellipse {
+  fill: var(--general-elevated);
+}
+
+.ant-empty-img-simple-g {
+  stroke: var(--general-border);
+}
+
+.ant-empty-img-simple-path {
+  fill: var(--general-unofficial-accent-0);
+}
+
+/* ---- divider ---- */
+.ant-divider {
+  color: var(--general-foreground);
+  border-top: 1px solid var(--color-neutral-alpha-8);
+}
+
+.ant-divider-vertical {
+  border-left: 1px solid var(--color-neutral-alpha-8);
+}
+
+.ant-divider-horizontal.ant-divider-with-text {
+  color: var(--general-foreground);
+  border-top-color: var(--color-neutral-alpha-8);
+}
+
+.ant-divider-dashed {
+  background: none;
+  border-color: var(--color-neutral-alpha-8);
+}
+
+.ant-divider-plain.ant-divider-with-text {
+  color: var(--general-foreground);
+}
+
+.ant-divider-dotted {
+  background: none;
+  border-color: var(--color-neutral-alpha-8);
+}
+
+/* ---- typography ---- */
+.ant-typography {
+  color: var(--general-foreground);
+}
+
+.ant-typography.ant-typography-secondary {
+  color: var(--general-muted-foreground);
+}
+
+.ant-typography.ant-typography-success {
+  color: var(--general-success);
+}
+
+.ant-typography.ant-typography-warning {
+  color: var(--general-warning);
+}
+
+.ant-typography.ant-typography-danger {
+  color: var(--general-destructive);
+}
+
+a.ant-typography.ant-typography-danger:active, a.ant-typography.ant-typography-danger:focus {
+  color: var(--color-error-solid-700);
+}
+
+a.ant-typography.ant-typography-danger:hover {
+  color: var(--color-error-solid-400);
+}
+
+.ant-typography.ant-typography-disabled {
+  color: var(--general-icon-muted);
+}
+
+h1.ant-typography, div.ant-typography-h1, div.ant-typography-h1 > textarea, .ant-typography h1,
+h2.ant-typography, div.ant-typography-h2, div.ant-typography-h2 > textarea, .ant-typography h2,
+h3.ant-typography, div.ant-typography-h3, div.ant-typography-h3 > textarea, .ant-typography h3,
+h4.ant-typography, div.ant-typography-h4, div.ant-typography-h4 > textarea, .ant-typography h4,
+h5.ant-typography, div.ant-typography-h5, div.ant-typography-h5 > textarea, .ant-typography h5 {
+  color: var(--general-foreground);
+}
+
+a.ant-typography, .ant-typography a {
+  color: var(--general-primary);
+}
+
+a.ant-typography:focus-visible, .ant-typography a:focus-visible, a.ant-typography:hover, .ant-typography a:hover {
+  color: var(--general-unofficial-primary-hover);
+}
+
+a.ant-typography:active, .ant-typography a:active {
+  color: var(--general-primary-active);
+}
+
+a.ant-typography[disabled], .ant-typography a[disabled], a.ant-typography.ant-typography-disabled, .ant-typography a.ant-typography-disabled,
+a.ant-typography[disabled]:active, .ant-typography a[disabled]:active, a.ant-typography.ant-typography-disabled:active, .ant-typography a.ant-typography-disabled:active, a.ant-typography[disabled]:hover, .ant-typography a[disabled]:hover, a.ant-typography.ant-typography-disabled:hover, .ant-typography a.ant-typography-disabled:hover {
+  color: var(--general-icon-muted);
+}
+
+.ant-typography-expand, .ant-typography-edit, .ant-typography-copy {
+  color: var(--general-primary);
+}
+
+.ant-typography-expand:focus-visible, .ant-typography-edit:focus-visible, .ant-typography-copy:focus-visible, .ant-typography-expand:hover, .ant-typography-edit:hover, .ant-typography-copy:hover {
+  color: var(--general-unofficial-primary-hover);
+}
+
+.ant-typography-expand:active, .ant-typography-edit:active, .ant-typography-copy:active {
+  color: var(--general-primary-active);
+}
+
+.ant-typography-copy-success, .ant-typography-copy-success:hover, .ant-typography-copy-success:focus {
+  color: var(--general-success);
+}
+
+.ant-typography-edit-content-confirm {
+  color: var(--general-muted-foreground);
+}
+
+/* ---- card ---- */
+.ant-card-head .ant-tabs-top {
+  color: var(--general-foreground);
+}
+
+.ant-card-head .ant-tabs-top-bar {
+  border-bottom: 1px solid var(--general-unofficial-border-1);
+}
+
+.ant-card-actions > li > span a:not(.ant-btn), .ant-card-actions > li > span > .anticon {
+  color: var(--general-muted-foreground);
+}
+
+.ant-card-actions > li > span a:not(.ant-btn):hover, .ant-card-actions > li > span > .anticon:hover {
+  color: var(--general-primary);
+}
+
+/* ---- mentions ---- */
+.ant-mentions-status-error .ant-input-prefix {
+  color: var(--general-destructive);
+}
+
+.ant-mentions-status-warning .ant-input-prefix {
+  color: var(--general-warning);
+}
+
+.ant-mentions-disabled > .ant-input {
+  color: var(--general-icon-muted);
+  background-color: var(--general-elevated);
+  border-color: var(--general-border);
+}
+
+.ant-mentions-disabled > .ant-input:hover {
+  border-color: var(--general-border);
+}
+
+.ant-mentions > .ant-input::placeholder {
+  color: var(--color-neutral-solid-300);
+}
+
+/* ---- page ---- */
+
+
+/* ---- slider ---- */
+.ant-slider-handle.ant-tooltip-open {
+  border-color: var(--general-primary);
+}
+
+.ant-slider:hover .ant-slider-handle:not(.ant-tooltip-open) {
+  border-color: var(--color-primary-solid-300);
+}
+
+/* ---- transfer ---- */
+.ant-transfer-customize-list .ant-table-wrapper .ant-table-small > .ant-table-content > .ant-table-body > table > .ant-table-thead > tr > th {
+  background: var(--general-unofficial-accent-0);
+}
+
+.ant-transfer-customize-list .ant-table-wrapper .ant-table-small > .ant-table-content .ant-table-row:last-child td {
+  border-bottom: 1px solid var(--general-unofficial-border-1);
+}

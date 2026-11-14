@@ -1,0 +1,46 @@
+{
+  "method": "POST",
+  "url": "https://private.example/callback",
+  "fakeSecretBase64": "ZG9jYWktdGVzdC12ZWN0b3Itc2VjcmV0LTMyYnl0ZXM=",
+  "headers": [
+    {
+      "name": "X-Timestamp",
+      "values": [
+        "1792929600"
+      ]
+    },
+    {
+      "name": "X-Signature",
+      "values": [
+        "sha256=5d9f0e2258d59d5d8648bbb8bbdbc41ad735ef1950efcef0468daa2023ded1cd"
+      ]
+    },
+    {
+      "name": "X-Correlation-Id",
+      "values": [
+        "baseline-correlation-1"
+      ]
+    },
+    {
+      "name": "User-Agent",
+      "values": [
+        "DocAi-Webhook/1.0"
+      ]
+    },
+    {
+      "name": "Content-Type",
+      "values": [
+        "application/json; charset=utf-8"
+      ]
+    },
+    {
+      "name": "Content-Length",
+      "values": [
+        "623"
+      ]
+    }
+  ],
+  "bodyBase64": "eyJldmVudElkIjoiMjIyMjIyMjItMjIyMi00MjIyLTgyMjItMjIyMjIyMjIyMjIyIiwiZXZlbnRUeXBlIjoiam9iLmNvbXBsZXRlZCIsIm9jY3VycmVkQXRVdGMiOiIyMDI2LTEwLTI1VDEyOjAwOjAwXHUwMDJCMDA6MDAiLCJqb2JJZCI6IjExMTExMTExLTExMTEtNDExMS04MTExLTExMTExMTExMTExMSIsInJ1bk5vIjoxLCJjbGllbnRSZXF1ZXN0SWQiOiJyZXF1ZXN0LTEiLCJydW5SZWFzb24iOiJOZXciLCJzdGF0dXMiOiJDb21wbGV0ZWQiLCJlcnJvciI6bnVsbCwicmVzdWx0Ijp7ImNvbnRyYWN0VmVyc2lvbiI6IjEuMCIsImRvY3VtZW50VHlwZUNvZGUiOiJCTCIsInNoaXBwaW5nTGluZUNvZGUiOm51bGwsIm1vZGVsSWQiOiJibC12MSIsInBhZ2VDb3VudCI6MSwiZmllbGRzIjp7InNoaXBwZXJOYW1lIjp7InZhbHVlIjoiUFJJVkFURV9GSUVMRF9WQUxVRSIsImNvbmZpZGVuY2UiOjAuODUsInBhZ2UiOjF9fSwiY29udGFpbmVycyI6W10sImZsYWdzIjpbeyJmaWVsZCI6InNoaXBwZXJOYW1lIiwicmVhc29uIjoiTE9XX0NPTkZJREVOQ0UifV19LCJyZXF1ZXN0ZWREb2N1bWVudFR5cGUiOiJCTCIsImRvY3VtZW50VHlwZSI6IkJMIiwicmVzdWx0VHlwZSI6ImJpbGwtb2YtbGFkaW5nLnYxIn0=",
+  "bodySha256": "2f0998002acb29d103ac157be7d9b3aeaff6edcf66c8587d935efa16e1306bc7",
+  "bodyText": "{\u0022eventId\u0022:\u002222222222-2222-4222-8222-222222222222\u0022,\u0022eventType\u0022:\u0022job.completed\u0022,\u0022occurredAtUtc\u0022:\u00222026-10-25T12:00:00\\u002B00:00\u0022,\u0022jobId\u0022:\u002211111111-1111-4111-8111-111111111111\u0022,\u0022runNo\u0022:1,\u0022clientRequestId\u0022:\u0022request-1\u0022,\u0022runReason\u0022:\u0022New\u0022,\u0022status\u0022:\u0022Completed\u0022,\u0022error\u0022:null,\u0022result\u0022:{\u0022contractVersion\u0022:\u00221.0\u0022,\u0022documentTypeCode\u0022:\u0022BL\u0022,\u0022shippingLineCode\u0022:null,\u0022modelId\u0022:\u0022bl-v1\u0022,\u0022pageCount\u0022:1,\u0022fields\u0022:{\u0022shipperName\u0022:{\u0022value\u0022:\u0022PRIVATE_FIELD_VALUE\u0022,\u0022confidence\u0022:0.85,\u0022page\u0022:1}},\u0022containers\u0022:[],\u0022flags\u0022:[{\u0022field\u0022:\u0022shipperName\u0022,\u0022reason\u0022:\u0022LOW_CONFIDENCE\u0022}]},\u0022requestedDocumentType\u0022:\u0022BL\u0022,\u0022documentType\u0022:\u0022BL\u0022,\u0022resultType\u0022:\u0022bill-of-lading.v1\u0022}"
+}

@@ -1,0 +1,42 @@
+<button
+  nz-button
+  class="app-btn"
+  [class]="'app-btn--' + size() + ' app-btn--' + hierarchy()"
+  [class.app-btn--destructive]="destructive()"
+  [class.app-btn--icon-only]="iconPosition() === 'only'"
+  [class.app-btn--block]="block()"
+  [nzLoading]="loading()"
+  [attr.type]="type()"
+  [disabled]="disabled()"
+  [attr.aria-busy]="loading() ? 'true' : null"
+  [attr.aria-label]="ariaLabel() ?? null"
+  (click)="onClick($event)"
+  >
+  @if (!loading() && iconPosition() !== 'trailing' && icon(); as iconName) {
+    <app-icon class="app-btn__icon"
+      [name]="iconName"
+      [iconClass]="iconClass()"
+      [width]="iconSize()"
+      [height]="iconSize()"
+     />
+  }
+
+  @if (showLabel()) {
+    <span class="app-btn__label">
+      @if (loading() && loadingLabel()) {
+        {{ loadingLabel() }}
+      } @else {
+        <ng-content />
+      }
+    </span>
+  }
+
+  @if (!loading() && iconPosition() === 'trailing' && icon(); as iconName) {
+    <app-icon class="app-btn__icon"
+      [name]="iconName"
+      [iconClass]="iconClass()"
+      [width]="iconSize()"
+      [height]="iconSize()"
+     />
+  }
+</button>

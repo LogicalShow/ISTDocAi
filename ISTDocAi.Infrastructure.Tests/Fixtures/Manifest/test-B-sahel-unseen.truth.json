@@ -1,0 +1,76 @@
+{
+  "CarrierName": "SAHEL MARITIME",
+  "VesselName": "SAHEL PRIDE",
+  "VoyageNumber": "019W",
+  "PortOfLoading": "Damietta",
+  "PortOfDischarge": "Koper",
+  "ManifestDate": "21.09.2026",
+  "BillsOfLading": [
+    {
+      "BLNumber": "SM26-00821",
+      "Shipper": "DELTA PRODUCE LOGISTICS S.A.E.\n128 Lotus Industrial Rd, Damietta, Egypt\nFAX +20 57 9005104",
+      "Consignee": "Nile Crest Harvest Foods d.o.o.\nCedrova ulica 139, 6000 Koper, Slovenia\nTEL +386 5 1752270\nexport@example.com / VAT SI68452299",
+      "NotifyParty": "SAME AS CONSIGNEE",
+      "BookingNumber": "BK61260091",
+      "FreightTerms": "PREPAID",
+      "Packages": "3543",
+      "GrossWeight": "67423.0",
+      "Description": "3,543 bags Egyptian Medium Grain Rice"
+    },
+    {
+      "BLNumber": "SM26-00822",
+      "Shipper": "CEDAR TEXTILE TRADING S.A.E.\n134 Palm Warehouse St, New Damietta, Egypt\nTEL +20 57 4697802\nTAX ID 863-839-978",
+      "Consignee": "Silver Stone Works d.o.o.\nLovorjeva ulica 23, 6000 Koper, Slovenia\nTEL +386 5 2666325\nexport@example.org",
+      "NotifyParty": "Lotus Gourmet Imports d.o.o.\nOljcna cesta 155, 6000 Koper, Slovenia\nFAX +386 5 3395506\nexport@example.org / VAT SI38888300",
+      "BookingNumber": "BK62260091",
+      "FreightTerms": "COLLECT",
+      "Packages": "1851",
+      "GrossWeight": "51481.0",
+      "Description": "1,851 cartons Frozen Strawberries IQF"
+    }
+  ],
+  "Containers": [
+    {
+      "BLNumber": "SM26-00821",
+      "ContainerNo": "VQJU8620854",
+      "SealNo": "LS30558888",
+      "ContainerType": "20DV",
+      "Packages": "1387",
+      "GrossWeight": "22239.0"
+    },
+    {
+      "BLNumber": "SM26-00821",
+      "ContainerNo": "QJVU1550484",
+      "SealNo": "LS82962668",
+      "ContainerType": "40HC",
+      "Packages": "599",
+      "GrossWeight": "25043.0"
+    },
+    {
+      "BLNumber": "SM26-00821",
+      "ContainerNo": "QZXU5841430",
+      "SealNo": "LS47173003",
+      "ContainerType": "20DV",
+      "Packages": "1557",
+      "GrossWeight": "20141.0"
+    },
+    {
+      "BLNumber": "SM26-00822",
+      "ContainerNo": "VQJU4050630",
+      "SealNo": "LS66886054",
+      "ContainerType": "40RH",
+      "Packages": "1036",
+      "GrossWeight": "27112.0"
+    },
+    {
+      "BLNumber": "SM26-00822",
+      "ContainerNo": "QJVU8726385",
+      "SealNo": "LS37904538",
+      "ContainerType": "40RH",
+      "Packages": "815",
+      "GrossWeight": "24369.0"
+    }
+  ],
+  "_layout": "L5",
+  "_pages": 2
+}

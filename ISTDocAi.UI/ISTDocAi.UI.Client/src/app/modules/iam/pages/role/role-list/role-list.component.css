@@ -1,0 +1,285 @@
+:host {
+  display: block;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+.roles-panel {
+  display: flex;
+  flex-direction: column;
+  background: var(--general-background, #ffffff);
+  border: 1px solid var(--general-unofficial-border-1, #e7e7e7);
+  border-radius: var(--rounded-20, 20px);
+  overflow: hidden;
+}
+
+/* =========================================
+   HEADER (title)
+========================================= */
+
+.roles-panel__header {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-4, 16px) var(--spacing-6, 24px);
+  border-bottom: 1px solid var(--color-neutral-solid-100, #e7e7e7);
+}
+
+.roles-panel__title {
+  margin: 0;
+  color: var(--general-foreground, #1a1a1a);
+  font-size: var(--heading-h6-fontsize, 20px);
+  line-height: var(--heading-h6-lineheight, 24px);
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: 0;
+}
+
+.roles-panel__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 8px);
+  flex-wrap: wrap;
+}
+
+/* =========================================
+   TOOLBAR (Filter/Clear + Delete/Add new)
+========================================= */
+
+.roles-panel__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--spacing-2, 8px);
+  padding: var(--spacing-4, 16px) var(--spacing-6, 24px) 0;
+}
+
+.roles-panel__toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 8px);
+}
+
+/* =========================================
+   STATUS PILL
+========================================= */
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-0_5, 2px) var(--spacing-2, 8px);
+  border-radius: var(--rounded-infinite, 9999px);
+  background: var(--color-success-solid-100, #dcfce7);
+  color: var(--color-success-solid-700, #15803d);
+  font-size: var(--label-label-3-fontsize, 12px);
+  line-height: var(--label-label-3-lineheight, 16px);
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: var(--label-label-3-letterspacing, -0.12px);
+  white-space: nowrap;
+}
+
+.status-pill--inactive {
+  background: var(--color-neutral-solid-100, #e7e7e7);
+  color: var(--color-neutral-solid-600, #5d5d5d);
+}
+
+/* =========================================
+   TABLE
+========================================= */
+
+.roles-table {
+  padding: var(--spacing-4, 16px) var(--spacing-6, 24px) var(--spacing-6, 24px);
+}
+
+.roles-table__row {
+  cursor: pointer;
+}
+
+.table-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-12, 48px) 0;
+}
+
+/* nz-table renders its DOM (ant-table-*, sorter icons, pagination) inside its
+   own component view, outside this component's style-encapsulation scope -
+   ::ng-deep is required to reach it, same pattern already used for ng-zorro
+   internals in secure-layout.component.css and login.component.css. The
+   table itself is *ngIf'd out while loading (see role-list.component.html)
+   instead of nz-table's own [nzLoading] overlay, so only the spinner shows
+   during a fetch - never a stale table dimmed underneath it. */
+::ng-deep #role-list-table.ant-table-wrapper {
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+::ng-deep #role-list-table .ant-table {
+  border: 1px solid var(--color-neutral-solid-100, #e7e7e7);
+  border-radius: var(--rounded-8, 8px);
+  box-shadow: none;
+}
+
+::ng-deep #role-list-table .ant-table-thead > tr > th {
+  background: var(--color-neutral-solid-50, #f6f6f6);
+  border-bottom: 1px solid var(--color-neutral-solid-200, #d1d1d1);
+  padding: var(--spacing-3, 12px) var(--spacing-4, 16px);
+  color: var(--color-neutral-solid-950, #1a1a1a);
+  font-size: 14px;
+  line-height: var(--label-label-3-lineheight, 16px);
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: var(--label-label-3-letterspacing, -0.12px);
+  white-space: nowrap;
+}
+
+::ng-deep #role-list-table .ant-table-thead > tr > th::before {
+  display: none;
+}
+
+/* Sortable header cells are hand-rolled (not nz-table's built-in
+   nzSortFn/nzColumnKey) so the sort glyph goes through the same <app-icon
+   name="caret-up-down-light"> every other icon in the app uses, instead of CSS injecting a
+   replacement into ng-zorro's own generated sorter markup. */
+::ng-deep #role-list-table th.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+::ng-deep #role-list-table .th-content {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1, 4px);
+}
+
+/* Vertical column dividers - matches Figma, which draws a border between
+   every column except the checkbox column (leading) and the action column
+   (trailing edge). Logical property so it flips correctly in RTL. */
+::ng-deep #role-list-table .ant-table-thead > tr > th:not(:first-child):not(:last-child),
+::ng-deep #role-list-table .ant-table-tbody > tr > td:not(:first-child):not(:last-child) {
+  border-inline-end: 1px solid var(--color-neutral-solid-100, #e7e7e7);
+}
+
+/* height:56px is only actually reached if every cell's content fits inside
+   it - a table cell's height (like a row's) is a floor the browser will
+   always grow past for taller content, never a cap. 10px top/bottom leaves
+   exactly 36px of content room, matching the size="sm" <app-button> in the
+   action column (its tallest cell) - see button.component.css's sm height
+   comment. Horizontal padding is untouched. */
+::ng-deep #role-list-table .ant-table-tbody > tr > td {
+  height: 56px;
+  padding: 10px var(--spacing-4, 16px);
+  border-bottom: 1px solid var(--color-neutral-solid-100, #e7e7e7);
+  color: var(--color-neutral-solid-900, #3d3d3d);
+  font-size: var(--label-label-2-fontsize, 14px);
+  line-height: var(--label-label-2-lineheight, 20px);
+  letter-spacing: 0;
+  box-sizing: border-box;
+}
+
+::ng-deep #role-list-table .ant-table-tbody > tr.alt-row > td {
+  background: var(--general-unofficial-accent-0, #f6f6f6);
+}
+
+::ng-deep #role-list-table .ant-table-tbody > tr:hover > td {
+  background: var(--general-secondary, #eef3ff);
+}
+
+::ng-deep #role-list-table .ant-table-tbody > tr:last-child > td {
+  border-bottom: none;
+}
+
+/* Checkbox - matches the login page's ::ng-deep .ant-checkbox-inner override
+   pattern (see login.component.css). */
+::ng-deep #role-list-table .ant-checkbox-inner {
+  width: 18px;
+  height: 18px;
+  border: 1px solid var(--general-unofficial-border-3, #b0b0b0);
+  border-radius: var(--rounded-4, 4px);
+  box-shadow: var(--shadow-xs);
+}
+
+::ng-deep #role-list-table .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--general-primary, #1b35f5);
+  border-color: var(--general-primary, #1b35f5);
+}
+
+/* =========================================
+   PAGINATION - same custom Prev/1..N/Next control as shared list
+   (shared list.component.css .pagination-controls / .page-btn), minus the
+   page-size dropdown, centered since there's no left-column control left
+   to balance against.
+========================================= */
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-3, 12px) var(--spacing-4, 16px) 0;
+}
+
+.pagination-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2, 8px);
+}
+
+.page-ellipsis {
+  color: var(--color-neutral-solid-500, #6d6d6d);
+  font-size: var(--label-label-2-fontsize, 14px);
+  font-weight: var(--font-weight-semibold, 600);
+  padding: 0 var(--spacing-1, 4px);
+}
+
+.page-position {
+  display: none;
+  color: var(--color-neutral-solid-900, #3d3d3d);
+  font-size: var(--label-label-2-fontsize, 14px);
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+@media (max-width: 768px) {
+  .roles-panel__header {
+    padding: var(--spacing-4, 16px);
+  }
+
+  .roles-panel__toolbar {
+    padding: var(--spacing-4, 16px) var(--spacing-4, 16px) 0;
+  }
+
+  .roles-table {
+    padding: var(--spacing-4, 16px);
+  }
+
+  .pagination-controls {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .page-btn,
+  .page-ellipsis {
+    display: none;
+  }
+
+  .page-position {
+    display: block;
+  }
+}
+
+@media (max-width: 576px) {
+  .roles-panel {
+    border-radius: var(--rounded-8, 8px);
+  }
+
+  .roles-panel__title {
+    font-size: var(--body-body-1-fontsize, 18px);
+  }
+
+  .roles-panel__actions,
+  .roles-panel__toolbar-left {
+    width: 100%;
+  }
+
+  .roles-panel__actions app-button,
+  .roles-panel__toolbar-left app-button {
+    flex: 1 1 0;
+  }
+}

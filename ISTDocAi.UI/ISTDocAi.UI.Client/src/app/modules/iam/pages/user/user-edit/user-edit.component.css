@@ -1,0 +1,76 @@
+:host {
+  display: block;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+.user-edit {
+  padding: var(--spacing-2, 8px) var(--spacing-6, 24px);
+}
+
+.user-edit__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4, 16px);
+}
+
+.user-edit__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1, 4px);
+}
+
+.user-edit__label {
+  color: var(--general-foreground, #1a1a1a);
+  font-size: var(--label-label-2-fontsize, 14px);
+  line-height: var(--label-label-2-lineheight, 20px);
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: var(--label-label-2-letterspacing, -0.16px);
+}
+
+/* .user-edit__input skin lives in the global styles.css, shared with the
+   equivalent role-search/user-search/role-edit inputs. */
+
+.user-edit__error {
+  color: var(--general-destructive, #ef4444);
+  font-size: var(--label-label-3-fontsize, 12px);
+  line-height: var(--label-label-3-lineheight, 16px);
+}
+
+/* System administrator / Active sit at the start of the line - flush left in
+   English, flush right in Arabic - via align-self: flex-start on this column
+   flex container (its cross-start edge follows `direction`). margin-left is
+   reset to cancel antd's own `.ant-checkbox-wrapper + .ant-checkbox-wrapper
+   { margin-left: 8px }` (ng-zorro's checkbox/style), which was otherwise
+   indenting "Active" away from that edge. */
+.user-edit__checkbox {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  margin-left: 0;
+  color: var(--general-unofficial-foreground-alt, #404040);
+  font-size: var(--label-label-2-fontsize, 14px);
+  line-height: var(--label-label-2-lineheight, 20px);
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: var(--label-label-2-letterspacing, -0.16px);
+}
+
+/* nz-checkbox renders its check indicator inside its own component view -
+   ::ng-deep is required to restyle it from here (same pattern used in
+   role-edit.component.css). */
+::ng-deep .user-edit .ant-checkbox-inner {
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--general-unofficial-border-3, #b0b0b0);
+  border-radius: var(--rounded-4, 4px);
+  box-shadow: var(--shadow-xs);
+}
+
+::ng-deep .user-edit .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--general-primary, #1b35f5);
+  border-color: var(--general-primary, #1b35f5);
+}
+
+/* The role select's trigger-box look now lives in app-select's own default
+   styling (shared/components/select/select.component.css) - it replaced the
+   raw nz-select here, so this page no longer needs its own ::ng-deep
+   override to reach the select's internal DOM. */

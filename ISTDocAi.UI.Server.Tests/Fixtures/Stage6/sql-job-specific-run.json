@@ -1,0 +1,40 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/jobs/11111111-1111-4111-8111-111111111111?runNo=1",
+    "headers": [
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "X-Api-Key",
+        "values": [
+          "test-key-one"
+        ]
+      }
+    ],
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "headers": [
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "Content-Type",
+        "values": [
+          "application/json; charset=utf-8"
+        ]
+      }
+    ],
+    "bodyText": "{\u0022jobId\u0022:\u002211111111-1111-4111-8111-111111111111\u0022,\u0022runNo\u0022:1,\u0022clientRequestId\u0022:\u0022baseline-request-1\u0022,\u0022runReason\u0022:\u0022New\u0022,\u0022status\u0022:\u0022Completed\u0022,\u0022error\u0022:null,\u0022result\u0022:{\u0022contractVersion\u0022:\u00221.0\u0022,\u0022documentTypeCode\u0022:\u0022BL\u0022,\u0022shippingLineCode\u0022:null,\u0022modelId\u0022:\u0022bl-v1\u0022,\u0022pageCount\u0022:1,\u0022fields\u0022:{\u0022shipperName\u0022:{\u0022value\u0022:\u0022PRIVATE_FIELD_VALUE\u0022,\u0022confidence\u0022:0.85,\u0022page\u0022:1}},\u0022containers\u0022:[],\u0022flags\u0022:[{\u0022field\u0022:\u0022shipperName\u0022,\u0022reason\u0022:\u0022LOW_CONFIDENCE\u0022}]},\u0022requestedDocumentType\u0022:\u0022BL\u0022,\u0022documentType\u0022:\u0022BL\u0022,\u0022resultType\u0022:\u0022bill-of-lading.v1\u0022}"
+  }
+}

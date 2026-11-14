@@ -1,0 +1,5 @@
+{
+  "packageId": "DotNet.Templates",
+  "version": "1.0.1",
+  "template": "dotnet-starter"
+}

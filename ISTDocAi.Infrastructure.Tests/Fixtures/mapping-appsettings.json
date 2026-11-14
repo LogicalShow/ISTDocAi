@@ -1,0 +1,256 @@
+{
+  "Webhooks": {
+    "Enabled": true,
+    "MaxParallelSends": 4
+  },
+  "DocAi": {
+    "Mapping": {
+      "Source": "Sql",
+      "FieldMap": {
+        "billOfLadingNumber": "BillOfLadingNumber",
+        "shipperName": "ShipperName",
+        "consigneeName": "ConsigneeName",
+        "vesselName": "VesselName",
+        "voyageNumber": "VoyageNumber",
+        "portOfLoading": "PortOfLoading",
+        "portOfDischarge": "PortOfDischarge",
+        "issueDate": "DateOfIssue"
+      },
+      "ContainersField": "Containers",
+      "ContainerNumberField": "ContainerNo",
+      "SealNumberField": "SealNo",
+      "Models": {
+        "bl-maersk-v1": {
+          "DocumentTypeCode": "BL",
+          "FieldMap": {
+            "billOfLadingNumber": "BillOfLadingNumber",
+            "shipperName": "ShipperName",
+            "consigneeName": "ConsigneeName",
+            "vesselName": "VesselName",
+            "voyageNumber": "VoyageNumber",
+            "portOfLoading": "PortOfLoading",
+            "portOfDischarge": "PortOfDischarge",
+            "issueDate": "DateOfIssue",
+            "bookingNumber": "BookingNumber",
+            "shipperAddress": "ShipperAddress",
+            "consigneeAddress": "ConsigneeAddress",
+            "notifyParty": "NotifyParty",
+            "freightTerms": "FreightTerms",
+            "hsCode": "HSCode",
+            "totalGrossWeightKg": "TotalGrossWeightKg"
+          },
+          "ContainersField": "Containers",
+          "ContainerFieldMap": {
+            "containerNumber": "ContainerNo",
+            "sealNumber": "SealNo",
+            "containerType": "Type",
+            "packages": "Packages",
+            "grossWeightKg": "GrossWeightKg",
+            "measurementCbm": "MeasurementCbm"
+          }
+        },
+        "bl-v2": {
+          "DocumentTypeCode": "BL",
+          "FieldMap": {
+            "billOfLadingNumber": "BillOfLadingNumber",
+            "shipperName": "ShipperName",
+            "consigneeName": "ConsigneeName",
+            "vesselName": "VesselName",
+            "voyageNumber": "VoyageNumber",
+            "portOfLoading": "PortOfLoading",
+            "portOfDischarge": "PortOfDischarge",
+            "issueDate": "DateOfIssue",
+            "bookingNumber": "BookingNumber",
+            "shipperAddress": "ShipperAddress",
+            "consigneeAddress": "ConsigneeAddress",
+            "notifyParty": "NotifyParty",
+            "freightTerms": "FreightTerms",
+            "hsCode": "HSCode",
+            "totalGrossWeightKg": "TotalGrossWeightKg"
+          },
+          "ContainersField": "Containers",
+          "ContainerFieldMap": {
+            "containerNumber": "ContainerNo",
+            "sealNumber": "SealNo",
+            "containerType": "Type",
+            "packages": "Packages",
+            "grossWeightKg": "GrossWeightKg",
+            "measurementCbm": "MeasurementCbm"
+          }
+        },
+        "bl-v3": {
+          "DocumentTypeCode": "BL",
+          "FieldMap": {
+            "billOfLadingNumber": "BillOfLadingNumber",
+            "shipperName": "ShipperName",
+            "consigneeName": "ConsigneeName",
+            "vesselName": "VesselName",
+            "voyageNumber": "VoyageNumber",
+            "portOfLoading": "PortOfLoading",
+            "portOfDischarge": "PortOfDischarge",
+            "issueDate": "DateOfIssue",
+            "bookingNumber": "BookingNumber",
+            "shipperAddress": "ShipperAddress",
+            "consigneeAddress": "ConsigneeAddress",
+            "notifyParty": "NotifyParty",
+            "freightTerms": "FreightTerms",
+            "hsCode": "HSCode",
+            "totalGrossWeightKg": "TotalGrossWeightKg"
+          },
+          "ContainersField": "Containers",
+          "ContainerFieldMap": {
+            "containerNumber": "ContainerNo",
+            "sealNumber": "SealNo",
+            "containerType": "Type",
+            "packages": "Packages",
+            "grossWeightKg": "GrossWeightKg",
+            "measurementCbm": "MeasurementCbm"
+          }
+        },
+        "manifest-v1": {
+          "DocumentTypeCode": "MANIFEST",
+          "HeaderFieldMap": {
+            "carrierName": "CarrierName",
+            "vesselName": "VesselName",
+            "voyageNumber": "VoyageNumber",
+            "portOfLoading": "PortOfLoading",
+            "portOfDischarge": "PortOfDischarge",
+            "manifestDate": "ManifestDate"
+          },
+          "BillsOfLadingField": "BillsOfLading",
+          "BillFieldMap": {
+            "billOfLadingNumber": "BLNumber",
+            "shipperName": "Shipper",
+            "consigneeName": "Consignee",
+            "notifyParty": "NotifyParty",
+            "bookingNumber": "BookingNumber",
+            "freightTerms": "FreightTerms",
+            "packages": "Packages",
+            "grossWeight": "GrossWeight",
+            "description": "Description"
+          },
+          "ContainersField": "Containers",
+          "ContainerFieldMap": {
+            "billOfLadingNumber": "BLNumber",
+            "containerNumber": "ContainerNo",
+            "sealNumber": "SealNo",
+            "containerType": "ContainerType",
+            "packages": "Packages",
+            "grossWeight": "GrossWeight",
+            "description": "Description"
+          }
+        },
+        "manifest-v2": {
+          "DocumentTypeCode": "MANIFEST",
+          "HeaderFieldMap": {
+            "carrierName": "CarrierName",
+            "vesselName": "VesselName",
+            "voyageNumber": "VoyageNumber",
+            "portOfLoading": "PortOfLoading",
+            "portOfDischarge": "PortOfDischarge",
+            "manifestDate": "ManifestDate",
+            "placeOfDelivery": "PlaceOfDelivery"
+          },
+          "BillsOfLadingField": "BillsOfLading",
+          "BillFieldMap": {
+            "billOfLadingNumber": "BLNumber",
+            "shipperName": "ShipperName",
+            "shipperAddress": "ShipperAddress",
+            "consigneeName": "ConsigneeName",
+            "consigneeAddress": "ConsigneeAddress",
+            "notifyParty": "NotifyParty",
+            "bookingNumber": "BookingNumber",
+            "freightTerms": "FreightTerms",
+            "packages": "Packages",
+            "grossWeight": "GrossWeight",
+            "description": "Description",
+            "containerCount": "ContainerCount",
+            "hsCode": "HSCode",
+            "packageType": "PackageType",
+            "issueDate": "IssueDate"
+          },
+          "ContainersField": "Containers",
+          "ContainerFieldMap": {
+            "billOfLadingNumber": "BLNumber",
+            "containerNumber": "ContainerNo",
+            "sealNumber": "SealNo",
+            "containerType": "ContainerType",
+            "packages": "Packages",
+            "grossWeight": "GrossWeight",
+            "description": "Description"
+          }
+        },
+        "manifest-v3": {
+          "DocumentTypeCode": "MANIFEST",
+          "HeaderFieldMap": {
+            "carrierName": "CarrierName",
+            "vesselName": "VesselName",
+            "voyageNumber": "VoyageNumber",
+            "portOfLoading": "PortOfLoading",
+            "portOfDischarge": "PortOfDischarge",
+            "manifestDate": "ManifestDate",
+            "placeOfDelivery": "PlaceOfDelivery"
+          },
+          "BillsOfLadingField": "BillsOfLading",
+          "BillFieldMap": {
+            "billOfLadingNumber": "BLNumber",
+            "shipperName": "ShipperName",
+            "shipperAddress": "ShipperAddress",
+            "consigneeName": "ConsigneeName",
+            "consigneeAddress": "ConsigneeAddress",
+            "notifyParty": "NotifyParty",
+            "bookingNumber": "BookingNumber",
+            "freightTerms": "FreightTerms",
+            "packages": "Packages",
+            "grossWeight": "GrossWeight",
+            "description": "Description",
+            "containerCount": "ContainerCount",
+            "hsCode": "HSCode",
+            "packageType": "PackageType",
+            "issueDate": "IssueDate"
+          },
+          "ContainersField": "Containers",
+          "ContainerFieldMap": {
+            "billOfLadingNumber": "BLNumber",
+            "containerNumber": "ContainerNo",
+            "sealNumber": "SealNo",
+            "containerType": "ContainerType",
+            "packages": "Packages",
+            "grossWeight": "GrossWeight",
+            "description": "Description"
+          }
+        }
+      }
+    },
+    "Secrets": {
+      "Provider": "ProtectedFile"
+    },
+    "KeyVault": {
+      "Url": ""
+    },
+    "Sql": {
+      "ConnectionString": "",
+      "CommandTimeoutSeconds": 30
+    },
+    "Blob": {
+      "AccountUrl": "",
+      "Container": "documents",
+      "ManagedIdentityClientId": null
+    },
+    "RateLimit": {
+      "TokenLimit": 60,
+      "TokensPerPeriod": 30,
+      "PeriodSeconds": 1
+    },
+    "FileInspection": {
+      "TimeoutSeconds": 5
+    },
+    "Identity": {
+      "Mode": "ManagedIdentity",
+      "TenantId": "",
+      "ClientId": "",
+      "CertificateThumbprint": "",
+      "StoreLocation": "LocalMachine"
+    }
+  }
+}

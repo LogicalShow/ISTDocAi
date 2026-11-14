@@ -1,0 +1,8 @@
+<div class="role-search">
+  <form [formGroup]="form" class="role-search__form" autocomplete="off">
+    <div class="role-search__field">
+      <label class="role-search__label" for="name">{{ 'role.search.nameLabel' | translate }}</label>
+      <input id="name" class="role-search__input" formControlName="name" [placeholder]="'role.search.namePlaceholder' | translate" />
+    </div>
+  </form>
+</div>

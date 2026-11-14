@@ -1,0 +1,39 @@
+<section class="permissions-page">
+  <header class="permissions-page__header">
+    <h2>{{ 'permissionsPage.title' | translate: {
+      subjectType: ('permissionsPage.subjectTypes.' + subjectType() | translate),
+      subjectName: subjectName()
+    } }}</h2>
+  </header>
+
+  @if (loading()) {
+    <div class="permissions-page__loading">
+      <app-icon name="circle-notch-light" iconClass="app-spinner"
+      [ariaLabel]="'permissionsPage.loading' | translate" />
+    </div>
+  }
+
+  @if (!loading()) {
+    <div class="permissions-page__body">
+      @if (applications(); as applications) {
+        <app-permission-tree [applications]="applications"
+          [importAction]="importAction()"
+          [importDisabled]="importDisabled()"
+          [importing]="importing()"
+          [importedSelection]="importedSelection()"
+          (selectionChange)="selectionChange.emit($event)" />
+      }
+      @if (applications()) {
+        <footer class="permissions-page__footer">
+          <app-button size="sm" hierarchy="gray-outline" (clicked)="cancelRequested.emit()">
+            {{ 'common.cancel' | translate }}
+          </app-button>
+          <app-button size="sm" hierarchy="primary" [disabled]="saving()" [loading]="saving()"
+            [loadingLabel]="'common.saving' | translate" (clicked)="saveRequested.emit()">
+            {{ 'common.save' | translate }}
+          </app-button>
+        </footer>
+      }
+    </div>
+  }
+</section>

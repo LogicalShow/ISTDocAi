@@ -1,0 +1,1 @@
+{"eventId":"9c4f2a1e-6b3d-4e8a-b7c5-1d2e3f4a5b6c","eventType":"job.failed","jobId":"0192f0a4-7c1e-7b3a-9d2e-5f6a7b8c9d01","runNo":2,"clientRequestId":"3a8e5c71-2b4d-4f9e-8c1a-6d7e8f9a0b12","status":"Failed","error":{"code":"UNCLASSIFIED","message":"Classifier confidence 0.41 is under 0.700"},"result":null,"occurredAtUtc":"2026-10-29T11:02:41Z"}

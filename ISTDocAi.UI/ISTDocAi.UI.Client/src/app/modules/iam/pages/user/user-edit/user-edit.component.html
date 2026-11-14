@@ -1,0 +1,54 @@
+<div class="user-edit">
+  <form [formGroup]="form" (ngSubmit)="save()" class="user-edit__form" autocomplete="off">
+    <div class="user-edit__field">
+      <label class="user-edit__label" for="userName">{{ 'user.edit.userNameLabel' | translate }}</label>
+      <input id="userName" dir="auto" class="user-edit__input" formControlName="userName" [placeholder]="'user.edit.userNamePlaceholder' | translate" />
+      @if (getErrorMessage('userName')) {
+        <div class="user-edit__error">
+          {{ getErrorMessage('userName') | translate }}
+        </div>
+      }
+    </div>
+
+    <div class="user-edit__field">
+      <label class="user-edit__label" for="fullName">{{ 'user.edit.fullNameLabel' | translate }}</label>
+      <input id="fullName" dir="auto" class="user-edit__input" formControlName="fullName" [placeholder]="'user.edit.fullNamePlaceholder' | translate" />
+      @if (getErrorMessage('fullName')) {
+        <div class="user-edit__error">
+          {{ getErrorMessage('fullName') | translate }}
+        </div>
+      }
+    </div>
+
+    <div class="user-edit__field">
+      <label class="user-edit__label" for="email">{{ 'user.edit.emailLabel' | translate }}</label>
+      <input id="email" class="user-edit__input" formControlName="email" [placeholder]="'user.edit.emailPlaceholder' | translate" />
+      @if (getErrorMessage('email')) {
+        <div class="user-edit__error">
+          {{ getErrorMessage('email') | translate }}
+        </div>
+      }
+    </div>
+
+    @if (mode === 'add') {
+      <app-new-password-fields
+        idPrefix="add-user-password"
+        [newPasswordControl]="passwordControl"
+        [policy]="passwordPolicy()"
+        [policyLoading]="isPasswordPolicyLoading()" />
+    }
+
+    <div class="user-edit__field">
+      <label class="user-edit__label" for="roleId">{{ 'user.edit.roleLabel' | translate }}</label>
+      <app-select id="roleId" formControlName="roleId" [options]="roleOptions()" [placeholder]="'user.edit.rolePlaceholder' | translate" [loading]="loadingRoles()" />
+      @if (getErrorMessage('roleId')) {
+        <div class="user-edit__error">
+          {{ getErrorMessage('roleId') | translate }}
+        </div>
+      }
+    </div>
+
+    <label class="user-edit__checkbox" nz-checkbox formControlName="isAdministrator">{{ 'user.edit.administrator' | translate }}</label>
+    <label class="user-edit__checkbox" nz-checkbox formControlName="isActive">{{ 'user.edit.active' | translate }}</label>
+  </form>
+</div>

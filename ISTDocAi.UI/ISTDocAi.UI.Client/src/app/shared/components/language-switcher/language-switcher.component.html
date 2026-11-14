@@ -1,0 +1,31 @@
+<button
+  nz-dropdown
+  [nzDropdownMenu]="languageMenu"
+  [nzTrigger]="'click'"
+  nzOverlayClassName="app-dropdown-panel"
+  type="button"
+  class="language-switcher"
+  [class.language-switcher--auth]="appearance() === 'auth'"
+  [class.language-switcher--forgot]="appearance() === 'forgot'"
+  [class.language-switcher--header]="appearance() === 'header'"
+  [attr.aria-label]="'common.changeLanguage' | translate">
+  <app-icon [name]="globeIcon()" iconClass="language-switcher__globe" />
+  <span class="language-switcher__code">{{ currentCulture() === 'ar' ? 'AR' : 'EN' }}</span>
+  <app-icon name="caret-down-light" iconClass="language-switcher__caret" />
+</button>
+
+<nz-dropdown-menu #languageMenu="nzDropdownMenu">
+  <ul nz-menu class="language-switcher__menu">
+    @for (language of languages; track language.code) {
+      <li
+        nz-menu-item
+        tabindex="0"
+        [class.language-switcher__option--active]="currentCulture() === language.code"
+        (click)="switchLanguage(language.code)"
+        (keydown.enter)="switchLanguage(language.code)"
+        (keydown.space)="switchLanguage(language.code); $event.preventDefault()">
+        {{ language.label }}
+      </li>
+    }
+  </ul>
+</nz-dropdown-menu>

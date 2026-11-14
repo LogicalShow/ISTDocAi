@@ -1,0 +1,18 @@
+/*
+ * ng-zorro wrapper overrides for the shared confirmation dialog
+ * (shared/components/confirm-dialog). Applied by FeedbackService.confirm()
+ * through nzClassName. The dialog renders its own title, buttons and X, so
+ * the ant header/footer are disabled and the body padding removed; only
+ * the card chrome from Figma (node 1370:9202) is set here.
+ */
+.app-confirm-modal .ant-modal-content {
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--general-border, #d1d1d1);
+  border-radius: var(--rounded-16, 16px);
+  background: var(--general-background, #ffffff);
+}
+
+.app-confirm-modal .ant-modal-body {
+  padding: 0;
+}

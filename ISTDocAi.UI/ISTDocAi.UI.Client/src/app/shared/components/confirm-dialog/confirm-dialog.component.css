@@ -1,0 +1,72 @@
+/*
+ * Confirm dialog body - Figma "Delete user dialog2" (ISTDocAi,
+ * node 1370:9202). The card chrome (16px radius, 1px border, zero padding)
+ * lives on the ng-zorro wrapper via .app-confirm-modal in
+ * styles/vendor/confirm-modal.css, since .ant-modal-content sits outside
+ * this component's view.
+ */
+.confirm-dialog {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-base, "IBM Plex Sans", system-ui, sans-serif);
+}
+
+.confirm-dialog__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4, 16px);
+  padding: var(--spacing-6, 24px) var(--spacing-6, 24px) var(--spacing-2, 8px);
+  overflow-wrap: break-word;
+}
+
+.confirm-dialog__title {
+  margin: 0;
+  /* Keep clear of the absolutely positioned X (15px inset + 20px icon). */
+  padding-inline-end: var(--spacing-8, 32px);
+  font-size: var(--heading-h6-fontsize, 20px);
+  line-height: var(--heading-h6-lineheight, 24px);
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: var(--heading-h6-letterspacing, 0);
+  color: var(--general-foreground, #1a1a1a);
+}
+
+.confirm-dialog__message {
+  margin: 0;
+  font-size: var(--body-body-3-fontsize, 14px);
+  line-height: var(--body-body-3-lineheight, 20px);
+  font-weight: var(--font-weight-regular, 400);
+  letter-spacing: var(--body-body-3-letterspacing, 0);
+  color: var(--color-neutral-solid-500, #6d6d6d);
+  white-space: pre-line;
+}
+
+.confirm-dialog__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-3, 12px);
+  padding: var(--spacing-4, 16px) var(--spacing-6, 24px);
+}
+
+.confirm-dialog__close {
+  position: absolute;
+  top: 15px;
+  inset-inline-end: 15px;
+  display: inline-flex;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--general-foreground, #1a1a1a);
+  cursor: pointer;
+  border-radius: var(--rounded-4, 4px);
+}
+
+.confirm-dialog__close:hover {
+  color: var(--color-neutral-solid-700, #4f4f4f);
+}
+
+.confirm-dialog__close:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-neutral-solid-100, #e7e7e7);
+}

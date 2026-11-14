@@ -1,0 +1,56 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/api/v1/jobs",
+    "headers": [
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "X-Api-Key",
+        "values": [
+          "test-key-one"
+        ]
+      }
+    ],
+    "body": {
+      "contentType": "multipart/form-data; boundary=\u0022baseline-fixed-boundary\u0022",
+      "sha256": "dcb23589a23e32ea0898841bd477e1e70ba86c4e9ec6f922b1f44484ca61cb93",
+      "length": 3675
+    }
+  },
+  "response": {
+    "status": 202,
+    "contentType": "application/json; charset=utf-8",
+    "headers": [
+      {
+        "name": "Location",
+        "values": [
+          "/api/v1/jobs/11111111-1111-4111-8111-111111111111?runNo=1"
+        ]
+      },
+      {
+        "name": "Retry-After",
+        "values": [
+          "5"
+        ]
+      },
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "Content-Type",
+        "values": [
+          "application/json; charset=utf-8"
+        ]
+      }
+    ],
+    "bodyText": "{\u0022jobId\u0022:\u002211111111-1111-4111-8111-111111111111\u0022,\u0022runNo\u0022:1,\u0022runReason\u0022:\u0022New\u0022,\u0022status\u0022:\u0022Queued\u0022,\u0022statusUrl\u0022:\u0022/api/v1/jobs/11111111-1111-4111-8111-111111111111?runNo=1\u0022,\u0022pageCount\u0022:1}"
+  }
+}

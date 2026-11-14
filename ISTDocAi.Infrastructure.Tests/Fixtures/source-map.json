@@ -1,0 +1,121 @@
+[
+  {
+    "source": "src/DocAi.Database/DatabaseInitializationException.cs",
+    "target": "ISTDocAi.Infrastructure/Startup/DatabaseMigration/DocAi/DatabaseInitializationException.cs",
+    "csharp": true,
+    "bom": false,
+    "addedUsings": true
+  },
+  {
+    "source": "src/DocAi.Database/DatabaseInitializer.cs",
+    "target": "ISTDocAi.Infrastructure/Startup/DatabaseMigration/DocAi/DatabaseInitializer.cs",
+    "csharp": true,
+    "bom": false,
+    "addedUsings": true
+  },
+  {
+    "source": "src/DocAi.Database/DatabaseOptions.cs",
+    "target": "ISTDocAi.Infrastructure/Startup/DatabaseMigration/DocAi/DatabaseOptions.cs",
+    "csharp": true,
+    "bom": false,
+    "addedUsings": true
+  },
+  {
+    "source": "src/DocAi.Database/DocAiDbContext.cs",
+    "target": "ISTDocAi.Infrastructure/Data/DocAi/DocAiDbContext.cs",
+    "csharp": true,
+    "bom": false,
+    "addedUsings": true
+  },
+  {
+    "source": "src/DocAi.Database/DocAiDesignTimeFactory.cs",
+    "target": "ISTDocAi.Infrastructure/Data/DocAi/DocAiDesignTimeFactory.cs",
+    "csharp": true,
+    "bom": false,
+    "addedUsings": true
+  },
+  {
+    "source": "src/DocAi.Database/LegacySchemaAdopter.cs",
+    "target": "ISTDocAi.Infrastructure/Startup/DatabaseMigration/DocAi/LegacySchemaAdopter.cs",
+    "csharp": true,
+    "bom": false,
+    "addedUsings": true
+  },
+  {
+    "source": "src/DocAi.Database/Migrations/20261101000000_InitialSchema.Designer.cs",
+    "target": "ISTDocAi.Infrastructure/Migrations/DocAi/20261101000000_InitialSchema.Designer.cs",
+    "csharp": true,
+    "bom": true,
+    "addedUsings": false
+  },
+  {
+    "source": "src/DocAi.Database/Migrations/20261101000000_InitialSchema.cs",
+    "target": "ISTDocAi.Infrastructure/Migrations/DocAi/20261101000000_InitialSchema.cs",
+    "csharp": true,
+    "bom": true,
+    "addedUsings": true
+  },
+  {
+    "source": "src/DocAi.Database/Migrations/20261103000000_ModelMappingProfiles.cs",
+    "target": "ISTDocAi.Infrastructure/Migrations/DocAi/20261103000000_ModelMappingProfiles.cs",
+    "csharp": true,
+    "bom": true,
+    "addedUsings": true
+  },
+  {
+    "source": "src/DocAi.Database/Migrations/DocAiDbContextModelSnapshot.cs",
+    "target": "ISTDocAi.Infrastructure/Migrations/DocAi/DocAiDbContextModelSnapshot.cs",
+    "csharp": true,
+    "bom": true,
+    "addedUsings": false
+  },
+  {
+    "source": "src/DocAi.Database/Migrations/Sql/InitialRoles.sql",
+    "target": "ISTDocAi.Infrastructure/Migrations/DocAi/Sql/InitialRoles.sql",
+    "csharp": false,
+    "bom": false,
+    "addedUsings": false
+  },
+  {
+    "source": "src/DocAi.Database/Migrations/Sql/InitialSchema.catalog.json",
+    "target": "ISTDocAi.Infrastructure/Migrations/DocAi/Sql/InitialSchema.catalog.json",
+    "csharp": false,
+    "bom": false,
+    "addedUsings": false
+  },
+  {
+    "source": "src/DocAi.Database/Migrations/Sql/InitialSchema.sql",
+    "target": "ISTDocAi.Infrastructure/Migrations/DocAi/Sql/InitialSchema.sql",
+    "csharp": false,
+    "bom": false,
+    "addedUsings": false
+  },
+  {
+    "source": "src/DocAi.Database/Migrations/Sql/ModelMappingProfiles.sql",
+    "target": "ISTDocAi.Infrastructure/Migrations/DocAi/Sql/ModelMappingProfiles.sql",
+    "csharp": false,
+    "bom": true,
+    "addedUsings": false
+  },
+  {
+    "source": "src/DocAi.Database/Migrations/Sql/ModelMappingSeeds.json",
+    "target": "ISTDocAi.Infrastructure/Migrations/DocAi/Sql/ModelMappingSeeds.json",
+    "csharp": false,
+    "bom": true,
+    "addedUsings": false
+  },
+  {
+    "source": "src/DocAi.Database/SchemaCatalog.cs",
+    "target": "ISTDocAi.Infrastructure/Startup/DatabaseMigration/DocAi/SchemaCatalog.cs",
+    "csharp": true,
+    "bom": false,
+    "addedUsings": true
+  },
+  {
+    "source": "src/DocAi.Database/SqlBatchReader.cs",
+    "target": "ISTDocAi.Infrastructure/Startup/DatabaseMigration/DocAi/SqlBatchReader.cs",
+    "csharp": true,
+    "bom": false,
+    "addedUsings": true
+  }
+]

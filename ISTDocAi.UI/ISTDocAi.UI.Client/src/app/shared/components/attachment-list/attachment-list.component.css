@@ -1,0 +1,54 @@
+.attachment-list-container {
+  padding: var(--spacing-4, 16px);
+}
+
+.actions-bar {
+  margin-bottom: var(--spacing-4, 16px);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.add-button {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 8px);
+}
+
+.delete-button {
+  margin-inline-start: var(--spacing-2, 8px);
+}
+
+.view-button {
+  background-color: var(--general-background, #ffffff);
+  border: solid 1px var(--color-primary-solid-400, #5984ff);
+}
+
+.delete-attachment-button {
+  background-color: var(--general-background, #ffffff);
+  border: solid 1px var(--general-destructive, #ef4444);
+}
+
+.button-label {
+  align-items: center;
+  vertical-align: middle;
+}
+
+.clickable-row {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.clickable-row:hover {
+  background-color: var(--general-unofficial-accent-0, #f6f6f6);
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-10, 40px);
+  color: var(--color-neutral-solid-400, #888888);
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: var(--label-label-2-fontsize, 14px);
+}

@@ -1,0 +1,116 @@
+<div class="users-panel">
+  <div class="users-panel__header">
+    <h2 class="users-panel__title">{{ 'user.title' | translate }}</h2>
+  </div>
+
+  <div class="users-panel__toolbar">
+    <div class="users-panel__toolbar-left">
+      <app-button hierarchy="gray-outline" icon="funnel-light" iconPosition="leading" (clicked)="openSearchModal()">
+        {{ 'user.filter' | translate }}
+      </app-button>
+      <app-button hierarchy="gray-outline" icon="arrows-clockwise-light" iconPosition="leading" (clicked)="clearSearch()">
+        {{ 'common.clear' | translate }}
+      </app-button>
+    </div>
+    <div class="users-panel__actions">
+      <app-button hierarchy="soft" [destructive]="true" icon="trash-light" iconPosition="leading" [appPermission]="PERMISSIONS.DELETE" (clicked)="deleteSelectedUsers()">
+        {{ 'user.delete' | translate }}
+      </app-button>
+      <app-button hierarchy="primary" icon="plus-light" iconPosition="leading" [appPermission]="PERMISSIONS.ADD" (clicked)="addUser()">
+        {{ 'user.add' | translate }}
+      </app-button>
+    </div>
+  </div>
+
+  <div class="users-table">
+    @if (loading()) {
+      <div class="table-loading">
+        <app-icon name="circle-notch-light" iconClass="app-spinner" ariaLabel="Loading" />
+      </div>
+    }
+    @if (!loading()) {
+      <nz-table
+        [nzData]="users()"
+        [nzPageIndex]="pageIndex()"
+        [nzPageSize]="pageSize()"
+        [nzTotal]="total()"
+        [nzShowPagination]="false"
+        [nzFrontPagination]="false"
+        [nzScroll]="{ x: 'max-content' }"
+        id="user-list-table">
+        <thead>
+          <tr>
+            <th [nzWidth]="'44px'">
+              <label nz-checkbox [(ngModel)]="selectAllChecked" [ngModelOptions]="{standalone: true}" (ngModelChange)="onSelectAllChange()"></label>
+            </th>
+            <th [nzWidth]="'22%'" class="sortable" (click)="onSort('UserName')">
+              <span class="th-content">{{ 'user.table.userName' | translate }}<app-icon name="caret-up-down-light" fill="var(--color-neutral-solid-900, #3D3D3D)" /></span>
+            </th>
+            <th [nzWidth]="'22%'" class="sortable" (click)="onSort('FullName')">
+              <span class="th-content">{{ 'user.table.fullName' | translate }}<app-icon name="caret-up-down-light" fill="var(--color-neutral-solid-900, #3D3D3D)" /></span>
+            </th>
+            <th [nzWidth]="'20%'" class="sortable" (click)="onSort('Email')">
+              <span class="th-content">{{ 'user.table.email' | translate }}<app-icon name="caret-up-down-light" fill="var(--color-neutral-solid-900, #3D3D3D)" /></span>
+            </th>
+            <th [nzWidth]="'12%'">{{ 'user.table.status' | translate }}</th>
+            <th>{{ 'user.table.action' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (user of users(); track user; let i = $index) {
+            <tr [class.alt-row]="i % 2 === 1" (click)="editUser(user)" class="users-table__row">
+              <td (click)="$event.stopPropagation()">
+                <label nz-checkbox [ngModel]="isChecked(user.Id)" [ngModelOptions]="{standalone: true}" (ngModelChange)="onCheckboxChange(user.Id, $event)"></label>
+              </td>
+              <td>{{ user.UserName || ('user.table.notAvailable' | translate) }}</td>
+              <td>{{ user.FullName || '-' }}</td>
+              <td>{{ user.Email || '-' }}</td>
+              <td>
+                <span class="status-pill" [class.status-pill--inactive]="!user.IsActive">{{ (user.IsActive ? 'user.status.active' : 'user.status.inactive') | translate }}</span>
+              </td>
+              <td (click)="$event.stopPropagation()">
+                <div class="up-action-buttons">
+                  <app-button size="sm" hierarchy="gray-ghost" icon="pencil-simple-light" iconPosition="leading" (clicked)="setPermissions(user)">
+                    {{ 'user.table.setPermissions' | translate }}
+                  </app-button>
+                  <app-button size="sm" hierarchy="gray-ghost" icon="lock-light" iconPosition="leading" (clicked)="changePassword(user)">
+                    {{ 'user.table.changePassword' | translate }}
+                  </app-button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </nz-table>
+    }
+
+    @if (total() > 0) {
+      <div class="pagination">
+        @if (totalPages() > 1) {
+          <div class="pagination-controls">
+            <app-button size="sm" hierarchy="gray-ghost" icon="caret-right-light" iconPosition="leading"
+              iconClass="pagination-icon-prev" [disabled]="pageIndex() === 1" (clicked)="goToPrevious()">
+              {{ 'user.pagination.previous' | translate }}
+            </app-button>
+            @for (p of pages(); track p) {
+              @if (p === 'ellipsis') {
+                <span class="page-ellipsis">...</span>
+              }
+              @if (p !== 'ellipsis') {
+                <app-button class="page-btn" size="sm" [hierarchy]="p === pageIndex() ? 'primary' : 'gray-ghost'"
+                  (clicked)="goToPage(p)">
+                  {{ p }}
+                </app-button>
+              }
+            }
+            <span class="page-position">{{ pageIndex() }} / {{ totalPages() }}</span>
+            <app-button size="sm" hierarchy="gray-ghost" icon="caret-right-light" iconPosition="trailing"
+              iconClass="pagination-icon-next" [disabled]="pageIndex() === totalPages()" (clicked)="goToNext()">
+              {{ 'user.pagination.next' | translate }}
+            </app-button>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>

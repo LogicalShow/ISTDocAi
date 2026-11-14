@@ -1,0 +1,342 @@
+<section class="settings-page">
+  <header class="settings-page__header">
+    <h1>{{ 'settingsPage.title' | translate }}</h1>
+
+  </header>
+
+  <nz-spin class="settings-page__spin" [nzSpinning]="isLoading()">
+    <form class="settings-form" nz-form [formGroup]="form" nzLayout="vertical" (ngSubmit)="onSave()">
+      <section class="settings-card" aria-labelledby="company-information-title">
+        <h2 id="company-information-title">{{ 'settingsPage.companyInformation.title' | translate }}</h2>
+
+        <div class="settings-grid settings-grid--two">
+          <nz-form-item>
+            <nz-form-label nzRequired>{{ 'settingsPage.companyInformation.nameEnglish' | translate }}</nz-form-label>
+            <nz-form-control [nzErrorTip]="getFieldError('companyNameEn') | translate">
+              <input nz-input formControlName="companyNameEn"
+                [placeholder]="'settingsPage.companyInformation.nameEnglishPlaceholder' | translate" />
+              </nz-form-control>
+            </nz-form-item>
+
+            <nz-form-item>
+              <nz-form-label>{{ 'settingsPage.companyInformation.nameArabic' | translate }}</nz-form-label>
+              <nz-form-control [nzErrorTip]="getFieldError('companyNameAr') | translate">
+                <input nz-input formControlName="companyNameAr"
+                  [placeholder]="'settingsPage.companyInformation.nameArabicPlaceholder' | translate" />
+                </nz-form-control>
+              </nz-form-item>
+            </div>
+
+            <nz-form-item>
+              <nz-form-label nzRequired>{{ 'settingsPage.companyInformation.address' | translate }}</nz-form-label>
+              <nz-form-control [nzErrorTip]="getFieldError('companyAddress') | translate">
+                <textarea nz-input formControlName="companyAddress" cdkTextareaAutosize cdkAutosizeMinRows="2" cdkAutosizeMaxRows="4"
+                [placeholder]="'settingsPage.companyInformation.addressPlaceholder' | translate"></textarea>
+              </nz-form-control>
+            </nz-form-item>
+          </section>
+
+          <section class="settings-card" aria-labelledby="contact-information-title">
+            <h2 id="contact-information-title">{{ 'settingsPage.contactInformation.title' | translate }}</h2>
+
+            <div class="settings-grid settings-grid--three">
+              <nz-form-item>
+                <nz-form-label nzRequired>{{ 'settingsPage.contactInformation.phoneOne' | translate }}</nz-form-label>
+                <nz-form-control [nzErrorTip]="getFieldError('companyPhoneOne') | translate">
+                  <input nz-input formControlName="companyPhoneOne"
+                    [placeholder]="'settingsPage.contactInformation.phoneOnePlaceholder' | translate" />
+                  </nz-form-control>
+                </nz-form-item>
+
+                <nz-form-item>
+                  <nz-form-label>{{ 'settingsPage.contactInformation.phoneTwo' | translate }}</nz-form-label>
+                  <nz-form-control [nzErrorTip]="getFieldError('companyPhoneTwo') | translate">
+                    <input nz-input formControlName="companyPhoneTwo"
+                      [placeholder]="'settingsPage.contactInformation.phoneTwoPlaceholder' | translate" />
+                    </nz-form-control>
+                  </nz-form-item>
+
+                  <nz-form-item>
+                    <nz-form-label>{{ 'settingsPage.contactInformation.fax' | translate }}</nz-form-label>
+                    <nz-form-control [nzErrorTip]="getFieldError('companyFax') | translate">
+                      <input nz-input formControlName="companyFax"
+                        [placeholder]="'settingsPage.contactInformation.faxPlaceholder' | translate" />
+                      </nz-form-control>
+                    </nz-form-item>
+                  </div>
+
+                  <div class="settings-grid settings-grid--two">
+                    <nz-form-item>
+                      <nz-form-label>{{ 'settingsPage.contactInformation.email' | translate }}</nz-form-label>
+                      <nz-form-control [nzErrorTip]="getFieldError('companyEmail') | translate">
+                        <input nz-input formControlName="companyEmail"
+                          [placeholder]="'settingsPage.contactInformation.emailPlaceholder' | translate" />
+                        </nz-form-control>
+                      </nz-form-item>
+
+                      <nz-form-item>
+                        <nz-form-label>{{ 'settingsPage.contactInformation.website' | translate }}</nz-form-label>
+                        <nz-form-control [nzErrorTip]="getFieldError('companyWebsite') | translate">
+                          <input nz-input formControlName="companyWebsite"
+                            [placeholder]="'settingsPage.contactInformation.websitePlaceholder' | translate" />
+                          </nz-form-control>
+                        </nz-form-item>
+                      </div>
+                    </section>
+
+                    <section class="settings-card" aria-labelledby="email-configuration-title">
+                      <h2 id="email-configuration-title">{{ 'settingsPage.emailConfiguration.title' | translate }}</h2>
+
+                      <div class="settings-checkbox-row">
+                        <label nz-checkbox formControlName="isEmailEnabled" (ngModelChange)="onEmailEnabledChange($event)">
+                          {{ 'settingsPage.emailConfiguration.enable' | translate }}
+                        </label>
+                        <p>{{ 'settingsPage.emailConfiguration.description' | translate }}</p>
+                      </div>
+
+                      @if (form.get('isEmailEnabled')?.value) {
+                        <div class="settings-email-fields">
+                          <div class="settings-grid settings-grid--email">
+                            <nz-form-item>
+                              <nz-form-label nzRequired>{{ 'settingsPage.emailConfiguration.host' | translate }}</nz-form-label>
+                              <nz-form-control [nzErrorTip]="getFieldError('emailHost') | translate">
+                                <input nz-input formControlName="emailHost" placeholder="smtp.office365.com" />
+                              </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                              <nz-form-label nzRequired>{{ 'settingsPage.emailConfiguration.port' | translate }}</nz-form-label>
+                              <nz-form-control [nzErrorTip]="getFieldError('emailPort') | translate">
+                                <div class="number-stepper">
+                                  <input type="number" nz-input formControlName="emailPort" min="1" max="65535" />
+                                  <div class="number-stepper__buttons">
+                                    <button type="button" class="number-stepper__btn" (click)="stepNumberField('emailPort', 1, 1, 65535)">
+                                      <app-icon name="caret-down-light" [width]="8" [height]="5" iconClass="number-stepper__icon number-stepper__icon--up" />
+                                    </button>
+                                    <button type="button" class="number-stepper__btn" (click)="stepNumberField('emailPort', -1, 1, 65535)">
+                                      <app-icon name="caret-down-light" [width]="8" [height]="5" iconClass="number-stepper__icon" />
+                                    </button>
+                                  </div>
+                                </div>
+                              </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item class="settings-ssl-field">
+                              <nz-form-label>{{ 'settingsPage.emailConfiguration.ssl' | translate }}</nz-form-label>
+                              <nz-form-control>
+                                <label nz-checkbox formControlName="emailEnableSSL">
+                                  {{ 'settingsPage.emailConfiguration.useSsl' | translate }}
+                                </label>
+                              </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                              <nz-form-label nzRequired>{{ 'settingsPage.emailConfiguration.userName' | translate }}</nz-form-label>
+                              <nz-form-control [nzErrorTip]="getFieldError('emailUsername') | translate">
+                                <input nz-input formControlName="emailUsername" placeholder="user@example.com" />
+                              </nz-form-control>
+                            </nz-form-item>
+                            <nz-form-item>
+                              <nz-form-label nzRequired>{{ 'settingsPage.emailConfiguration.password' | translate }}</nz-form-label>
+                              <nz-form-control [nzErrorTip]="getFieldError('emailPassword') | translate">
+                                <nz-input-wrapper>
+                                  <input nz-input [type]="showEmailPassword() ? 'text' : 'password'"
+                                    formControlName="emailPassword" placeholder="••••••••" autocomplete="new-password" />
+                                  <app-icon nzInputSuffix [name]="showEmailPassword() ? 'eye-slash-light' : 'eye-light'"
+                                    fill="var(--general-muted-foreground, #B0B0B0)"
+                                    (click)="!isPasswordMasked && showEmailPassword.set(!showEmailPassword())"
+                                    [style.cursor]="isPasswordMasked ? 'not-allowed' : 'pointer'"
+                                    [style.opacity]="isPasswordMasked ? '0.4' : '1'" />
+                                </nz-input-wrapper>
+                                </nz-form-control>
+                              </nz-form-item>
+                              <nz-form-item>
+                                <nz-form-label nzRequired>{{ 'settingsPage.emailConfiguration.senderEmail' | translate }}</nz-form-label>
+                                <nz-form-control [nzErrorTip]="getFieldError('senderEmail') | translate">
+                                  <input nz-input formControlName="senderEmail" placeholder="no-reply@example.com" />
+                                </nz-form-control>
+                              </nz-form-item>
+                            </div>
+                          </div>
+                        }
+                      </section>
+
+                      <section class="settings-card" aria-labelledby="company-branding-title">
+                        <h2 id="company-branding-title">{{ 'settingsPage.branding.title' | translate }}</h2>
+
+                        <div class="settings-grid settings-grid--branding">
+                          <div class="upload-field">
+                            <div class="upload-field__label">{{ 'settingsPage.branding.companyLogo' | translate }}</div>
+                            <input #logoInput class="upload-input" type="file"
+                              accept=".png,.jpg,.jpeg,.svg,image/png,image/jpeg,image/svg+xml"
+                              (change)="onFileSelected($event, 'logo')" [disabled]="isMarkedForDelete('logo')" />
+
+                              <div class="upload-dropzone" [class.upload-dropzone--preview]="hasImage('logo')">
+                                @if (hasImage('logo')) {
+                                  <img class="upload-preview" [src]="getImagePreviewUrl(logoState())" alt="" />
+                                  <div class="upload-actions">
+                                    <button type="button" class="upload-action upload-action--replace" (click)="logoInput.click()"
+                                      [nzTooltipTitle]="'settingsPage.branding.replace' | translate" nz-tooltip>
+                                      <app-icon name="arrows-down-up-light" />
+                                    </button>
+                                    @if (canDownloadImage('logo')) {
+                                      <button type="button" class="upload-action"
+                                        (click)="downloadImage('logo')"
+                                        [nzTooltipTitle]="'settingsPage.branding.download' | translate" nz-tooltip>
+                                        <app-icon name="download-light" fill="var(--color-primary-solid-800, #171EB6)" />
+                                      </button>
+                                    }
+                                    <button type="button" class="upload-action upload-action--danger" (click)="onDeleteImage('logo')"
+                                      [nzTooltipTitle]="'settingsPage.branding.delete' | translate" nz-tooltip>
+                                      <app-icon name="trash-light" fill="var(--color-error-solid-800, #991B1B)" />
+                                    </button>
+                                  </div>
+                                } @else {
+                                  <button type="button" class="upload-prompt" (click)="logoInput.click()">
+                                    <app-icon name="upload-simple-light" [width]="17.625" [height]="17.625"
+                                    fill="var(--color-neutral-solid-950, #1A1A1A)" />
+                                    <strong>{{ 'settingsPage.branding.clickToUpload' | translate }}</strong>
+                                    <span>{{ 'settingsPage.branding.fileHint' | translate }}</span>
+                                  </button>
+                                }
+                              </div>
+
+                              @if (isMarkedForDelete('logo')) {
+                                <div class="upload-delete-notice">
+                                  <app-icon name="warning-light" [width]="16" [height]="16" />
+                                  <span>{{ 'settingsPage.branding.deleteNotice' | translate }}</span>
+                                  <app-button hierarchy="link-color" (clicked)="onCancelDelete('logo')">{{ 'common.cancel' | translate }}</app-button>
+                                </div>
+                              }
+                            </div>
+
+                            <div class="upload-field">
+                              <div class="upload-field__label">{{ 'settingsPage.branding.reportHeader' | translate }}</div>
+                              <input #reportHeaderInput class="upload-input" type="file"
+                                accept=".png,.jpg,.jpeg,.svg,image/png,image/jpeg,image/svg+xml"
+                                (change)="onFileSelected($event, 'reportHeader')" [disabled]="isMarkedForDelete('reportHeader')" />
+
+                                <div class="upload-dropzone" [class.upload-dropzone--preview]="hasImage('reportHeader')">
+                                  @if (hasImage('reportHeader')) {
+                                    <img class="upload-preview" [src]="getImagePreviewUrl(reportHeaderState())" alt="" />
+                                    <div class="upload-actions">
+                                      <button type="button" class="upload-action upload-action--replace" (click)="reportHeaderInput.click()"
+                                        [nzTooltipTitle]="'settingsPage.branding.replace' | translate" nz-tooltip>
+                                        <app-icon name="arrow-clockwise-light" fill="var(--color-neutral-solid-900, #3D3D3D)" />
+                                      </button>
+                                      @if (canDownloadImage('reportHeader')) {
+                                        <button type="button" class="upload-action"
+                                          (click)="downloadImage('reportHeader')"
+                                          [nzTooltipTitle]="'settingsPage.branding.download' | translate" nz-tooltip>
+                                          <app-icon name="download-light" fill="var(--color-primary-solid-800, #171EB6)" />
+                                        </button>
+                                      }
+                                      <button type="button" class="upload-action upload-action--danger" (click)="onDeleteImage('reportHeader')"
+                                        [nzTooltipTitle]="'settingsPage.branding.delete' | translate" nz-tooltip>
+                                        <app-icon name="trash-light" fill="var(--color-error-solid-800, #991B1B)" />
+                                      </button>
+                                    </div>
+                                  } @else {
+                                    <button type="button" class="upload-prompt" (click)="reportHeaderInput.click()">
+                                      <app-icon name="upload-simple-light" [width]="17.625" [height]="17.625"
+                                      fill="var(--color-neutral-solid-950, #1A1A1A)" />
+                                      <strong>{{ 'settingsPage.branding.clickToUpload' | translate }}</strong>
+                                      <span>{{ 'settingsPage.branding.fileHint' | translate }}</span>
+                                    </button>
+                                  }
+                                </div>
+
+                                @if (isMarkedForDelete('reportHeader')) {
+                                  <div class="upload-delete-notice">
+                                    <app-icon name="warning-light" [width]="16" [height]="16" />
+                                    <span>{{ 'settingsPage.branding.deleteNotice' | translate }}</span>
+                                    <app-button hierarchy="link-color" (clicked)="onCancelDelete('reportHeader')">{{ 'common.cancel' | translate }}</app-button>
+                                  </div>
+                                }
+                              </div>
+
+                              <div class="upload-field">
+                                <div class="upload-field__label">{{ 'settingsPage.branding.reportFooter' | translate }}</div>
+                                <input #reportFooterInput class="upload-input" type="file"
+                                  accept=".png,.jpg,.jpeg,.svg,image/png,image/jpeg,image/svg+xml"
+                                  (change)="onFileSelected($event, 'reportFooter')" [disabled]="isMarkedForDelete('reportFooter')" />
+
+                                  <div class="upload-dropzone" [class.upload-dropzone--preview]="hasImage('reportFooter')">
+                                    @if (hasImage('reportFooter')) {
+                                      <img class="upload-preview" [src]="getImagePreviewUrl(reportFooterState())" alt="" />
+                                      <div class="upload-actions">
+                                        <button type="button" class="upload-action upload-action--replace" (click)="reportFooterInput.click()"
+                                          [nzTooltipTitle]="'settingsPage.branding.replace' | translate" nz-tooltip>
+                                          <app-icon name="arrow-clockwise-light" fill="var(--color-neutral-solid-900, #3D3D3D)" />
+                                        </button>
+                                        @if (canDownloadImage('reportFooter')) {
+                                          <button type="button" class="upload-action"
+                                            (click)="downloadImage('reportFooter')"
+                                            [nzTooltipTitle]="'settingsPage.branding.download' | translate" nz-tooltip>
+                                            <app-icon name="download-light" fill="var(--color-primary-solid-800, #171EB6)" />
+                                          </button>
+                                        }
+                                        <button type="button" class="upload-action upload-action--danger" (click)="onDeleteImage('reportFooter')"
+                                          [nzTooltipTitle]="'settingsPage.branding.delete' | translate" nz-tooltip>
+                                          <app-icon name="trash-light" fill="var(--color-error-solid-800, #991B1B)" />
+                                        </button>
+                                      </div>
+                                    } @else {
+                                      <button type="button" class="upload-prompt" (click)="reportFooterInput.click()">
+                                        <app-icon name="upload-simple-light" [width]="17.625" [height]="17.625"
+                                        fill="var(--color-neutral-solid-950, #1A1A1A)" />
+                                        <strong>{{ 'settingsPage.branding.clickToUpload' | translate }}</strong>
+                                        <span>{{ 'settingsPage.branding.fileHint' | translate }}</span>
+                                      </button>
+                                    }
+                                  </div>
+
+                                  @if (isMarkedForDelete('reportFooter')) {
+                                    <div class="upload-delete-notice">
+                                      <app-icon name="warning-light" [width]="16" [height]="16" />
+                                      <span>{{ 'settingsPage.branding.deleteNotice' | translate }}</span>
+                                      <app-button hierarchy="link-color" (clicked)="onCancelDelete('reportFooter')">{{ 'common.cancel' | translate }}</app-button>
+                                    </div>
+                                  }
+                                </div>
+                              </div>
+                            </section>
+
+                            <section class="settings-card" aria-labelledby="system-settings-title">
+                              <h2 id="system-settings-title">{{ 'settingsPage.systemSettings.title' | translate }}</h2>
+
+                              <div class="settings-grid settings-grid--two">
+                                <nz-form-item>
+                                  <nz-form-label>{{ 'settingsPage.systemSettings.attachmentFolder' | translate }}</nz-form-label>
+                                  <nz-form-control>
+                                    <input nz-input formControlName="AttachmentFolderPath"
+                                      [placeholder]="'settingsPage.systemSettings.attachmentFolderPlaceholder' | translate" />
+                                    </nz-form-control>
+                                  </nz-form-item>
+
+                                  <nz-form-item>
+                                    <nz-form-label>{{ 'settingsPage.systemSettings.maximumFileSize' | translate }}</nz-form-label>
+                                    <nz-form-control>
+                                      <div class="number-stepper">
+                                        <input type="number" nz-input formControlName="AttachedFileMaxSize" min="1" />
+                                        <div class="number-stepper__buttons">
+                                          <button type="button" class="number-stepper__btn" (click)="stepNumberField('AttachedFileMaxSize', 1, 1)">
+                                            <app-icon name="caret-down-light" [width]="8" [height]="5" iconClass="number-stepper__icon number-stepper__icon--up" />
+                                          </button>
+                                          <button type="button" class="number-stepper__btn" (click)="stepNumberField('AttachedFileMaxSize', -1, 1)">
+                                            <app-icon name="caret-down-light" [width]="8" [height]="5" iconClass="number-stepper__icon" />
+                                          </button>
+                                        </div>
+                                      </div>
+                                    </nz-form-control>
+                                  </nz-form-item>
+                                </div>
+                              </section>
+
+                              <footer class="settings-form__footer">
+                                <app-button class="settings-save-button" hierarchy="primary" type="submit" icon="floppy-disk-light" iconPosition="leading"
+                                  [loading]="isSaving()" [loadingLabel]="'settingsPage.saving' | translate"
+                                  [disabled]="isLoading()">
+                                  {{ 'settingsPage.save' | translate }}
+                                </app-button>
+                              </footer>
+                            </form>
+                          </nz-spin>
+                        </section>

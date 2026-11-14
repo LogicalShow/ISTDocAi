@@ -1,0 +1,23 @@
+<form nz-form [formGroup]="form" nzLayout="vertical">
+  <div nz-row [nzGutter]="16">
+    <div nz-col [nzSpan]="12">
+      <nz-form-item>
+        <nz-form-label>Notification name</nz-form-label>
+        <nz-form-control>
+          <input nz-input formControlName="name" placeholder="Enter notification name" />
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+
+    <div nz-col [nzSpan]="12">
+      <nz-form-item>
+        <nz-form-label>General message</nz-form-label>
+        <nz-form-control>
+          <input nz-input
+                 formControlName="generalMessageEn"
+                 placeholder="Enter general message" />
+        </nz-form-control>
+      </nz-form-item>
+    </div>
+  </div>
+</form>

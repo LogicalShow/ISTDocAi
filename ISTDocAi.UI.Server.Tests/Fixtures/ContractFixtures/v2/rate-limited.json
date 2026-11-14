@@ -1,0 +1,9 @@
+{
+  "status": 429,
+  "headers": {
+    "Content-Type": "application/json; charset=utf-8",
+    "Retry-After": "3600",
+    "X-Correlation-Id": "kit-contract-correlation"
+  },
+  "bodyText": "{\u0022IsSuccess\u0022:false,\u0022IsFailure\u0022:true,\u0022Error\u0022:{\u0022Code\u0022:\u0022RATE_LIMITED\u0022,\u0022Message\u0022:\u0022Wait before retrying.\u0022,\u0022Type\u0022:\u0022RateLimited\u0022},\u0022HasValidationErrors\u0022:false,\u0022ValidationErrors\u0022:[],\u0022Extensions\u0022:{\u0022CorrelationId\u0022:\u0022kit-contract-correlation\u0022,\u0022RequiredPages\u0022:null,\u0022AvailablePages\u0022:null,\u0022RetryAfter\u0022:3600}}"
+}

@@ -1,0 +1,378 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
+.permission-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 8px);
+  margin-bottom: var(--spacing-4, 16px);
+}
+
+.permission-search {
+  box-sizing: border-box;
+  flex: 1 1 480px;
+  min-width: 0;
+  height: 40px;
+  padding: 0 var(--spacing-4, 16px);
+  border-color: var(--general-border, #d1d1d1);
+  border-radius: var(--rounded-8, 8px);
+  box-shadow: none;
+}
+
+.permission-search:focus-within {
+  border-color: var(--color-primary-solid-500, #365cff);
+  box-shadow: 0 0 0 3px var(--color-primary-solid-100, #d9e3ff);
+}
+
+.permission-search ::ng-deep .ant-input-prefix {
+  margin-inline-end: var(--spacing-3, 12px);
+  color: var(--color-neutral-solid-600, #5d5d5d);
+}
+
+.permission-search input {
+  font-family: var(--font-family-base, "IBM Plex Sans", system-ui, sans-serif);
+  font-size: var(--label-label-2-fontsize, 14px);
+  line-height: var(--label-label-2-lineheight, 20px);
+}
+
+.permission-search input::placeholder {
+  color: var(--general-muted-foreground, #b0b0b0);
+}
+
+.permission-toolbar__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 8px);
+  flex: 0 0 auto;
+}
+
+.permission-tree {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4, 16px);
+}
+
+.tree-application {
+  overflow: hidden;
+  border: 1px solid var(--general-border, #d1d1d1);
+  border-radius: var(--rounded-12, 12px);
+  background: var(--general-background, #ffffff);
+  box-shadow: var(--shadow-xs);
+}
+
+.tree-row {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  border-bottom: 1px solid var(--general-unofficial-border-1, #e7e7e7);
+  font-family: var(--font-family-base, "IBM Plex Sans", system-ui, sans-serif);
+  color: var(--general-foreground, #1a1a1a);
+}
+
+.tree-row--application {
+  min-height: 46px;
+  padding: var(--spacing-3, 12px) var(--spacing-4, 16px);
+  background: var(--color-neutral-solid-50, #f6f6f6);
+}
+
+.tree-row--module {
+  min-height: 40px;
+  padding: var(--spacing-2_5, 10px) var(--spacing-6, 24px);
+  background: var(--color-neutral-solid-50, #f6f6f6);
+}
+
+.tree-row--page {
+  min-height: 36px;
+  gap: var(--spacing-2, 8px);
+  padding: var(--spacing-2, 8px) var(--spacing-4, 16px);
+  background: var(--general-background, #ffffff);
+}
+
+.tree-application:last-child .tree-row:last-child,
+.tree-application:last-child .tree-module:last-child .tree-row:last-child {
+  border-bottom: 0;
+}
+
+.tree-row__disclosure,
+.tree-row__disclosure-spacer {
+  display: inline-flex;
+  flex: 0 0 24px;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.tree-row__disclosure {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--general-foreground, #1a1a1a);
+  cursor: pointer;
+}
+
+.tree-row__disclosure:hover {
+  color: var(--color-primary-solid-600, #1b35f5);
+}
+
+.tree-row__disclosure ::ng-deep svg {
+  transition: transform 180ms ease;
+}
+
+.tree-row__disclosure--expanded ::ng-deep svg {
+  transform: rotate(90deg);
+}
+
+.tree-collapse {
+  display: grid;
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  transition: grid-template-rows 220ms ease, opacity 180ms ease, visibility 0s linear;
+}
+
+.tree-collapse--closed {
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition: grid-template-rows 220ms ease, opacity 140ms ease, visibility 0s linear 220ms;
+}
+
+.tree-collapse__inner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.tree-row__title {
+  min-width: 0;
+  overflow: hidden;
+  margin-inline-start: var(--spacing-2, 8px);
+  font-size: var(--label-label-2-fontsize, 14px);
+  font-weight: var(--font-weight-semibold, 600);
+  line-height: var(--label-label-2-lineheight, 20px);
+  letter-spacing: var(--label-label-2-letterspacing, -0.16px);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tree-row__title--application {
+  font-size: var(--label-label-1-fontsize, 16px);
+}
+
+.tree-row__title--page {
+  flex: 1 1 auto;
+  margin-inline-start: 0;
+  font-weight: var(--font-weight-regular, 400);
+}
+
+.tree-row__select-all {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 8px);
+  margin-inline-start: auto;
+  font-size: var(--label-label-3-fontsize, 12px);
+  font-weight: var(--font-weight-medium, 500);
+  line-height: var(--label-label-3-lineheight, 16px);
+  color: var(--color-neutral-solid-700, #4f4f4f);
+  cursor: pointer;
+}
+
+.tree-row__checkbox {
+  display: inline-flex;
+  flex: 0 0 24px;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.tree-row__checkbox-box {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--general-unofficial-border-3, #b0b0b0);
+  border-radius: var(--rounded-4, 4px);
+  background: var(--general-input, #ffffff);
+  color: var(--general-background, #ffffff);
+  box-shadow: var(--shadow-xs);
+}
+
+.tree-row__checkbox:hover .tree-row__checkbox-box {
+  border-color: var(--color-primary-solid-500, #365cff);
+}
+
+.tree-row__checkbox:focus-visible {
+  border-radius: var(--rounded-4, 4px);
+  outline: 2px solid var(--color-primary-solid-500, #365cff);
+  outline-offset: 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tree-collapse,
+  .tree-collapse--closed,
+  .tree-row__disclosure ::ng-deep svg {
+    transition: none;
+  }
+}
+
+.tree-row__checkbox--selected {
+  color: var(--general-background, #ffffff);
+}
+
+.tree-row__checkbox--selected .tree-row__checkbox-box {
+  width: 16px;
+  height: 16px;
+  border-color: var(--general-primary, #1b35f5);
+  background: var(--general-primary, #1b35f5);
+  box-shadow: none;
+}
+
+.tree-row__actions {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: var(--spacing-2, 8px);
+  margin-inline-start: auto;
+}
+
+.permission-pill {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  min-height: 20px;
+  padding: 2px var(--spacing-2, 8px);
+  border: 1px solid var(--general-unofficial-border-3, #b0b0b0);
+  border-radius: var(--rounded-infinite, 9999px);
+  background: var(--general-background, #ffffff);
+  color: var(--general-foreground, #1a1a1a);
+  font-family: inherit;
+  font-size: var(--label-label-3-fontsize, 12px);
+  font-weight: var(--font-weight-medium, 500);
+  line-height: var(--label-label-3-lineheight, 16px);
+  letter-spacing: var(--label-label-3-letterspacing, -0.12px);
+  cursor: pointer;
+}
+
+.permission-pill:hover {
+  border-color: var(--color-primary-solid-500, #365cff);
+}
+
+.permission-pill--selected {
+  border-color: var(--color-primary-solid-100, #d9e3ff);
+  background: var(--color-primary-solid-100, #d9e3ff);
+  color: var(--color-primary-solid-700, #1423e1);
+}
+
+@media (max-width: 900px) {
+  .permission-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .permission-search {
+    flex-basis: auto;
+    width: 100%;
+  }
+
+  .permission-toolbar__actions {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .permission-toolbar__actions app-button {
+    flex: 1 1 auto;
+  }
+
+  .permission-toolbar__actions ::ng-deep .app-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .permission-toolbar__actions app-button {
+    flex: 1 1 calc(50% - var(--spacing-1, 4px));
+  }
+
+  .permission-toolbar__actions app-button:nth-child(3) {
+    flex-basis: 100%;
+  }
+
+  .tree-row--application {
+    padding-inline: var(--spacing-3, 12px);
+  }
+
+  .tree-row--module {
+    padding-inline: var(--spacing-3, 12px) !important;
+  }
+
+  .tree-row--page {
+    align-items: center;
+    flex-wrap: wrap;
+    padding-inline: var(--spacing-4, 16px) !important;
+  }
+
+  .tree-row__title--page {
+    flex: 1 1 calc(100% - 64px);
+    width: auto;
+    overflow: visible;
+    text-overflow: clip;
+    white-space: normal;
+  }
+
+  .tree-row__actions {
+    flex: 1 0 100%;
+    justify-content: flex-start;
+    gap: var(--spacing-1, 4px);
+    padding-inline-start: 56px;
+  }
+
+  .permission-pill {
+    min-height: 24px;
+  }
+
+  .tree-row__select-all {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .permission-toolbar__actions app-button {
+    flex-basis: 100%;
+  }
+
+  .tree-row--module {
+    flex-wrap: nowrap;
+    padding-inline: var(--spacing-2, 8px) !important;
+  }
+
+  .tree-row--module .tree-row__title {
+    flex: 1 1 auto;
+  }
+
+  .tree-row__select-all {
+    flex-basis: auto;
+    gap: var(--spacing-1, 4px);
+    margin-top: 0;
+    white-space: nowrap;
+  }
+
+  .tree-row__actions {
+    padding-inline-start: 32px;
+  }
+}

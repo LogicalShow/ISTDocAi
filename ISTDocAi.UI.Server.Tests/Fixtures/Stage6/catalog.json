@@ -1,0 +1,40 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/catalog",
+    "headers": [
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "X-Api-Key",
+        "values": [
+          "test-key-one"
+        ]
+      }
+    ],
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "headers": [
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "Content-Type",
+        "values": [
+          "application/json; charset=utf-8"
+        ]
+      }
+    ],
+    "bodyText": "{\u0022consumerCode\u0022:\u0022TEST\u0022,\u0022items\u0022:[{\u0022documentTypeCode\u0022:\u0022BL\u0022,\u0022shippingLineCode\u0022:null,\u0022minFieldConfidence\u0022:0.8},{\u0022documentTypeCode\u0022:\u0022BL\u0022,\u0022shippingLineCode\u0022:\u0022LINE\u0022,\u0022minFieldConfidence\u0022:0.8},{\u0022documentTypeCode\u0022:\u0022MANIFEST\u0022,\u0022shippingLineCode\u0022:null,\u0022minFieldConfidence\u0022:0.8}],\u0022autoDetect\u0022:[{\u0022documentTypeCode\u0022:\u0022BL\u0022},{\u0022documentTypeCode\u0022:\u0022MANIFEST\u0022},{\u0022documentTypeCode\u0022:\u0022AUTO\u0022}]}"
+  }
+}

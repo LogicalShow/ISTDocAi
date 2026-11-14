@@ -1,0 +1,46 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/catalog",
+    "headers": [
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "X-Api-Key",
+        "values": [
+          "test-key-one"
+        ]
+      }
+    ],
+    "body": null
+  },
+  "response": {
+    "status": 429,
+    "contentType": "application/problem\u002Bjson",
+    "headers": [
+      {
+        "name": "Retry-After",
+        "values": [
+          "3600"
+        ]
+      },
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "Content-Type",
+        "values": [
+          "application/problem\u002Bjson"
+        ]
+      }
+    ],
+    "bodyText": "{\u0022type\u0022:\u0022urn:docai:error:rate-limited\u0022,\u0022title\u0022:\u0022Request rate limit reached\u0022,\u0022status\u0022:429,\u0022code\u0022:\u0022RATE_LIMITED\u0022,\u0022detail\u0022:\u0022Wait before retrying.\u0022,\u0022correlationId\u0022:\u0022baseline-correlation-1\u0022}"
+  }
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "assembly": "DocAi.Infrastructure",
+    "name": "DocAi.Billing.sql",
+    "sha256": "bddbb93c96b2cb8cbfacee77716d03a49eea8ce5cce811ca350ad555ff585b0c"
+  },
+  {
+    "assembly": "DocAi.Infrastructure",
+    "name": "DocAi.Statements.sql",
+    "sha256": "d2f995b921ef679db7ac259289a0c47b23534d1050cb9ee02b1b08012d3a5bc6"
+  },
+  {
+    "assembly": "DocAi.Database",
+    "name": "DocAi.Database.Migrations.Sql.InitialRoles.sql",
+    "sha256": "01ad572f9b438128e6ae1e1e8f2eddf134b053f148d3689edcb75755ad2103a9"
+  },
+  {
+    "assembly": "DocAi.Database",
+    "name": "DocAi.Database.Migrations.Sql.InitialSchema.catalog.json",
+    "sha256": "e6be9a634224097fd818275d3dadf585a450370cee732a76980566994dfdc465"
+  },
+  {
+    "assembly": "DocAi.Database",
+    "name": "DocAi.Database.Migrations.Sql.InitialSchema.sql",
+    "sha256": "0637c3bc40f092f3e70002c570ea29b5961c7f9849916d3f84009faaea6142cd"
+  },
+  {
+    "assembly": "DocAi.Database",
+    "name": "DocAi.Database.Migrations.Sql.ModelMappingProfiles.sql",
+    "sha256": "0cc6b488d08c86e6b62561903bf0ad7e97f91b587c4b6aacdf48ba7c89d491ed"
+  },
+  {
+    "assembly": "DocAi.Database",
+    "name": "DocAi.Database.Migrations.Sql.ModelMappingSeeds.json",
+    "sha256": "c5058e7d3f0ac56a19ff29712812e3dc435f21ba0be5ce6b218e1f0971055eda"
+  },
+  {
+    "assembly": "DocAi.Contracts",
+    "name": "DocAi.Contracts.Schemas.canonical-manifest-result-v1.schema.json",
+    "sha256": "3d634afe8125de93c868a082eb331971b955a3c613e2521295bf9d270b669551"
+  },
+  {
+    "assembly": "DocAi.Contracts",
+    "name": "DocAi.Contracts.Schemas.canonical-result-v1.schema.json",
+    "sha256": "dd72582a9492a5734540e31bee13a17e6410db57d0594c37efb501cd8bbdb281"
+  }
+]

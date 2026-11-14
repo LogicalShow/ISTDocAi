@@ -1,0 +1,55 @@
+{
+  "calls": [
+    "position",
+    "catalog",
+    "original",
+    "reserve",
+    "begin",
+    "post:bl-v1",
+    "accepted",
+    "poll",
+    "raw-save",
+    "ledger",
+    "azure-delete",
+    "raw-read",
+    "threshold:bl-v1",
+    "parse",
+    "complete",
+    "raw-delete"
+  ],
+  "meterEntries": [
+    "extract"
+  ],
+  "retrySeconds": null,
+  "retryError": null,
+  "complete": true,
+  "failure": null,
+  "classification": null,
+  "result": "{\u0022contractVersion\u0022:\u00221.0\u0022,\u0022documentTypeCode\u0022:\u0022BL\u0022,\u0022shippingLineCode\u0022:null,\u0022modelId\u0022:\u0022bl-v1\u0022,\u0022pageCount\u0022:1,\u0022fields\u0022:{\u0022shipperName\u0022:{\u0022value\u0022:\u0022PRIVATE_FIELD_VALUE\u0022,\u0022confidence\u0022:0.85,\u0022page\u0022:1}},\u0022containers\u0022:[],\u0022flags\u0022:[{\u0022field\u0022:\u0022shipperName\u0022,\u0022reason\u0022:\u0022LOW_CONFIDENCE\u0022}]}",
+  "logs": [
+    {
+      "level": "Information",
+      "text": "job.claimed errorCode=(null) operationId=(null) durationMs=0"
+    },
+    {
+      "level": "Information",
+      "text": "operation.sending errorCode=(null) operationId=2 durationMs=0"
+    },
+    {
+      "level": "Information",
+      "text": "operation.accepted errorCode=(null) operationId=2 durationMs=0"
+    },
+    {
+      "level": "Information",
+      "text": "analysis.deleted errorCode=(null) operationId=2 durationMs=0"
+    },
+    {
+      "level": "Information",
+      "text": "job.completed errorCode=(null) operationId=2 durationMs=0"
+    },
+    {
+      "level": "Information",
+      "text": "raw.deleted errorCode=(null) operationId=2 durationMs=0"
+    }
+  ]
+}

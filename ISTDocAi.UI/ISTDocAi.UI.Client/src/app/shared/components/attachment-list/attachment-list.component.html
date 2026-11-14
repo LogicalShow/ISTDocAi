@@ -1,0 +1,96 @@
+<div class="attachment-list-container">
+  @if (!isReadOnly()) {
+    <div class="actions-bar">
+      <button
+        nz-button
+        nzType="primary"
+        (click)="onAddAttachment()"
+        class="add-button">
+        <app-icon name="plus-light"></app-icon>
+        {{ 'shared.attachment.add' | translate }}
+      </button>
+      <button
+        nz-button
+        nzType="default"
+        (click)="onDeleteSelectedAttachments()"
+        [disabled]="!hasSelectedAttachments()"
+        class="delete-button">
+        <app-icon name="trash-light" fill="var(--color-error-solid-800, #991B1B)"></app-icon>
+        {{ 'shared.attachment.deleteSelected' | translate }}
+      </button>
+    </div>
+  }
+
+  <nz-table
+    #attachmentTable
+    [nzData]="attachments()"
+    [nzSize]="'middle'"
+    [nzShowPagination]="false"
+    [nzLoading]="loading()">
+    <thead>
+      <tr>
+        @if (!isReadOnly()) {
+          <th nzWidth="40px">
+            <label nz-checkbox [(ngModel)]="allSelected" (ngModelChange)="onToggleSelectAll($event)"></label>
+          </th>
+        }
+        <th>{{ 'shared.attachment.headers.fileName' | translate }}</th>
+        <th>{{ 'shared.attachment.headers.note' | translate }}</th>
+        <th>{{ 'shared.attachment.headers.fileSize' | translate }}</th>
+        <th nzWidth="120px">{{ 'shared.attachment.headers.view' | translate }}</th>
+        @if (!isReadOnly()) {
+          <th nzWidth="120px">{{ 'shared.attachment.headers.delete' | translate }}</th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (attachment of attachmentTable.data; track attachment) {
+        <tr
+          (click)="!isReadOnly() ? onEditAttachment(attachment) : null"
+          [class.clickable-row]="!isReadOnly()">
+          @if (!isReadOnly()) {
+            <td (click)="$event.stopPropagation()">
+              <label nz-checkbox [(ngModel)]="attachment.selected" (ngModelChange)="onAttachmentSelectionChange()"></label>
+            </td>
+          }
+          <td>{{ attachment.OriginalFileName }}</td>
+          <td>{{ attachment.Note || '-' }}</td>
+          <td>{{ formatFileSize(attachment.FileSizeInBytes || 0) }}</td>
+          <td (click)="$event.stopPropagation()">
+            <button
+              nz-button
+              nzType="link"
+              nzSize="small"
+              (click)="onViewAttachment(attachment)"
+              class="view-button"
+              nz-tooltip
+              [nzTooltipTitle]="'shared.attachment.viewTooltip' | translate">
+              <app-icon name="eye-light" fill="var(--general-muted-foreground, #B0B0B0)"></app-icon><span class="button-label">{{ 'shared.attachment.view' | translate }}</span>
+            </button>
+          </td>
+          @if (!isReadOnly()) {
+            <td (click)="$event.stopPropagation()">
+              <button
+                nz-button
+                nzType="link"
+                nzSize="small"
+                nzDanger
+                (click)="onDeleteAttachment(attachment)"
+                class="delete-attachment-button"
+                nz-tooltip
+                [nzTooltipTitle]="'shared.attachment.deleteTooltip' | translate">
+                <app-icon name="trash-light" fill="var(--color-error-solid-800, #991B1B)"></app-icon><span class="button-label">{{ 'shared.attachment.delete' | translate }}</span>
+              </button>
+            </td>
+          }
+        </tr>
+      }
+    </tbody>
+  </nz-table>
+
+  @if (attachments().length === 0) {
+    <div class="empty-state">
+      <p>{{ 'shared.attachment.none' | translate }}</p>
+    </div>
+  }
+</div>

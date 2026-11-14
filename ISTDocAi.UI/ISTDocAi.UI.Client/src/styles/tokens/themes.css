@@ -1,0 +1,206 @@
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    /* Primary -> blue (mirrored) */
+    --color-primary-solid-50: var(--color-primitives-blue-solid-950);
+    --color-primary-solid-100: var(--color-primitives-blue-solid-900);
+    --color-primary-solid-200: var(--color-primitives-blue-solid-800);
+    --color-primary-solid-300: var(--color-primitives-blue-solid-700);
+    --color-primary-solid-400: var(--color-primitives-blue-solid-600);
+    --color-primary-solid-500: var(--color-primitives-blue-solid-400); /* off-mirror in Figma */
+    --color-primary-solid-600: var(--color-primitives-blue-solid-400);
+    --color-primary-solid-700: var(--color-primitives-blue-solid-300);
+    --color-primary-solid-800: var(--color-primitives-blue-solid-200);
+    --color-primary-solid-900: var(--color-primitives-blue-solid-100);
+    --color-primary-solid-950: var(--color-primitives-blue-solid-50);
+
+    /* Secondary -> turquoise (mirrored) */
+    --color-secondary-solid-50: var(--color-primitives-turquoise-solid-950);
+    --color-secondary-solid-100: var(--color-primitives-turquoise-solid-900);
+    --color-secondary-solid-200: var(--color-primitives-turquoise-solid-800);
+    --color-secondary-solid-300: var(--color-primitives-turquoise-solid-700);
+    --color-secondary-solid-400: var(--color-primitives-turquoise-solid-600);
+    --color-secondary-solid-500: var(--color-primitives-turquoise-solid-500);
+    --color-secondary-solid-600: var(--color-primitives-turquoise-solid-400);
+    --color-secondary-solid-700: var(--color-primitives-turquoise-solid-300);
+    --color-secondary-solid-800: var(--color-primitives-turquoise-solid-200);
+    --color-secondary-solid-900: var(--color-primitives-turquoise-solid-100);
+    --color-secondary-solid-950: var(--color-primitives-turquoise-solid-50);
+
+    /* Accent -> pumpkin (mirrored) */
+    --color-accent-solid-50: var(--color-primitives-pumpkin-solid-950);
+    --color-accent-solid-100: var(--color-primitives-pumpkin-solid-900);
+    --color-accent-solid-200: var(--color-primitives-pumpkin-solid-800);
+    --color-accent-solid-300: var(--color-primitives-pumpkin-solid-700);
+    --color-accent-solid-400: var(--color-primitives-pumpkin-solid-600);
+    --color-accent-solid-500: var(--color-primitives-pumpkin-solid-500);
+    --color-accent-solid-600: var(--color-primitives-pumpkin-solid-400);
+    --color-accent-solid-700: var(--color-primitives-pumpkin-solid-300);
+    --color-accent-solid-800: var(--color-primitives-pumpkin-solid-200);
+    --color-accent-solid-900: var(--color-primitives-pumpkin-solid-100);
+    --color-accent-solid-950: var(--color-primitives-pumpkin-solid-50);
+
+    /* Neutral -> gray (mirrored) */
+    --color-neutral-solid-50: var(--color-primitives-gray-solid-950);
+    --color-neutral-solid-100: var(--color-primitives-gray-solid-900);
+    --color-neutral-solid-200: var(--color-primitives-gray-solid-800);
+    --color-neutral-solid-300: var(--color-primitives-gray-solid-700);
+    --color-neutral-solid-400: var(--color-primitives-gray-solid-500); /* off-mirror in Figma */
+    --color-neutral-solid-500: var(--color-primitives-gray-solid-400); /* off-mirror in Figma */
+    --color-neutral-solid-600: var(--color-primitives-gray-solid-400);
+    --color-neutral-solid-700: var(--color-primitives-gray-solid-300);
+    --color-neutral-solid-800: var(--color-primitives-gray-solid-200);
+    --color-neutral-solid-900: var(--color-primitives-gray-solid-100);
+    --color-neutral-solid-950: var(--color-primitives-gray-solid-50);
+
+    /* Error -> red (mirrored) */
+    --color-error-solid-50: var(--color-primitives-red-solid-950);
+    --color-error-solid-100: var(--color-primitives-red-solid-900);
+    --color-error-solid-200: var(--color-primitives-red-solid-800);
+    --color-error-solid-300: var(--color-primitives-red-solid-700);
+    --color-error-solid-400: var(--color-primitives-red-solid-600);
+    --color-error-solid-500: var(--color-primitives-red-solid-500);
+    --color-error-solid-600: var(--color-primitives-red-solid-600); /* off-mirror in Figma */
+    --color-error-solid-700: var(--color-primitives-red-solid-300);
+    --color-error-solid-800: var(--color-primitives-red-solid-200);
+    --color-error-solid-900: var(--color-primitives-red-solid-100);
+    --color-error-solid-950: var(--color-primitives-red-solid-50);
+
+    /* Warning -> amber (mirrored) */
+    --color-warning-solid-50: var(--color-primitives-amber-solid-950);
+    --color-warning-solid-100: var(--color-primitives-amber-solid-900);
+    --color-warning-solid-200: var(--color-primitives-amber-solid-800);
+    --color-warning-solid-300: var(--color-primitives-amber-solid-700);
+    --color-warning-solid-400: var(--color-primitives-amber-solid-600);
+    --color-warning-solid-500: var(--color-primitives-amber-solid-500);
+    --color-warning-solid-600: var(--color-primitives-amber-solid-400);
+    --color-warning-solid-700: var(--color-primitives-amber-solid-300);
+    --color-warning-solid-800: var(--color-primitives-amber-solid-200);
+    --color-warning-solid-900: var(--color-primitives-amber-solid-100);
+    --color-warning-solid-950: var(--color-primitives-amber-solid-50);
+
+    /* Success -> green (mirrored) */
+    --color-success-solid-50: var(--color-primitives-green-solid-950);
+    --color-success-solid-100: var(--color-primitives-green-solid-900);
+    --color-success-solid-200: var(--color-primitives-green-solid-800);
+    --color-success-solid-300: var(--color-primitives-green-solid-700);
+    --color-success-solid-400: var(--color-primitives-green-solid-600);
+    --color-success-solid-500: var(--color-primitives-green-solid-500);
+    --color-success-solid-600: var(--color-primitives-green-solid-400);
+    --color-success-solid-700: var(--color-primitives-green-solid-300);
+    --color-success-solid-800: var(--color-primitives-green-solid-200);
+    --color-success-solid-900: var(--color-primitives-green-solid-100);
+    --color-success-solid-950: var(--color-primitives-green-solid-50);
+
+    /* Info -> sky (mirrored) */
+    --color-info-solid-50: var(--color-primitives-sky-solid-950);
+    --color-info-solid-100: var(--color-primitives-sky-solid-900);
+    --color-info-solid-200: var(--color-primitives-sky-solid-800);
+    --color-info-solid-300: var(--color-primitives-sky-solid-700);
+    --color-info-solid-400: var(--color-primitives-sky-solid-600);
+    --color-info-solid-500: var(--color-primitives-sky-solid-500);
+    --color-info-solid-600: var(--color-primitives-sky-solid-400);
+    --color-info-solid-700: var(--color-primitives-sky-solid-300);
+    --color-info-solid-800: var(--color-primitives-sky-solid-200);
+    --color-info-solid-900: var(--color-primitives-sky-solid-100);
+    --color-info-solid-950: var(--color-primitives-sky-solid-50);
+  }
+}
+
+/* Manual dark override - forces dark regardless of the OS/browser setting. */
+:root[data-theme="dark"] {
+  --color-primary-solid-50: var(--color-primitives-blue-solid-950);
+  --color-primary-solid-100: var(--color-primitives-blue-solid-900);
+  --color-primary-solid-200: var(--color-primitives-blue-solid-800);
+  --color-primary-solid-300: var(--color-primitives-blue-solid-700);
+  --color-primary-solid-400: var(--color-primitives-blue-solid-600);
+  --color-primary-solid-500: var(--color-primitives-blue-solid-400); /* off-mirror in Figma */
+  --color-primary-solid-600: var(--color-primitives-blue-solid-400);
+  --color-primary-solid-700: var(--color-primitives-blue-solid-300);
+  --color-primary-solid-800: var(--color-primitives-blue-solid-200);
+  --color-primary-solid-900: var(--color-primitives-blue-solid-100);
+  --color-primary-solid-950: var(--color-primitives-blue-solid-50);
+
+  --color-secondary-solid-50: var(--color-primitives-turquoise-solid-950);
+  --color-secondary-solid-100: var(--color-primitives-turquoise-solid-900);
+  --color-secondary-solid-200: var(--color-primitives-turquoise-solid-800);
+  --color-secondary-solid-300: var(--color-primitives-turquoise-solid-700);
+  --color-secondary-solid-400: var(--color-primitives-turquoise-solid-600);
+  --color-secondary-solid-500: var(--color-primitives-turquoise-solid-500);
+  --color-secondary-solid-600: var(--color-primitives-turquoise-solid-400);
+  --color-secondary-solid-700: var(--color-primitives-turquoise-solid-300);
+  --color-secondary-solid-800: var(--color-primitives-turquoise-solid-200);
+  --color-secondary-solid-900: var(--color-primitives-turquoise-solid-100);
+  --color-secondary-solid-950: var(--color-primitives-turquoise-solid-50);
+
+  --color-accent-solid-50: var(--color-primitives-pumpkin-solid-950);
+  --color-accent-solid-100: var(--color-primitives-pumpkin-solid-900);
+  --color-accent-solid-200: var(--color-primitives-pumpkin-solid-800);
+  --color-accent-solid-300: var(--color-primitives-pumpkin-solid-700);
+  --color-accent-solid-400: var(--color-primitives-pumpkin-solid-600);
+  --color-accent-solid-500: var(--color-primitives-pumpkin-solid-500);
+  --color-accent-solid-600: var(--color-primitives-pumpkin-solid-400);
+  --color-accent-solid-700: var(--color-primitives-pumpkin-solid-300);
+  --color-accent-solid-800: var(--color-primitives-pumpkin-solid-200);
+  --color-accent-solid-900: var(--color-primitives-pumpkin-solid-100);
+  --color-accent-solid-950: var(--color-primitives-pumpkin-solid-50);
+
+  --color-neutral-solid-50: var(--color-primitives-gray-solid-950);
+  --color-neutral-solid-100: var(--color-primitives-gray-solid-900);
+  --color-neutral-solid-200: var(--color-primitives-gray-solid-800);
+  --color-neutral-solid-300: var(--color-primitives-gray-solid-700);
+  --color-neutral-solid-400: var(--color-primitives-gray-solid-500); /* off-mirror in Figma */
+  --color-neutral-solid-500: var(--color-primitives-gray-solid-400); /* off-mirror in Figma */
+  --color-neutral-solid-600: var(--color-primitives-gray-solid-400);
+  --color-neutral-solid-700: var(--color-primitives-gray-solid-300);
+  --color-neutral-solid-800: var(--color-primitives-gray-solid-200);
+  --color-neutral-solid-900: var(--color-primitives-gray-solid-100);
+  --color-neutral-solid-950: var(--color-primitives-gray-solid-50);
+
+  --color-error-solid-50: var(--color-primitives-red-solid-950);
+  --color-error-solid-100: var(--color-primitives-red-solid-900);
+  --color-error-solid-200: var(--color-primitives-red-solid-800);
+  --color-error-solid-300: var(--color-primitives-red-solid-700);
+  --color-error-solid-400: var(--color-primitives-red-solid-600);
+  --color-error-solid-500: var(--color-primitives-red-solid-500);
+  --color-error-solid-600: var(--color-primitives-red-solid-600); /* off-mirror in Figma */
+  --color-error-solid-700: var(--color-primitives-red-solid-300);
+  --color-error-solid-800: var(--color-primitives-red-solid-200);
+  --color-error-solid-900: var(--color-primitives-red-solid-100);
+  --color-error-solid-950: var(--color-primitives-red-solid-50);
+
+  --color-warning-solid-50: var(--color-primitives-amber-solid-950);
+  --color-warning-solid-100: var(--color-primitives-amber-solid-900);
+  --color-warning-solid-200: var(--color-primitives-amber-solid-800);
+  --color-warning-solid-300: var(--color-primitives-amber-solid-700);
+  --color-warning-solid-400: var(--color-primitives-amber-solid-600);
+  --color-warning-solid-500: var(--color-primitives-amber-solid-500);
+  --color-warning-solid-600: var(--color-primitives-amber-solid-400);
+  --color-warning-solid-700: var(--color-primitives-amber-solid-300);
+  --color-warning-solid-800: var(--color-primitives-amber-solid-200);
+  --color-warning-solid-900: var(--color-primitives-amber-solid-100);
+  --color-warning-solid-950: var(--color-primitives-amber-solid-50);
+
+  --color-success-solid-50: var(--color-primitives-green-solid-950);
+  --color-success-solid-100: var(--color-primitives-green-solid-900);
+  --color-success-solid-200: var(--color-primitives-green-solid-800);
+  --color-success-solid-300: var(--color-primitives-green-solid-700);
+  --color-success-solid-400: var(--color-primitives-green-solid-600);
+  --color-success-solid-500: var(--color-primitives-green-solid-500);
+  --color-success-solid-600: var(--color-primitives-green-solid-400);
+  --color-success-solid-700: var(--color-primitives-green-solid-300);
+  --color-success-solid-800: var(--color-primitives-green-solid-200);
+  --color-success-solid-900: var(--color-primitives-green-solid-100);
+  --color-success-solid-950: var(--color-primitives-green-solid-50);
+
+  --color-info-solid-50: var(--color-primitives-sky-solid-950);
+  --color-info-solid-100: var(--color-primitives-sky-solid-900);
+  --color-info-solid-200: var(--color-primitives-sky-solid-800);
+  --color-info-solid-300: var(--color-primitives-sky-solid-700);
+  --color-info-solid-400: var(--color-primitives-sky-solid-600);
+  --color-info-solid-500: var(--color-primitives-sky-solid-500);
+  --color-info-solid-600: var(--color-primitives-sky-solid-400);
+  --color-info-solid-700: var(--color-primitives-sky-solid-300);
+  --color-info-solid-800: var(--color-primitives-sky-solid-200);
+  --color-info-solid-900: var(--color-primitives-sky-solid-100);
+  --color-info-solid-950: var(--color-primitives-sky-solid-50);
+}

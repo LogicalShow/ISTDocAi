@@ -1,0 +1,42 @@
+:host {
+  display: inline-flex;
+}
+
+.theme-switcher {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 4px;
+  border: 0;
+  border-radius: var(--rounded-8, 8px);
+  background: transparent;
+  color: var(--general-foreground, #1a1a1a);
+  cursor: pointer;
+  transition: background-color 0.15s ease, opacity 0.15s ease;
+}
+
+.theme-switcher:hover {
+  background: var(--general-unofficial-ghost-hover, rgba(0, 0, 0, 0.05));
+}
+
+.theme-switcher:focus-visible {
+  outline: 2px solid var(--focus-ring, #8eafff);
+  outline-offset: 2px;
+}
+
+.theme-switcher--auth {
+  color: var(--color-primitives-base-white, #ffffff);
+}
+
+.theme-switcher--auth:hover {
+  background: var(--general-unofficial-auth-hover);
+}
+
+:host ::ng-deep .theme-switcher__icon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  color: inherit;
+}

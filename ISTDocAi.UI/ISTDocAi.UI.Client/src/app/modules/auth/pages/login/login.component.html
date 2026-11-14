@@ -1,0 +1,100 @@
+<div class="login-page">
+  
+
+  <div class="login-page__controls">
+    <app-theme-switcher appearance="auth" />
+    <app-language-switcher />
+  </div>
+
+  <div class="login-card">
+    <img src="assets/logos/istdocai-logo.svg" alt="istdocai" class="login-card__logo">
+
+    <div class="login-card__heading">
+      <h1 class="login-card__title">{{ 'auth.login.title' | translate }}</h1>
+      <p class="login-card__subtitle">{{ 'auth.login.subtitle' | translate }}</p>
+    </div>
+
+    <form nz-form
+      nzLayout="vertical"
+      [formGroup]="loginForm"
+      (ngSubmit)="login()"
+      class="login-form">
+
+      <nz-form-item>
+        <nz-form-label nzFor="username"
+          class="login-form__label">
+          {{ 'auth.login.userName.label' | translate }}
+        </nz-form-label>
+
+        <nz-form-control [nzErrorTip]="getErrorMessage('username') | translate">
+          <input nz-input
+            id="username"
+            formControlName="username"
+            [placeholder]="'auth.login.userName.placeholder' | translate"
+            autocomplete="username">
+          </nz-form-control>
+        </nz-form-item>
+
+
+        <nz-form-item>
+          <nz-form-label nzFor="password"
+            class="login-form__label">
+            {{ 'auth.login.password.label' | translate }}
+          </nz-form-label>
+
+          <nz-form-control [nzErrorTip]="getErrorMessage('password') | translate">
+            <nz-input-wrapper>
+
+              <input [type]="passwordVisible() ? 'text' : 'password'"
+                nz-input
+                id="password"
+                formControlName="password"
+                placeholder="•••••••••"
+                autocomplete="current-password">
+
+              <button type="button" nzInputSuffix class="login-password-toggle"
+                (click)="togglePasswordVisibility()"
+                [attr.aria-label]="(passwordVisible() ? 'auth.login.hidePassword' : 'auth.login.showPassword') | translate">
+                <app-icon [name]="passwordVisible() ? 'eye-slash-light' : 'eye-light'" iconClass="login-password-toggle__icon" />
+              </button>
+            </nz-input-wrapper>
+            </nz-form-control>
+            @if (loginErrorMessage()) {
+              <p class="login-form__inline-error">
+                {{ loginErrorMessage() }}
+              </p>
+            }
+          </nz-form-item>
+
+
+          <div class="login-form__row">
+
+            <label nz-checkbox
+              formControlName="remember"
+              class="login-form__remember">
+              {{ 'auth.login.rememberMe' | translate }}
+            </label>
+
+            <a routerLink="/forgot-password"
+              class="login-form__forgot">
+              {{ 'auth.login.forgotPassword' | translate }}
+            </a>
+
+          </div>
+
+
+          <app-button type="submit"
+            size="lg"
+            hierarchy="primary"
+            [block]="true"
+            [loading]="isLoading()"
+            [loadingLabel]="'auth.login.submitting' | translate">
+            {{ 'auth.login.submit' | translate }}
+          </app-button>
+
+        </form>
+        <p class="login-card__copyright">
+          {{ 'auth.login.copyright' | translate }} <a href="https://www.istegy.com" target="_blank" rel="noopener">infosystech</a>
+        </p>
+      </div>
+    </div>

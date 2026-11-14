@@ -1,0 +1,291 @@
+/* Header */
+nz-header {
+  background-color: var(--general-unofficial-accent-0, #f6f6f6);
+  padding: 0;
+  height: 72px;
+  line-height: 72px;
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  padding: var(--spacing-4, 16px) var(--spacing-6, 24px);
+}
+
+.header-trigger {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  color: var(--general-unofficial-foreground-alt, #4f4f4f);
+  font-size: 17px;
+}
+
+.user-area {
+  display: flex;
+  align-items: center;
+  column-gap: var(--spacing-2, 8px);
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile-button {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 8px);
+  height: 40px;
+  padding: var(--spacing-1, 4px);
+  border-radius: var(--rounded-8, 8px);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+}
+
+  .profile-button:hover {
+    background-color: var(--general-unofficial-accent-0, #f6f6f6);
+  }
+
+  .profile-button ::ng-deep .profile-avatar.ant-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--general-muted, #e7e7e7);
+    color: var(--general-foreground, #1a1a1a);
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    font-size: var(--label-label-1-fontsize, 16px);
+  }
+
+  .profile-button ::ng-deep .profile-avatar.ant-avatar svg {
+    width: 20px;
+    height: 20px;
+  }
+
+.profile-label {
+  font-size: var(--label-label-2-fontsize, 14px);
+  font-weight: var(--font-weight-regular, 400);
+  line-height: var(--label-label-2-lineheight, 20px);
+  letter-spacing: var(--label-label-2-letterspacing, -0.16px);
+  color: var(--general-foreground, #1a1a1a);
+  white-space: nowrap;
+}
+
+/* The app-icon component renders its <svg> inside its own component
+   template, a different Angular style-encapsulation scope than this file, so
+   ::ng-deep is required to reach classes set via iconClass="...". The
+   profile-button trigger stays inside this component's own DOM (only the
+   popover CONTENT below is portaled to a CDK overlay), so :host ::ng-deep
+   reaches it fine. */
+:host ::ng-deep .profile-caret {
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  color: var(--general-foreground, #1a1a1a);
+}
+
+.notification-panel {
+  width: 320px;
+  max-width: 90vw;
+}
+
+.notification-tabs {
+  display: flex;
+  column-gap: var(--spacing-2, 8px);
+  padding-bottom: var(--spacing-2, 8px);
+  border-bottom: 1px solid var(--general-unofficial-border-1, #e7e7e7);
+  margin-bottom: var(--spacing-2, 8px);
+}
+
+.notification-tab {
+  padding: var(--spacing-1, 4px) var(--spacing-3, 12px);
+  border-radius: var(--rounded-4, 4px);
+  font-size: var(--label-label-2-fontsize, 14px);
+  color: var(--general-unofficial-foreground-alt, #4f4f4f);
+  cursor: pointer;
+}
+
+  .notification-tab.active {
+    background-color: var(--general-unofficial-accent-0, #f6f6f6);
+    color: var(--general-foreground, #1a1a1a);
+    font-weight: var(--font-weight-semibold, 600);
+  }
+
+.notification-scroll {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.notification-list-item {
+  cursor: pointer;
+}
+
+.notification-item {
+  display: flex;
+  column-gap: var(--spacing-2, 8px);
+  align-items: flex-start;
+  width: 100%;
+}
+
+.notification-icon {
+  color: var(--general-unofficial-foreground-alt, #4f4f4f);
+  flex-shrink: 0;
+  margin-top: var(--spacing-0_5, 2px);
+}
+
+.notification-content {
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--spacing-0_5, 2px);
+}
+
+  .notification-content p {
+    margin: 0;
+    font-size: var(--label-label-2-fontsize, 14px);
+    font-weight: var(--font-weight-semibold, 600);
+    color: var(--general-foreground, #1a1a1a);
+  }
+
+  .notification-content span {
+    font-size: 13px;
+    color: var(--general-unofficial-mid-alt, #5d5d5d);
+  }
+
+.notification-timestamp {
+  font-size: var(--label-label-3-fontsize, 12px);
+  color: var(--general-muted-foreground, #b0b0b0);
+}
+
+.unread-notification {
+  background-color: var(--color-primary-alpha-8);
+}
+
+.notification-loading,
+.notification-empty {
+  display: flex;
+  justify-content: center;
+  padding: var(--spacing-4, 16px) 0;
+  color: var(--general-muted-foreground, #b0b0b0);
+  font-size: 13px;
+}
+
+::ng-deep .user-popover-overlay .ant-popover-inner {
+  padding: 0;
+  border-radius: var(--rounded-8, 8px);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+::ng-deep .user-popover-overlay .ant-popover-inner-content {
+  padding: 0;
+}
+
+.user-popover {
+  width: 238px;
+  background-color: var(--general-background, #ffffff);
+  border-radius: var(--rounded-8, 8px);
+}
+
+.user-popover-info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1, 4px);
+  padding: var(--spacing-4, 16px) var(--spacing-4, 16px) var(--spacing-3, 12px);
+}
+
+  /* Body/Body-3/Regular - applies to every line in the profile popover
+     (username/email label + value). `start` (not a hardcoded left/right) so
+     it resolves from the inherited `direction` - a :host-context(html[dir])
+     override can't reach this, since nz-popover portals its content into the
+     CDK overlay container appended to <body>, detached from this component's
+     own host element that :host-context needs an ancestor chain back to. */
+  .user-popover-info p {
+    margin: 0;
+    text-align: start;
+    color: var(--color-neutral-solid-950, #1A1A1A);
+    font-family: var(--font-family-base, "IBM Plex Sans");
+    font-size: var(--body-body-3-fontsize, 14px);
+    font-style: normal;
+    font-weight: var(--font-weight-regular, 400);
+    line-height: var(--body-body-3-lineheight, 20px);
+    letter-spacing: var(--body-body-3-letterspacing, 0);
+  }
+
+.user-popover-divider {
+  height: 1px;
+  background-color: var(--general-muted, #e7e7e7);
+}
+
+.user-popover-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2, 8px);
+  padding: var(--spacing-3, 12px) 0 var(--spacing-4, 16px);
+}
+
+/* Body/Body-3/Regular - `start` (not a hardcoded left/right) so it resolves
+   from the inherited `direction`; see the .user-popover-info p comment above
+   for why a :host-context(html[dir]) override can't be used here instead. */
+.user-popover-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1, 4px);
+  width: 100%;
+  padding: var(--spacing-1_5, 6px) var(--spacing-3_5, 14px);
+  border: none;
+  border-radius: var(--rounded-4, 4px);
+  background: transparent;
+  cursor: pointer;
+  text-align: start;
+  color: var(--color-neutral-solid-950, #1A1A1A);
+  font-family: var(--font-family-base, "IBM Plex Sans");
+  font-size: var(--body-body-3-fontsize, 14px);
+  font-style: normal;
+  font-weight: var(--font-weight-regular, 400);
+  line-height: var(--body-body-3-lineheight, 20px);
+  letter-spacing: var(--body-body-3-letterspacing, 0);
+}
+
+  .user-popover-item:hover {
+    background-color: var(--general-unofficial-accent-0, #f6f6f6);
+  }
+
+  /* nz-popover portals this content into a CDK overlay appended to <body>,
+     detached from this component's own host element, so :host ::ng-deep
+     (which requires a descendant of the host) can't reach it either - same
+     constraint as .user-popover-info p above. Left unscoped like the other
+     CDK-overlay-targeting rules in styles.css, just kept next to its own
+     consumer instead. */
+  ::ng-deep .user-popover-icon {
+    width: 20px;
+    height: 20px;
+    font-size: var(--heading-h6-fontsize, 20px);
+    color: var(--general-foreground, #1a1a1a);
+    flex-shrink: 0;
+  }
+
+@media (max-width: 767px) {
+  .app-header {
+    padding: var(--spacing-3, 12px);
+  }
+
+  .user-area {
+    column-gap: var(--spacing-2, 8px);
+  }
+}
+
+/* Phones: 24px of side padding is 13% of a 360px viewport, and the collapsed
+   sider has already taken 60px. Give the width back to the page content. */
+@media (max-width: 768px) {
+  .app-header {
+    padding: 0 var(--spacing-2, 8px);
+  }
+}

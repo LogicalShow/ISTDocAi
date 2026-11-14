@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="NUnit" />
+    <PackageReference Include="NUnit.Analyzers" PrivateAssets="all" />
+    <PackageReference Include="NUnit3TestAdapter" />
+    <PackageReference Include="coverlet.collector" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../ISTDocAi.UI/ISTDocAi.UI.Server/ISTDocAi.UI.Server.csproj" />
+  </ItemGroup>
+  <ItemGroup><None Update="Fixtures/**/*" CopyToOutputDirectory="PreserveNewest" /></ItemGroup>
+<ItemGroup><ProjectReference Include="../ISTDocAi.Infrastructure.Tests/ISTDocAi.Infrastructure.Tests.csproj" /></ItemGroup></Project>

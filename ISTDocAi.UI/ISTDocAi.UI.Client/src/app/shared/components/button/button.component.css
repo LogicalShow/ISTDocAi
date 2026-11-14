@@ -1,0 +1,282 @@
+/*
+ * Button component - implements the "Button as component" / "_Button base"
+ * set from the IST Components Library Figma file (node 56:32132 / 56:33718).
+ * Variant axes: size, hierarchy, icon (position/dot), destructive, state.
+ *
+ * Each hierarchy sets a block of --btn-* custom properties that the shared
+ * base rules below consume, so hover/focus/disabled only need to be written
+ * once instead of per hierarchy. Colors reference the app's semantic design
+ * tokens (styles/tokens/*.css), which come from the same Figma foundations
+ * file the button was designed against, so the hex values line up exactly.
+ */
+
+/* Not `display: contents` - directives commonly attached to a button host
+   from the outside (nz-tooltip, nz-dropdown) measure the host element's own
+   getBoundingClientRect for positioning, and a display:contents element
+   reports a zero-size box, which breaks them. inline-flex shrink-wraps the
+   inner <button> instead, which is visually equivalent for a normal button
+   and lets those directives work when placed on <app-button>. */
+:host {
+  display: inline-flex;
+  max-width: 100%;
+}
+
+:host(.app-button-host--block) {
+  display: flex;
+  width: 100%;
+}
+
+.app-btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2, 8px);
+  height: auto;
+  border-radius: var(--rounded-8, 8px);
+  border: 1px solid transparent;
+  font-family: var(--font-family-base, "IBM Plex Sans", system-ui, sans-serif);
+  font-weight: var(--font-weight-semibold, 600);
+  white-space: nowrap;
+  cursor: pointer;
+  background: var(--btn-bg, transparent);
+  border-color: var(--btn-border, transparent);
+  color: var(--btn-color, var(--general-foreground, #1a1a1a));
+  box-shadow: var(--btn-shadow, none);
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease, box-shadow .15s ease;
+}
+
+.app-btn:hover:not(:disabled):not(.ant-btn-loading) {
+  background: var(--btn-bg-hover, var(--btn-bg, transparent));
+  border-color: var(--btn-border-hover, var(--btn-border, transparent));
+  color: var(--btn-color-hover, var(--btn-color, inherit));
+}
+
+.app-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--btn-shadow-focus, var(--btn-shadow, none));
+}
+
+.app-btn:disabled {
+  cursor: not-allowed;
+  background: var(--btn-bg-disabled, var(--btn-bg, transparent));
+  border-color: var(--btn-border-disabled, var(--btn-border, transparent));
+  color: var(--btn-color-disabled, var(--btn-color, inherit));
+}
+
+/* Keep the custom hierarchy colors while NG-Zorro owns loading behavior. */
+.app-btn.ant-btn-loading {
+  cursor: progress;
+  background: var(--btn-bg, transparent);
+  border-color: var(--btn-border, transparent);
+  color: var(--btn-color, inherit);
+}
+
+.app-btn.ant-btn-loading::before {
+  display: none;
+}
+
+.app-btn__icon {
+  flex-shrink: 0;
+  display: block;
+}
+
+.app-btn--block {
+  display: flex;
+  width: 100%;
+}
+
+/* NG-Zorro adds icon padding; the component's flex gap already supplies it. */
+:host ::ng-deep .app-btn > .ant-btn-loading-icon .anticon {
+  padding: 0;
+}
+
+.app-btn__label {
+  display: inline-block;
+}
+
+/* ===== Sizes =====
+   Height is padding + line-height driven (box-sizing: border-box), matching
+   how the Figma frames are built, rather than a hardcoded height that would
+   duplicate/fight the padding values: sm 8+20+8=36, md 10+20+10=40,
+   lg 10+22+10=42, xl 12+22+12=46. */
+
+.app-btn--sm {
+  padding: var(--spacing-2, 8px) var(--spacing-3, 12px);
+  font-size: var(--label-label-2-fontsize, 14px);
+  line-height: var(--label-label-2-lineheight, 20px);
+  letter-spacing: var(--label-label-2-letterspacing, -0.16px);
+}
+
+.app-btn--md {
+  padding: var(--spacing-2_5, 10px) var(--spacing-4, 16px);
+  font-size: var(--label-label-2-fontsize, 14px);
+  line-height: var(--label-label-2-lineheight, 20px);
+  letter-spacing: var(--label-label-2-letterspacing, -0.16px);
+}
+
+.app-btn--lg {
+  padding: var(--spacing-2_5, 10px) var(--spacing-4, 16px);
+  font-size: var(--label-label-1-fontsize, 16px);
+  line-height: var(--label-label-1-lineheight, 22px);
+  letter-spacing: var(--label-label-1-letterspacing, -0.18px);
+}
+
+.app-btn--xl {
+  padding: var(--spacing-3, 12px) var(--spacing-4, 16px);
+  font-size: var(--label-label-1-fontsize, 16px);
+  line-height: var(--label-label-1-lineheight, 22px);
+  letter-spacing: var(--label-label-1-letterspacing, -0.18px);
+}
+
+/* Icon-only: square button, padding equal on every side (the size's
+   vertical padding), no visible label. */
+.app-btn--icon-only.app-btn--sm { padding: var(--spacing-2, 8px); }
+.app-btn--icon-only.app-btn--md { padding: var(--spacing-2_5, 10px); }
+.app-btn--icon-only.app-btn--lg { padding: var(--spacing-2_5, 10px); }
+.app-btn--icon-only.app-btn--xl { padding: var(--spacing-3, 12px); }
+
+/* ===== Hierarchies (non-destructive) ===== */
+
+.app-btn--primary {
+  --btn-bg: var(--general-primary, #1b35f5);
+  --btn-border: var(--general-primary, #1b35f5);
+  --btn-color: var(--general-primary-foreground, #eef3ff);
+  --btn-shadow: var(--shadow-xs);
+  --btn-bg-hover: var(--general-unofficial-primary-hover, #171eb6);
+  --btn-border-hover: var(--general-unofficial-primary-hover, #171eb6);
+  --btn-shadow-focus: 0 0 0 4px var(--color-primary-solid-200, #bcceff), var(--shadow-xs);
+  --btn-bg-disabled: var(--color-primary-solid-200, #bcceff);
+  --btn-border-disabled: var(--color-primary-solid-200, #bcceff);
+  /* Without this the foreground falls through to --btn-color, leaving a
+     near-white label on the pale --btn-bg-disabled fill - 1.41:1 in light
+     mode, effectively invisible. Reads as a muted tint of the brand
+     instead, and mirrors to a light blue in dark mode via themes.css. */
+  --btn-color-disabled: var(--color-primary-solid-700, #1423e1);
+}
+
+.app-btn--soft {
+  --btn-bg: var(--color-primary-solid-100, #d9e3ff);
+  --btn-border: var(--color-primary-solid-100, #d9e3ff);
+  --btn-color: var(--color-primary-solid-800, #171eb6);
+  --btn-shadow: var(--shadow-xs);
+  --btn-bg-hover: var(--color-primary-solid-200, #bcceff);
+  --btn-border-hover: var(--color-primary-solid-200, #bcceff);
+  --btn-color-hover: var(--color-primary-solid-900, #19218f);
+  --btn-shadow-focus: 0 0 0 4px var(--color-primary-solid-200, #bcceff), var(--shadow-xs);
+  --btn-bg-disabled: var(--color-primary-solid-50, #eef3ff);
+  --btn-border-disabled: var(--color-primary-solid-50, #eef3ff);
+  /* solid-200 on the solid-50 fill was 1.41:1 - the label all but
+     disappeared. solid-500 reads as muted against soft's enabled
+     solid-800 while staying legible: 4.57:1 light, 4.81:1 dark. */
+  --btn-color-disabled: var(--color-primary-solid-500, #365cff);
+}
+
+.app-btn--gray-outline {
+  --btn-bg: var(--general-background, #ffffff);
+  --btn-border: var(--general-border, #d1d1d1);
+  --btn-color: var(--color-neutral-solid-900, #3d3d3d);
+  --btn-shadow: var(--shadow-xs);
+  --btn-bg-hover: var(--color-neutral-solid-50, #f6f6f6);
+  --btn-color-hover: var(--color-neutral-solid-950, #1a1a1a);
+  --btn-shadow-focus: 0 0 0 3px var(--color-neutral-solid-100, #e7e7e7), var(--shadow-xs);
+  --btn-bg-disabled: var(--general-background, #ffffff);
+  --btn-border-disabled: var(--general-unofficial-border-1, #e7e7e7);
+  --btn-color-disabled: var(--color-neutral-solid-300, #b0b0b0);
+}
+
+.app-btn--primary-ghost {
+  --btn-color: var(--color-primary-solid-700, #1423e1);
+  --btn-bg-hover: var(--color-primary-solid-50, #eef3ff);
+  --btn-shadow-focus: 0 0 0 3px var(--color-primary-solid-100, #d9e3ff);
+  --btn-color-disabled: var(--color-neutral-solid-300, #b0b0b0);
+}
+
+.app-btn--gray-ghost {
+  --btn-color: var(--color-neutral-solid-950, #1a1a1a);
+  --btn-bg-hover: var(--color-neutral-solid-50, #f6f6f6);
+  --btn-color-hover: var(--color-neutral-solid-900, #3d3d3d);
+  --btn-shadow-focus: 0 0 0 3px var(--color-neutral-solid-100, #e7e7e7);
+  --btn-color-disabled: var(--color-neutral-solid-300, #b0b0b0);
+}
+
+/* Link hierarchies: no fill, no border, no padding - just colored text,
+   regardless of size. */
+.app-btn--link-color,
+.app-btn--link-gray {
+  padding: 0;
+  background: none;
+  border-color: transparent;
+  box-shadow: none;
+}
+
+.app-btn--link-color {
+  --btn-color: var(--color-primary-solid-500, #365cff);
+  --btn-shadow-focus: 0 0 0 3px var(--color-primary-solid-100, #d9e3ff);
+  --btn-color-disabled: var(--color-neutral-solid-300, #b0b0b0);
+}
+
+.app-btn--link-gray {
+  --btn-color: var(--color-neutral-solid-950, #1a1a1a);
+  --btn-color-hover: var(--color-neutral-solid-900, #3d3d3d);
+  --btn-shadow-focus: 0 0 0 3px var(--color-neutral-solid-100, #e7e7e7);
+  --btn-color-disabled: var(--color-neutral-solid-300, #b0b0b0);
+}
+
+.app-btn--link-color:hover:not(:disabled):not(.ant-btn-loading),
+.app-btn--link-gray:hover:not(:disabled):not(.ant-btn-loading) {
+  text-decoration: underline;
+}
+
+/* ===== Destructive ===== */
+
+.app-btn--primary.app-btn--destructive {
+  --btn-bg: var(--color-error-solid-600, #dc2626);
+  --btn-border: var(--color-error-solid-600, #dc2626);
+  --btn-bg-hover: var(--color-error-solid-700, #b91c1c);
+  --btn-border-hover: var(--color-error-solid-700, #b91c1c);
+  --btn-shadow-focus: 0 0 0 4px var(--color-error-solid-200, #fecaca), var(--shadow-xs);
+  --btn-bg-disabled: var(--color-error-solid-200, #fecaca);
+  --btn-border-disabled: var(--color-error-solid-200, #fecaca);
+  /* Same fall-through as above, over the pale red fill (1.30:1). */
+  --btn-color-disabled: var(--color-error-solid-700, #b91c1c);
+}
+
+.app-btn--soft.app-btn--destructive {
+  --btn-bg: var(--color-error-solid-100, #ffe2e2);
+  --btn-border: var(--color-error-solid-100, #ffe2e2);
+  --btn-color: var(--color-error-solid-800, #991b1b);
+  --btn-bg-hover: var(--color-error-solid-200, #fecaca);
+  --btn-border-hover: var(--color-error-solid-200, #fecaca);
+  --btn-color-hover: var(--color-error-solid-900, #7f1d1d);
+  --btn-shadow-focus: 0 0 0 4px var(--color-error-solid-200, #fecaca), var(--shadow-xs);
+  --btn-bg-disabled: var(--color-error-solid-50, #fef2f2);
+  --btn-border-disabled: var(--color-error-solid-50, #fef2f2);
+  /* Same problem on the pale red fill (1.32:1); solid-600 gives 4.41:1
+     light, 3.34:1 dark - the red ramp does not mirror evenly. */
+  --btn-color-disabled: var(--color-error-solid-600, #dc2626);
+}
+
+.app-btn--gray-outline.app-btn--destructive {
+  --btn-bg: var(--general-background, #ffffff);
+  --btn-border: var(--color-error-solid-300, #fca5a5);
+  --btn-color: var(--color-error-solid-700, #b91c1c);
+  --btn-bg-hover: var(--color-error-solid-50, #fef2f2);
+  --btn-color-hover: var(--color-error-solid-800, #991b1b);
+  --btn-shadow-focus: 0 0 0 3px var(--color-error-solid-100, #ffe2e2), var(--shadow-xs);
+}
+
+.app-btn--primary-ghost.app-btn--destructive,
+.app-btn--gray-ghost.app-btn--destructive,
+.app-btn--link-color.app-btn--destructive,
+.app-btn--link-gray.app-btn--destructive {
+  --btn-color: var(--color-error-solid-700, #b91c1c);
+  --btn-color-hover: var(--color-error-solid-800, #991b1b);
+  --btn-bg-hover: var(--color-error-solid-50, #fef2f2);
+  --btn-shadow-focus: 0 0 0 3px var(--color-error-solid-100, #ffe2e2);
+}
+
+.app-btn--link-color.app-btn--destructive,
+.app-btn--link-gray.app-btn--destructive {
+  --btn-bg-hover: transparent;
+}

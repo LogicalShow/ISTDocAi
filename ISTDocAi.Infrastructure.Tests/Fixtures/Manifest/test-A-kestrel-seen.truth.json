@@ -1,0 +1,119 @@
+{
+  "CarrierName": "KESTREL SHIPPING CO.",
+  "VesselName": "KESTREL LANTERN",
+  "VoyageNumber": "053W",
+  "PortOfLoading": "DAMIETTA (EGDAM)",
+  "PortOfDischarge": "GENOA (ITGOA)",
+  "ManifestDate": "2026-12-03",
+  "BillsOfLading": [
+    {
+      "BLNumber": "KSC26050001",
+      "Shipper": "DELTA GOURMET IMPORTS S.A.E.\n71 Lotus Industrial Rd, Cairo, Egypt",
+      "Consignee": "Nile Crest Produce Logistics S.r.l.\nVia del Lauro 129, 16152 Genova, Italy\nTEL +39 010 1660978\nshipping@example.org / P. IVA 97912660583",
+      "NotifyParty": "Amber Harvest Foods S.r.l.\nVia del Lauro 128, 16132 Genova, Italy\nTEL +39 010 1580844\ninfo@example.com",
+      "BookingNumber": "BK51260091",
+      "FreightTerms": "PREPAID",
+      "Packages": null,
+      "GrossWeight": null,
+      "Description": null
+    },
+    {
+      "BLNumber": "KSC26050002",
+      "Shipper": "CEDAR AGRO EXPORTS S.A.E.\n72 Cedar Trade Ave, Damietta, Egypt\nFAX +20 57 1564878\nTAX ID 443-987-971",
+      "Consignee": "Silver Textile Trading S.r.l.\nVia del Cedro 74, 16154 Genova, Italy\ninfo@example.net",
+      "NotifyParty": "Lotus Stone Works S.r.l.\nVia del Lauro 23, 16151 Genova, Italy\nTEL +39 010 8575061\nexport@example.com / P. IVA 77017085354",
+      "BookingNumber": "BK52260091",
+      "FreightTerms": "COLLECT",
+      "Packages": null,
+      "GrossWeight": null,
+      "Description": null
+    },
+    {
+      "BLNumber": "KSC26050003",
+      "Shipper": "CORAL GOURMET IMPORTS S.A.E.\n172 Lotus Industrial Rd, New Damietta, Egypt\nTEL +20 57 7515455",
+      "Consignee": "Atlas Produce Logistics S.r.l.\nVia del Cedro 50, 16150 Genova, Italy\nTEL +39 010 1828737\ninfo@example.org / P. IVA 33939270274",
+      "NotifyParty": "Olive Harvest Foods S.r.l.\nVia del Cedro 136, 16155 Genova, Italy\nexport@example.org",
+      "BookingNumber": "BK53260091",
+      "FreightTerms": "PREPAID",
+      "Packages": null,
+      "GrossWeight": null,
+      "Description": null
+    }
+  ],
+  "Containers": [
+    {
+      "BLNumber": "KSC26050001",
+      "ContainerNo": "QZXU3887957",
+      "SealNo": "LS10299071",
+      "ContainerType": "22G1",
+      "Packages": "1134",
+      "GrossWeight": "19632.0"
+    },
+    {
+      "BLNumber": "KSC26050001",
+      "ContainerNo": "ZQXU3570921",
+      "SealNo": "LS85022312",
+      "ContainerType": "45G1",
+      "Packages": "1220",
+      "GrossWeight": "25204.0"
+    },
+    {
+      "BLNumber": "KSC26050002",
+      "ContainerNo": "XZVU8755573",
+      "SealNo": "LS36450476",
+      "ContainerType": "22G1",
+      "Packages": "26",
+      "GrossWeight": "18484.0"
+    },
+    {
+      "BLNumber": "KSC26050002",
+      "ContainerNo": "QJVU8773685",
+      "SealNo": "LS38985119",
+      "ContainerType": "45G1",
+      "Packages": "19",
+      "GrossWeight": "27044.0"
+    },
+    {
+      "BLNumber": "KSC26050002",
+      "ContainerNo": "QZXU4361360",
+      "SealNo": "LS90179161",
+      "ContainerType": "22G1",
+      "Packages": "33",
+      "GrossWeight": "18567.0"
+    },
+    {
+      "BLNumber": "KSC26050002",
+      "ContainerNo": "ZQXU1331208",
+      "SealNo": "LS20534951",
+      "ContainerType": "45G1",
+      "Packages": "25",
+      "GrossWeight": "21193.0"
+    },
+    {
+      "BLNumber": "KSC26050003",
+      "ContainerNo": "XZVU4130166",
+      "SealNo": "LS90967344",
+      "ContainerType": "22G1",
+      "Packages": "1561",
+      "GrossWeight": "23914.0"
+    },
+    {
+      "BLNumber": "KSC26050003",
+      "ContainerNo": "QJVU6856688",
+      "SealNo": "LS60624238",
+      "ContainerType": "45G1",
+      "Packages": "935",
+      "GrossWeight": "24041.0"
+    },
+    {
+      "BLNumber": "KSC26050003",
+      "ContainerNo": "QZXU5770698",
+      "SealNo": "LS63479202",
+      "ContainerType": "22G1",
+      "Packages": "1537",
+      "GrossWeight": "19768.0"
+    }
+  ],
+  "_layout": "L2",
+  "_pages": 2
+}

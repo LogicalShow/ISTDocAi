@@ -1,0 +1,55 @@
+<div class="notification-user-edit-container">
+  <form [formGroup]="form" nzLayout="vertical">
+    <!-- Notification Selector -->
+    <div class="form-field">
+      <label for="notificationId">Notification</label>
+      <app-select id="notificationId"
+        formControlName="notificationId"
+        [options]="notificationSelectOptions()"
+        [showSearch]="true"
+        [serverSearch]="true"
+        placeholder="Select notification"
+        [loading]="isLoadingNotifications()"
+        (searchChange)="onNotificationSearch($event)"
+      class="full-width-select" />
+    </div>
+
+    <!-- Selected Users Table -->
+    <div class="users-section">
+      <h2 class="users-section__title">Selected Users</h2>
+      <nz-table
+        [nzData]="users()"
+        [nzLoading]="isLoadingUsers()"
+        [nzFrontPagination]="false"
+        [nzShowPagination]="false"
+        nzSize="small">
+        <thead>
+          <tr>
+            <th [nzWidth]="'50%'">User Name</th>
+            <th [nzWidth]="'50%'">Sending Way</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (user of users(); track user) {
+            <tr>
+              <td>
+                <label nz-checkbox [(ngModel)]="user.selected" [ngModelOptions]="{standalone: true}"
+                  (ngModelChange)="onUserSelectionChange(user, $event)">
+                  {{ user.UserName }}
+                </label>
+              </td>
+              <td>
+                <app-select [(ngModel)]="user.SendingWayId"
+                  [ngModelOptions]="{standalone: true}"
+                  [options]="sendingWayOptions"
+                  [disabled]="!user.selected"
+                  placeholder="Select sending way"
+                class="full-width-select" />
+              </td>
+            </tr>
+          }
+        </tbody>
+      </nz-table>
+    </div>
+  </form>
+</div>

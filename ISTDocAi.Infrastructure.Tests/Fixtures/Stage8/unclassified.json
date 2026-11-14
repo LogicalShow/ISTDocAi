@@ -1,0 +1,42 @@
+{
+  "calls": [
+    "position",
+    "catalog",
+    "original",
+    "reserve",
+    "begin",
+    "post:doc-router-v1",
+    "accepted",
+    "poll",
+    "parse-class",
+    "class-map",
+    "classify"
+  ],
+  "meterEntries": [
+    "classify"
+  ],
+  "retrySeconds": null,
+  "retryError": null,
+  "complete": false,
+  "failure": null,
+  "classification": null,
+  "result": null,
+  "logs": [
+    {
+      "level": "Information",
+      "text": "job.claimed errorCode=(null) operationId=(null) durationMs=0"
+    },
+    {
+      "level": "Information",
+      "text": "operation.sending errorCode=(null) operationId=2 durationMs=0"
+    },
+    {
+      "level": "Information",
+      "text": "operation.accepted errorCode=(null) operationId=2 durationMs=0"
+    },
+    {
+      "level": "Information",
+      "text": "job.failed errorCode=UNCLASSIFIED operationId=2 durationMs=0"
+    }
+  ]
+}

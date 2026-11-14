@@ -1,0 +1,70 @@
+[
+  {
+    "file": "src/DocAi.Database/DatabaseInitializationException.cs",
+    "sha256": "ab1b0904dcaa3578001aeac5f598905a324b2b0734221ad551503b7a22ee6fa8"
+  },
+  {
+    "file": "src/DocAi.Database/DatabaseInitializer.cs",
+    "sha256": "e74de54181ec19771d3f3701d8cedbf3d6d1ed9fa4d8ceb5abf46e466040b50d"
+  },
+  {
+    "file": "src/DocAi.Database/DatabaseOptions.cs",
+    "sha256": "fdabc353f266b8e9ac2583260a2a30512adcba2d8d45b68a4a3150bd11177887"
+  },
+  {
+    "file": "src/DocAi.Database/DocAiDbContext.cs",
+    "sha256": "d7891a106e054d54205f14637953c088e5624f78d74d60427552c5bf5f483e93"
+  },
+  {
+    "file": "src/DocAi.Database/DocAiDesignTimeFactory.cs",
+    "sha256": "e2449a7bf0439af8efd474064305ddd487b3d437176932c18e5135ecfaf4fc2a"
+  },
+  {
+    "file": "src/DocAi.Database/LegacySchemaAdopter.cs",
+    "sha256": "476e5f18f16ccd57e882e53cef245127106b34332d3e517188c7043c982a02fc"
+  },
+  {
+    "file": "src/DocAi.Database/Migrations/20261101000000_InitialSchema.Designer.cs",
+    "sha256": "e85b382d51986ec3dae768acacbea068b14c2dcf546930950459ff0c192741d0"
+  },
+  {
+    "file": "src/DocAi.Database/Migrations/20261101000000_InitialSchema.cs",
+    "sha256": "071da98d024aad059f55dbb22a0cc43fa1a5d869f1ca1f1d75a4699674194194"
+  },
+  {
+    "file": "src/DocAi.Database/Migrations/20261103000000_ModelMappingProfiles.cs",
+    "sha256": "634900564a4093f9a20313a34b5346876a6a2d6b09e79c2033f6aa1260fa4ac2"
+  },
+  {
+    "file": "src/DocAi.Database/Migrations/DocAiDbContextModelSnapshot.cs",
+    "sha256": "d061fe207c3a5a51618888c55c94395980f5f07539794c44823076abdcacdcf6"
+  },
+  {
+    "file": "src/DocAi.Database/Migrations/Sql/InitialRoles.sql",
+    "sha256": "01ad572f9b438128e6ae1e1e8f2eddf134b053f148d3689edcb75755ad2103a9"
+  },
+  {
+    "file": "src/DocAi.Database/Migrations/Sql/InitialSchema.catalog.json",
+    "sha256": "e6be9a634224097fd818275d3dadf585a450370cee732a76980566994dfdc465"
+  },
+  {
+    "file": "src/DocAi.Database/Migrations/Sql/InitialSchema.sql",
+    "sha256": "0637c3bc40f092f3e70002c570ea29b5961c7f9849916d3f84009faaea6142cd"
+  },
+  {
+    "file": "src/DocAi.Database/Migrations/Sql/ModelMappingProfiles.sql",
+    "sha256": "0cc6b488d08c86e6b62561903bf0ad7e97f91b587c4b6aacdf48ba7c89d491ed"
+  },
+  {
+    "file": "src/DocAi.Database/Migrations/Sql/ModelMappingSeeds.json",
+    "sha256": "c5058e7d3f0ac56a19ff29712812e3dc435f21ba0be5ce6b218e1f0971055eda"
+  },
+  {
+    "file": "src/DocAi.Database/SchemaCatalog.cs",
+    "sha256": "dd4c2ea3d5a9f4afe6c74ea2bebd6f05c1fa98c051bf6c923fd277f9dc7b9e38"
+  },
+  {
+    "file": "src/DocAi.Database/SqlBatchReader.cs",
+    "sha256": "2f1d9c830c4287b8198e8cfb60d5fcbbd02218229b226bf3bb305ac198239d6d"
+  }
+]

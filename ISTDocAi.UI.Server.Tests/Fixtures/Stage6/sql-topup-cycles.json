@@ -1,0 +1,46 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/usage/topups",
+    "headers": [
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "X-Api-Key",
+        "values": [
+          "test-key-one"
+        ]
+      }
+    ],
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "headers": [
+      {
+        "name": "Cache-Control",
+        "values": [
+          "no-store"
+        ]
+      },
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "Content-Type",
+        "values": [
+          "application/json; charset=utf-8"
+        ]
+      }
+    ],
+    "bodyText": "{\u0022orderingPolicy\u0022:\u0022TimestampGrantBeforeChargeV1\u0022,\u0022coverage\u0022:\u0022RecordedCustomerCharges\u0022,\u0022totals\u0022:{\u0022grantedPages\u0022:100,\u0022chargedPages\u0022:1,\u0022chargedRuns\u0022:1,\u0022ledgerBalance\u0022:99,\u0022currentReservedPages\u0022:0,\u0022currentAvailablePages\u0022:99},\u0022prelude\u0022:{\u0022topUpGrantId\u0022:null,\u0022startAtUtc\u0022:null,\u0022nextTopUpGrantId\u0022:1,\u0022endAtUtc\u0022:\u00222026-10-25T12:00:00\u002B00:00\u0022,\u0022topUpPages\u0022:0,\u0022isReversed\u0022:false,\u0022recordedAvailableAfterTopUp\u0022:null,\u0022openingLedgerBalance\u0022:0,\u0022adjustmentPages\u0022:0,\u0022reversalPages\u0022:0,\u0022chargedPages\u0022:0,\u0022chargedRuns\u0022:0,\u0022closingLedgerBalance\u0022:0},\u0022cycles\u0022:[{\u0022topUpGrantId\u0022:1,\u0022startAtUtc\u0022:\u00222026-10-25T12:00:00\u002B00:00\u0022,\u0022nextTopUpGrantId\u0022:null,\u0022endAtUtc\u0022:null,\u0022topUpPages\u0022:100,\u0022isReversed\u0022:false,\u0022recordedAvailableAfterTopUp\u0022:100,\u0022openingLedgerBalance\u0022:100,\u0022adjustmentPages\u0022:0,\u0022reversalPages\u0022:0,\u0022chargedPages\u0022:1,\u0022chargedRuns\u0022:1,\u0022closingLedgerBalance\u0022:99}],\u0022hasMoreCycles\u0022:false}"
+  }
+}

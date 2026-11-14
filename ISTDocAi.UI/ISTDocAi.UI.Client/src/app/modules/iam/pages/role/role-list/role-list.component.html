@@ -1,0 +1,109 @@
+<div class="roles-panel">
+  <div class="roles-panel__header">
+    <h2 class="roles-panel__title">{{ 'role.title' | translate }}</h2>
+  </div>
+
+  <div class="roles-panel__toolbar">
+    <div class="roles-panel__toolbar-left">
+      <app-button hierarchy="gray-outline" icon="funnel-light" iconPosition="leading" (clicked)="openSearchModal()">
+        {{ 'role.filter' | translate }}
+      </app-button>
+      <app-button hierarchy="gray-outline" icon="arrows-clockwise-light" iconPosition="leading" (clicked)="clearSearch()">
+        {{ 'common.clear' | translate }}
+      </app-button>
+    </div>
+    <div class="roles-panel__actions">
+      <app-button hierarchy="soft" [destructive]="true" icon="trash-light" iconPosition="leading" [appPermission]="PERMISSIONS.DELETE" (clicked)="deleteSelectedRoles()">
+        {{ 'role.delete' | translate }}
+      </app-button>
+      <app-button hierarchy="primary" icon="plus-light" iconPosition="leading" [appPermission]="PERMISSIONS.ADD" (clicked)="addRole()">
+        {{ 'role.add' | translate }}
+      </app-button>
+    </div>
+  </div>
+
+  <div class="roles-table">
+    @if (loading()) {
+      <div class="table-loading">
+        <app-icon name="circle-notch-light" iconClass="app-spinner" ariaLabel="Loading" />
+      </div>
+    }
+    @if (!loading()) {
+      <nz-table
+        [nzData]="roles()"
+        [nzPageIndex]="pageIndex()"
+        [nzPageSize]="pageSize()"
+        [nzTotal]="total()"
+        [nzShowPagination]="false"
+        [nzFrontPagination]="false"
+        [nzScroll]="{ x: 'max-content' }"
+        id="role-list-table">
+        <thead>
+          <tr>
+            <th [nzWidth]="'44px'">
+              <label nz-checkbox [(ngModel)]="selectAllChecked" [ngModelOptions]="{standalone: true}" (ngModelChange)="onSelectAllChange()"></label>
+            </th>
+            <th [nzWidth]="'26%'" class="sortable" (click)="onSort('NameEn')">
+              <span class="th-content">{{ 'role.table.name' | translate }}<app-icon name="caret-up-down-light" fill="var(--color-neutral-solid-900, #3D3D3D)" /></span>
+            </th>
+            <th [nzWidth]="'26%'">{{ 'role.table.arabicName' | translate }}</th>
+            <th [nzWidth]="'12%'" class="sortable" (click)="onSort('DisplayOrder')">
+              <span class="th-content">{{ 'role.table.order' | translate }}<app-icon name="caret-up-down-light" fill="var(--color-neutral-solid-900, #3D3D3D)" /></span>
+            </th>
+            <th [nzWidth]="'14%'">{{ 'role.table.status' | translate }}</th>
+            <th>{{ 'role.table.action' | translate }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (role of roles(); track role; let i = $index) {
+            <tr [class.alt-row]="i % 2 === 1" (click)="editRole(role)" class="roles-table__row">
+              <td (click)="$event.stopPropagation()">
+                <label nz-checkbox [ngModel]="isChecked(role.Id)" [ngModelOptions]="{standalone: true}" (ngModelChange)="onCheckboxChange(role.Id, $event)"></label>
+              </td>
+              <td>{{ (role.NameEn || '').trim() || (role.NameAr || '').trim() || ('role.table.notAvailable' | translate) }}</td>
+              <td>{{ role.NameAr || '-' }}</td>
+              <td>{{ role.DisplayOrder }}</td>
+              <td>
+                <span class="status-pill" [class.status-pill--inactive]="!role.IsActive">{{ (role.IsActive ? 'role.status.active' : 'role.status.inactive') | translate }}</span>
+              </td>
+              <td (click)="$event.stopPropagation()">
+                <app-button size="sm" hierarchy="gray-ghost" icon="pencil-simple-light" iconPosition="leading" (clicked)="setPermissions(role)">
+                  {{ 'role.table.setPermissions' | translate }}
+                </app-button>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </nz-table>
+    }
+
+    @if (total() > 0) {
+      <div class="pagination">
+        @if (totalPages() > 1) {
+          <div class="pagination-controls">
+            <app-button size="sm" hierarchy="gray-ghost" icon="caret-right-light" iconPosition="leading"
+              iconClass="pagination-icon-prev" [disabled]="pageIndex() === 1" (clicked)="goToPrevious()">
+              {{ 'role.pagination.previous' | translate }}
+            </app-button>
+            @for (p of pages(); track p) {
+              @if (p === 'ellipsis') {
+                <span class="page-ellipsis">...</span>
+              }
+              @if (p !== 'ellipsis') {
+                <app-button class="page-btn" size="sm" [hierarchy]="p === pageIndex() ? 'primary' : 'gray-ghost'"
+                  (clicked)="goToPage(p)">
+                  {{ p }}
+                </app-button>
+              }
+            }
+            <span class="page-position">{{ pageIndex() }} / {{ totalPages() }}</span>
+            <app-button size="sm" hierarchy="gray-ghost" icon="caret-right-light" iconPosition="trailing"
+              iconClass="pagination-icon-next" [disabled]="pageIndex() === totalPages()" (clicked)="goToNext()">
+              {{ 'role.pagination.next' | translate }}
+            </app-button>
+          </div>
+        }
+      </div>
+    }
+  </div>
+</div>

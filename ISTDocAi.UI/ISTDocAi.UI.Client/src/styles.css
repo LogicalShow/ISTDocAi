@@ -1,0 +1,1167 @@
+@import "./styles/tokens/color-primitives.css";
+@import "./styles/tokens/color-semantic.css";
+@import "./styles/tokens/themes.css";
+@import "./styles/tokens/theme.css";
+@import "./styles/tokens/border-radius.css";
+@import "./styles/tokens/spacing.css";
+@import "./styles/tokens/typography.css";
+@import "./styles/tokens/shadows.css";
+@import "./styles/vendor/ng-zorro-tokens.css";
+@import "./styles/vendor/ng-zorro-notification.css";
+@import "./styles/vendor/dropdown-panel.css";
+@import "./styles/vendor/confirm-modal.css";
+@import "./styles/vendor/change-password-modal.css";
+
+@font-face {
+  font-family: "Poppins";
+  src: url("assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("assets/fonts/Poppins/Poppins-SemiBold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("assets/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* Self-hosted (not loaded from Google Fonts at runtime) - variable fonts, so
+   one file covers the whole weight range used across the app. */
+@font-face {
+  font-family: "IBM Plex Sans";
+  src: url("assets/fonts/IBMPlexSans/IBMPlexSans-Variable.ttf") format("truetype-variations");
+  font-weight: 100 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Noto Sans Arabic";
+  src: url("assets/fonts/NotoSansArabic/NotoSansArabic-Variable.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+html[dir="ltr"] {
+  direction: ltr;
+}
+
+html[dir="rtl"] {
+  direction: rtl;
+}
+
+body {
+  font-family: "Poppins", Arial, sans-serif;
+  font-size : 13px !important;
+  direction: inherit;
+  text-align: start;
+  background: var(--general-unofficial-body-background);
+  color: var(--general-foreground);
+}
+
+html[dir="rtl"] body {
+  text-align: right;
+}
+
+/* Keep technical and English values left-to-right. */
+input[type="email"],
+input[type="password"],
+input[type="url"],
+input[type="tel"],
+input[type="number"],
+.ant-input-number-input,
+input[formControlName$="En" i],
+textarea[formControlName$="En" i],
+input[id$="En" i],
+textarea[id$="En" i],
+input[formControlName*="email" i],
+input[formControlName*="userName" i],
+input[formControlName*="username" i],
+input[formControlName*="password" i],
+input[formControlName*="phone" i],
+input[formControlName*="fax" i],
+input[formControlName*="website" i],
+input[formControlName*="host" i],
+input[formControlName*="port" i],
+input[formControlName*="path" i],
+input[formControlName*="otp" i],
+input[placeholder*="English" i],
+input[placeholder*="Email" i],
+input[placeholder*="Username" i],
+input[placeholder*="Password" i],
+input[placeholder*="Search" i],
+input[placeholder*="Filter" i],
+input[placeholder*="smtp" i],
+input[placeholder*="http" i],
+input[placeholder*="example.com" i] {
+  direction: ltr;
+  text-align: left;
+}
+
+nz-input-wrapper:has(input[type="email"]),
+nz-input-wrapper:has(input[type="password"]),
+nz-input-wrapper:has(input[formControlName$="En" i]),
+nz-input-wrapper:has(input[formControlName*="email" i]),
+nz-input-wrapper:has(input[formControlName*="userName" i]),
+nz-input-wrapper:has(input[formControlName*="username" i]),
+nz-input-wrapper:has(input[formControlName*="password" i]),
+nz-input-wrapper:has(input[formControlName*="otp" i]),
+.ant-input-affix-wrapper:has(input[type="email"]),
+.ant-input-affix-wrapper:has(input[type="password"]),
+.ant-input-affix-wrapper:has(input[formControlName$="En" i]),
+.ant-input-affix-wrapper:has(input[formControlName*="email" i]),
+.ant-input-affix-wrapper:has(input[formControlName*="userName" i]),
+.ant-input-affix-wrapper:has(input[formControlName*="username" i]),
+.ant-input-affix-wrapper:has(input[formControlName*="password" i]),
+.ant-input-affix-wrapper:has(input[formControlName*="otp" i]) {
+  direction: ltr;
+}
+
+/* User "full name" has no forced-direction rule above (unlike userName/
+   nameEn/nameAr), so it falls through to its own dir="auto" attribute,
+   which - per the HTML spec - defaults an empty field to LTR regardless of
+   page language, only flipping to RTL after a strong-RTL character is
+   typed. In Arabic mode that means the field visibly starts on the wrong
+   side before the user types anything, so pin it to the page language like
+   every other name field instead of leaving it to the empty-value default. */
+html[dir="rtl"] input[formControlName="fullName"] {
+  direction: rtl;
+  text-align: right;
+}
+
+input[dir="rtl"],
+textarea[dir="rtl"],
+input[formControlName$="Ar" i],
+textarea[formControlName$="Ar" i],
+input[id$="Ar" i],
+textarea[id$="Ar" i],
+input[placeholder*="Arabic" i],
+textarea[placeholder*="Arabic" i] {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Placeholder copy follows the active UI language independently from the
+   direction used for the field's entered value. */
+html[dir="ltr"] :where(input, textarea)::placeholder {
+  direction: ltr;
+  text-align: left;
+}
+
+html[dir="rtl"] :where(input, textarea)::placeholder {
+  direction: rtl;
+  text-align: right;
+}
+
+
+
+.ant-menu-dark .ant-menu-item:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-item-active > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-active > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-open > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-selected > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after, .ant-menu-dark .ant-menu-submenu-title:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow::after,
+.ant-menu-dark .ant-menu-item:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-item-active > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-active > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-open > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before, .ant-menu-dark .ant-menu-submenu-selected > .ant-menu-submenu-title > .ant-menu-submenu-arrow::before,
+.ant-menu-dark .ant-menu-submenu-active .ant-menu-submenu-arrow {
+  /*  background: #ff882f;*/
+  background: var(--color-info-solid-500, #0ea5e9);
+}
+
+.ant-popover-inner-content {
+  padding: var(--spacing-2, 8px);
+}
+
+.ant-avatar {
+  cursor: pointer;
+}
+
+.ant-input-prefix {
+  margin: var(--spacing-3, 12px);
+}
+
+.ant-btn-dangerous {
+  border-color: var(--general-border, #d1d1d1);
+}
+
+.ant-table {
+  background: var(--general-background, #ffffff);
+  border: 1px solid var(--general-unofficial-border-1, #e7e7e7);
+  box-shadow: var(--shadow-sm);
+}
+
+.ant-table-tbody > tr > td {
+  padding: 0px var(--spacing-4, 16px);
+}
+
+/* Shared text-input skin for the role/user search & edit forms - identical
+   across all four components, so kept here once instead of per-component. */
+.role-search__input,
+.user-search__input,
+.role-edit__input,
+.user-edit__input {
+  min-height: 36px;
+  padding: 7.5px var(--spacing-3, 12px);
+  border: 1px solid var(--general-unofficial-border-3, #b0b0b0);
+  border-radius: var(--rounded-8, 8px);
+  background: var(--general-input, #ffffff);
+  color: var(--color-neutral-solid-950, #1a1a1a);
+  font-family: inherit;
+  font-size: var(--label-label-2-fontsize, 14px);
+  line-height: var(--label-label-2-lineheight, 20px);
+  letter-spacing: 0;
+  outline: none;
+  transition: border-color 0.15s ease;
+}
+
+.role-search__input::placeholder,
+.user-search__input::placeholder,
+.role-edit__input::placeholder,
+.user-edit__input::placeholder {
+  color: var(--general-muted-foreground, #b0b0b0);
+}
+
+.role-search__input:focus,
+.user-search__input:focus,
+.role-edit__input:focus,
+.user-edit__input:focus {
+  border-color: var(--general-primary, #1b35f5);
+}
+
+.ant-btn:not([nzType="primary"]) {
+  padding: 0px var(--spacing-9, 36px);
+}
+
+.ant-btn[nzType="primary"] {
+  font-weight: var(--font-weight-medium, 500);
+  padding: 0px 42px;
+}
+
+.ant-menu {
+  color: var(--color-primitives-base-white, #ffffff);
+}
+/* Action column styling for compact buttons */
+.ant-table-cell:has(.ant-btn) {
+  padding: var(--spacing-2, 8px) var(--spacing-1, 4px) !important;
+}
+
+.ant-table-cell .ant-btn {
+  width: 100%;
+  font-size: var(--label-label-3-fontsize, 12px);
+  font-weight: var(--font-weight-medium, 500);
+}
+
+/* .form-field is shared by notification-user-edit and user-change-password -
+   kept here rather than duplicated. .edit-form-container/.edit-form/
+   .form-fields/.input-container are only used by user-change-password and
+   live in that component's own stylesheet instead. */
+.form-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+  .form-field label {
+    min-width: 100px;
+    font-weight: var(--font-weight-medium, 500);
+    color: var(--color-primitives-gray-solid-900, #3d3d3d);
+    margin-top: var(--spacing-1_5, 6px);
+    flex-shrink: 0;
+  }
+
+.form-field input {
+  width: 100%;
+}
+
+.icon-input,
+.number-stepper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.icon-input input,
+.number-stepper input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.icon-input__icon,
+.number-stepper__buttons {
+  position: absolute;
+}
+
+html[dir="ltr"] .icon-input input {
+  padding-right: var(--spacing-8, 32px);
+}
+
+html[dir="rtl"] .icon-input input {
+  padding-left: var(--spacing-8, 32px);
+}
+
+.icon-input__icon {
+  inset-inline-end: var(--spacing-2_5, 10px);
+  color: var(--general-muted-foreground, #b0b0b0);
+  cursor: pointer;
+}
+
+html[dir="ltr"] .number-stepper input {
+  padding-right: var(--spacing-6, 24px);
+  text-align: left;
+}
+
+html[dir="rtl"] .number-stepper input {
+  padding-left: var(--spacing-6, 24px);
+  text-align: right;
+}
+
+.number-stepper input {
+  -moz-appearance: textfield;
+}
+
+.number-stepper input::-webkit-outer-spin-button,
+.number-stepper input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.number-stepper__buttons {
+  inset-inline-end: var(--spacing-1, 4px);
+  display: flex;
+  flex-direction: column;
+}
+
+.number-stepper__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 12px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--general-muted-foreground, #b0b0b0);
+  cursor: pointer;
+}
+
+.number-stepper__btn:hover {
+  color: var(--general-primary, #1b35f5);
+}
+
+.number-stepper__icon--up {
+  transform: rotate(180deg);
+}
+
+.ant-menu-item:active, .ant-menu-submenu-title:active {
+  background-color: var(--color-info-solid-500, #0ea5e9);
+}
+
+.ant-menu-submenu-expand-icon, .ant-menu-submenu-arrow {
+  color: var(--color-primitives-base-white, #ffffff);
+}
+
+/*.ant-menu-light .ant-menu-item:hover, .ant-menu-light .ant-menu-item-active, .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-light .ant-menu-submenu-active, .ant-menu-light .ant-menu-submenu-title:hover {
+  color: var(--color-primary-solid-200, #bcceff);
+}*/
+
+.ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-expand-icon, .ant-menu-submenu:hover > .ant-menu-submenu-title > .ant-menu-submenu-arrow {
+  color: var(--color-primary-solid-200, #bcceff);
+}
+
+.ant-menu-item a:hover, .ant-menu-submenu-selected {
+  color: var(--color-primary-solid-200, #bcceff) !important;
+}
+
+.ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background-color: transparent;
+}
+
+/* Collapsed sidebar: hovering a rail icon opens the flyout that carries the item
+   names. The flyout is a CDK overlay attached to body, so it can only be reached
+   from here - no component stylesheet sees it. */
+body .ant-menu-submenu-popup > .ant-menu {
+  background-color: var(--general-unofficial-secondary-hover, #D9E3FF);
+  border-radius: var(--rounded-8, 8px);
+  /* Item rows are full-width rectangles - without clipping, a hovered first or
+     last row paints square corners back over the rounded panel. */
+  overflow: hidden;
+}
+
+/* .ant-menu paints every menu label white further up, and the item labels are
+   anchors with their own !important hover colour - both have to be beaten. */
+body .ant-menu-submenu-popup .ant-menu-item,
+body .ant-menu-submenu-popup .ant-menu-submenu-title,
+body .ant-menu-submenu-popup .ant-menu-item a,
+body .ant-menu-submenu-popup .ant-menu-submenu-arrow,
+body .ant-menu-submenu-popup .ant-menu-submenu-expand-icon {
+  /* The flyout ground is secondary-hover, which goes deep blue in dark mode -
+     so this needs the paired foreground token, not primary-hover. */
+  color: var(--general-secondary-foreground, #1b35f5) !important;
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+/* Deeper tint on hover - the flyout ground is already #D9E3FF, so reusing it
+   would leave the hovered row indistinguishable. */
+body .ant-menu-submenu-popup .ant-menu-item:hover,
+body .ant-menu-submenu-popup .ant-menu-item-active,
+body .ant-menu-submenu-popup .ant-menu-item:active,
+body .ant-menu-submenu-popup .ant-menu-submenu-title:hover {
+  background-color: var(--color-primary-solid-200, #bcceff);
+}
+
+/* Collapsed sidebar: top-level items with no children (Dashboard, shared list...)
+   get a plain nz-tooltip instead of a submenu flyout. Restyle it to match the
+   submenu flyout above so hovering any rail icon looks consistent. The tooltip
+   is a CDK overlay attached to body, so it can only be reached from here. */
+body .sidebar-flyout-tooltip .ant-tooltip-inner {
+  background-color: var(--general-unofficial-secondary-hover, #D9E3FF);
+  /* Not primary-hover: it darkens in dark mode and lands blue-on-blue (1.7:1)
+     over this tinted ground. secondary-foreground is the token paired with the
+     secondary surfaces and flips light, so it reads in both themes. */
+  color: var(--general-secondary-foreground, #1b35f5);
+  font-weight: var(--font-weight-semibold, 600);
+  border-radius: var(--rounded-8, 8px);
+  box-shadow: none;
+  width: 160px;
+  min-height: 40px;
+  padding: 0 var(--spacing-4, 16px);
+  display: flex;
+  align-items: center;
+}
+
+body .sidebar-flyout-tooltip .ant-tooltip-arrow-content,
+body .sidebar-flyout-tooltip .ant-tooltip-arrow-content::before {
+  --antd-arrow-background-color: var(--general-unofficial-secondary-hover, #D9E3FF);
+}
+
+
+.ant-btn-primary {
+  background-color: var(--color-info-solid-500, #0ea5e9);
+}
+
+  .ant-btn-primary:hover {
+    background-color: var(--color-info-solid-600, #028ac7);
+    border-color: var(--color-info-solid-700, #0370a1);
+    color: var(--general-background, #fff);
+  }
+
+
+.ant-pagination-options-size-changer.ant-select {
+  width: 150px !important;
+}
+
+.ant-collapse-borderless > .ant-collapse-item > .ant-collapse-content {
+  border-top: 1px solid var(--general-border, #d1d1d1);
+}
+
+/*table responsive */
+
+@media (max-width: 576px) {
+  .ant-modal-body {
+    padding: 9px;
+  }
+
+  .ant-modal-footer .ant-btn + .ant-btn:not(.ant-dropdown-trigger) {
+    margin-top: var(--spacing-1_5, 6px) !important;
+    margin-inline-start: var(--spacing-1, 4px) !important;
+  }
+
+  .ant-btn:not([nzType=primary]) {
+    padding: 0px 18px;
+  }
+
+  .ant-menu-vertical .ant-menu-item {
+    width: auto;
+    padding: 0px var(--spacing-2_5, 10px) !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+  }
+
+  ::ng-deep .ant-menu-vertical.ant-menu-sub {
+    overflow: visible !important;
+  }
+
+  .ant-menu-vertical.ant-menu-sub, .ant-menu-vertical-left.ant-menu-sub, .ant-menu-vertical-right.ant-menu-sub {
+    min-width: auto !important;
+  }
+}
+
+
+nz-table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+}
+
+  nz-table .ant-table {
+    min-width: 600px;
+  }
+
+    nz-table .ant-table table {
+      width: 100%;
+      min-width: 600px;
+      table-layout: auto;
+    }
+
+.clickable-row {
+  cursor: pointer;
+}
+
+/* ===== CUSTOM NZ-SELECT SPINNER SIZE AND COLOR ===== */
+.ant-select-arrow .anticon-loading svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-info-solid-500, #0ea5e9);
+}
+
+/*
+body .ant-menu-submenu-popup > .ant-menu, .ant-menu-item:active, .ant-menu-submenu-title:active {
+  display: none;
+}
+
+.ant-menu-light .ant-menu-item:hover, .ant-menu-light .ant-menu-item-active, .ant-menu-light .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-light .ant-menu-submenu-active, .ant-menu-light .ant-menu-submenu-title:hover {
+  color: var(--color-primitives-base-white, #ffffff) !important;
+}
+
+.ant-menu-item:active, .ant-menu-submenu-title:active {
+  color: var(--color-primitives-base-white, #ffffff) !important;
+}
+*/
+
+/* Right-align vertical form labels in Arabic. ng-zorro 22 ships this RTL rule
+   as `.ant-form-rtl .ant-form-vertical ...` (descendant), but nz-form puts both
+   classes on the same <form>, so it never matches and the labels fall back to
+   the LTR `text-align: left`. Same-element selector, as in ng-zorro 19; loaded
+   after ng-zorro's styles, it also wins over the small-screen `text-align: left`
+   rules. */
+.ant-form-rtl.ant-form-vertical .ant-form-item:not(.ant-form-item-horizontal) .ant-form-item-label {
+  text-align: right;
+}
+
+/* Keep the required-marker gap consistent in LTR forms. */
+.ant-form-item-required::before {
+  margin-inline-start: 0;
+  margin-inline-end: var(--spacing-1, 4px);
+}
+
+/* ===== DASHBOARD WIDGET LAYOUT ===== */
+/* Shared by every tile on /dashboard so the widgets don't each carry a copy
+   (component stylesheets are budgeted at 4 kB in angular.json). */
+
+.dash-shell {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2, 8px);
+}
+
+.dash-toolbar {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: var(--spacing-2, 8px);
+  padding: var(--spacing-2, 8px);
+  background-color: var(--general-background, #fff);
+  border: 1px solid var(--general-unofficial-border-1, #e7e7e7);
+  border-radius: var(--rounded-8, 8px);
+  box-shadow: var(--shadow-sm);
+}
+
+.dash-toolbar-field {
+  width: 13rem;
+  margin-bottom: 0;
+}
+
+.dash-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
+  gap: var(--spacing-2, 8px);
+}
+
+/* Grid items default to min-width:auto, which lets a wide chart canvas or the
+   600px min-width on nz-table stretch its track and push the page into a
+   horizontal scroll. Force them to stay inside the track instead. Also covers
+   the display/sizing every dashboard widget's :host previously repeated. */
+.dash-grid > * {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .dash-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dash-span-2 {
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+@media (min-width: 1536px) {
+  .dash-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.dash-card {
+  width: 100%;
+  height: 100%;
+  padding: var(--spacing-2, 8px);
+  background-color: var(--general-background, #fff);
+  border: 1px solid var(--general-unofficial-border-1, #e7e7e7);
+  border-radius: var(--rounded-8, 8px);
+  box-shadow: var(--shadow-sm);
+}
+
+.dash-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 32px;
+}
+
+.dash-card-title {
+  margin: 0;
+  padding: var(--spacing-2, 8px);
+  font-size: var(--label-label-2-fontsize, 14px);
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+.dash-card-subtitle {
+  padding: 0 var(--spacing-2, 8px) var(--spacing-1, 4px);
+  font-size: var(--label-label-3-fontsize, 12px);
+  color: var(--general-muted-foreground);
+}
+
+.dash-card-divider {
+  margin: var(--spacing-1, 4px) 0;
+  border: none;
+  border-top: 1px solid var(--general-unofficial-border-1, #e7e7e7);
+}
+
+/* Widget tables are 4-column summaries, not full-page data grids - opt them out
+   of the 600px min-width so they don't get an inner horizontal scrollbar. */
+.dash-table .ant-table,
+.dash-table .ant-table table {
+  min-width: 0;
+}
+
+/* Amounts read as the primary figure in the indicator tables. */
+.dash-amount {
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+/* Label / value list used by Daily Summary in place of a table. */
+.dash-metric-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.dash-metric-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-3, 12px);
+  padding: var(--spacing-2_5, 10px) var(--spacing-2, 8px);
+  border-bottom: 1px solid var(--general-unofficial-border-0, #f6f6f6);
+}
+
+.dash-metric-row:last-child {
+  border-bottom: none;
+}
+
+.dash-metric-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1_5, 6px);
+  color: var(--general-unofficial-foreground-alt);
+}
+
+.dash-metric-value {
+  font-size: var(--label-label-1-fontsize, 16px);
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+.dash-card-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 13rem;
+}
+
+.dash-chart {
+  width: 100%;
+  min-width: 0;
+  height: 13rem;
+}
+
+/* nz-spin is an unknown element, so it defaults to inline - the chart it wraps
+   needs it to be a block to fill the card and to anchor the centred spinner. */
+.dash-chart-spin {
+  display: block;
+}
+
+/* Brand blue for every widget spinner - the wrapped chart ones and the
+   standalone ones in the table cards alike. */
+.dash-card .ant-spin-dot-item {
+  background-color: var(--general-primary, #1B35F5);
+}
+
+/* Daily Summary's Today / MTD / YTD switch. The thumb is the pill that slides
+   between segments, so it has to carry the same fill as the settled item -
+   otherwise the blue vanishes mid-animation. */
+.dash-card-header .ant-segmented-item-selected,
+.dash-card-header .ant-segmented-thumb {
+  background-color: var(--general-primary, #1B35F5);
+  border-radius: var(--rounded-8, 8px);
+  font-weight: var(--font-weight-bold, 700);
+}
+
+.dash-card-header .ant-segmented-item-selected,
+.dash-card-header .ant-segmented-item-selected .ant-segmented-item-label {
+  color: var(--general-background, #fff);
+}
+
+.dash-progress-cell {
+  width: 16.6667%;
+}
+
+/* ===== DASHBOARD CONTROLS ===== */
+
+/* Print buttons in the widget headers. */
+.dash-card-header .ant-btn {
+  background-color: var(--general-primary, #1B35F5);
+  border-color: var(--general-primary, #1B35F5);
+  border-radius: var(--rounded-8, 8px);
+  padding: 0 var(--spacing-3, 12px);
+  color: var(--general-background, #fff);
+}
+
+.dash-card-header .ant-btn:hover,
+.dash-card-header .ant-btn:focus,
+.dash-card-header .ant-btn:active {
+  background-color: var(--color-primary-solid-700, #1423e1);
+  border-color: var(--color-primary-solid-700, #1423e1);
+  color: var(--general-background, #fff);
+}
+
+/* Refresh button - tinted fill, brand-blue label and icon. The fill is
+   secondary-hover (primary-solid-200 when hovered or active); both darken in
+   dark mode, so the label and icon use secondary-foreground, which lightens. */
+.dash-toolbar .ant-btn {
+  background-color: var(--general-unofficial-secondary-hover, #D9E3FF);
+  border-color: var(--general-unofficial-secondary-hover, #D9E3FF);
+  border-radius: var(--rounded-8, 8px);
+  color: var(--general-secondary-foreground, #1b35f5);
+}
+
+.dash-toolbar .ant-btn:hover,
+.dash-toolbar .ant-btn:focus,
+.dash-toolbar .ant-btn:active {
+  background-color: var(--color-primary-solid-200, #bcceff);
+  border-color: var(--color-primary-solid-200, #bcceff);
+  color: var(--general-secondary-foreground, #1b35f5);
+}
+
+.dash-toolbar .ant-btn .anticon {
+  color: var(--general-secondary-foreground, #1b35f5);
+}
+
+/* Year multi-select. */
+.dash-toolbar-field .ant-select .ant-select-selector {
+  border-radius: var(--rounded-8, 8px);
+}
+
+/* Each selected-year chip (NzSelectItem) - align its skin to the design's
+   chip spec. ng-zorro's own default is a 2px radius with asymmetric 8px/4px
+   padding (room for the remove icon baked into the right side); the design
+   instead uses an even 8px/8px chip, its label centered on the remove icon
+   via the 4px gap already supplied by .ant-select-selection-item-content's
+   margin. align-items is set explicitly (rather than left at flex's default
+   stretch) so the label centers on the icon regardless of which one is
+   taller. */
+.dash-toolbar-field .ant-select-selection-item {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--spacing-2, 8px);
+  border-radius: var(--rounded-8, 8px);
+  border: 0.8px solid var(--general-unofficial-border-1);
+  background: var(--general-elevated);
+}
+
+.dash-toolbar-field .ant-select-selection-item-content {
+  font-family: var(--font-family-base, "IBM Plex Sans");
+  font-size: var(--label-label-2-fontsize, 14px);
+  font-weight: var(--font-weight-regular, 400);
+  line-height: 22px;
+  color: var(--general-foreground);
+}
+
+/* Progress fill in the Top 5 Customers / Job Type Revenue tables. */
+.dash-progress-cell .ant-progress-bg {
+  background-color: var(--general-primary, #1B35F5);
+}
+
+.dash-progress-cell .ant-progress-inner {
+  background-color: var(--general-border, #D1D1D1);
+}
+
+.dash-row-icon {
+  margin: 0 var(--spacing-1, 4px);
+}
+
+/* ===== DASHBOARD: ARABIC / RTL =====
+   Scoped to the dashboard widgets only - the shell (top bar, sidebar) mirrors
+   itself. What is left here is the geometry that logical properties and
+   `dir=rtl` do not flip on their own. */
+
+@media (min-width: 1536px) {
+  /* Auto-placement drops a 2-track span at the start of the inline axis, which
+     in rtl is the RIGHT-hand pair of columns. The design keeps the wide Job Type
+     Revenue card against the left edge with the empty slot on the right, and
+     line 2 is where that pair begins counting from the rtl origin. */
+  html[dir="rtl"] .dash-span-2 {
+    grid-column: 2 / span 2;
+  }
+}
+
+/* The widget buttons are authored [icon][label], which rtl renders as
+   [label][icon]. The design keeps the printer/refresh glyph on the button's
+   left edge in Arabic as well, so re-reverse this one row. */
+html[dir="rtl"] .dash-toolbar .ant-btn,
+html[dir="rtl"] .dash-card-header .ant-btn {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: var(--spacing-1_5, 6px);
+}
+
+/* ant-design's own icon/label spacing is now on the wrong side of the glyph -
+   the gap above replaces it. */
+html[dir="rtl"] .dash-toolbar .ant-btn > .anticon + span,
+html[dir="rtl"] .dash-card-header .ant-btn > .anticon + span {
+  margin-inline-start: 0;
+}
+
+/* ===== DASHBOARD: NARROW SCREENS ===== */
+/* These sit after the unscoped .ant-btn / .ant-table rules above on purpose -
+   several of them only win the specificity tie by coming later in the file. */
+
+/* A card header holds a title plus either a Print button or the Today/MTD/YTD
+   switch. Let the control drop to a second line instead of squeezing the title. */
+.dash-card-header {
+  flex-wrap: wrap;
+  gap: var(--spacing-1, 4px);
+}
+
+@media (max-width: 768px) {
+  /* Usable content width on a 360px phone is around 250px, so the 13rem select
+     and the Refresh button cannot share a row - side by side, flex crushes the
+     select to a stub and its year tags render as bare close buttons. */
+  .dash-toolbar {
+    flex-wrap: wrap;
+    gap: var(--spacing-2, 8px);
+  }
+
+  .dash-toolbar-field {
+    width: 100%;
+  }
+
+  .dash-toolbar .ant-btn[nzType="primary"] {
+    width: 100%;
+    padding: 0 var(--spacing-3, 12px);
+  }
+}
+
+/* The widget tables are sized by their CARD, not by the viewport: .dash-grid is
+   1 column below 768px, 2 up to 1536px and 3 above it, so a card is at its
+   narrowest (~340px) at a 768px "tablet" viewport - narrower than the same card
+   on a 360px phone in the 2-column-free single track. A viewport media query
+   gets that case exactly backwards, which is why these are container queries
+   against the card and the rest apply at every width. */
+.dash-card {
+  container-type: inline-size;
+}
+
+/* Beats the unscoped `.ant-table-tbody > tr > td { padding: 0 16px }` above:
+   32px per cell across four columns is most of a narrow card. */
+.dash-table .ant-table-tbody > tr > td {
+  padding: var(--spacing-2, 8px) var(--spacing-1_5, 6px);
+}
+
+/* Names like "A long organization name" have to wrap. `anywhere` rather than
+   `break-word` because only `anywhere` lowers the cell's min-content width,
+   which is what actually stops the table overflowing its card. */
+.dash-table .ant-table-tbody > tr > td:first-child {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+/* Amounts must never split across lines. */
+.dash-table .dash-amount {
+  white-space: nowrap;
+}
+
+/* Below this the bar is a sliver and the percentage column already carries the
+   same information, so drop it and give the name and amount the room. */
+@container (max-width: 430px) {
+  .dash-table .dash-progress-cell {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .dash-metric-row {
+    padding: var(--spacing-2, 8px) var(--spacing-1, 4px);
+  }
+}
+
+.job-summary-modal .ant-modal-content {
+  border-radius: var(--rounded-16, 16px);
+  background: var(--general-background, #FFF);
+  overflow: hidden;
+  padding: 0;
+}
+
+@media (min-width: 577px) {
+  .job-summary-modal .ant-modal-content {
+    display: flex;
+    flex-direction: column;
+    height: 800px;
+    max-height: calc(100vh - 64px);
+  }
+
+  .job-summary-modal .ant-modal-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+    min-height: 0;
+  }
+}
+
+.role-edit-modal,
+.user-edit-modal,
+.user-search-modal,
+.role-search-modal {
+  & .ant-modal-content {
+    border-radius: var(--rounded-16, 16px);
+    overflow: hidden;
+    padding: 0;
+  }
+
+  & .ant-modal-header {
+    margin: 0;
+    padding: var(--spacing-4, 16px) var(--spacing-6, 24px);
+    border-bottom: none;
+  }
+
+  & .ant-modal-title {
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: var(--heading-h6-fontsize, 20px);
+    line-height: var(--heading-h6-lineheight, 24px);
+    font-weight: var(--font-weight-medium, 500);
+    color: var(--general-foreground, #1a1a1a);
+  }
+
+  & .ant-modal-body {
+    padding: 0;
+  }
+
+  & .ant-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--spacing-3, 12px);
+    margin: 0;
+    padding: var(--spacing-4, 16px) var(--spacing-6, 24px);
+    border-top: none;
+    /* Keep the button row laid out in a fixed left-to-right flow regardless
+       of page direction - flex `order` (here and per-group below)
+       repositions individual buttons deliberately (see the html[dir="rtl"]
+       rules) instead of the whole group silently jumping to the opposite
+       edge from inheriting direction:rtl. */
+    direction: ltr;
+  }
+
+  & .ant-modal-footer .ant-btn {
+    margin-inline-start: 0 !important;
+    height: 40px;
+    padding: 0 var(--spacing-4, 16px);
+    border-radius: var(--rounded-8, 8px);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: var(--label-label-2-fontsize, 14px);
+    line-height: var(--label-label-2-lineheight, 20px);
+    font-weight: var(--font-weight-semibold, 600);
+    letter-spacing: var(--label-label-2-letterspacing, -0.16px);
+  }
+
+  /* Close - plain text button, no border/background. */
+  & .ant-modal-footer .ant-btn:nth-child(1) {
+    order: 1;
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+    color: var(--general-foreground, #1a1a1a);
+  }
+
+  & .ant-modal-footer .ant-btn:nth-child(1):hover {
+    background: var(--color-neutral-solid-50, #f6f6f6);
+  }
+
+  /* Save / Search - shared service already marks this .ant-btn-primary, but
+     the app-wide `.ant-btn-primary { background-color: var(--color-info-solid-500, #0ea5e9); }`
+     rule (styles.css, ~L462) is less specific than this selector yet sets no
+     color for us to inherit correctly from - override explicitly to Figma's
+     primary blue instead of silently picking up that unrelated shade.
+     Per-group `order` (edit modals reorder it after Save & new) is set
+     below. */
+  & .ant-modal-footer .ant-btn:nth-child(2) {
+    background: var(--general-primary, #1b35f5) !important;
+    border-color: var(--general-primary, #1b35f5) !important;
+    color: var(--general-primary-foreground, #eef3ff) !important;
+    box-shadow: var(--shadow-xs);
+  }
+
+  & .ant-modal-footer .ant-btn:nth-child(2):hover {
+    background: var(--color-primary-solid-700, #1423e1) !important;
+    border-color: var(--color-primary-solid-700, #1423e1) !important;
+    color: var(--general-primary-foreground, #eef3ff) !important;
+  }
+}
+
+/* Save & new - only the edit modals render a 3rd button; shared service
+   marks it primary too, so pull it back to the plain outlined style Figma
+   shows and reorder it before Save. */
+.role-edit-modal .ant-modal-footer .ant-btn:nth-child(2),
+.user-edit-modal .ant-modal-footer .ant-btn:nth-child(2) {
+  order: 3;
+}
+
+.role-edit-modal .ant-modal-footer .ant-btn:nth-child(3),
+.user-edit-modal .ant-modal-footer .ant-btn:nth-child(3) {
+  order: 2;
+  background: var(--general-background, #ffffff) !important;
+  border-color: var(--general-border, #d1d1d1) !important;
+  color: var(--color-neutral-solid-900, #3d3d3d) !important;
+  box-shadow: var(--shadow-xs);
+}
+
+.role-edit-modal .ant-modal-footer .ant-btn:nth-child(3):hover,
+.user-edit-modal .ant-modal-footer .ant-btn:nth-child(3):hover {
+  background: var(--color-neutral-solid-50, #f6f6f6) !important;
+}
+
+/* The 2-button search modals keep Save (here, Search) in the natural 2nd
+   flex slot. */
+.user-search-modal .ant-modal-footer .ant-btn:nth-child(2),
+.role-search-modal .ant-modal-footer .ant-btn:nth-child(2) {
+  order: 2;
+}
+
+/* Arabic: mirror the whole group to the footer's left edge, matching RTL's
+   start/end reversal (primary action nearest the trailing edge, which is
+   left in RTL instead of right in LTR). Edit modals additionally swap Close
+   and Save's positions (Save & new stays put in the middle); search modals
+   only have the two buttons to swap. */
+html[dir="rtl"] .role-edit-modal .ant-modal-footer,
+html[dir="rtl"] .user-edit-modal .ant-modal-footer,
+html[dir="rtl"] .user-search-modal .ant-modal-footer,
+html[dir="rtl"] .role-search-modal .ant-modal-footer {
+  justify-content: flex-start;
+}
+
+html[dir="rtl"] .role-edit-modal .ant-modal-footer .ant-btn:nth-child(1),
+html[dir="rtl"] .user-edit-modal .ant-modal-footer .ant-btn:nth-child(1) {
+  order: 3;
+}
+
+html[dir="rtl"] .user-search-modal .ant-modal-footer .ant-btn:nth-child(1),
+html[dir="rtl"] .role-search-modal .ant-modal-footer .ant-btn:nth-child(1) {
+  order: 2;
+}
+
+html[dir="rtl"] .role-edit-modal .ant-modal-footer .ant-btn:nth-child(2),
+html[dir="rtl"] .user-edit-modal .ant-modal-footer .ant-btn:nth-child(2),
+html[dir="rtl"] .user-search-modal .ant-modal-footer .ant-btn:nth-child(2),
+html[dir="rtl"] .role-search-modal .ant-modal-footer .ant-btn:nth-child(2) {
+  order: 1;
+}
+
+/* ===== SHARED ICON COMPONENT =====
+   The app-icon component renders its <svg> inside its own component
+   template, so a class set on the host element (e.g. iconClass="...") lives
+   under a different Angular style-encapsulation scope than the consuming
+   page's stylesheet - a scoped rule there needs ::ng-deep to reach it.
+   .field-icon (shared list), .profile-caret/.language-caret/.language-trigger
+   ordering/.user-popover-icon (header) are single-component and now live in
+   their own component stylesheets using :host ::ng-deep. What's left here is
+   .pagination-icon* and .app-spinner, which are genuinely reused by several
+   components. */
+
+/* Pagination prev/next chevrons (user-list, role-list, shared list) - the icon
+   registry only has a right-pointing chevron, so "previous" reuses it
+   mirrored via scaleX(-1) rather than duplicating a near-identical
+   left-pointing path. Sized/colored per Figma spec rather than the button's
+   default square icon size. */
+.pagination-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.pagination-icon-prev,
+.pagination-icon-next {
+  width: 20px;
+  height: 20px;
+  color: var(--color-neutral-solid-950, #1a1a1a);
+}
+
+.pagination-icon-prev {
+  transform: scaleX(-1);
+}
+
+/* In rtl, reading order reverses: "previous" moves forward through the
+   visual layout (to the right) and "next" moves backward (to the left) - the
+   opposite of ltr. The buttons' own left/right position already swaps for
+   free (each icon's leading/trailing position in the DOM follows the
+   direction-aware flex row in button.component.html), but the chevron glyph
+   itself doesn't know about text direction, so the mirroring has to be
+   swapped explicitly here. */
+html[dir="rtl"] .pagination-icon-prev {
+  transform: scaleX(1);
+}
+
+html[dir="rtl"] .pagination-icon-next {
+  transform: scaleX(-1);
+}
+
+/* Shared loading spinner icon - used by the shared list list and the job
+   summary modal alike. */
+.app-spinner {
+  width: 20px;
+  height: 20px;
+  color: var(--general-primary, #1B35F5);
+  animation: app-spin 0.8s linear infinite;
+}
+
+@keyframes app-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

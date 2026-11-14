@@ -1,0 +1,41 @@
+<app-search-toolbar [placeholder]="'Search...'"
+  [value]="quickSearchText() || ''"
+  (valueChange)="quickSearchText.set($event)"
+  (searchTriggered)="onQuickSearch()"
+  (openFilters)="openSearchModal()"
+  (clear)="onClear()" />
+
+<div class="header-section">
+  <app-button hierarchy="primary" icon="plus-light" iconPosition="leading" (clicked)="onAdd()">Add</app-button>
+</div>
+
+<div class="result-section">
+  <nz-table [nzData]="notifications()"
+    [nzLoading]="loading()"
+    [nzPageIndex]="pageIndex()"
+    [nzPageSize]="pageSize()"
+    [nzTotal]="total()"
+    [nzPageSizeOptions]="[10,20,50,100]"
+    (nzQueryParams)="onQueryParamsChange($event)"
+    nzShowPagination
+    nzShowSizeChanger
+    [nzFrontPagination]="false"
+    nzSingleSort>
+
+    <thead>
+      <tr>
+        <th nzShowSort nzColumnKey="Name" [nzSortFn]="true" [nzWidth]="'50%'">Notification name</th>
+        <th nzShowSort nzColumnKey="GeneralMessageEn" [nzSortFn]="true" [nzWidth]="'50%'">General message</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (item of notifications(); track item) {
+        <tr class="clickable-row" (click)="viewNotification(item)">
+          <td>{{ item.Name }}</td>
+          <td>{{ item.GeneralMessageEn || item.GeneralMessageAr || 'Not available' }}</td>
+        </tr>
+      }
+    </tbody>
+  </nz-table>
+</div>

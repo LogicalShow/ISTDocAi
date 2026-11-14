@@ -1,0 +1,27 @@
+.not-found-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  text-align: center;
+  padding: var(--spacing-5, 20px);
+}
+
+.not-found-code {
+  font-size: 120px;
+  margin: 0;
+  color: var(--color-info-solid-500, #0ea5e9);
+}
+
+.not-found-title {
+  font-size: var(--heading-h4-fontsize, 32px);
+  margin: var(--spacing-5, 20px) 0;
+  color: var(--color-neutral-solid-900, #3d3d3d);
+}
+
+.not-found-message {
+  font-size: var(--label-label-1-fontsize, 16px);
+  color: var(--general-unofficial-mid, #6d6d6d);
+  margin-bottom: 30px;
+}

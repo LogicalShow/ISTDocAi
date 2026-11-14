@@ -1,0 +1,57 @@
+<div class="attachment-item-edit-container">
+  <div class="form-content">
+    <div class="form-group">
+      <label class="form-label" for="fileInput">{{ 'shared.attachment.file' | translate }}</label>
+      <div class="file-input-wrapper">
+        <input
+          type="file"
+          id="fileInput"
+          (change)="onFileSelected($event)"
+          class="file-input-hidden" />
+          <button
+            nz-button
+            nzType="default"
+            (click)="triggerFileInput()"
+            class="file-button">
+            <app-icon name="upload-light"></app-icon>
+            {{ 'shared.attachment.chooseFile' | translate }}
+          </button>
+          @if (fileName()) {
+            <span class="file-name">{{ fileName() }}</span>
+          }
+          @if (!fileName()) {
+            <span class="file-name placeholder">{{ 'shared.attachment.noFileSelected' | translate }}</span>
+          }
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="attachment-note">{{ 'shared.attachment.note' | translate }}</label>
+        <textarea
+          id="attachment-note"
+          nz-input
+          [(ngModel)]="note"
+          [placeholder]="'shared.attachment.notePlaceholder' | translate"
+          rows="4"
+          class="note-input">
+        </textarea>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button
+        nz-button
+        nzType="default"
+        (click)="onCancel()"
+        class="cancel-button">
+        {{ 'common.cancel' | translate }}
+      </button>
+      <button
+        nz-button
+        nzType="primary"
+        (click)="onSave()"
+        class="save-button">
+        {{ 'common.save' | translate }}
+      </button>
+    </div>
+  </div>

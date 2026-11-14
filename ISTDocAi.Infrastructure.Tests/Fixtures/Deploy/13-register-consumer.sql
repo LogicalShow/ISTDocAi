@@ -1,0 +1,7 @@
+SET XACT_ABORT ON; BEGIN TRANSACTION;
+IF EXISTS (SELECT 1 FROM dbo.Consumers WITH (UPDLOCK, HOLDLOCK)
+ WHERE Code='FWD-BASELINE' OR (ProductCode='FWD' AND TenantCode='BASELINE'))
+ THROW 50001, 'Consumer exists: explicit rotation is required.', 1;
+INSERT dbo.Consumers(Code,Name,ProductCode,TenantCode,ApiKeyHash1,CallbackUrl,WebhookSecretName)
+VALUES ('FWD-BASELINE',N'Fake Baseline','FWD','BASELINE',0xE3B7DC949E531EB5CD5099DA0911DF334BABAF69C872405FA54AA3770597EA9D,NULL,NULL);
+COMMIT;

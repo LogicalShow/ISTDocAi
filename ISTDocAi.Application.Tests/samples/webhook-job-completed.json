@@ -1,0 +1,32 @@
+{
+  "eventId": "5b1d7c3e-2f4a-4c7b-9e1d-0a6f3b2c8d47",
+  "eventType": "job.completed",
+  "jobId": "0192f0a4-7c1e-7b3a-9d2e-5f6a7b8c9d01",
+  "runNo": 1,
+  "clientRequestId": "7d2e9a41-58c3-4f0b-a6d5-3e1c8b9f2a64",
+  "status": "Completed",
+  "error": null,
+  "result": {
+    "contractVersion": "1.0",
+    "documentTypeCode": "BL",
+    "shippingLineCode": "MAERSK",
+    "modelId": "bl-maersk-v1",
+    "pageCount": 2,
+    "fields": {
+      "billOfLadingNumber": { "value": "MAEU123456789", "confidence": 0.97, "page": 1 },
+      "shipperName":        { "value": "ACME EXPORTS LTD", "rawText": "ACME EXPORTS LTD.", "confidence": 0.91, "page": 1 },
+      "consigneeName":      { "value": "NILE TRADING CO", "rawText": "Nile Trading Co.", "confidence": 0.88, "page": 1 },
+      "vesselName":         { "value": "MAERSK SAMPLE", "confidence": 0.93, "page": 1 },
+      "voyageNumber":       { "value": "412E", "confidence": 0.90, "page": 1 },
+      "portOfLoading":      { "value": "JEBEL ALI", "rawText": "Jebel Ali, UAE", "confidence": 0.86, "page": 1 },
+      "portOfDischarge":    { "value": "ALEXANDRIA", "rawText": "ALEXANDRIA, EGYPT", "confidence": 0.95, "page": 1 },
+      "issueDate":          { "value": "2026-09-14", "rawText": "14-Sep-2026", "confidence": 0.94, "page": 2 }
+    },
+    "containers": [
+      { "containerNumber": { "value": "MSKU1234565", "confidence": 0.81, "page": 1 },
+        "sealNumber":      { "value": "SL998877", "confidence": 0.74, "page": 1 } }
+    ],
+    "flags": [ { "field": "containers[0].sealNumber", "reason": "LOW_CONFIDENCE" } ]
+  },
+  "occurredAtUtc": "2026-10-29T10:15:20Z"
+}

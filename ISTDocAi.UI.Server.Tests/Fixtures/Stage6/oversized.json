@@ -1,0 +1,44 @@
+{
+  "request": {
+    "method": "POST",
+    "path": "/api/v1/jobs",
+    "headers": [
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "X-Api-Key",
+        "values": [
+          "test-key-one"
+        ]
+      }
+    ],
+    "body": {
+      "contentType": "multipart/form-data; boundary=\u0022baseline-fixed-boundary\u0022",
+      "sha256": "df842a277d8a066ee3f89bdbe117bfdecdf7fbde0616e5873ce3569f0c77f96f",
+      "length": 22020553
+    }
+  },
+  "response": {
+    "status": 413,
+    "contentType": "application/problem\u002Bjson",
+    "headers": [
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "Content-Type",
+        "values": [
+          "application/problem\u002Bjson"
+        ]
+      }
+    ],
+    "bodyText": "{\u0022type\u0022:\u0022urn:docai:error:file-too-large\u0022,\u0022title\u0022:\u0022File too large\u0022,\u0022status\u0022:413,\u0022code\u0022:\u0022FILE_TOO_LARGE\u0022,\u0022detail\u0022:\u0022The file exceeds 20 MB.\u0022,\u0022correlationId\u0022:\u0022baseline-correlation-1\u0022}"
+  }
+}

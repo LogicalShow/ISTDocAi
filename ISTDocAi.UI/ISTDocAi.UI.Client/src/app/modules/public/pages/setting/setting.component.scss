@@ -1,0 +1,433 @@
+:host {
+  --settings-primary: var(--general-primary, #1b35f5);
+  --settings-primary-foreground: var(--general-primary-foreground, #eef3ff);
+  --settings-text: var(--general-foreground, #1a1a1a);
+  --settings-muted: var(--general-muted-foreground, #6d6d6d);
+  --settings-surface: var(--general-background, #ffffff);
+  --settings-surface-subtle: var(--general-elevated, #f6f6f6);
+  --settings-border: var(--general-border, #d1d1d1);
+  --settings-divider: var(--general-unofficial-border-1, #e7e7e7);
+  --settings-hover: var(--general-secondary, #eef3ff);
+  --settings-gap: 16px;
+  --settings-radius: 12px;
+
+  display: block;
+  color: var(--settings-text);
+}
+
+.settings-page {
+  overflow: hidden;
+  background: var(--settings-surface);
+  border: 1px solid var(--settings-divider);
+  border-radius: 20px 0 0 20px;
+}
+
+.settings-page__header {
+  display: grid;
+  gap: 12px;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--settings-divider);
+
+  h1 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+}
+
+.settings-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+  color: var(--settings-muted);
+  font-size: 14px;
+  line-height: 20px;
+
+  strong {
+    overflow: hidden;
+    color: var(--settings-text);
+    font-weight: 500;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.settings-breadcrumb__separator {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+}
+
+.settings-page__spin {
+  display: block;
+}
+
+.settings-form {
+  display: grid;
+  gap: var(--settings-gap);
+  padding: 16px 24px 12px;
+}
+
+.settings-card {
+  display: grid;
+  gap: var(--settings-gap);
+  padding: 16px;
+  background: var(--settings-surface);
+  border: 1px solid var(--settings-border);
+  border-radius: var(--settings-radius);
+  box-shadow: var(--shadow-xs);
+
+  h2 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 24px;
+  }
+}
+
+.settings-grid {
+  display: grid;
+  align-items: start;
+  gap: var(--settings-gap);
+  width: 100%;
+
+  > * {
+    min-width: 0;
+  }
+}
+
+.settings-grid--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.settings-grid--three,
+.settings-grid--branding {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.settings-grid--email {
+  grid-template-columns: minmax(0, 2fr) minmax(120px, 0.7fr) minmax(150px, 0.8fr);
+}
+
+.settings-checkbox-row {
+  display: grid;
+  gap: 4px;
+
+  p {
+    margin: 0;
+    padding-inline-start: 32px;
+    color: var(--settings-muted);
+    font-size: 12px;
+    line-height: 16px;
+  }
+}
+
+.settings-email-fields {
+  padding-top: 12px;
+  border-top: 1px solid var(--settings-divider);
+}
+
+.settings-ssl-field {
+  align-self: end;
+}
+
+.upload-field {
+  display: grid;
+  align-content: start;
+  align-self: start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.upload-field__label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.upload-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
+.upload-dropzone {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 140px;
+  overflow: hidden;
+  border: 1px dashed var(--settings-border);
+  border-radius: 8px;
+  transition: 0.15s ease;
+
+  &:hover,
+  &:focus-within {
+    background: var(--settings-hover);
+    border-color: var(--settings-primary);
+
+    .upload-actions {
+      opacity: 1;
+    }
+  }
+}
+
+.upload-dropzone--preview {
+  background: var(--settings-surface-subtle);
+}
+
+.upload-prompt {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  align-self: stretch;
+  justify-content: center;
+  padding: 16px;
+  color: inherit;
+  cursor: pointer;
+  background: none;
+  border: 0;
+
+  strong {
+    font-size: 14px;
+  }
+
+  span {
+    color: var(--settings-muted);
+    font-size: 10px;
+  }
+}
+
+.upload-preview {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.upload-actions {
+  position: absolute;
+  inset-block-start: 8px;
+  inset-inline-end: 8px;
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.upload-action {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  color: var(--settings-primary);
+  cursor: pointer;
+  background: var(--settings-surface-subtle);
+  border: 1px solid var(--settings-divider);
+  border-radius: 6px;
+
+  // The icon registry hardcodes a fill per icon (download's own blue,
+  // delete's own red, etc.) so it reads correctly wherever else it's used.
+  // Here the button already carries the right color via `color`, so force
+  // the icon to follow it instead of staying visually stuck on its
+  // hardcoded fill when the button switches to its white hover state.
+  ::ng-deep svg path {
+    fill: currentColor;
+    transition: fill 0.15s ease;
+  }
+
+  &:hover,
+  &:focus-visible {
+    color: var(--settings-primary-foreground);
+    background: var(--settings-primary);
+    border-color: var(--settings-primary);
+  }
+}
+
+.upload-action--danger {
+  color: var(--general-unofficial-destructive-foreground, #dc2626);
+
+  &:hover,
+  &:focus-visible {
+    color: var(--color-primitives-base-white, #ffffff);
+    background: var(--general-unofficial-destructive-foreground, #dc2626);
+    border-color: var(--general-unofficial-destructive-foreground, #dc2626);
+  }
+}
+
+.upload-action--replace {
+  color: var(--color-neutral-solid-600, #5d5d5d);
+
+  &:hover,
+  &:focus-visible {
+    background: var(--color-neutral-solid-600, #5d5d5d);
+    border-color: var(--color-neutral-solid-600, #5d5d5d);
+  }
+}
+
+.upload-delete-notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  color: var(--general-unofficial-destructive-foreground, #dc2626);
+  background: var(--general-unofficial-destructive-subtle, #fef2f2);
+  border: 1px solid var(--general-unofficial-destructive-border, #ef4444);
+  border-radius: 8px;
+  font-size: 12px;
+
+  span {
+    flex: 1;
+  }
+}
+
+.settings-form__footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+:host ::ng-deep {
+  .settings-page {
+    .ant-form-item {
+      margin-bottom: 0;
+    }
+
+    .ant-form-item-label {
+      padding-bottom: 6px;
+
+      > label {
+        height: auto;
+        color: var(--settings-text);
+        font-size: 14px;
+        font-weight: 500;
+      }
+    }
+
+    .ant-form-item-required::before {
+      order: 2;
+      margin-inline: 4px 0;
+      color: var(--general-destructive, #ef4444);
+    }
+
+    :is(.ant-input, .ant-input-affix-wrapper, .ant-input-number) {
+      width: 100%;
+      min-height: 36px;
+      border-color: var(--general-unofficial-border-3, #b0b0b0);
+      border-radius: 8px;
+      box-shadow: none;
+    }
+
+    /* The password field's nz-input-wrapper renders as .ant-input-affix-wrapper
+       wrapping its own nested .ant-input for the suffix icon - both pick up
+       the min-height:36px above, so the wrapper's own padding stacks on top
+       of an already-36px-tall inner input, ending up taller than the plain
+       inputs beside it. Pin the wrapper to the same 36px and strip the
+       nested input's own box so only the wrapper's padding counts. */
+    .ant-input-affix-wrapper {
+      align-items: center;
+      height: 36px;
+      padding: 7.5px 12px;
+    }
+
+    .ant-input-affix-wrapper .ant-input {
+      height: auto;
+      min-height: 0;
+      padding: 0;
+    }
+
+    textarea.ant-input {
+      min-height: 56px;
+      resize: vertical;
+    }
+
+    .settings-checkbox-row .ant-checkbox + span {
+      color: var(--settings-text);
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .ant-checkbox-inner {
+      border-radius: var(--rounded-4, 4px);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .ant-checkbox-checked .ant-checkbox-inner {
+      border: 1px solid var(--general-primary, #1B35F5);
+      background: var(--general-primary, #1B35F5);
+    }
+  }
+}
+
+:host-context(html[dir='rtl']) .settings-breadcrumb__separator {
+  transform: rotate(180deg);
+}
+
+/* The email password field should NOT get the login page's fixed-LTR
+   treatment (styles.css forces direction:ltr on password fields) - its eye
+   icon is meant to flip to the RTL leading edge in Arabic like every other
+   field on this page. ::ng-deep is needed because nz-input-wrapper wraps the
+   projected input in its own internal .ant-input-affix-wrapper element. */
+:host ::ng-deep nz-input-wrapper:has(input[formControlName="emailPassword"]),
+:host ::ng-deep .ant-input-affix-wrapper:has(input[formControlName="emailPassword"]) {
+  direction: inherit;
+}
+
+/* Matches the login field: eye icon fixed at the leading edge, dot glyphs
+   reading from the right in Arabic. */
+:host-context(html[dir='rtl']) ::ng-deep input[formControlName="emailPassword"] {
+  text-align: right;
+}
+
+@media (max-width: 1100px) {
+  .settings-grid--three,
+  .settings-grid--email {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .settings-grid--branding {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .settings-page {
+    border-radius: var(--settings-radius);
+  }
+
+  .settings-page__header,
+  .settings-form {
+    padding-inline: 16px;
+  }
+
+  .settings-grid--two,
+  .settings-grid--three,
+  .settings-grid--email {
+    grid-template-columns: 1fr;
+  }
+
+  .settings-ssl-field {
+    align-self: auto;
+  }
+
+  .upload-actions {
+    opacity: 1;
+  }
+
+  .settings-form__footer .settings-save-button {
+    width: 100%;
+  }
+
+  .settings-form__footer .settings-save-button ::ng-deep .app-btn {
+    justify-content: center;
+    width: 100%;
+  }
+}

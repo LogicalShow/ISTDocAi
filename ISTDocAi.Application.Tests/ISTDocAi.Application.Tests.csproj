@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="JsonSchema.Net" />
+    <PackageReference Include="coverlet.collector" />
+    <PackageReference Include="MediatR" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.Extensions.TimeProvider.Testing" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="NUnit" />
+    <PackageReference Include="NUnit.Analyzers">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="NUnit3TestAdapter" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ISTDocAi.Domain\ISTDocAi.Domain.csproj" />
+    <ProjectReference Include="..\ISTDocAi.Infrastructure\ISTDocAi.Infrastructure.csproj" />
+    <ProjectReference Include="..\ISTDocAi.Application\ISTDocAi.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup><None Update="Fixtures\Samples\**\*" CopyToOutputDirectory="PreserveNewest" /></ItemGroup>
+<ItemGroup><None Include="../ISTDocAi.Infrastructure.Tests/mapping-appsettings.json" Link="mapping-appsettings.json" CopyToOutputDirectory="PreserveNewest" /><None Include="../ISTDocAi.Infrastructure.Tests/Fixtures/Manifest/*" Link="Fixtures/Manifest/%(Filename)%(Extension)" CopyToOutputDirectory="PreserveNewest" /></ItemGroup><ItemGroup><Compile Include="../ISTDocAi.Infrastructure.Tests/Runtime/InMemoryMappingProfileResolver.cs" Link="TestSupport/InMemoryMappingProfileResolver.cs" /><None Include="../ISTDocAi.Infrastructure.Tests/Fixtures/Mapping/profile-inputs.json" Link="Fixtures/Mapping/profile-inputs.json" CopyToOutputDirectory="PreserveNewest" /></ItemGroup></Project>

@@ -1,0 +1,12 @@
+{
+  "name": "ISTDocAi",
+  "short_name": "ISTDocAi",
+  "id": "/",
+  "description": "ISTDocAi application",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#315cf5",
+  "background_color": "#ffffff",
+  "icons": []
+}

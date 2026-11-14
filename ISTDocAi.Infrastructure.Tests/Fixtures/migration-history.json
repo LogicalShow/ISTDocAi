@@ -1,0 +1,10 @@
+[
+  {
+    "migrationId": "20261101000000_InitialSchema",
+    "productVersion": "10.0.13"
+  },
+  {
+    "migrationId": "20261103000000_ModelMappingProfiles",
+    "productVersion": "10.0.13"
+  }
+]

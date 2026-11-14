@@ -1,0 +1,54 @@
+<!--
+  nzPlacement is only bound when a placement is given: ng-zorro 22 copies the
+  bound value straight into a signal and calls .startsWith() on it, so binding
+  null throws during change detection (which aborts rendering of the whole
+  page). Leaving it unbound keeps the overlay's automatic above/below flip.
+
+  nzShowArrow defaults to true in every mode since ng-zorro 20; before that it
+  defaulted to single mode only, so multiple/tags selects (e.g. the dashboard
+  year filter) showed no dropdown arrow. Bound explicitly to keep that look.
+-->
+@if (placement(); as placement) {
+  <nz-select class="app-select"
+    [ngModel]="value()"
+    [ngModelOptions]="{ standalone: true }"
+    (ngModelChange)="onValueChange($event)"
+    [nzId]="id() ?? null"
+    [nzOptions]="options()"
+    [nzPlaceHolder]="placeholder()"
+    [nzAllowClear]="allowClear()"
+    [nzVariant]="borderless() ? 'borderless' : 'outlined'"
+    [nzShowSearch]="showSearch()"
+    [nzServerSearch]="serverSearch()"
+    [nzLoading]="loading()"
+    [nzDisabled]="isDisabled()"
+    [nzMode]="mode()"
+    [nzShowArrow]="mode() === 'default'"
+    [nzPlacement]="placement"
+    nzDropdownClassName="app-dropdown-panel"
+    (nzOnSearch)="searchChange.emit($event)"
+    (nzOpenChange)="openChange.emit($event)"
+    (nzBlur)="onTouched()"
+   />
+} @else {
+  <nz-select class="app-select"
+    [ngModel]="value()"
+    [ngModelOptions]="{ standalone: true }"
+    (ngModelChange)="onValueChange($event)"
+    [nzId]="id() ?? null"
+    [nzOptions]="options()"
+    [nzPlaceHolder]="placeholder()"
+    [nzAllowClear]="allowClear()"
+    [nzVariant]="borderless() ? 'borderless' : 'outlined'"
+    [nzShowSearch]="showSearch()"
+    [nzServerSearch]="serverSearch()"
+    [nzLoading]="loading()"
+    [nzDisabled]="isDisabled()"
+    [nzMode]="mode()"
+    [nzShowArrow]="mode() === 'default'"
+    nzDropdownClassName="app-dropdown-panel"
+    (nzOnSearch)="searchChange.emit($event)"
+    (nzOpenChange)="openChange.emit($event)"
+    (nzBlur)="onTouched()"
+   />
+}

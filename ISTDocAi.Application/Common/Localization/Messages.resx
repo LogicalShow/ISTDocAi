@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AggregateError" xml:space="preserve">
+    <value>Multiple errors occurred.</value>
+  </data>
+  <data name="Attachment.Add.Invalid" xml:space="preserve">
+    <value>Attachment could not be added.</value>
+  </data>
+  <data name="Attachment.Delete.Invalid" xml:space="preserve">
+    <value>Attachment could not be deleted.</value>
+  </data>
+  <data name="Attachment.File.Error" xml:space="preserve">
+    <value>An error occurred while reading the attachment file.</value>
+  </data>
+  <data name="Attachment.File.NotFound" xml:space="preserve">
+    <value>Physical file not found.</value>
+  </data>
+  <data name="Attachment.NotFound" xml:space="preserve">
+    <value>Attachment was not found.</value>
+  </data>
+  <data name="Auth.InactiveUser" xml:space="preserve">
+    <value>User account is inactive.</value>
+  </data>
+  <data name="Auth.InvalidCredentials" xml:space="preserve">
+    <value>Invalid username or password.</value>
+  </data>
+  <data name="Auth.UserIdentityMissing" xml:space="preserve">
+    <value>The authenticated user identity is unavailable.</value>
+  </data>
+  <data name="Auth.Unauthorized" xml:space="preserve">
+    <value>Authentication is required.</value>
+  </data>
+  <data name="Auth.Forbidden" xml:space="preserve">
+    <value>You do not have permission to perform this action.</value>
+  </data>
+  <data name="Idempotency.Key.Required" xml:space="preserve">
+    <value>Idempotency-Key header is required.</value>
+  </data>
+  <data name="Concurrency" xml:space="preserve">
+    <value>The record was modified by another user.</value>
+  </data>
+  <data name="DateRange.ContinuityBroken" xml:space="preserve">
+    <value>The date range does not immediately follow the last assignment.</value>
+  </data>
+  <data name="DateRange.InvalidDuration" xml:space="preserve">
+    <value>The date range duration is invalid.</value>
+  </data>
+  <data name="DateRange.Overlap" xml:space="preserve">
+    <value>The date range overlaps with an existing assignment.</value>
+  </data>
+  <data name="DateRangeOverlap" xml:space="preserve">
+    <value>Date range overlaps with an existing assignment.</value>
+  </data>
+  <data name="Email.DecryptionFailed" xml:space="preserve">
+    <value>Failed to decrypt email password.</value>
+  </data>
+  <data name="Email.Disabled" xml:space="preserve">
+    <value>Email notifications are disabled.</value>
+  </data>
+  <data name="Email.Incomplete" xml:space="preserve">
+    <value>Email configuration is incomplete.</value>
+  </data>
+  <data name="Email.PartialSendFailed" xml:space="preserve">
+    <value>Some notification emails could not be sent.</value>
+  </data>
+  <data name="Email.SendFailed" xml:space="preserve">
+    <value>Failed to send notification emails.</value>
+  </data>
+  <data name="Email.ValidationFailed" xml:space="preserve">
+    <value>Email configuration validation failed.</value>
+  </data>
+  <data name="Error.NullValue" xml:space="preserve">
+    <value>The specified result value is null.</value>
+  </data>
+  <data name="Notification.NotFound" xml:space="preserve">
+    <value>Notification was not found.</value>
+  </data>
+  <data name="Notification.NoUserAssigned" xml:space="preserve">
+    <value>No user assigned.</value>
+  </data>
+  <data name="NotificationUser.UpsertFailed" xml:space="preserve">
+    <value>Notification user could not be saved.</value>
+  </data>
+  <data name="Otp.Invalid" xml:space="preserve">
+    <value>Invalid or expired OTP.</value>
+  </data>
+  <data name="Password.ChangeFailed" xml:space="preserve">
+    <value>Password change failed.</value>
+  </data>
+  <data name="Password.ResetFailed" xml:space="preserve">
+    <value>Password reset failed.</value>
+  </data>
+  <data name="Permission.InvalidPageActions" xml:space="preserve">
+    <value>One or more page action IDs are invalid or inactive.</value>
+  </data>
+  <data name="Role.NotFound" xml:space="preserve">
+    <value>Role not found.</value>
+  </data>
+  <data name="Role.Conflict" xml:space="preserve">
+    <value>Role has been modified by another user.</value>
+  </data>
+  <data name="Role.DuplicateName" xml:space="preserve">
+    <value>A role with this name already exists.</value>
+  </data>
+  <data name="Role.Required" xml:space="preserve">
+    <value>Required role information is missing.</value>
+  </data>
+  <data name="Setting.FooterConflict" xml:space="preserve">
+    <value>Cannot upload and delete footer at the same time.</value>
+  </data>
+  <data name="Setting.HeaderConflict" xml:space="preserve">
+    <value>Cannot upload and delete header at the same time.</value>
+  </data>
+  <data name="Setting.Image.NotFound" xml:space="preserve">
+    <value>Setting image not found.</value>
+  </data>
+  <data name="Setting.Invalid" xml:space="preserve">
+    <value>One or more system setting values are invalid.</value>
+  </data>
+  <data name="Setting.InvalidImageType" xml:space="preserve">
+    <value>Invalid image type requested.</value>
+  </data>
+  <data name="Setting.LogoConflict" xml:space="preserve">
+    <value>Cannot upload and delete logo at the same time.</value>
+  </data>
+  <data name="Setting.NotFound" xml:space="preserve">
+    <value>Setting was not found.</value>
+  </data>
+  <data name="Unexpected" xml:space="preserve">
+    <value>An unexpected error occurred.</value>
+  </data>
+  <data name="RateLimited" xml:space="preserve">
+    <value>Too many requests. Please wait a moment and try again.</value>
+  </data>
+  <data name="UniqueConstraintViolation" xml:space="preserve">
+    <value>A record with the same value already exists.</value>
+  </data>
+  <data name="User.AdminNotFound" xml:space="preserve">
+    <value>Admin user not found.</value>
+  </data>
+  <data name="User.Conflict" xml:space="preserve">
+    <value>User has been modified by another user.</value>
+  </data>
+  <data name="User.DuplicateEmail" xml:space="preserve">
+    <value>A user with this email already exists.</value>
+  </data>
+  <data name="User.EmailNotFound" xml:space="preserve">
+    <value>User email is not set.</value>
+  </data>
+  <data name="User.NotFound" xml:space="preserve">
+    <value>User not found.</value>
+  </data>
+  <data name="User.Required" xml:space="preserve">
+    <value>Required user information is missing.</value>
+  </data>
+  <data name="Validation.AttachmentIdCannotBeEmpty" xml:space="preserve">
+    <value>Attachment ID cannot be empty.</value>
+  </data>
+  <data name="Validation.AttachmentIdsRequired" xml:space="preserve">
+    <value>At least one attachment ID must be provided.</value>
+  </data>
+  <data name="Validation.DeleteItemsRequired" xml:space="preserve">
+    <value>At least one item must be provided for deletion.</value>
+  </data>
+  <data name="Validation.FilePathRequired" xml:space="preserve">
+    <value>File path is required.</value>
+  </data>
+  <data name="Validation.FileSizeGreaterThanZero" xml:space="preserve">
+    <value>File size must be greater than 0.</value>
+  </data>
+  <data name="Validation.IdRequired" xml:space="preserve">
+    <value>Id is required.</value>
+  </data>
+  <data name="Validation.ItemIdRequired" xml:space="preserve">
+    <value>Item Id is required.</value>
+  </data>
+  <data name="Validation.ItemRowVersionRequired" xml:space="preserve">
+    <value>Item RowVersion is required.</value>
+  </data>
+  <data name="Validation.OriginalFileNameRequired" xml:space="preserve">
+    <value>Original file name is required.</value>
+  </data>
+  <data name="Validation.ReferenceIdMaxLength" xml:space="preserve">
+    <value>Reference ID must not exceed 100 characters.</value>
+  </data>
+  <data name="Validation.ReferenceIdRequired" xml:space="preserve">
+    <value>Reference ID is required.</value>
+  </data>
+  <data name="Validation.ReferenceTypeRequired" xml:space="preserve">
+    <value>Reference type is required.</value>
+  </data>
+  <data name="Validation.RowVersionRequired" xml:space="preserve">
+    <value>Row version is required for concurrent update.</value>
+  </data>
+  <data name="Validation.SortFieldNotSupported" xml:space="preserve">
+    <value>SortField is not supported.</value>
+  </data>
+  <data name="Validation.SortFieldRequiredWhenSortOrderProvided" xml:space="preserve">
+    <value>SortField is required when SortOrder is provided.</value>
+  </data>
+  <data name="Validation.SortOrderInvalid" xml:space="preserve">
+    <value>SortOrder must be &apos;asc&apos; or &apos;desc&apos;.</value>
+  </data>
+  <data name="Validation.StoredFileNameRequired" xml:space="preserve">
+    <value>Stored file name is required.</value>
+  </data>
+  <data name="Validation.ToDateOnOrAfterFromDate" xml:space="preserve">
+    <value>ToDate must be on or after FromDate.</value>
+  </data>
+  <data name="ValidationError" xml:space="preserve">
+    <value>A validation problem occurred.</value>
+  </data>
+  <data name="ValidationFailed" xml:space="preserve">
+    <value>Validation failed.</value>
+  </data>
+  <data name="INVALID_REQUEST" xml:space="preserve"><value>The submitted fields or document are invalid.</value></data>
+  <data name="UNAUTHORIZED" xml:space="preserve"><value>A valid API key is required.</value></data>
+  <data name="FORBIDDEN" xml:space="preserve"><value>Access is forbidden.</value></data>
+  <data name="FILE_TOO_LARGE" xml:space="preserve"><value>The file exceeds 20 MB.</value></data>
+  <data name="UNSUPPORTED_FILE_TYPE" xml:space="preserve"><value>Send a PDF, JPEG, PNG or TIFF document.</value></data>
+  <data name="UNSUPPORTED_MEDIA_TYPE" xml:space="preserve"><value>Unsupported media type.</value></data>
+  <data name="ENCRYPTED_PDF" xml:space="preserve"><value>Send an unprotected PDF.</value></data>
+  <data name="TOO_MANY_PAGES" xml:space="preserve"><value>The document has more pages than allowed</value></data>
+  <data name="NOT_IN_CATALOG" xml:space="preserve"><value>Choose a document type and shipping line from the catalog.</value></data>
+  <data name="QUOTA_EXHAUSTED" xml:space="preserve"><value>The page allowance is exhausted or insufficient for this document. Contact IST to renew.</value></data>
+  <data name="DAILY_CAP_REACHED" xml:space="preserve"><value>Wait until the next UTC day.</value></data>
+  <data name="RATE_LIMITED" xml:space="preserve"><value>Wait before retrying.</value></data>
+  <data name="INTERNAL_ERROR" xml:space="preserve"><value>An unexpected error occurred. Quote the correlationId when reporting it.</value></data>
+  <data name="DATABASE_NOT_READY" xml:space="preserve"><value>Database initialization is not complete.</value></data>
+  <data name="JOB_NOT_FOUND" xml:space="preserve"><value>No such job or run exists for this consumer.</value></data>
+  <data name="DATABASE_CONFIGURATION_INVALID" xml:space="preserve"><value>Database initialization is not complete.</value></data>
+  <data name="DATABASE_INITIALIZATION_TIMEOUT" xml:space="preserve"><value>Database initialization is not complete.</value></data>
+  <data name="DATABASE_NOT_MIGRATED" xml:space="preserve"><value>Database initialization is not complete.</value></data>
+  <data name="DATABASE_MISSING" xml:space="preserve"><value>Database initialization is not complete.</value></data>
+  <data name="DATABASE_INITIALIZATION_FAILED" xml:space="preserve"><value>Database initialization is not complete.</value></data>
+  <data name="DATABASE_HISTORY_UNRECOGNIZED" xml:space="preserve"><value>Database initialization is not complete.</value></data>
+  <data name="DATABASE_SCHEMA_UNRECOGNIZED" xml:space="preserve"><value>Database initialization is not complete.</value></data>
+  <data name="DATABASE_RCSI_OFF" xml:space="preserve"><value>Database initialization is not complete.</value></data>
+  <data name="DATABASE_IAM_NOT_MIGRATED" xml:space="preserve"><value>Database initialization is not complete.</value></data>
+  <data name="DATABASE_INITIALIZATION_CANCELLED" xml:space="preserve"><value>Database initialization is not complete.</value></data>
+  <data name="MODEL_NOT_FOUND" xml:space="preserve"><value>Model not found.</value></data>
+  <data name="UNCLASSIFIED" xml:space="preserve"><value>The document could not be classified.</value></data>
+  <data name="INVALID_DOCUMENT" xml:space="preserve"><value>The document is invalid.</value></data>
+  <data name="ANALYSIS_FAILED" xml:space="preserve"><value>Document analysis failed.</value></data>
+  <data name="ANALYSIS_RESULT_MISSING" xml:space="preserve"><value>The analysis result is missing.</value></data>
+  <data name="ORIGINAL_MISSING" xml:space="preserve"><value>The original document is missing.</value></data>
+  <data name="RETRIES_EXHAUSTED" xml:space="preserve"><value>The retry limit was reached.</value></data>
+  <data name="WORKER_CRASH_LOOP" xml:space="preserve"><value>Processing could not recover.</value></data>
+  <data name="AZURE_AUTH" xml:space="preserve"><value>Analysis authentication failed.</value></data>
+  <data name="AZURE_THROTTLED" xml:space="preserve"><value>The analysis service is busy.</value></data>
+  <data name="AZURE_UNAVAILABLE" xml:space="preserve"><value>The analysis service is unavailable.</value></data>
+  <data name="MAPPING_FAILED" xml:space="preserve"><value>The analysis result could not be mapped.</value></data>
+  <data name="STORAGE_UNAVAILABLE" xml:space="preserve"><value>Document storage is unavailable.</value></data>
+  <data name="TOPUP_NOT_FOUND" xml:space="preserve"><value>No such top-up cycle or cursor exists for this consumer.</value></data>
+</root>

@@ -1,0 +1,104 @@
+<nz-header>
+  <div class="app-header">
+    <button type="button" class="header-trigger" (click)="toggleSidebar.emit()"
+      [attr.aria-label]="'common.toggleNavigation' | translate">
+      <app-icon name="sidebar-simple-light" iconClass="trigger" />
+    </button>
+    <div class="user-area">
+      <app-theme-switcher appearance="header" />
+      <app-language-switcher
+        appearance="header"
+        (languageChanged)="languageChanged.emit()" />
+      <!-- Notification bell kept in code, hidden from UI per design update
+      <div class="user-info">
+        <nz-badge [nzCount]="notificationsCount()" [nzOverflowCount]="9">
+          <nz-avatar nzIcon="mail" nzShape="square" nz-button
+            nzType="primary"
+            nz-popover
+            nzPopoverTitle="Notifications"
+            [(nzPopoverVisible)]="notificationsVisible"
+            nzPopoverTrigger="click"
+            [nzPopoverContent]="ctNotifications"
+            nzPopoverPlacement="bottomLeft">
+          </nz-avatar>
+        </nz-badge>
+        <ng-template #ctNotifications>
+          <div class="notification-panel">
+            <div class="notification-tabs">
+              <button class="notification-tab" [class.active]="activeTab() === 'all'" (click)="switchTab('all')">All</button>
+              <button class="notification-tab" [class.active]="activeTab() === 'unread'" (click)="switchTab('unread')">Unread</button>
+            </div>
+
+            <div class="notification-scroll" (scroll)="onNotificationScroll($event)">
+              <nz-list [nzDataSource]="notificationsDto()"
+                [nzRenderItem]="item"
+                [nzItemLayout]="'horizontal'">
+                <ng-template #item let-item>
+                  <nz-list-item class="notification-list-item" (click)="markNotificationAsRead(item)" [class.unread-notification]="item.ReceivedNotificationStatus === 1">
+                    <div class="notification-item">
+                      <div class="notification-icon">
+                        <app-icon name="info-light" fill="var(--general-primary, #1B35F5)"></app-icon>
+                      </div>
+                      <div class="notification-content">
+                        <p>{{item.NotificationName}}</p>
+                        <span>{{ item.GeneralMessageEn || item.GeneralMessageAr || 'Not available' }}{{ item.CustomMessage ? ': ' + item.CustomMessage : '' }}</span>
+                        <div class="notification-timestamp">{{item.SendingDate | date:'short'}}</div>
+                      </div>
+                    </div>
+                  </nz-list-item>
+                </ng-template>
+              </nz-list>
+
+              @if (isLoadingMore()) {
+                <div class="notification-loading">
+                  <nz-spin nzSimple nzSize="small"></nz-spin>
+                </div>
+              }
+
+              @if (!isLoadingMore() && notificationsDto().length === 0) {
+                <div class="notification-empty">
+                  No notifications
+                </div>
+              }
+            </div>
+          </div>
+        </ng-template>
+      </div>
+      -->
+      <div class="user-info">
+        <div class="profile-button"
+          nz-popover
+          [(nzPopoverVisible)]="userInfoVisible"
+          nzPopoverTrigger="click"
+          [nzPopoverContent]="ctUserInfo"
+          [nzPopoverPlacement]="currentCulture() === 'ar' ? 'bottomLeft' : 'bottomRight'"
+          nzPopoverOverlayClassName="user-popover-overlay">
+          <nz-avatar class="profile-avatar">
+            <app-icon name="user-light" />
+          </nz-avatar>
+          <span class="profile-label">{{ username() || ('common.user' | translate) }}</span>
+          <app-icon name="caret-down-light" iconClass="profile-caret" />
+        </div>
+        <ng-template #ctUserInfo>
+          <div nz-popover-content class="user-popover">
+            <div class="user-popover-info">
+              <p><span class="label">{{ 'layout.user.userName' | translate }}: </span> <span class="value">{{ username() }}</span></p>
+              <p><span class="label">{{ 'layout.user.email' | translate }}: </span> <span class="value">{{ email() }}</span></p>
+            </div>
+            <div class="user-popover-divider"></div>
+            <div class="user-popover-actions">
+              <button type="button" class="user-popover-item" (click)="openChangePassword()">
+                <app-icon name="lock-light" iconClass="user-popover-icon" />
+                <span>{{ 'layout.user.changePassword' | translate }}</span>
+              </button>
+              <button type="button" class="user-popover-item" (click)="logout()">
+                <app-icon name="sign-out-light" iconClass="user-popover-icon" />
+                <span>{{ 'layout.user.signOut' | translate }}</span>
+              </button>
+            </div>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</nz-header>

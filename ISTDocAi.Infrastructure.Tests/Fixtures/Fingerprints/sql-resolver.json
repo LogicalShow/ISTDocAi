@@ -1,0 +1,44 @@
+[
+  {
+    "model": "bl-maersk-v1",
+    "documentType": "BL",
+    "sql": "5ff362b2805995e4fc1dc3fcceafb95a6cb3d93cffdba491a402a6d93af6f556",
+    "expected": "5ff362b2805995e4fc1dc3fcceafb95a6cb3d93cffdba491a402a6d93af6f556"
+  },
+  {
+    "model": "bl-v2",
+    "documentType": "BL",
+    "sql": "5ff362b2805995e4fc1dc3fcceafb95a6cb3d93cffdba491a402a6d93af6f556",
+    "expected": "5ff362b2805995e4fc1dc3fcceafb95a6cb3d93cffdba491a402a6d93af6f556"
+  },
+  {
+    "model": "bl-v3",
+    "documentType": "BL",
+    "sql": "5ff362b2805995e4fc1dc3fcceafb95a6cb3d93cffdba491a402a6d93af6f556",
+    "expected": "5ff362b2805995e4fc1dc3fcceafb95a6cb3d93cffdba491a402a6d93af6f556"
+  },
+  {
+    "model": "manifest-v1",
+    "documentType": "MANIFEST",
+    "sql": "87aa5155640c0e10dc2379621e36c290a7bc16905d6e5f201cd55466f3a8ef2d",
+    "expected": "87aa5155640c0e10dc2379621e36c290a7bc16905d6e5f201cd55466f3a8ef2d"
+  },
+  {
+    "model": "manifest-v2",
+    "documentType": "MANIFEST",
+    "sql": "9183bc0d1e3bfe8aa0f5be24490e422f2a0d022bc5b6e97a1b8095feb560b480",
+    "expected": "9183bc0d1e3bfe8aa0f5be24490e422f2a0d022bc5b6e97a1b8095feb560b480"
+  },
+  {
+    "model": "manifest-v3",
+    "documentType": "MANIFEST",
+    "sql": "9183bc0d1e3bfe8aa0f5be24490e422f2a0d022bc5b6e97a1b8095feb560b480",
+    "expected": "9183bc0d1e3bfe8aa0f5be24490e422f2a0d022bc5b6e97a1b8095feb560b480"
+  },
+  {
+    "model": "legacy",
+    "documentType": "BL",
+    "sql": "c9a1b76d2f79ff08355d51d2d347238d803d5370f8c9a21988b27ba578ed0d17",
+    "expected": "c9a1b76d2f79ff08355d51d2d347238d803d5370f8c9a21988b27ba578ed0d17"
+  }
+]

@@ -1,0 +1,520 @@
+:host {
+  --login-on-image: var(--color-primitives-base-white, #ffffff);
+  --login-field-background: var(--color-primitives-base-white, #ffffff);
+  --login-field-foreground: var(--color-primitives-base-black, #121212);
+  --login-field-border: var(--color-primitives-gray-solid-200, #d1d1d1);
+  --login-field-muted: var(--color-primitives-gray-solid-500, #6d6d6d);
+
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.login-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.login-page__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.login-page__bg-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+
+/* =========================================
+   LANGUAGE SWITCHER
+========================================= */
+
+.login-page__controls {
+  position: absolute;
+  top: 24px;
+  inset-inline-end: 24px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 8px);
+}
+
+
+/* =========================================
+   LOGIN CARD
+========================================= */
+
+.login-card {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 459px;
+  padding: var(--spacing-8, 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-8, 32px);
+  border-radius: var(--rounded-16, 16px);
+  /* Main blue glass */
+  background: var(--general-unofficial-auth-glass);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--general-unofficial-auth-glass-border);
+  box-shadow: var(--shadow-glass);
+  overflow: hidden;
+}
+  .login-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--general-unofficial-auth-glass-sheen);
+    pointer-events: none;
+  }
+.login-page__bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--general-unofficial-auth-scrim);
+  pointer-events: none;
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.login-card__logo {
+  display: block;
+  width: 186px;
+  height: 57px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+.login-card__heading {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: var(--spacing-2, 8px);
+  text-align: center;
+}
+
+.login-card__title {
+  margin: 0;
+  color: var(--login-on-image);
+  font-size: var(--heading-h4-fontsize, 32px);
+  line-height: var(--heading-h4-lineheight, 38px);
+  font-weight: var(--font-weight-semibold, 600);
+  letter-spacing: var(--heading-h4-letterspacing, -0.2px);
+}
+
+.login-card__subtitle {
+  margin: 0;
+  width: 100%;
+  color: var(--login-on-image);
+  font-size: var(--label-label-1-fontsize, 16px);
+  line-height: var(--label-label-1-lineheight, 22px);
+  font-weight: var(--font-weight-regular, 400);
+  letter-spacing: var(--heading-h4-letterspacing, -0.2px);
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.login-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--spacing-7, 28px);
+  align-items: flex-start;
+}
+
+
+  /* =========================================
+   FORM ITEMS
+========================================= */
+
+  .login-form nz-form-item {
+    width: 100%;
+    margin: 0 !important;
+    position: relative;
+  }
+
+  /* Error text is pinned below the input instead of pushing it in-flow,
+     so the boxes never shift when an error appears/disappears. */
+  .login-page ::ng-deep .ant-form-item-explain {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    margin-top: var(--spacing-1, 4px) !important;
+    line-height: var(--label-label-3-lineheight, 16px);
+  }
+
+  .login-form nz-form-label {
+    width: 100%;
+    padding: 0 0 var(--spacing-1, 4px) 0 !important;
+  }
+
+  .login-form nz-form-control {
+    width: 100%;
+    padding: 0 !important;
+  }
+
+
+/* =========================================
+   LABELS
+========================================= */
+
+.login-form__label {
+  color: var(--login-on-image) !important;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif !important;
+  font-size: var(--label-label-1-fontsize, 16px) !important;
+  line-height: var(--label-label-2-lineheight, 20px) !important;
+  font-weight: var(--font-weight-medium, 500) !important;
+  height: auto !important;
+  padding: 0 !important;
+}
+
+/* Ng-Zorro generated label */
+.login-page ::ng-deep .ant-form-item-label > label {
+  color: var(--login-on-image) !important;
+}
+
+/* =========================================
+   USERNAME INPUT
+========================================= */
+
+.login-page .ant-input {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 40px !important;
+  padding: var(--spacing-2, 8px) var(--spacing-3, 12px) !important;
+  border: 1px solid var(--login-field-border) !important;
+  border-radius: var(--rounded-8, 8px) !important;
+  background: var(--login-field-background) !important;
+  color: var(--login-field-foreground) !important;
+  color-scheme: light;
+  font-size: var(--label-label-1-fontsize, 16px) !important;
+  line-height: var(--label-label-2-lineheight, 20px) !important;
+  font-weight: var(--font-weight-regular, 400) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+  .login-page .ant-input::placeholder {
+    color: var(--login-field-muted) !important;
+    opacity: 1 !important;
+  }
+
+
+/* =========================================
+   INLINE ERROR
+========================================= */
+
+.login-form__inline-error {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  margin: var(--spacing-1, 4px) 0 0;
+  color: var(--color-error-solid-400, #f87171);
+  font-size: 13px;
+  line-height: 18px;
+  font-weight: var(--font-weight-medium, 500);
+}
+
+/* =========================================
+   PASSWORD
+========================================= */
+
+.login-page .ant-input-affix-wrapper {
+  box-sizing: border-box !important;
+  width: 100% !important;
+  height: 36px !important;
+  direction: inherit !important;
+  padding: 7.5px var(--spacing-3, 12px) !important;
+  border: 1px solid var(--login-field-border) !important;
+  border-radius: var(--rounded-8, 8px) !important;
+  background: var(--login-field-background) !important;
+  color: var(--login-field-foreground) !important;
+  color-scheme: light;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+  .login-page .ant-input-affix-wrapper .ant-input {
+    height: auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    font-size: var(--label-label-2-fontsize, 14px) !important;
+    line-height: var(--label-label-2-lineheight, 20px) !important;
+    box-shadow: none !important;
+    outline: none !important;
+  }
+
+    .login-page .ant-input-affix-wrapper .ant-input::placeholder {
+      color: var(--login-field-muted) !important;
+      opacity: 1 !important;
+    }
+
+
+/* =========================================
+   EYE
+========================================= */
+
+.login-page .ant-input-suffix {
+  color: var(--login-field-muted) !important;
+}
+
+  .login-page .ant-input-suffix .anticon {
+    cursor: pointer;
+  }
+
+.login-password-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+::ng-deep .login-password-toggle .login-password-toggle__icon {
+  display: block;
+}
+
+/* Keep saved credentials visually identical to manually entered values.
+   Chromium otherwise injects its own pale autofill surface in dark mode. */
+.login-page input.ant-input:-webkit-autofill,
+.login-page input.ant-input:-webkit-autofill:hover,
+.login-page input.ant-input:-webkit-autofill:focus {
+  -webkit-text-fill-color: var(--login-field-foreground) !important;
+  caret-color: var(--login-field-foreground);
+  -webkit-box-shadow: 0 0 0 1000px var(--login-field-background) inset !important;
+  box-shadow: 0 0 0 1000px var(--login-field-background) inset !important;
+}
+
+
+/* =========================================
+   FOCUS
+========================================= */
+
+/* =========================================
+   ERROR
+   (border/outline only ever live on the rounded
+   box itself — .ant-input for a plain field, or
+   .ant-input-affix-wrapper for the password field.
+   The plain <input> nested inside the wrapper must
+   stay borderless so it doesn't draw a square ring
+   inside the rounded box.)
+========================================= */
+
+.login-page .ant-form-item-has-error .ant-input,
+.login-page .ant-form-item-has-error .ant-input-affix-wrapper {
+  border: 1px solid var(--general-unofficial-destructive-border, #ef4444) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.login-page .ant-input:focus,
+.login-page .ant-input-affix-wrapper-focused,
+.login-page .ant-form-item-has-error .ant-input:focus,
+.login-page .ant-form-item-has-error .ant-input-affix-wrapper-focused {
+  border-color: var(--general-secondary-disabled-foreground, #5984ff) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.login-page .ant-form-item-has-error .ant-input-affix-wrapper .ant-input,
+.login-page .ant-form-item-has-error .ant-input-affix-wrapper .ant-input:focus {
+  border: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+
+/* =========================================
+   REMEMBER / FORGOT
+========================================= */
+
+.login-form__row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.login-form__remember,
+.login-form__forgot {
+  color: var(--login-on-image) !important;
+  font-size: var(--label-label-1-fontsize, 16px) !important;
+  line-height: var(--label-label-1-lineheight, 22px) !important;
+  letter-spacing: var(--heading-h4-letterspacing, -0.2px);
+}
+
+.login-form__remember {
+  font-weight: var(--font-weight-semibold, 600) !important;
+}
+
+.login-form__forgot {
+  font-weight: var(--font-weight-medium, 500) !important;
+  text-decoration: underline;
+}
+
+/* =========================================
+   CHECKBOX
+========================================= */
+
+.login-page ::ng-deep .ant-checkbox-wrapper {
+  color: var(--login-on-image) !important;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif !important;
+  font-size: var(--label-label-1-fontsize, 16px) !important;
+  line-height: var(--label-label-1-lineheight, 22px) !important;
+  font-weight: var(--font-weight-semibold, 600) !important;
+}
+
+  .login-page ::ng-deep .ant-checkbox-wrapper span {
+    color: var(--login-on-image) !important;
+  }
+
+.login-page ::ng-deep .ant-checkbox-inner {
+  width: 16px !important;
+  height: 16px !important;
+  border: 1px solid var(--general-unofficial-accent-0, #f6f6f6) !important;
+  border-radius: 5px !important;
+  box-shadow: var(--shadow-xs);
+}
+
+.login-page ::ng-deep .ant-checkbox-checked .ant-checkbox-inner::after {
+  border-color: var(--login-on-image) !important;
+}
+
+.login-page ::ng-deep .ant-checkbox + span {
+  padding-left: var(--spacing-1, 4px) !important;
+}
+
+/* =========================================
+   COPYRIGHT
+========================================= */
+
+.login-card__copyright {
+  width: 100%;
+  margin: 0;
+  color: var(--login-on-image);
+  font-size: var(--label-label-1-fontsize, 16px);
+  line-height: var(--label-label-1-lineheight, 22px);
+  font-weight: var(--font-weight-regular, 400);
+  letter-spacing: var(--heading-h4-letterspacing, -0.2px);
+  text-align: center;
+}
+
+  .login-card__copyright a {
+    color: var(--login-on-image);
+    text-decoration: underline;
+  }
+
+
+/* =========================================
+   RTL
+========================================= */
+
+/* Login username is a display name, not a technical value, so it follows the
+   page language instead of the forced-LTR rule in styles.css for technical
+   fields. */
+html[dir="rtl"] .login-page #username {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Field labels are shrink-to-fit inline elements inside a full-width block,
+   so they sit at the block's start edge regardless of their own direction -
+   the block itself needs the alignment flip. */
+html[dir="rtl"] .login-page nz-form-label {
+  text-align: right;
+}
+
+/* Password stays LTR (the show/hide icon keeps its fixed left position, per
+   design) - only the dot glyphs need to read from the right. */
+html[dir="rtl"] .login-page #password {
+  text-align: right;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 600px) {
+  .login-card {
+    width: calc(100% - 32px);
+    padding: var(--spacing-6, 24px);
+    row-gap: var(--spacing-6, 24px);
+  }
+
+  .login-card__logo {
+    width: 160px;
+    height: auto;
+  }
+
+  .login-card__title {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  .login-card__subtitle {
+    font-size: var(--label-label-2-fontsize, 14px);
+    line-height: var(--label-label-2-lineheight, 20px);
+  }
+
+  .login-form__row {
+    flex-wrap: nowrap;
+    column-gap: var(--spacing-2, 8px);
+  }
+
+  .login-form__remember,
+  .login-form__forgot,
+  .login-page ::ng-deep .ant-checkbox-wrapper {
+    font-size: 13px !important;
+    line-height: 18px !important;
+    white-space: nowrap;
+  }
+
+  .login-form__forgot {
+    flex-shrink: 0;
+  }
+
+  /* Matches the Figma mobile "Language Switcher" spec (node 179:4346):
+     20x20 icon, 16px from the top/end edges. */
+  .login-page__controls {
+    top: 16px;
+    inset-inline-end: 16px;
+  }
+
+}

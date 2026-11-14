@@ -1,0 +1,13 @@
+<div class="user-search">
+  <form [formGroup]="form" class="user-search__form" autocomplete="off">
+    <div class="user-search__field">
+      <label class="user-search__label" for="userName">{{ 'user.search.userNameLabel' | translate }}</label>
+      <input id="userName" class="user-search__input" formControlName="userName" [placeholder]="'user.search.userNamePlaceholder' | translate" />
+    </div>
+
+    <div class="user-search__field">
+      <label class="user-search__label" for="email">{{ 'user.search.emailLabel' | translate }}</label>
+      <input id="email" class="user-search__input" formControlName="email" [placeholder]="'user.search.emailPlaceholder' | translate" />
+    </div>
+  </form>
+</div>

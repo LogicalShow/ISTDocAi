@@ -1,0 +1,16 @@
+<div class="confirm-dialog">
+  <div class="confirm-dialog__content">
+    <h2 class="confirm-dialog__title">{{ data.title }}</h2>
+    <p class="confirm-dialog__message">{{ data.message }}</p>
+  </div>
+
+  <div class="confirm-dialog__footer">
+    <app-button hierarchy="gray-outline" (clicked)="cancel()">{{ data.cancelLabel }}</app-button>
+    <app-button hierarchy="primary" [destructive]="data.destructive" (clicked)="confirm()">{{ data.confirmLabel }}</app-button>
+  </div>
+
+  <!-- Last in DOM order so the modal's autofocus lands on Cancel, not the X. -->
+  <button type="button" class="confirm-dialog__close" [attr.aria-label]="data.cancelLabel" (click)="cancel()">
+    <app-icon name="x-light" [width]="20" [height]="20" />
+  </button>
+</div>

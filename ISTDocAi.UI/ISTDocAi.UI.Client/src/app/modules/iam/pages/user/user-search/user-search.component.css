@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+.user-search {
+  padding: var(--spacing-2, 8px) var(--spacing-6, 24px);
+}
+
+.user-search__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4, 16px);
+}
+
+.user-search__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1, 4px);
+}
+
+.user-search__label {
+  color: var(--general-foreground, #1a1a1a);
+  font-size: var(--label-label-2-fontsize, 14px);
+  line-height: var(--label-label-2-lineheight, 20px);
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: var(--label-label-2-letterspacing, -0.16px);
+}
+
+/* .user-search__input skin lives in the global styles.css, shared with the
+   equivalent role-search/role-edit/user-edit inputs. */

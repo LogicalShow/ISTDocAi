@@ -1,0 +1,101 @@
+:host {
+  display: inline-flex;
+}
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2, 8px);
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.15s ease;
+}
+
+.language-switcher:hover {
+  opacity: 0.8;
+}
+
+.language-switcher:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+  border-radius: var(--rounded-4, 4px);
+}
+
+.language-switcher__code {
+  font-family: "Noto Sans Arabic", "IBM Plex Sans", system-ui, sans-serif;
+  font-size: var(--label-label-2-fontsize, 14px);
+  line-height: var(--label-label-2-lineheight, 20px);
+  letter-spacing: var(--label-label-2-letterspacing, -0.16px);
+  color: inherit;
+}
+
+.language-switcher--auth {
+  color: var(--color-primitives-base-white, #ffffff);
+}
+
+.language-switcher--auth .language-switcher__code,
+.language-switcher--forgot .language-switcher__code {
+  font-weight: var(--font-weight-medium, 500);
+}
+
+.language-switcher--forgot,
+.language-switcher--header {
+  color: var(--general-foreground, #1a1a1a);
+}
+
+.language-switcher--header:hover {
+  opacity: 0.7;
+}
+
+.language-switcher--header:focus-visible {
+  outline-color: var(--general-primary, #1b35f5);
+}
+
+.language-switcher--header .language-switcher__code {
+  font-weight: var(--font-weight-regular, 400);
+}
+
+:host ::ng-deep .language-switcher__globe,
+:host ::ng-deep .language-switcher__caret {
+  display: block;
+  flex-shrink: 0;
+  color: inherit;
+}
+
+:host ::ng-deep .language-switcher--auth .language-switcher__globe,
+:host ::ng-deep .language-switcher--forgot .language-switcher__globe {
+  width: 24px;
+  height: 24px;
+}
+
+:host ::ng-deep .language-switcher--auth .language-switcher__caret,
+:host ::ng-deep .language-switcher--forgot .language-switcher__caret,
+:host ::ng-deep .language-switcher--header .language-switcher__globe,
+:host ::ng-deep .language-switcher--header .language-switcher__caret {
+  width: 20px;
+  height: 20px;
+}
+
+::ng-deep .language-switcher__menu .language-switcher__option--active {
+  color: var(--general-primary, #1b35f5) !important;
+  font-weight: var(--font-weight-semibold, 600);
+}
+
+::ng-deep .language-switcher__menu .ant-dropdown-menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-3, 12px);
+}
+
+@media (max-width: 767px) {
+  :host ::ng-deep .language-switcher--auth .language-switcher__globe {
+    width: 20px;
+    height: 20px;
+  }
+}

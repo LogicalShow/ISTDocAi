@@ -1,0 +1,151 @@
+/*
+ * Global because ng-zorro renders notifications in a body-level overlay,
+ * outside component style encapsulation.
+ */
+.feedback-notification {
+  box-sizing: border-box;
+  width: 393px;
+  max-width: calc(100vw - 48px);
+  min-height: 104px;
+  padding: var(--spacing-6, 24px) var(--spacing-4, 16px);
+  color: var(--color-neutral-solid-950, #1a1a1a);
+  font-family: var(--font-family-base, "IBM Plex Sans", system-ui, sans-serif);
+  direction: ltr;
+  text-align: left;
+  background: var(--general-background, #ffffff);
+  border-radius: var(--rounded-16, 16px);
+  box-shadow: none;
+}
+
+html[dir="rtl"] .feedback-notification {
+  direction: rtl;
+  text-align: right;
+}
+
+.feedback-notification .ant-notification-notice-with-icon {
+  position: relative;
+  min-height: 56px;
+}
+
+.feedback-notification .ant-notification-notice-icon {
+  top: 0;
+  inset-inline: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  padding: var(--spacing-1, 4px);
+  color: var(--feedback-icon-color);
+  background: var(--feedback-icon-background);
+  border-radius: var(--rounded-24, 24px);
+}
+
+.feedback-notification .ant-notification-notice-icon-success {
+  --feedback-icon-color: var(--color-success-solid-600, #16a34a);
+  --feedback-icon-background: var(--color-success-solid-100, #dcfce7);
+  --feedback-icon-mask: url("../../assets/icons/toast/check-light.svg");
+}
+
+.feedback-notification .ant-notification-notice-icon-info {
+  --feedback-icon-color: var(--color-info-solid-700, #0370a1);
+  --feedback-icon-background: var(--color-info-solid-100, #e0f5fe);
+  --feedback-icon-mask: url("../../assets/icons/toast/info-light.svg");
+}
+
+.feedback-notification .ant-notification-notice-icon-warning {
+  --feedback-icon-color: var(--color-warning-solid-600, #d97706);
+  --feedback-icon-background: var(--color-warning-solid-100, #fef3c7);
+  --feedback-icon-mask: url("../../assets/icons/toast/warning-light.svg");
+}
+
+.feedback-notification .ant-notification-notice-icon-error {
+  --feedback-icon-color: var(--color-error-solid-600, #dc2626);
+  --feedback-icon-background: var(--color-error-solid-100, #ffe2e2);
+  --feedback-icon-mask: url("../../assets/icons/toast/warning-light.svg");
+}
+
+.feedback-notification .ant-notification-notice-icon > svg,
+.feedback-notification .ant-notification-close-icon {
+  display: none;
+}
+
+.feedback-notification .ant-notification-notice-icon::before,
+.feedback-notification .ant-notification-notice-close-x::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: currentColor;
+  mask: var(--feedback-icon-mask) center / contain no-repeat;
+  -webkit-mask: var(--feedback-icon-mask) center / contain no-repeat;
+}
+
+.feedback-notification .ant-notification-notice-message,
+.feedback-notification .ant-notification-notice-description {
+  width: calc(100% - 38px);
+  margin: 0;
+  margin-inline-start: 38px;
+  padding: 0;
+  word-break: break-word;
+}
+
+.feedback-notification .ant-notification-notice-message {
+  margin-bottom: var(--spacing-2, 8px);
+  color: var(--color-neutral-solid-950, #1a1a1a);
+  font-size: var(--heading-h6-fontsize, 20px);
+  font-weight: var(--font-weight-medium, 500);
+  line-height: var(--heading-h6-lineheight, 24px);
+  letter-spacing: var(--heading-h6-letterspacing, 0);
+}
+
+.feedback-notification .ant-notification-notice-description {
+  color: var(--general-muted-foreground, #6d6d6d);
+  font-size: var(--body-body-2-fontsize, 16px);
+  font-weight: var(--font-weight-regular, 400);
+  line-height: var(--body-body-2-lineheight, 24px);
+  letter-spacing: var(--body-body-2-letterspacing, 0);
+}
+
+.feedback-notification .ant-notification-notice-close {
+  --feedback-icon-mask: url("../../assets/icons/toast/x-light.svg");
+
+  top: var(--spacing-4, 16px);
+  inset-inline: auto var(--spacing-4, 16px);
+  display: flex;
+  color: var(--color-neutral-solid-950, #1a1a1a);
+  line-height: 20px;
+}
+
+.feedback-notification .ant-notification-notice-close:hover {
+  color: var(--color-neutral-solid-950, #1a1a1a);
+}
+
+.feedback-notification .ant-notification-notice-close,
+.feedback-notification .ant-notification-notice-close-x {
+  width: 20px;
+  height: 20px;
+}
+
+.feedback-notification .ant-notification-notice-close-x {
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .ant-notification {
+    top: 8px !important;
+    right: 8px !important;
+    bottom: auto !important;
+    left: 8px !important;
+    width: auto !important;
+    max-width: none !important;
+  }
+
+  .ant-notification .ant-notification-notice {
+    width: 100% !important;
+    max-width: none !important;
+    margin-inline: 0 !important;
+  }
+}

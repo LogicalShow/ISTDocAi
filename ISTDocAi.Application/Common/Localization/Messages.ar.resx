@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AggregateError" xml:space="preserve">
+    <value>حدثت عدة أخطاء.</value>
+  </data>
+  <data name="Attachment.Add.Invalid" xml:space="preserve">
+    <value>تعذر إضافة المرفق.</value>
+  </data>
+  <data name="Attachment.Delete.Invalid" xml:space="preserve">
+    <value>تعذر حذف المرفق.</value>
+  </data>
+  <data name="Attachment.File.Error" xml:space="preserve">
+    <value>حدث خطأ أثناء قراءة ملف المرفق.</value>
+  </data>
+  <data name="Attachment.File.NotFound" xml:space="preserve">
+    <value>الملف الفعلي غير موجود.</value>
+  </data>
+  <data name="Attachment.NotFound" xml:space="preserve">
+    <value>المرفق غير موجود.</value>
+  </data>
+  <data name="Auth.InactiveUser" xml:space="preserve">
+    <value>حساب المستخدم غير نشط.</value>
+  </data>
+  <data name="Auth.InvalidCredentials" xml:space="preserve">
+    <value>اسم المستخدم أو كلمة المرور غير صحيحة.</value>
+  </data>
+  <data name="Auth.UserIdentityMissing" xml:space="preserve">
+    <value>تعذر تحديد هوية المستخدم المصادق عليه.</value>
+  </data>
+  <data name="Auth.Unauthorized" xml:space="preserve">
+    <value>المصادقة مطلوبة.</value>
+  </data>
+  <data name="Auth.Forbidden" xml:space="preserve">
+    <value>ليس لديك صلاحية لتنفيذ هذا الإجراء.</value>
+  </data>
+  <data name="Idempotency.Key.Required" xml:space="preserve">
+    <value> Idempotency-Key مطلوب.</value>
+  </data>
+  <data name="Concurrency" xml:space="preserve">
+    <value>تم تعديل السجل بواسطة مستخدم آخر.</value>
+  </data>
+  <data name="DateRange.ContinuityBroken" xml:space="preserve">
+    <value>نطاق التاريخ لا يلي آخر تعيين مباشرة.</value>
+  </data>
+  <data name="DateRange.InvalidDuration" xml:space="preserve">
+    <value>مدة نطاق التاريخ غير صالحة.</value>
+  </data>
+  <data name="DateRange.Overlap" xml:space="preserve">
+    <value>نطاق التاريخ يتداخل مع تعيين موجود.</value>
+  </data>
+  <data name="DateRangeOverlap" xml:space="preserve">
+    <value>نطاق التاريخ يتداخل مع تعيين موجود.</value>
+  </data>
+  <data name="Email.DecryptionFailed" xml:space="preserve">
+    <value>فشل فك تشفير كلمة مرور البريد الإلكتروني.</value>
+  </data>
+  <data name="Email.Disabled" xml:space="preserve">
+    <value>إشعارات البريد الإلكتروني معطلة.</value>
+  </data>
+  <data name="Email.Incomplete" xml:space="preserve">
+    <value>إعدادات البريد الإلكتروني غير مكتملة.</value>
+  </data>
+  <data name="Email.PartialSendFailed" xml:space="preserve">
+    <value>تعذر إرسال بعض رسائل الإشعار.</value>
+  </data>
+  <data name="Email.SendFailed" xml:space="preserve">
+    <value>فشل إرسال رسائل الإشعار.</value>
+  </data>
+  <data name="Email.ValidationFailed" xml:space="preserve">
+    <value>فشل التحقق من إعدادات البريد الإلكتروني.</value>
+  </data>
+  <data name="Error.NullValue" xml:space="preserve">
+    <value>قيمة النتيجة المحددة فارغة.</value>
+  </data>
+  <data name="Notification.NotFound" xml:space="preserve">
+    <value>الإشعار غير موجود.</value>
+  </data>
+  <data name="Notification.NoUserAssigned" xml:space="preserve">
+    <value>لا يوجد مستخدم معين.</value>
+  </data>
+  <data name="NotificationUser.UpsertFailed" xml:space="preserve">
+    <value>تعذر حفظ مستخدم الإشعار.</value>
+  </data>
+  <data name="Otp.Invalid" xml:space="preserve">
+    <value>رمز التحقق غير صالح أو منتهي الصلاحية.</value>
+  </data>
+  <data name="Password.ChangeFailed" xml:space="preserve">
+    <value>فشل تغيير كلمة المرور.</value>
+  </data>
+  <data name="Password.ResetFailed" xml:space="preserve">
+    <value>فشل إعادة تعيين كلمة المرور.</value>
+  </data>
+  <data name="Permission.InvalidPageActions" xml:space="preserve">
+    <value>واحد أو أكثر من معرفات إجراءات الصفحة غير صالح أو غير نشط.</value>
+  </data>
+  <data name="Role.NotFound" xml:space="preserve">
+    <value>الدور غير موجود.</value>
+  </data>
+  <data name="Role.Conflict" xml:space="preserve">
+    <value>تم تعديل الدور بواسطة مستخدم آخر.</value>
+  </data>
+  <data name="Role.DuplicateName" xml:space="preserve">
+    <value>يوجد دور بهذا الاسم بالفعل.</value>
+  </data>
+  <data name="Role.Required" xml:space="preserve">
+    <value>بيانات الدور المطلوبة غير مكتملة.</value>
+  </data>
+  <data name="Setting.FooterConflict" xml:space="preserve">
+    <value>لا يمكن رفع التذييل وحذفه في الوقت نفسه.</value>
+  </data>
+  <data name="Setting.HeaderConflict" xml:space="preserve">
+    <value>لا يمكن رفع الترويسة وحذفها في الوقت نفسه.</value>
+  </data>
+  <data name="Setting.Image.NotFound" xml:space="preserve">
+    <value>صورة الإعداد غير موجودة.</value>
+  </data>
+  <data name="Setting.Invalid" xml:space="preserve">
+    <value>واحدة أو أكثر من قيم إعدادات النظام غير صالحة.</value>
+  </data>
+  <data name="Setting.InvalidImageType" xml:space="preserve">
+    <value>نوع الصورة المطلوب غير صالح.</value>
+  </data>
+  <data name="Setting.LogoConflict" xml:space="preserve">
+    <value>لا يمكن رفع الشعار وحذفه في الوقت نفسه.</value>
+  </data>
+  <data name="Setting.NotFound" xml:space="preserve">
+    <value>الإعداد غير موجود.</value>
+  </data>
+  <data name="Unexpected" xml:space="preserve">
+    <value>حدث خطأ غير متوقع.</value>
+  </data>
+  <data name="RateLimited" xml:space="preserve">
+    <value>طلبات كثيرة. يرجى الانتظار قليلاً ثم المحاولة مرة أخرى.</value>
+  </data>
+  <data name="UniqueConstraintViolation" xml:space="preserve">
+    <value>يوجد سجل آخر بالقيمة نفسها.</value>
+  </data>
+  <data name="User.AdminNotFound" xml:space="preserve">
+    <value>مستخدم المسؤول غير موجود.</value>
+  </data>
+  <data name="User.Conflict" xml:space="preserve">
+    <value>تم تعديل المستخدم بواسطة مستخدم آخر.</value>
+  </data>
+  <data name="User.DuplicateEmail" xml:space="preserve">
+    <value>يوجد مستخدم بهذا البريد الإلكتروني بالفعل.</value>
+  </data>
+  <data name="User.EmailNotFound" xml:space="preserve">
+    <value>البريد الإلكتروني للمستخدم غير محدد.</value>
+  </data>
+  <data name="User.NotFound" xml:space="preserve">
+    <value>المستخدم غير موجود.</value>
+  </data>
+  <data name="User.Required" xml:space="preserve">
+    <value>بيانات المستخدم المطلوبة غير مكتملة.</value>
+  </data>
+  <data name="Validation.AttachmentIdCannotBeEmpty" xml:space="preserve">
+    <value>لا يمكن أن يكون معرف المرفق فارغا.</value>
+  </data>
+  <data name="Validation.AttachmentIdsRequired" xml:space="preserve">
+    <value>يجب توفير معرف مرفق واحد على الأقل.</value>
+  </data>
+  <data name="Validation.DeleteItemsRequired" xml:space="preserve">
+    <value>يجب توفير عنصر واحد على الأقل للحذف.</value>
+  </data>
+  <data name="Validation.FilePathRequired" xml:space="preserve">
+    <value>مسار الملف مطلوب.</value>
+  </data>
+  <data name="Validation.FileSizeGreaterThanZero" xml:space="preserve">
+    <value>يجب أن يكون حجم الملف أكبر من 0.</value>
+  </data>
+  <data name="Validation.IdRequired" xml:space="preserve">
+    <value>المعرف مطلوب.</value>
+  </data>
+  <data name="Validation.ItemIdRequired" xml:space="preserve">
+    <value>معرف العنصر مطلوب.</value>
+  </data>
+  <data name="Validation.ItemRowVersionRequired" xml:space="preserve">
+    <value>إصدار صف العنصر مطلوب.</value>
+  </data>
+  <data name="Validation.OriginalFileNameRequired" xml:space="preserve">
+    <value>اسم الملف الأصلي مطلوب.</value>
+  </data>
+  <data name="Validation.ReferenceIdMaxLength" xml:space="preserve">
+    <value>يجب ألا يتجاوز معرف المرجع 100 حرف.</value>
+  </data>
+  <data name="Validation.ReferenceIdRequired" xml:space="preserve">
+    <value>معرف المرجع مطلوب.</value>
+  </data>
+  <data name="Validation.ReferenceTypeRequired" xml:space="preserve">
+    <value>نوع المرجع مطلوب.</value>
+  </data>
+  <data name="Validation.RowVersionRequired" xml:space="preserve">
+    <value>إصدار الصف مطلوب للتحديث المتزامن.</value>
+  </data>
+  <data name="Validation.SortFieldNotSupported" xml:space="preserve">
+    <value>حقل الترتيب غير مدعوم.</value>
+  </data>
+  <data name="Validation.SortFieldRequiredWhenSortOrderProvided" xml:space="preserve">
+    <value>حقل الترتيب مطلوب عند توفير اتجاه الترتيب.</value>
+  </data>
+  <data name="Validation.SortOrderInvalid" xml:space="preserve">
+    <value>يجب أن يكون اتجاه الترتيب &apos;asc&apos; أو &apos;desc&apos;.</value>
+  </data>
+  <data name="Validation.StoredFileNameRequired" xml:space="preserve">
+    <value>اسم الملف المخزن مطلوب.</value>
+  </data>
+  <data name="Validation.ToDateOnOrAfterFromDate" xml:space="preserve">
+    <value>يجب أن يكون تاريخ النهاية في تاريخ البداية أو بعده.</value>
+  </data>
+  <data name="ValidationError" xml:space="preserve">
+    <value>حدثت مشكلة في التحقق من صحة البيانات.</value>
+  </data>
+  <data name="ValidationFailed" xml:space="preserve">
+    <value>فشل التحقق من صحة البيانات.</value>
+  </data>
+  <data name="INVALID_REQUEST" xml:space="preserve"><value>البيانات أو المستند المرسل غير صالح.</value></data>
+  <data name="UNAUTHORIZED" xml:space="preserve"><value>يلزم مفتاح API صالح.</value></data>
+  <data name="FORBIDDEN" xml:space="preserve"><value>غير مسموح بالوصول.</value></data>
+  <data name="FILE_TOO_LARGE" xml:space="preserve"><value>حجم الملف أكبر من 20 ميجابايت.</value></data>
+  <data name="UNSUPPORTED_FILE_TYPE" xml:space="preserve"><value>أرسل مستند PDF أو JPEG أو PNG أو TIFF.</value></data>
+  <data name="UNSUPPORTED_MEDIA_TYPE" xml:space="preserve"><value>نوع المحتوى غير مدعوم.</value></data>
+  <data name="ENCRYPTED_PDF" xml:space="preserve"><value>أرسل ملف PDF غير محمي بكلمة مرور.</value></data>
+  <data name="TOO_MANY_PAGES" xml:space="preserve"><value>عدد صفحات المستند أكبر من المسموح.</value></data>
+  <data name="NOT_IN_CATALOG" xml:space="preserve"><value>اختر نوع المستند وخط الشحن من القائمة المتاحة.</value></data>
+  <data name="QUOTA_EXHAUSTED" xml:space="preserve"><value>رصيد الصفحات انتهى أو غير كافٍ لهذا المستند. تواصل مع IST للتجديد.</value></data>
+  <data name="DAILY_CAP_REACHED" xml:space="preserve"><value>تم الوصول للحد اليومي. حاول مرة أخرى في اليوم التالي بتوقيت UTC.</value></data>
+  <data name="RATE_LIMITED" xml:space="preserve"><value>طلبات كثيرة. انتظر قليلًا ثم أعد المحاولة.</value></data>
+  <data name="INTERNAL_ERROR" xml:space="preserve"><value>حدث خطأ غير متوقع. اذكر رقم التتبع (correlationId) عند الإبلاغ.</value></data>
+  <data name="DATABASE_NOT_READY" xml:space="preserve"><value>تهيئة قاعدة البيانات لم تكتمل بعد.</value></data>
+  <data name="JOB_NOT_FOUND" xml:space="preserve"><value>لا توجد مهمة أو تشغيلة بهذا الرقم لهذا العميل.</value></data>
+  <data name="DATABASE_CONFIGURATION_INVALID" xml:space="preserve"><value>تهيئة قاعدة البيانات لم تكتمل. تواصل مع الدعم الفني.</value></data>
+  <data name="DATABASE_INITIALIZATION_TIMEOUT" xml:space="preserve"><value>تهيئة قاعدة البيانات لم تكتمل. تواصل مع الدعم الفني.</value></data>
+  <data name="DATABASE_NOT_MIGRATED" xml:space="preserve"><value>تهيئة قاعدة البيانات لم تكتمل. تواصل مع الدعم الفني.</value></data>
+  <data name="DATABASE_MISSING" xml:space="preserve"><value>تهيئة قاعدة البيانات لم تكتمل. تواصل مع الدعم الفني.</value></data>
+  <data name="DATABASE_INITIALIZATION_FAILED" xml:space="preserve"><value>تهيئة قاعدة البيانات لم تكتمل. تواصل مع الدعم الفني.</value></data>
+  <data name="DATABASE_HISTORY_UNRECOGNIZED" xml:space="preserve"><value>تهيئة قاعدة البيانات لم تكتمل. تواصل مع الدعم الفني.</value></data>
+  <data name="DATABASE_SCHEMA_UNRECOGNIZED" xml:space="preserve"><value>تهيئة قاعدة البيانات لم تكتمل. تواصل مع الدعم الفني.</value></data>
+  <data name="DATABASE_RCSI_OFF" xml:space="preserve"><value>تهيئة قاعدة البيانات لم تكتمل. تواصل مع الدعم الفني.</value></data>
+  <data name="DATABASE_IAM_NOT_MIGRATED" xml:space="preserve"><value>تهيئة قاعدة البيانات لم تكتمل. تواصل مع الدعم الفني.</value></data>
+  <data name="DATABASE_INITIALIZATION_CANCELLED" xml:space="preserve"><value>تهيئة قاعدة البيانات لم تكتمل. تواصل مع الدعم الفني.</value></data>
+  <data name="MODEL_NOT_FOUND" xml:space="preserve"><value>النموذج غير موجود.</value></data>
+  <data name="UNCLASSIFIED" xml:space="preserve"><value>تعذّر تحديد نوع المستند.</value></data>
+  <data name="INVALID_DOCUMENT" xml:space="preserve"><value>المستند غير صالح.</value></data>
+  <data name="ANALYSIS_FAILED" xml:space="preserve"><value>فشل تحليل المستند.</value></data>
+  <data name="ANALYSIS_RESULT_MISSING" xml:space="preserve"><value>نتيجة التحليل غير موجودة.</value></data>
+  <data name="ORIGINAL_MISSING" xml:space="preserve"><value>المستند الأصلي غير موجود.</value></data>
+  <data name="RETRIES_EXHAUSTED" xml:space="preserve"><value>تم الوصول للحد الأقصى لمحاولات إعادة المعالجة.</value></data>
+  <data name="WORKER_CRASH_LOOP" xml:space="preserve"><value>تعذّر استكمال المعالجة. تواصل مع الدعم الفني.</value></data>
+  <data name="AZURE_AUTH" xml:space="preserve"><value>فشل التحقق من الصلاحية مع خدمة التحليل.</value></data>
+  <data name="AZURE_THROTTLED" xml:space="preserve"><value>خدمة التحليل مشغولة حاليًا. حاول لاحقًا.</value></data>
+  <data name="AZURE_UNAVAILABLE" xml:space="preserve"><value>خدمة التحليل غير متاحة حاليًا.</value></data>
+  <data name="MAPPING_FAILED" xml:space="preserve"><value>تعذّر تحويل نتيجة التحليل.</value></data>
+  <data name="STORAGE_UNAVAILABLE" xml:space="preserve"><value>تخزين المستندات غير متاح حاليًا.</value></data>
+  <data name="TOPUP_NOT_FOUND" xml:space="preserve"><value>دورة الرصيد أو المؤشر المطلوب غير موجود لهذا العميل.</value></data>
+</root>

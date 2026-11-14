@@ -1,0 +1,66 @@
+<div class="sidebar-logo" [class.collapsed]="sidebarIsCollapsed() && !isMobile()">
+  <a href="/">
+    <img class="sidebar-logo__image sidebar-logo__image--default" src="/assets/logos/istdocai-logo.svg" alt="ISTDocAi">
+    <img class="sidebar-logo__image sidebar-logo__image--dark" src="/assets/logos/istdocai-logo.svg" alt="ISTDocAi">
+  </a>
+</div>
+<ul nz-menu nzMode="inline" [nzInlineCollapsed]="isMobile() ? false : sidebarIsCollapsed()">
+  @for (sbItem of sidebarItems(); track sbItem) {
+    @if (sbItem.url) {
+      <li nz-menu-item nzMatchRouter
+        nz-tooltip
+        [nzTooltipTitle]="(!isMobile() && sidebarIsCollapsed()) ? sbItem.title : null"
+        [nzTooltipPlacement]="currentCulture() === 'ar' ? 'left' : 'right'"
+        nzTooltipTrigger="hover"
+        nzTooltipOverlayClassName="sidebar-flyout-tooltip">
+        @if (!sbItem.openInNewTab) {
+          <a class="sidebar-item-content" [routerLink]="sbItem.url" (click)="navigate.emit()">
+            <app-icon [name]="sbItem.icon" />
+            <span class="sidebar-item-label">{{ sbItem.title }}</span>
+          </a>
+        }
+        @if (sbItem.openInNewTab) {
+          <a class="sidebar-link-external sidebar-item-content" [routerLink]="sbItem.url" target="_blank" rel="noopener noreferrer" (click)="navigate.emit()">
+            <app-icon [name]="sbItem.icon" />
+            <span class="sidebar-item-label">{{ sbItem.title }}</span>
+          </a>
+        }
+      </li>
+    }
+    @if (!sbItem.url) {
+      <li nz-submenu [nzTitle]="submenuTitle">
+        <ng-template #submenuTitle>
+          <span class="sidebar-item-content">
+            <app-icon [name]="sbItem.icon" />
+            <span class="sidebar-item-label">{{ sbItem.title }}</span>
+          </span>
+        </ng-template>
+        <ul>
+          <ng-container *ngTemplateOutlet="sidebarChildren; context: { $implicit: sbItem.children }" />
+        </ul>
+      </li>
+    }
+  }
+
+  <ng-template #sidebarChildren let-items>
+    @for (child of items; track child) {
+      @if (!child.children) {
+        <li nz-menu-item nzMatchRouter>
+          @if (!child.openInNewTab) {
+            <a [routerLink]="child.url" (click)="navigate.emit()">{{ child.label }}</a>
+          }
+          @if (child.openInNewTab) {
+            <a class="sidebar-link-external" [routerLink]="child.url" target="_blank" rel="noopener noreferrer" (click)="navigate.emit()">{{ child.label }}</a>
+          }
+        </li>
+      }
+      @if (child.children) {
+        <li nz-submenu [nzTitle]="child.label">
+          <ul>
+            <ng-container *ngTemplateOutlet="sidebarChildren; context: { $implicit: child.children }" />
+          </ul>
+        </li>
+      }
+    }
+  </ng-template>
+</ul>

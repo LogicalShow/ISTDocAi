@@ -1,0 +1,46 @@
+{
+  "request": {
+    "method": "GET",
+    "path": "/api/v1/usage?months=3",
+    "headers": [
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "X-Api-Key",
+        "values": [
+          "test-key-one"
+        ]
+      }
+    ],
+    "body": null
+  },
+  "response": {
+    "status": 200,
+    "contentType": "application/json; charset=utf-8",
+    "headers": [
+      {
+        "name": "Cache-Control",
+        "values": [
+          "no-store"
+        ]
+      },
+      {
+        "name": "X-Correlation-Id",
+        "values": [
+          "baseline-correlation-1"
+        ]
+      },
+      {
+        "name": "Content-Type",
+        "values": [
+          "application/json; charset=utf-8"
+        ]
+      }
+    ],
+    "bodyText": "{\u0022asOfUtc\u0022:\u00222026-10-25T12:00:00\u002B00:00\u0022,\u0022unit\u0022:\u0022pages\u0022,\u0022quotaMode\u0022:\u0022Prepaid\u0022,\u0022status\u0022:\u0022Low\u0022,\u0022granted\u0022:100,\u0022used\u0022:90,\u0022reserved\u0022:0,\u0022remaining\u0022:10,\u0022warningPercent\u0022:10,\u0022cycleBase\u0022:100,\u0022warningAtPages\u0022:10,\u0022lastTopUp\u0022:{\u0022recordedAtUtc\u0022:\u00222026-10-25T12:00:00\u002B00:00\u0022,\u0022pages\u0022:100},\u0022maxPagesPerJob\u0022:10,\u0022dailyCap\u0022:100,\u0022submittedTodayPages\u0022:2,\u0022chargedTodayPages\u0022:2,\u0022dayBoundary\u0022:\u0022UTC\u0022,\u0022months\u0022:[{\u0022month\u0022:\u00222026-08\u0022,\u0022chargedPages\u0022:0,\u0022chargedDocuments\u0022:0},{\u0022month\u0022:\u00222026-09\u0022,\u0022chargedPages\u0022:0,\u0022chargedDocuments\u0022:0},{\u0022month\u0022:\u00222026-10\u0022,\u0022chargedPages\u0022:0,\u0022chargedDocuments\u0022:0}]}"
+  }
+}

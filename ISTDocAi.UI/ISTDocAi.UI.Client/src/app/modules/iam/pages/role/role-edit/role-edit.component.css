@@ -1,0 +1,64 @@
+:host {
+  display: block;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+.role-edit {
+  padding: var(--spacing-2, 8px) var(--spacing-6, 24px);
+}
+
+.role-edit__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4, 16px);
+}
+
+.role-edit__field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-1, 4px);
+}
+
+.role-edit__label {
+  color: var(--general-foreground, #1a1a1a);
+  font-size: var(--label-label-2-fontsize, 14px);
+  line-height: var(--label-label-2-lineheight, 20px);
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: var(--label-label-2-letterspacing, -0.16px);
+}
+
+/* .role-edit__input skin lives in the global styles.css, shared with the
+   equivalent role-search/user-search/user-edit inputs. */
+
+.role-edit__error {
+  color: var(--general-destructive, #ef4444);
+  font-size: var(--label-label-3-fontsize, 12px);
+  line-height: var(--label-label-3-lineheight, 16px);
+}
+
+.role-edit__checkbox {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  color: var(--general-unofficial-foreground-alt, #404040);
+  font-size: var(--label-label-2-fontsize, 14px);
+  line-height: var(--label-label-2-lineheight, 20px);
+  font-weight: var(--font-weight-medium, 500);
+  letter-spacing: var(--label-label-2-letterspacing, -0.16px);
+}
+
+/* nz-checkbox renders its check indicator inside its own component view -
+   ::ng-deep is required to restyle it from here (same pattern used in
+   login.component.css for the sign-in checkbox). */
+::ng-deep .role-edit .ant-checkbox-inner {
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--general-unofficial-border-3, #b0b0b0);
+  border-radius: var(--rounded-4, 4px);
+  box-shadow: var(--shadow-xs);
+}
+
+::ng-deep .role-edit .ant-checkbox-checked .ant-checkbox-inner {
+  background-color: var(--general-primary, #1b35f5);
+  border-color: var(--general-primary, #1b35f5);
+}

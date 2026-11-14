@@ -1,0 +1,18 @@
+[
+  {
+    "Event": "database.initialization_started",
+    "Code": null
+  },
+  {
+    "Event": "database.migration_started",
+    "Code": null
+  },
+  {
+    "Event": "database.created",
+    "Code": null
+  },
+  {
+    "Event": "database.migration_completed",
+    "Code": null
+  }
+]

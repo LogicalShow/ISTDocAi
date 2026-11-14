@@ -1,0 +1,954 @@
+﻿[
+  {
+    "ModelId": "bl-maersk-v1",
+    "DocumentTypeCode": "BL",
+    "MappingShape": "ModelProfile",
+    "ContainersField": "Containers",
+    "ContainerNumberField": "containerNumber",
+    "SealNumberField": "sealNumber",
+    "BillsOfLadingField": "BillsOfLading",
+    "Rows": [
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "billOfLadingNumber",
+        "AzureName": "BillOfLadingNumber"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "shipperName",
+        "AzureName": "ShipperName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "consigneeName",
+        "AzureName": "ConsigneeName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "vesselName",
+        "AzureName": "VesselName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "voyageNumber",
+        "AzureName": "VoyageNumber"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "portOfLoading",
+        "AzureName": "PortOfLoading"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "portOfDischarge",
+        "AzureName": "PortOfDischarge"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "issueDate",
+        "AzureName": "DateOfIssue"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "bookingNumber",
+        "AzureName": "BookingNumber"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "shipperAddress",
+        "AzureName": "ShipperAddress"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "consigneeAddress",
+        "AzureName": "ConsigneeAddress"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "notifyParty",
+        "AzureName": "NotifyParty"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "freightTerms",
+        "AzureName": "FreightTerms"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "hsCode",
+        "AzureName": "HSCode"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "totalGrossWeightKg",
+        "AzureName": "TotalGrossWeightKg"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "containerNumber",
+        "AzureName": "ContainerNo"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "sealNumber",
+        "AzureName": "SealNo"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "containerType",
+        "AzureName": "Type"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "packages",
+        "AzureName": "Packages"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "grossWeightKg",
+        "AzureName": "GrossWeightKg"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "measurementCbm",
+        "AzureName": "MeasurementCbm"
+      }
+    ]
+  },
+  {
+    "ModelId": "bl-v2",
+    "DocumentTypeCode": "BL",
+    "MappingShape": "ModelProfile",
+    "ContainersField": "Containers",
+    "ContainerNumberField": "containerNumber",
+    "SealNumberField": "sealNumber",
+    "BillsOfLadingField": "BillsOfLading",
+    "Rows": [
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "billOfLadingNumber",
+        "AzureName": "BillOfLadingNumber"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "shipperName",
+        "AzureName": "ShipperName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "consigneeName",
+        "AzureName": "ConsigneeName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "vesselName",
+        "AzureName": "VesselName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "voyageNumber",
+        "AzureName": "VoyageNumber"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "portOfLoading",
+        "AzureName": "PortOfLoading"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "portOfDischarge",
+        "AzureName": "PortOfDischarge"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "issueDate",
+        "AzureName": "DateOfIssue"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "bookingNumber",
+        "AzureName": "BookingNumber"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "shipperAddress",
+        "AzureName": "ShipperAddress"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "consigneeAddress",
+        "AzureName": "ConsigneeAddress"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "notifyParty",
+        "AzureName": "NotifyParty"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "freightTerms",
+        "AzureName": "FreightTerms"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "hsCode",
+        "AzureName": "HSCode"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "totalGrossWeightKg",
+        "AzureName": "TotalGrossWeightKg"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "containerNumber",
+        "AzureName": "ContainerNo"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "sealNumber",
+        "AzureName": "SealNo"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "containerType",
+        "AzureName": "Type"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "packages",
+        "AzureName": "Packages"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "grossWeightKg",
+        "AzureName": "GrossWeightKg"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "measurementCbm",
+        "AzureName": "MeasurementCbm"
+      }
+    ]
+  },
+  {
+    "ModelId": "bl-v3",
+    "DocumentTypeCode": "BL",
+    "MappingShape": "ModelProfile",
+    "ContainersField": "Containers",
+    "ContainerNumberField": "containerNumber",
+    "SealNumberField": "sealNumber",
+    "BillsOfLadingField": "BillsOfLading",
+    "Rows": [
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "billOfLadingNumber",
+        "AzureName": "BillOfLadingNumber"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "shipperName",
+        "AzureName": "ShipperName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "consigneeName",
+        "AzureName": "ConsigneeName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "vesselName",
+        "AzureName": "VesselName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "voyageNumber",
+        "AzureName": "VoyageNumber"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "portOfLoading",
+        "AzureName": "PortOfLoading"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "portOfDischarge",
+        "AzureName": "PortOfDischarge"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "issueDate",
+        "AzureName": "DateOfIssue"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "bookingNumber",
+        "AzureName": "BookingNumber"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "shipperAddress",
+        "AzureName": "ShipperAddress"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "consigneeAddress",
+        "AzureName": "ConsigneeAddress"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "notifyParty",
+        "AzureName": "NotifyParty"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "freightTerms",
+        "AzureName": "FreightTerms"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "hsCode",
+        "AzureName": "HSCode"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "totalGrossWeightKg",
+        "AzureName": "TotalGrossWeightKg"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "containerNumber",
+        "AzureName": "ContainerNo"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "sealNumber",
+        "AzureName": "SealNo"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "containerType",
+        "AzureName": "Type"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "packages",
+        "AzureName": "Packages"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "grossWeightKg",
+        "AzureName": "GrossWeightKg"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "measurementCbm",
+        "AzureName": "MeasurementCbm"
+      }
+    ]
+  },
+  {
+    "ModelId": "manifest-v1",
+    "DocumentTypeCode": "MANIFEST",
+    "MappingShape": "ModelProfile",
+    "ContainersField": "Containers",
+    "ContainerNumberField": "containerNumber",
+    "SealNumberField": "sealNumber",
+    "BillsOfLadingField": "BillsOfLading",
+    "Rows": [
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "billOfLadingNumber",
+        "AzureName": "billOfLadingNumber"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "shipperName",
+        "AzureName": "shipperName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "consigneeName",
+        "AzureName": "consigneeName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "vesselName",
+        "AzureName": "vesselName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "voyageNumber",
+        "AzureName": "voyageNumber"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "portOfLoading",
+        "AzureName": "portOfLoading"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "portOfDischarge",
+        "AzureName": "portOfDischarge"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "issueDate",
+        "AzureName": "issueDate"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "billOfLadingNumber",
+        "AzureName": "BLNumber"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "containerNumber",
+        "AzureName": "ContainerNo"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "sealNumber",
+        "AzureName": "SealNo"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "containerType",
+        "AzureName": "ContainerType"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "packages",
+        "AzureName": "Packages"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "grossWeight",
+        "AzureName": "GrossWeight"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "description",
+        "AzureName": "Description"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "carrierName",
+        "AzureName": "CarrierName"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "vesselName",
+        "AzureName": "VesselName"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "voyageNumber",
+        "AzureName": "VoyageNumber"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "portOfLoading",
+        "AzureName": "PortOfLoading"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "portOfDischarge",
+        "AzureName": "PortOfDischarge"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "manifestDate",
+        "AzureName": "ManifestDate"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "billOfLadingNumber",
+        "AzureName": "BLNumber"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "shipperName",
+        "AzureName": "Shipper"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "consigneeName",
+        "AzureName": "Consignee"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "notifyParty",
+        "AzureName": "NotifyParty"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "bookingNumber",
+        "AzureName": "BookingNumber"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "freightTerms",
+        "AzureName": "FreightTerms"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "packages",
+        "AzureName": "Packages"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "grossWeight",
+        "AzureName": "GrossWeight"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "description",
+        "AzureName": "Description"
+      }
+    ]
+  },
+  {
+    "ModelId": "manifest-v2",
+    "DocumentTypeCode": "MANIFEST",
+    "MappingShape": "ModelProfile",
+    "ContainersField": "Containers",
+    "ContainerNumberField": "containerNumber",
+    "SealNumberField": "sealNumber",
+    "BillsOfLadingField": "BillsOfLading",
+    "Rows": [
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "billOfLadingNumber",
+        "AzureName": "billOfLadingNumber"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "shipperName",
+        "AzureName": "shipperName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "consigneeName",
+        "AzureName": "consigneeName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "vesselName",
+        "AzureName": "vesselName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "voyageNumber",
+        "AzureName": "voyageNumber"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "portOfLoading",
+        "AzureName": "portOfLoading"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "portOfDischarge",
+        "AzureName": "portOfDischarge"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "issueDate",
+        "AzureName": "issueDate"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "billOfLadingNumber",
+        "AzureName": "BLNumber"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "containerNumber",
+        "AzureName": "ContainerNo"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "sealNumber",
+        "AzureName": "SealNo"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "containerType",
+        "AzureName": "ContainerType"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "packages",
+        "AzureName": "Packages"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "grossWeight",
+        "AzureName": "GrossWeight"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "description",
+        "AzureName": "Description"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "carrierName",
+        "AzureName": "CarrierName"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "vesselName",
+        "AzureName": "VesselName"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "voyageNumber",
+        "AzureName": "VoyageNumber"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "portOfLoading",
+        "AzureName": "PortOfLoading"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "portOfDischarge",
+        "AzureName": "PortOfDischarge"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "manifestDate",
+        "AzureName": "ManifestDate"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "placeOfDelivery",
+        "AzureName": "PlaceOfDelivery"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "billOfLadingNumber",
+        "AzureName": "BLNumber"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "shipperName",
+        "AzureName": "ShipperName"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "shipperAddress",
+        "AzureName": "ShipperAddress"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "consigneeName",
+        "AzureName": "ConsigneeName"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "consigneeAddress",
+        "AzureName": "ConsigneeAddress"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "notifyParty",
+        "AzureName": "NotifyParty"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "bookingNumber",
+        "AzureName": "BookingNumber"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "freightTerms",
+        "AzureName": "FreightTerms"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "packages",
+        "AzureName": "Packages"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "grossWeight",
+        "AzureName": "GrossWeight"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "description",
+        "AzureName": "Description"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "containerCount",
+        "AzureName": "ContainerCount"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "hsCode",
+        "AzureName": "HSCode"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "packageType",
+        "AzureName": "PackageType"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "issueDate",
+        "AzureName": "IssueDate"
+      }
+    ]
+  },
+  {
+    "ModelId": "manifest-v3",
+    "DocumentTypeCode": "MANIFEST",
+    "MappingShape": "ModelProfile",
+    "ContainersField": "Containers",
+    "ContainerNumberField": "containerNumber",
+    "SealNumberField": "sealNumber",
+    "BillsOfLadingField": "BillsOfLading",
+    "Rows": [
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "billOfLadingNumber",
+        "AzureName": "billOfLadingNumber"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "shipperName",
+        "AzureName": "shipperName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "consigneeName",
+        "AzureName": "consigneeName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "vesselName",
+        "AzureName": "vesselName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "voyageNumber",
+        "AzureName": "voyageNumber"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "portOfLoading",
+        "AzureName": "portOfLoading"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "portOfDischarge",
+        "AzureName": "portOfDischarge"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "issueDate",
+        "AzureName": "issueDate"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "billOfLadingNumber",
+        "AzureName": "BLNumber"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "containerNumber",
+        "AzureName": "ContainerNo"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "sealNumber",
+        "AzureName": "SealNo"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "containerType",
+        "AzureName": "ContainerType"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "packages",
+        "AzureName": "Packages"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "grossWeight",
+        "AzureName": "GrossWeight"
+      },
+      {
+        "MapKind": "Container",
+        "CanonicalKey": "description",
+        "AzureName": "Description"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "carrierName",
+        "AzureName": "CarrierName"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "vesselName",
+        "AzureName": "VesselName"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "voyageNumber",
+        "AzureName": "VoyageNumber"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "portOfLoading",
+        "AzureName": "PortOfLoading"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "portOfDischarge",
+        "AzureName": "PortOfDischarge"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "manifestDate",
+        "AzureName": "ManifestDate"
+      },
+      {
+        "MapKind": "Header",
+        "CanonicalKey": "placeOfDelivery",
+        "AzureName": "PlaceOfDelivery"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "billOfLadingNumber",
+        "AzureName": "BLNumber"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "shipperName",
+        "AzureName": "ShipperName"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "shipperAddress",
+        "AzureName": "ShipperAddress"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "consigneeName",
+        "AzureName": "ConsigneeName"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "consigneeAddress",
+        "AzureName": "ConsigneeAddress"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "notifyParty",
+        "AzureName": "NotifyParty"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "bookingNumber",
+        "AzureName": "BookingNumber"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "freightTerms",
+        "AzureName": "FreightTerms"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "packages",
+        "AzureName": "Packages"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "grossWeight",
+        "AzureName": "GrossWeight"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "description",
+        "AzureName": "Description"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "containerCount",
+        "AzureName": "ContainerCount"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "hsCode",
+        "AzureName": "HSCode"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "packageType",
+        "AzureName": "PackageType"
+      },
+      {
+        "MapKind": "Bill",
+        "CanonicalKey": "issueDate",
+        "AzureName": "IssueDate"
+      }
+    ]
+  },
+  {
+    "ModelId": "legacy",
+    "DocumentTypeCode": "BL",
+    "MappingShape": "LegacyFallback",
+    "ContainersField": "Containers",
+    "ContainerNumberField": "ContainerNo",
+    "SealNumberField": "SealNo",
+    "BillsOfLadingField": "BillsOfLading",
+    "Rows": [
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "billOfLadingNumber",
+        "AzureName": "BillOfLadingNumber"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "shipperName",
+        "AzureName": "ShipperName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "consigneeName",
+        "AzureName": "ConsigneeName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "vesselName",
+        "AzureName": "VesselName"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "voyageNumber",
+        "AzureName": "VoyageNumber"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "portOfLoading",
+        "AzureName": "PortOfLoading"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "portOfDischarge",
+        "AzureName": "PortOfDischarge"
+      },
+      {
+        "MapKind": "Field",
+        "CanonicalKey": "issueDate",
+        "AzureName": "DateOfIssue"
+      }
+    ]
+  }
+]
