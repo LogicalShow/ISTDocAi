@@ -123,8 +123,10 @@ public sealed class KitContractFixtureTests
         bool failed = name == "job-failed", queued = name == "job-queued";
         bool manifest = name.Contains("manifest", StringComparison.Ordinal);
         string? result = failed || queued ? null : name.StartsWith("job-render-", StringComparison.Ordinal)
-            ? File.ReadAllText(Path.Combine(Path.GetDirectoryName(Root)!, "ForwardingUniFreight", "ForwardingUniFreight.Solution",
-                "Forwarding.MvcApp", "DocAi", "Fixtures", manifest ? "manifest-test-A.json" : "bl.json"), Encoding.UTF8)
+            // Byte-identical copies of the kit's Forwarding.MvcApp/DocAi/Fixtures results; the kit repo is not
+            // checked out next to ISTDocAi (CI, or a clone in another folder).
+            ? File.ReadAllText(Path.Combine(Root, "ISTDocAi.UI.Server.Tests", "Fixtures", "KitResults",
+                manifest ? "manifest-test-A.json" : "bl.json"), Encoding.UTF8)
             : Result(manifest, name == "job-manifest-large");
         return new(Job, 1, RequestId, failed ? "Failed" : queued ? "Queued" : "Completed",
             failed ? "ANALYSIS_FAILED" : null, failed ? "Saved English failure message" : null,
