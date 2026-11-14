@@ -3,6 +3,14 @@
 ###############################################################################
 * text=auto
 
+# Byte-exact test data and hashed SQL: tests compare these files byte-for-byte or by SHA-256, so every checkout
+# (CI included) must reproduce exactly the committed bytes. Never convert their line endings.
+ISTDocAi.UI.Server.Tests/Fixtures/** -text
+ISTDocAi.Infrastructure.Tests/Fixtures/** -text
+ISTDocAi.Application.Tests/Fixtures/** -text
+ISTDocAi.Application.Tests/samples/** -text
+ISTDocAi.Infrastructure/Sql/*.sql -text
+
 ###############################################################################
 # Set default behavior for command prompt diff.
 #

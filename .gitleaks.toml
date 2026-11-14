@@ -8,7 +8,22 @@ description = "Published contract HMAC vector"
 condition = "AND"
 paths = ['''^ISTDocAi.Application.Tests/DocAi/Contracts/ContractTests\.cs$''']
 regexTarget = "match"
-regexes = ['''ZG9jYWktdGVzdC12ZWN0b3Itc2VjcmV0LTMyYnl0ZXM=''']
+regexes = ['''ZG9jYWktdGVzdC12ZWN0b3Itc2VjcmV0LTMyYnl0ZXM=?''']
+
+# Same published HMAC vector ("docai-test-vector-secret-32bytes") in webhook and contract test fixtures.
+[[allowlists]]
+description = "Published vector in test fixtures"
+condition = "AND"
+paths = ['''^ISTDocAi\.(Infrastructure|UI\.Server|Application)\.Tests/Fixtures/''']
+regexTarget = "match"
+# gitleaks also reports the base64-decoded form, so allow both spellings of the same published vector.
+regexes = ['''ZG9jYWktdGVzdC12ZWN0b3Itc2VjcmV0LTMyYnl0ZXM=?''', '''docai-test-vector-secret-32bytes''']
+
+# Golden outputs of the retired deploy scripts (removed 2026-11-14; still in history). They hold SHA-256 hashes of
+# test keys, never keys.
+[[allowlists]]
+description = "Retired deploy golden fixtures (history only)"
+paths = ['''^ISTDocAi\.Infrastructure\.Tests/Fixtures/Deploy/''']
 
 # Same published HMAC vector reused by worker test doubles.
 [[allowlists]]
@@ -16,4 +31,4 @@ description = "Published vector in worker doubles"
 condition = "AND"
 paths = ['''^ISTDocAi.Infrastructure.Tests/Worker/WebhookFakes\.cs$''', '''^ISTDocAi.Infrastructure.Tests/Runtime/WebhookFakes\.cs$''']
 regexTarget = "match"
-regexes = ['''ZG9jYWktdGVzdC12ZWN0b3Itc2VjcmV0LTMyYnl0ZXM=''']
+regexes = ['''ZG9jYWktdGVzdC12ZWN0b3Itc2VjcmV0LTMyYnl0ZXM=?''']
