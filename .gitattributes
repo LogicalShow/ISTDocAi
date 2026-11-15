@@ -69,3 +69,6 @@ ISTDocAi.Infrastructure/Sql/*.sql -text
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+
+tools/sql/operator/*.sql -text
+tools/src/ISTDocAi.OperatorTool/Templates/*.sql text eol=crlf

@@ -4,6 +4,7 @@
     <CentralPackageTransitivePinningEnabled>true</CentralPackageTransitivePinningEnabled>
   </PropertyGroup>
   <ItemGroup>
+    <PackageVersion Include="PDFsharp-MigraDoc" Version="6.2.4" />
     <PackageVersion Include="PdfPig" Version="0.1.16" />
     <PackageVersion Include="JsonSchema.Net" Version="7.3.4" />
     <PackageVersion Include="Mapster" Version="10.0.12" />

@@ -17,3 +17,7 @@ python .github/scripts/check-trx.py TestResults/ci
 ```
 
 Sql and Machine tests require explicitly configured disposable infrastructure. Runtime startup applies migrations and starts background services.
+
+## Tools
+
+Developer, server, kit, and operator tooling lives in the separate [tools solution](tools/README.md).

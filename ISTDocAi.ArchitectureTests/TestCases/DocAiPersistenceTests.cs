@@ -17,7 +17,7 @@ public sealed class DocAiPersistenceTests
         }
         var root = FindRoot();
         foreach (var project in Directory.EnumerateFiles(root, "*.csproj", SearchOption.AllDirectories)
-            .Where(p => !p.Contains("\\obj\\") && !p.Contains("\\bin\\") && !p.Contains(".Tests")))
+            .Where(p => !Path.GetRelativePath(root, p).Replace('\\', '/').StartsWith("tools/", StringComparison.OrdinalIgnoreCase) && !p.Contains("\\obj\\") && !p.Contains("\\bin\\") && !p.Contains(".Tests")))
         {
             var references = System.Xml.Linq.XDocument.Load(project).Descendants("PackageReference")
                 .Select(e => (string?)e.Attribute("Include"));

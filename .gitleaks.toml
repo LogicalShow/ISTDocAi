@@ -32,3 +32,12 @@ condition = "AND"
 paths = ['''^ISTDocAi.Infrastructure.Tests/Worker/WebhookFakes\.cs$''', '''^ISTDocAi.Infrastructure.Tests/Runtime/WebhookFakes\.cs$''']
 regexTarget = "match"
 regexes = ['''ZG9jYWktdGVzdC12ZWN0b3Itc2VjcmV0LTMyYnl0ZXM=?''']
+
+# Azure built-in role definition id "Key Vault Secrets User" (public, identical in every tenant), stored under the
+# bicep role map key `secrets`. Not a credential.
+[[allowlists]]
+description = "Azure built-in role id Key Vault Secrets User"
+condition = "AND"
+paths = ['''^tools/azure/infra/main\.bicep$''', '''^tools/azure/infra/main\.json$''']
+regexTarget = "match"
+regexes = ['''4633458b-17de-408a-b874-0445c86b69e6''']

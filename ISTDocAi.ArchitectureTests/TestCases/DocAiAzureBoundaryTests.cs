@@ -18,7 +18,7 @@ public sealed class DocAiAzureBoundaryTests
         while (root is not null && !File.Exists(Path.Combine(root.FullName, "ISTDocAi.sln"))) root = root.Parent;
         Assert.That(root, Is.Not.Null);
         foreach (var path in Directory.EnumerateFiles(root!.FullName, "*.csproj", SearchOption.AllDirectories)
-            .Where(p => !p.Contains(".Tests") && !p.Contains("ArchitectureTests") && !p.Contains("\\obj\\") && !p.Contains("\\bin\\") && Path.GetFileNameWithoutExtension(p) != "ISTDocAi.Infrastructure"))
+            .Where(p => !Path.GetRelativePath(root!.FullName, p).Replace('\\', '/').StartsWith("tools/", StringComparison.OrdinalIgnoreCase) && !p.Contains(".Tests") && !p.Contains("ArchitectureTests") && !p.Contains("\\obj\\") && !p.Contains("\\bin\\") && Path.GetFileNameWithoutExtension(p) != "ISTDocAi.Infrastructure"))
         {
             var references = System.Xml.Linq.XDocument.Load(path).Descendants("PackageReference").Select(e => (string?)e.Attribute("Include"));
             Assert.That(references.Where(n => n?.StartsWith("Azure.", StringComparison.Ordinal) == true || n == "System.Security.Cryptography.ProtectedData"), Is.Empty, path);
