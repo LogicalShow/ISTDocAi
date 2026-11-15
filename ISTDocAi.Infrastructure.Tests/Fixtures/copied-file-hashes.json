@@ -41,11 +41,11 @@
   },
   {
     "file": "ISTDocAi.Infrastructure.Tests/Fixtures/fresh-schema-security.json",
-    "sha256": "bb24b3c8cb3209a8a5f4719e025e06172614a234983077e786611aaa1e6bef08"
+    "sha256": "5a64a7256d8f3c68153a4692bbc943cf900b5776ec75aecb4d201776d377aaa2"
   },
   {
     "file": "ISTDocAi.Infrastructure.Tests/Fixtures/migration-history.json",
-    "sha256": "4566f11cfee2c996c876b9591c72c25b386d3c9df5996231e80aa014b6fc5795"
+    "sha256": "ffa44b511c279b42acafa063c9a85b7d9c65530f082860690c4dc694b20c0eff"
   },
   {
     "file": "ISTDocAi.Infrastructure.Tests/Fixtures/initializer-events.json",
