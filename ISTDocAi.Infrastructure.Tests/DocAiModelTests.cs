@@ -24,17 +24,17 @@ public sealed class DocAiModelTests
     }
 
     [Test]
-    public void Snapshot_matches_model_and_only_two_frozen_migrations_exist()
+    public void Snapshot_matches_model_and_registered_migrations_exist()
     {
         using var context = new DocAiDesignTimeFactory().CreateDbContext([]);
         Assert.That(context.Database.HasPendingModelChanges(), Is.False);
         Assert.That(context.Database.GetMigrations(), Is.EqualTo(new[] {
-            "20261101000000_InitialSchema", "20261103000000_ModelMappingProfiles" }));
+            "20261101000000_InitialSchema", "20261103000000_ModelMappingProfiles", "20261115000000_JobCancellation" }));
         var files = Directory.GetFiles(Path.Combine(Root, "ISTDocAi.Infrastructure", "Migrations", "DocAi"), "*.cs")
             .Select(Path.GetFileName).Order().ToArray();
         Assert.That(files, Is.EquivalentTo(new[] { "20261101000000_InitialSchema.cs",
             "20261101000000_InitialSchema.Designer.cs", "20261103000000_ModelMappingProfiles.cs",
-            "DocAiDbContextModelSnapshot.cs" }));
+            "20261115000000_JobCancellation.cs", "DocAiDbContextModelSnapshot.cs" }));
     }
 
     [Test]

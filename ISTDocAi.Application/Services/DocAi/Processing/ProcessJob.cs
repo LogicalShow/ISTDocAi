@@ -240,6 +240,11 @@ public sealed class ProcessJob(IJobRepository jobs, IJobQueue queue, IOperationS
             using var beginBudget = CancellationTokenSource.CreateLinkedTokenSource(ownershipLost.Token);
             beginBudget.CancelAfter(TimeSpan.FromSeconds(30));
             var begin = await operations.BeginAsync(Lease(), kind, model.ModelId, beginBudget.Token);
+            if (begin.Outcome == WriteOutcome.CancelRequested)
+            {
+                Check(await Write(ct => jobs.FinishCancellationAsync(Lease(), ct)));
+                return null;
+            }
             if (begin.Outcome == WriteOutcome.RetriesExhausted) { await Fail(ErrorCodes.RetriesExhausted); return null; }
             Check(begin.Outcome);
             var id = begin.OperationId ?? throw new LeaseLostException();

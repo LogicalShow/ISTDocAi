@@ -37,6 +37,9 @@ public sealed class KitContractFixtureTests
         }
     }
 
+    [TestCase("cancel-cancelled")]
+    [TestCase("cancel-continuing")]
+    [TestCase("cancel-not-found")]
     [TestCase("submit")]
     [TestCase("replay")]
     [TestCase("catalog")]
@@ -89,6 +92,8 @@ public sealed class KitContractFixtureTests
             const string message = "The page allowance is exhausted or insufficient for this document. Contact IST to renew.";
             app.Ports.IntakeError = new(402, "QUOTA_EXHAUSTED", message, message, requiredPages: 6, availablePages: 4);
         }
+        bool cancel = name.StartsWith("cancel-", StringComparison.Ordinal);
+        if (cancel && name != "cancel-not-found") app.Ports.CancelResult = new(Job, 1, name == "cancel-cancelled" ? "Cancelled" : "Continuing");
         bool job = name.StartsWith("job-", StringComparison.Ordinal);
         if (job && name != "job-not-found") app.Ports.Run = Run(name, app.Clock.Now);
         using var client = app.Client(); client.DefaultRequestHeaders.Add("X-Culture", "en");
@@ -97,7 +102,7 @@ public sealed class KitContractFixtureTests
         bool post = new[] { "submit", "replay", "invalid-request", "quota-exhausted", "daily-cap" }.Contains(name);
         string route = post ? "/api/v2/jobs" : job ? $"/api/v2/jobs/{Job}?runNo=1"
             : name == "usage" ? "/api/v2/usage?months=3" : name == "unknown-route" ? "/api/v2/unknown" : "/api/v2/catalog";
-        using var request = new HttpRequestMessage(post ? HttpMethod.Post : HttpMethod.Get, route);
+        using var request = new HttpRequestMessage(post || cancel ? HttpMethod.Post : HttpMethod.Get, cancel ? $"/api/v2/jobs/cancel?requestId={RequestId}" : route);
         if (post) request.Content = HttpGoldenTests.Form(name == "invalid-request" ? [] :
             await File.ReadAllBytesAsync(Path.Combine(Root, "ISTDocAi.UI.Server.Tests", "Fixtures", "Stage6", "baseline.pdf")), requestId: RequestId);
         using var response = await client.SendAsync(request);

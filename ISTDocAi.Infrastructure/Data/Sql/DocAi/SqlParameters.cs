@@ -43,7 +43,7 @@ internal sealed class SqlParameters : SqlMapper.IDynamicParameters
         "resultType" => (SqlDbType.VarChar, 32, 0, 0),
         "kind" or "state" => (SqlDbType.VarChar, 10, 0, 0),
         "activeClassifierModelId" or "activeExtractModelId" or "modelId" or "classifierModelId" or "newModelId" or "className" or "correlationId" => (SqlDbType.VarChar, 64, 0, 0),
-        "clientRequestId" or "contentType" => (SqlDbType.VarChar, 100, 0, 0),
+        "requestId" or "clientRequestId" or "contentType" => (SqlDbType.VarChar, 100, 0, 0),
         "blobPath" or "rawResultPath" => (SqlDbType.VarChar, 400, 0, 0),
         "fileName" => (SqlDbType.NVarChar, 260, 0, 0),
         "operationLocation" or "error" => (SqlDbType.NVarChar, 500, 0, 0),

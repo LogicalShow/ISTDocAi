@@ -20,6 +20,11 @@ public sealed class SqlJobRepository : IJobRepository
         this.connections = connections; this.options = options; this.profiles = profiles;
     }
 
+    public Task<CancelJobResult?> CancelAsync(short consumerId, string requestId, CancellationToken cancellationToken) =>
+        execution.One<CancelJobResult>("S32", new { consumerId, requestId }, cancellationToken);
+    public Task<WriteOutcome> FinishCancellationAsync(Lease lease, CancellationToken cancellationToken) =>
+        execution.Write("S33", new { lease.JobId, lease.LeaseToken }, true, cancellationToken);
+
     public async Task<int> DailyPagesAsync(short consumerId, CancellationToken cancellationToken) =>
         await execution.One<int>("S1", new { consumerId }, cancellationToken);
 

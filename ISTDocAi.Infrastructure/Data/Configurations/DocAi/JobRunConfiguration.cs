@@ -9,6 +9,7 @@ public sealed class JobRunConfiguration : IEntityTypeConfiguration<JobRun>
     public void Configure(EntityTypeBuilder<JobRun> builder)
     {
         builder.ToTable("JobRuns", "dbo");
+        builder.Property(x => x.CancelRequestedAtUtc).HasColumnOrder(16).HasColumnType("datetime2(3)").IsRequired(false).ValueGeneratedNever();
         builder.Property(x => x.MappingFingerprint).HasColumnName("MappingFingerprint").HasColumnOrder(0).HasColumnType("char(64)").IsRequired(false).ValueGeneratedNever();
         builder.Property(x => x.ChangesJson).HasColumnName("ChangesJson").HasColumnOrder(1).HasColumnType("nvarchar(max)").IsRequired(false).ValueGeneratedNever();
         builder.Property(x => x.JobId).HasColumnName("JobId").HasColumnOrder(2).HasColumnType("uniqueidentifier").IsRequired(true).ValueGeneratedNever();

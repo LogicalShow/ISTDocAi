@@ -25,6 +25,15 @@ public sealed class JobsController(ISender sender) : ControllerBase
         }
         finally { System.IO.File.Delete(path); }
     }
+    [HttpPost("cancel")]
+    public async Task<IActionResult> Cancel(CancellationToken ct)
+    {
+        var values = Request.Query["requestId"];
+        if (values.Count != 1 || values[0] is null) throw IntakeException.Invalid();
+        var result = await sender.Send(new ISTDocAi.Application.Features.DocAi.Jobs.Commands.CancelJob.CancelJobCommand(
+            (Consumer)HttpContext.Items["consumer"]!, values[0]!), ct);
+        return DocAiTransport.Success(HttpContext, result);
+    }
     [HttpGet("{id}")]
     public async Task<IActionResult> Get(string id, CancellationToken ct)
     {

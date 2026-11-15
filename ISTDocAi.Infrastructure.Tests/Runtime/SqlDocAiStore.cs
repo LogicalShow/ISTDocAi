@@ -46,6 +46,8 @@ internal sealed class SqlDocAiStore : IJobRepository, IJobQueue, IOperationStore
     public Task<RunOutcome?> GetRunAsync(Guid jobId, short consumerId, short? runNo, CancellationToken cancellationToken) => JobRepository.GetRunAsync(jobId, consumerId, runNo, cancellationToken);
     public Task<RunPosition?> GetPositionAsync(Guid jobId, CancellationToken cancellationToken) => JobRepository.GetPositionAsync(jobId, cancellationToken);
     public Task<WriteOutcome> CompleteAsync(Completion request, CancellationToken cancellationToken) => JobRepository.CompleteAsync(request, cancellationToken);
+    public Task<CancelJobResult?> CancelAsync(short consumerId, string requestId, CancellationToken ct) => JobRepository.CancelAsync(consumerId, requestId, ct);
+    public Task<WriteOutcome> FinishCancellationAsync(Lease lease, CancellationToken ct) => JobRepository.FinishCancellationAsync(lease, ct);
     public Task<WriteOutcome> FailAsync(Failure request, CancellationToken cancellationToken) => JobRepository.FailAsync(request, cancellationToken);
     public Task<WriteOutcome> ClassifierSucceededAsync(ClassifierSuccess request, CancellationToken cancellationToken) => JobRepository.ClassifierSucceededAsync(request, cancellationToken);
     public Task<ClassMapping?> GetClassMappingAsync(string classifierModelId, string className, CancellationToken cancellationToken) => JobRepository.GetClassMappingAsync(classifierModelId, className, cancellationToken);

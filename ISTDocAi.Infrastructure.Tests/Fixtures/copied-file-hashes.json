@@ -33,7 +33,7 @@
   },
   {
     "file": "ISTDocAi.Infrastructure/Sql/03_docai_statements.sql",
-    "sha256": "d2f995b921ef679db7ac259289a0c47b23534d1050cb9ee02b1b08012d3a5bc6"
+    "sha256": "fc1c049170975a10ec89ee549384ef89cd1b7ae4157627a7184502a866e761ed"
   },
   {
     "file": "ISTDocAi.Infrastructure/Sql/04_docai_billing.sql",
@@ -41,11 +41,11 @@
   },
   {
     "file": "ISTDocAi.Infrastructure.Tests/Fixtures/fresh-schema-security.json",
-    "sha256": "5239b797f4ae079687b4cfefabee52e4f9aafcc59182a0c59ce36631823f8081"
+    "sha256": "bb24b3c8cb3209a8a5f4719e025e06172614a234983077e786611aaa1e6bef08"
   },
   {
     "file": "ISTDocAi.Infrastructure.Tests/Fixtures/migration-history.json",
-    "sha256": "be2085c8f79cc9941c53cefca4643f3b72e96eaf8fd3dbfbc058dcfe5516958f"
+    "sha256": "4566f11cfee2c996c876b9591c72c25b386d3c9df5996231e80aa014b6fc5795"
   },
   {
     "file": "ISTDocAi.Infrastructure.Tests/Fixtures/initializer-events.json",

@@ -37,6 +37,8 @@ public sealed class TelemetryTests
         var root = RepositoryPaths.Root;
         var paths = new[] { "ISTDocAi.Application", "ISTDocAi.Infrastructure", "ISTDocAi.UI/ISTDocAi.UI.Server" }
             .SelectMany(folder => Directory.GetFiles(Path.Combine(root, folder), "appsettings*.json", SearchOption.AllDirectories))
+            // Machine-local settings intentionally contain secrets and are outside the source configuration contract.
+            .Where(path => !string.Equals(Path.GetFileName(path), "appsettings.Local.json", StringComparison.OrdinalIgnoreCase))
             .Where(path => !path.Contains("/bin/") && !path.Contains("/obj/") && !path.Contains("\\bin\\") && !path.Contains("\\obj\\"));
         var forbidden = File.ReadAllLines(Path.Combine(root, ".github", "scripts", "config-forbidden.txt"));
         foreach (var path in paths)

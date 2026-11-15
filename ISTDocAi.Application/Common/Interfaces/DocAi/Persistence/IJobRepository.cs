@@ -2,6 +2,8 @@ namespace ISTDocAi.Application.Common.Interfaces.DocAi.Persistence;
 
 public interface IJobRepository
 {
+    Task<CancelJobResult?> CancelAsync(short consumerId, string requestId, CancellationToken cancellationToken);
+    Task<WriteOutcome> FinishCancellationAsync(Lease lease, CancellationToken cancellationToken);
     Task<int> DailyPagesAsync(short consumerId, CancellationToken cancellationToken);
     Task<IntakeResult> IntakeAsync(IntakeRequest request, CancellationToken cancellationToken);
     Task<RunOutcome?> GetRunAsync(Guid jobId, short consumerId, short? runNo, CancellationToken cancellationToken);

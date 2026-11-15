@@ -7,7 +7,7 @@
   {
     "assembly": "DocAi.Infrastructure",
     "name": "DocAi.Statements.sql",
-    "sha256": "d2f995b921ef679db7ac259289a0c47b23534d1050cb9ee02b1b08012d3a5bc6"
+    "sha256": "fc1c049170975a10ec89ee549384ef89cd1b7ae4157627a7184502a866e761ed"
   },
   {
     "assembly": "DocAi.Database",

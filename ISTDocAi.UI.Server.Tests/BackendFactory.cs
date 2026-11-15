@@ -13,6 +13,8 @@ internal class BackendFactory(bool? enabled, string environment = "Development")
 {
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
+        // Keep tests isolated from machine-local configuration and secrets in the source directory.
+        builder.UseContentRoot(AppContext.BaseDirectory);
         builder.UseEnvironment(environment);
         // Host settings are supplied before Program reads configuration or registers Infrastructure.
         if (enabled.HasValue)

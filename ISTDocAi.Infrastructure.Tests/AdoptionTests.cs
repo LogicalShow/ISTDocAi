@@ -68,7 +68,12 @@ public sealed class AdoptionTests
         await db.VerifyHistoryAndRcsi(ct);
         Assert.That(await db.ScalarTarget("SELECT COUNT(*) FROM sys.tables WHERE name IN ('MappingProfiles','MappingFields','ModelMappingBindings')", ct), Is.EqualTo("3"));
         for (var i = 0; i < tables.Length; i++)
-            Assert.That(await db.ScalarTarget($"SELECT * FROM dbo.{tables[i]} FOR JSON PATH,INCLUDE_NULL_VALUES", ct), Is.EqualTo(before[i]));
+        {
+            var after = await db.ScalarTarget($"SELECT * FROM dbo.{tables[i]} FOR JSON PATH,INCLUDE_NULL_VALUES", ct);
+            // 20261115000000_JobCancellation adds a NULL audit column to existing runs; every other value is unchanged.
+            if (tables[i] == "JobRuns") after = after.Replace(",\"CancelRequestedAtUtc\":null", "", StringComparison.Ordinal);
+            Assert.That(after, Is.EqualTo(before[i]));
+        }
         var snapshot = await db.Snapshot(ct);
         await Initialize(db, ct);
         Assert.That(await db.Snapshot(ct), Is.EqualTo(snapshot));

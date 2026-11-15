@@ -145,6 +145,14 @@ public sealed class FakePorts : IConsumerSource, IModelCatalog, IJobRepository, 
     public Task ActivateAsync(string id, decimal accuracy, CancellationToken ct) => throw new NotSupportedException();
     public Task<RunPosition?> GetPositionAsync(Guid id, CancellationToken ct) => throw new NotSupportedException();
     public Task<WriteOutcome> CompleteAsync(Completion r, CancellationToken ct) => throw new NotSupportedException();
+    public CancelJobResult? CancelResult { get; set; }
+    public string? CancelRequestId { get; private set; }
+    public Task<CancelJobResult?> CancelAsync(short consumerId, string requestId, CancellationToken ct)
+    {
+        CancelRequestId = requestId;
+        return Task.FromResult(consumerId == RunConsumerId ? CancelResult : null);
+    }
+    public Task<WriteOutcome> FinishCancellationAsync(Lease lease, CancellationToken ct) => Task.FromResult(WriteOutcome.Applied);
     public Task<WriteOutcome> FailAsync(Failure r, CancellationToken ct) => throw new NotSupportedException();
     public Task<WriteOutcome> ClassifierSucceededAsync(ClassifierSuccess r, CancellationToken ct) => throw new NotSupportedException();
     public Task<ClassMapping?> GetClassMappingAsync(string id, string name, CancellationToken ct) => throw new NotSupportedException();

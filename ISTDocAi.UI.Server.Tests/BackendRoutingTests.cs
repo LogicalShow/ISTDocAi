@@ -52,7 +52,7 @@ public class BackendRoutingTests
         var actions = factory.Services.GetRequiredService<IActionDescriptorCollectionProvider>()
             .ActionDescriptors.Items.OfType<ControllerActionDescriptor>().ToArray();
         Assert.That(actions.Count(a => a.ControllerTypeInfo.Namespace != "ISTDocAi.UI.Server.Controllers.DocAi"), enabled ? Is.GreaterThan(0) : Is.Zero);
-        Assert.That(actions.Count(a => a.ControllerTypeInfo.Namespace == "ISTDocAi.UI.Server.Controllers.DocAi"), Is.EqualTo(7));
+        Assert.That(actions.Count(a => a.ControllerTypeInfo.Namespace == "ISTDocAi.UI.Server.Controllers.DocAi"), Is.EqualTo(8));
         if (enabled)
         {
             var expected = typeof(Program).Assembly.GetTypes()

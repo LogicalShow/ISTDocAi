@@ -16,6 +16,7 @@ public sealed class JobRun
     public string? ErrorCode { get; set; }
     public string? ErrorMessage { get; set; }
     public DateTime CreatedAtUtc { get; set; }
+    public DateTime? CancelRequestedAtUtc { get; set; }
     public DateTime? CompletedAtUtc { get; set; }
     public string? ResolvedDocumentTypeCode { get; set; }
     public string? ResultType { get; set; }

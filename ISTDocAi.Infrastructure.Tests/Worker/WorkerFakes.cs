@@ -98,6 +98,7 @@ public sealed class WorkerFakes : IJobRepository, IJobQueue, IOperationStore, IC
     public const string RawJson = """{"pages":[{}],"documents":[{"docType":"line-class","confidence":0.95,"fields":{"shipperName":{"valueString":"PRIVATE_FIELD_VALUE","confidence":0.85}}}]}""";
     public ClaimedJob Job { get; set; } = new(Guid.NewGuid(), 1, Guid.NewGuid(), 0, 1, "BL", null, "Extract", "PRIVATE_FILE.pdf", 1, 0, "test-correlation");
     public RunPosition Position { get; set; } = new(1, "Extract", null, null, null, null, null, null, 0, null, null);
+    public bool CancelRequested { get; set; }
     public List<string> Calls { get; } = [];
     public Dictionary<string, WriteOutcome> Outcomes { get; } = [];
     public List<CatalogModel> Models { get; } = [new("BL", null, "extract", "bl-v1", .9m), new("BL", null, "classify", "classifier", .9m), new("BL", "LINE", "extract", "line-model", .9m)];
@@ -164,6 +165,12 @@ public sealed class WorkerFakes : IJobRepository, IJobQueue, IOperationStore, IC
             RequestedDocumentTypeCode = Job.DocumentTypeCode,
             ResolvedDocumentTypeCode = Position.ResolvedDocumentTypeCode ?? (Job.DocumentTypeCode == "AUTO" ? null : Job.DocumentTypeCode) });
     public Task<WriteOutcome> CompleteAsync(Completion request, CancellationToken ct) { Completion = request; return Task.FromResult(Write("complete")); }
+    public Task<CancelJobResult?> CancelAsync(short consumerId, string requestId, CancellationToken ct) => Task.FromResult<CancelJobResult?>(null);
+    public Task<WriteOutcome> FinishCancellationAsync(Lease lease, CancellationToken ct)
+    {
+        Failure = new(lease.JobId, lease.LeaseToken, "CANCELLED", "Cancelled by the consumer.", false, Guid.Empty, "", null, null);
+        return Task.FromResult(Write("cancel"));
+    }
     public Task<WriteOutcome> FailAsync(Failure request, CancellationToken ct) { Failure = request; return Task.FromResult(Write("fail")); }
     public Task<WriteOutcome> ClassifierSucceededAsync(ClassifierSuccess request, CancellationToken ct)
     {
@@ -184,7 +191,7 @@ public sealed class WorkerFakes : IJobRepository, IJobQueue, IOperationStore, IC
     public Task<WriteOutcome> RenewAsync(Lease lease, CancellationToken ct) => RenewHandler?.Invoke(ct) ?? Task.FromResult(Write("renew"));
     public Task<WriteOutcome> RetryAsync(Lease lease, int delay, string? error, CancellationToken ct) { RetrySeconds = delay; RetryError = error; return Task.FromResult(Write("retry")); }
     public Task<WriteOutcome> ReleaseAsync(Lease lease, int delay, string? error, CancellationToken ct) { Released = (delay, error); return Task.FromResult(Write("release")); }
-    public Task<BeginOperationResult> BeginAsync(Lease lease, string kind, string model, CancellationToken ct) { return Task.FromResult(new BeginOperationResult(Write("begin"), 2)); }
+    public Task<BeginOperationResult> BeginAsync(Lease lease, string kind, string model, CancellationToken ct) { return Task.FromResult(new BeginOperationResult(CancelRequested && Classification is null && Position.State is null ? WriteOutcome.CancelRequested : Write("begin"), 2)); }
     public Task<bool> AcceptedAsync(long id, string location, CancellationToken ct) { AcceptedToken = ct; var result = Write("accepted") == WriteOutcome.Applied; AfterAccepted?.Invoke(); return AcceptedHandler?.Invoke(ct) ?? Task.FromResult(result); }
     public Task<WriteOutcome> CloseSendingAsync(long id, Guid token, string state, string? code, CancellationToken ct)
     {

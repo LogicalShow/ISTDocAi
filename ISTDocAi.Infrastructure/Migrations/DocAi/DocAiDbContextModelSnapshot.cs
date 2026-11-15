@@ -858,6 +858,10 @@ namespace ISTDocAi.Infrastructure.Migrations.DocAi
                         .HasColumnName("ClientRequestId")
                         .HasColumnOrder(7);
 
+                    b.Property<DateTime?>("CancelRequestedAtUtc")
+                        .HasColumnType("datetime2(3)")
+                        .HasColumnOrder(16);
+
                     b.Property<DateTime?>("CompletedAtUtc")
                         .HasColumnType("datetime2(3)")
                         .HasColumnName("CompletedAtUtc")

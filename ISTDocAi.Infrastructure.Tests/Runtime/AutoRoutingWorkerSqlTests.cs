@@ -136,6 +136,8 @@ public sealed class AutoRoutingWorkerSqlTests
         public Task<RunOutcome?> GetRunAsync(Guid id, short consumer, short? run, CancellationToken ct) => inner.GetRunAsync(id, consumer, run, ct);
         public Task<RunPosition?> GetPositionAsync(Guid id, CancellationToken ct) => inner.GetPositionAsync(id, ct);
         public Task<WriteOutcome> CompleteAsync(Completion request, CancellationToken ct) => inner.CompleteAsync(request, ct);
+        public Task<CancelJobResult?> CancelAsync(short consumerId, string requestId, CancellationToken ct) => inner.CancelAsync(consumerId, requestId, ct);
+        public Task<WriteOutcome> FinishCancellationAsync(Lease lease, CancellationToken ct) => inner.FinishCancellationAsync(lease, ct);
         public Task<WriteOutcome> FailAsync(Failure request, CancellationToken ct) => inner.FailAsync(request, ct);
         public Task<ClassMapping?> GetClassMappingAsync(string model, string name, CancellationToken ct) => inner.GetClassMappingAsync(model, name, ct);
         public async Task<WriteOutcome> ClassifierSucceededAsync(ClassifierSuccess request, CancellationToken ct)

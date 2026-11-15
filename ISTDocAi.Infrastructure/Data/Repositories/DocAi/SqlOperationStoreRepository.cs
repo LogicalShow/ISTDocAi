@@ -22,9 +22,9 @@ public sealed class SqlOperationStoreRepository : IOperationStore
             var id = await execution.One<long?>("S4a", new { lease.JobId, lease.LeaseToken, kind, modelId }, cancellationToken);
             return new(id.HasValue ? WriteOutcome.Applied : WriteOutcome.LeaseLost, id);
         }
-        catch (SqlException e) when (e.Number is 50010 or 50012 or 50013)
+        catch (SqlException e) when (e.Number is 50010 or 50012 or 50013 or 50017)
         {
-            return new(e.Number switch { 50013 => WriteOutcome.RetriesExhausted, 50012 => WriteOutcome.OperationNotOpen, _ => WriteOutcome.LeaseLost }, null);
+            return new(e.Number switch { 50017 => WriteOutcome.CancelRequested, 50013 => WriteOutcome.RetriesExhausted, 50012 => WriteOutcome.OperationNotOpen, _ => WriteOutcome.LeaseLost }, null);
         }
     }
 

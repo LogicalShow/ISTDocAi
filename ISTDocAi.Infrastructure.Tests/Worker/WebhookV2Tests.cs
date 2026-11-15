@@ -156,6 +156,8 @@ public sealed class WebhookV2Tests
         public Task<IntakeResult> IntakeAsync(IntakeRequest r, CancellationToken ct) => throw new NotSupportedException();
         public Task<RunPosition?> GetPositionAsync(Guid id, CancellationToken ct) => throw new NotSupportedException();
         public Task<WriteOutcome> CompleteAsync(Completion r, CancellationToken ct) => throw new NotSupportedException();
+        public Task<CancelJobResult?> CancelAsync(short consumerId, string requestId, CancellationToken ct) => throw new NotSupportedException();
+        public Task<WriteOutcome> FinishCancellationAsync(Lease lease, CancellationToken ct) => throw new NotSupportedException();
         public Task<WriteOutcome> FailAsync(Failure r, CancellationToken ct) => throw new NotSupportedException();
         public Task<WriteOutcome> ClassifierSucceededAsync(ClassifierSuccess r, CancellationToken ct) => throw new NotSupportedException();
         public Task<ClassMapping?> GetClassMappingAsync(string m, string c, CancellationToken ct) => throw new NotSupportedException();

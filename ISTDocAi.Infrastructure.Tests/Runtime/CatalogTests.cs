@@ -15,7 +15,7 @@ public sealed class CatalogTests
     [Test]
     public async Task Every_expected_label_occurs_once_and_slices_are_the_exact_reference_text()
     {
-        string[] expected = ["S1","S2","S3","S4a","S4b","S4c","S5","S6","S7","S8a","S8","S9","S10","S11","S12","S13","S14","S15","S16","S17","S18","S19","S20","S21","S23","S24","S22","S25","S26","S27","S28","S29","S30","S31"];
+        string[] expected = ["S1","S2","S3","S4a","S4b","S4c","S5","S6","S7","S8a","S8","S9","S10","S11","S12","S13","S14","S15","S16","S17","S18","S19","S20","S21","S23","S24","S22","S25","S26","S27","S28","S29","S30","S31","S32","S33"];
         var catalog = new SqlStatementCatalog();
         Assert.Equal(await File.ReadAllTextAsync(Path.Combine(AppContext.BaseDirectory, "03_docai_statements.sql")), catalog.Source);
         Assert.Equal(expected.Append("B9"), catalog.Statements.Keys);
