@@ -58,6 +58,21 @@ public static class DocAiWorkerRegistration
         services.AddOptions<SignalsOptions>().Bind(configuration.GetSection("Signals"));
         services.AddHostedService<SignalsService>();
         services.TryAddSingleton<IDocAiV2Json, DocAiV2Json>();
+        services.AddOptions<AzurePriceRefreshOptions>().Bind(configuration.GetSection("AzurePriceRefresh"))
+            .Validate(o => o.Interval >= TimeSpan.FromHours(1), "AzurePriceRefresh:Interval must be at least one hour.")
+            .Validate(o => o.StartupDelay >= TimeSpan.Zero && o.StartupDelay <= TimeSpan.FromHours(1), "AzurePriceRefresh:StartupDelay must be between zero and one hour.")
+            .ValidateOnStart();
+        services.AddHttpClient(Services.DocAi.Pricing.AzureRetailPriceClient.ClientName, client =>
+        {
+            client.Timeout = Timeout.InfiniteTimeSpan;
+            client.DefaultRequestHeaders.Clear();
+        }).ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
+        {
+            AllowAutoRedirect = false, UseCookies = false, UseDefaultCredentials = false, Credentials = null
+        });
+        services.AddScoped<ISTDocAi.Application.Common.Interfaces.DocAi.Pricing.IAzureRetailPriceSource, Services.DocAi.Pricing.AzureRetailPriceClient>();
+        services.AddScoped<ISTDocAi.Application.Services.DocAi.Pricing.CheckAzurePrices>();
+        services.AddHostedService<AzurePriceRefreshService>();
         return services;
     }
 }

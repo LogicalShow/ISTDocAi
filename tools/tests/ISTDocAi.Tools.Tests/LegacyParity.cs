@@ -6,8 +6,8 @@ PageAllowanceDeploymentSqlTests.Debt_reversal_and_preview [1] [Test, -> Operator
 PageAllowanceDeploymentSqlTests.Mode_switch_atomic_replay_and_history [1] [Test, -> LegacyParitySqlTests.Topup_status_isolation_blocked_mode_confirmation_and_mode_conflict
 PageAllowanceDeploymentSqlTests.Unspent_reversal_and_reserved_pages_refusal_match_service_status [1] [Test, -> OperatorSqlTests.Reserved_pages_refuse_reversal_and_status_matches_service
 PageAllowanceDeploymentSqlTests.Stale_preview_and_inactive_consumer_refuse_without_changes [1] [Test, -> OperatorSqlTests.Stale_preview_and_inactive_consumer_are_refused_without_changes
-PageAllowanceDeploymentSqlTests.Fresh_grants_and_upgrade_have_identical_quota_permissions [1] [Test, -> LegacyParitySqlTests.Fresh_migrated_and_legacy_upgrade_quota_permissions_are_identical
-PageAllowanceDeploymentSqlTests.Operator_can_run_actions_runtime_cannot_grant [1] [Test, -> LegacyParitySqlTests.Quota_role_all_actions_and_runtime_insert_denied_membership_replay
+PageAllowanceDeploymentSqlTests.Fresh_grants_and_upgrade_have_identical_quota_permissions [1] [Test, -> n/a: retired role permission parity is no longer part of the database contract
+PageAllowanceDeploymentSqlTests.Operator_can_run_actions_runtime_cannot_grant [1] [Test, -> LegacyParitySqlTests.Database_owner_can_run_all_quota_actions
 PageAllowanceBuilderTests.Invalid_inputs_and_scripts_parse_before_SQL [1] [Test] -> OperatorPureTests.Invalid_page_inputs_refused_before_IO
 TopUpReportingScriptTests.Operator_uses_unmodified_reference_sql [1] [TestCase("Cycles", "S29")] -> OperatorPureTests.Reports_use_exact_reference_statements_and_no_mutation
 TopUpReportingScriptTests.Operator_uses_unmodified_reference_sql [2] [TestCase("Documents", "S30")] -> OperatorPureTests.Reports_use_exact_reference_statements_and_no_mutation
@@ -17,7 +17,7 @@ TopUpReportingScriptTests.Both_32_wrappers_read_without_preview_and_export_escap
 TopUpReportingScriptTests.Both_32_wrappers_read_without_preview_and_export_escaped_JSON_CSV [2] [TestCase("onprem")] -> LegacyParityPureTests.Report_CSV_escaping_exact_decimals_and_unpriced_warning
 TopUpReportingScriptTests.Http_helper_reads_key_privately_follows_export_cursor_and_caps_at_10000 [1] [Test] -> LegacyParityPureTests.HTTP_date_and_delta_retry_after_and_cursor_export_keep_key_private
 TopUpReportingScriptTests.Http_retries_429_503_only_honors_retry_after_and_never_follows_redirects [1] [Test] -> LegacyParityPureTests.HTTP_date_and_delta_retry_after_and_cursor_export_keep_key_private
-OperatorPackageTests.GeneratedOperatorsJoinMigratedRolesAndCanBeAppliedTwice [1] [Test, -> LegacyParitySqlTests.Quota_role_all_actions_and_runtime_insert_denied_membership_replay
+OperatorPackageTests.GeneratedOperatorsJoinMigratedRolesAndCanBeAppliedTwice [1] [Test, -> n/a: owner-approved removal of the AD group grants command
 BlActivationDeploymentSqlTests.Switch_is_versioned_rerun_is_noop_rollback_works_and_AUTO_still_routes_BL [1] [Test, -> LegacyParitySqlTests.BL_only_does_not_register_router_and_switch_versions_routes_and_rolls_back
 BlActivationDeploymentSqlTests.Invalid_group_or_accuracy_rolls_back_every_change [1] [TestCase("manifest-v2", "0.95", "group mismatch")] -> LegacyParitySqlTests.Invalid_BL_group_or_accuracy_preserves_complete_snapshot
 BlActivationDeploymentSqlTests.Invalid_group_or_accuracy_rolls_back_every_change [2] [TestCase("bl-v2", "0.5", "accuracy gate")] -> LegacyParitySqlTests.Invalid_BL_group_or_accuracy_preserves_complete_snapshot
@@ -148,7 +148,7 @@ public sealed class LegacyParityPureTests
         // The map was audited case-by-case against the legacy test sources (93 cases) before legacy/ was archived to
         // ISTDocAi-NonCode on 2026-11-14. Freeze it: rows may not be dropped or added without a new audit.
         Assert.That(entries, Has.Length.EqualTo(93), "Legacy parity map is frozen at the 93 audited cases.");
-        Assert.That(entries.Count(x => x.Contains(" -> n/a:", StringComparison.Ordinal)), Is.EqualTo(4), "Exactly the four owner-approved n/a rows.");
+        Assert.That(entries.Count(x => x.Contains(" -> n/a:", StringComparison.Ordinal)), Is.EqualTo(6), "Four prior exclusions plus retired role permission parity and AD group grants.");
     }
 
     public static IEnumerable<TestCaseData> InvalidSets()
@@ -220,7 +220,7 @@ public sealed class LegacyParityPureTests
         if(shape>0) r=r with { ManifestModelId="op-manifest", ManifestTestFieldAccuracy=.92m };
         if(shape==2) r=r with { ClassifierModelId="op-router", ClassifierTestFieldAccuracy=.91m, ManifestMinFieldConfidence=.76m, ClassifierMinConfidence=.53m };
         var sql=ModelSql.Set(r);
-        Assert.That(sql,Does.StartWith("-- Target: DocAi").And.Contain("docai_modelteam").And.Contain("already Active; no changes").And.Contain("SELECT ModelId, DocumentTypeCode").And.Not.Contain("$("));
+        Assert.That(sql,Does.StartWith("-- Target: DocAi").And.Contain("db_owner on the DocAi database").And.Contain("already Active; no changes").And.Contain("SELECT ModelId, DocumentTypeCode").And.Not.Contain("$("));
         Assert.That(sql.All(c=>c<=127),Is.True); Assert.That(sql,Is.EqualTo(ModelSql.Set(r)));
         if(shape<2) Assert.That(sql,Does.Not.Contain("INSERT dbo.ClassifierClasses"));
         if(shape==2) new OperatorPureTests().Model_set_is_one_outer_transaction_and_keeps_BL_MANIFEST_AUTO_order();
@@ -614,42 +614,15 @@ public sealed class LegacyParitySqlTests : GuardedToolTests
     }
 
     [Test]
-    public async Task Quota_role_all_actions_and_runtime_insert_denied_membership_replay()
+    public async Task Database_owner_can_run_all_quota_actions()
     {
         await using var db=new ProvisioningDatabase(); await db.Initialize(); await db.Execute(RegisterConsumerSql.Generate(TestData.Pairing(),100,"fixture","parity"));
-        await db.Execute("CREATE USER packageOperator WITHOUT LOGIN; CREATE USER packageModels WITHOUT LOGIN; CREATE USER packageQuota WITHOUT LOGIN; CREATE USER runtime_test WITHOUT LOGIN; ALTER ROLE docai_runtime ADD MEMBER runtime_test;");
-        var batches=Regex.Split(OperatorGrants.Generate("Disposable","packageOperator","packageModels","packageQuota"),@"^\s*GO\s*$",RegexOptions.Multiline|RegexOptions.IgnoreCase).Where(b=>b.Contains("ALTER ROLE",StringComparison.Ordinal)).ToArray();
-        for(var run=0;run<2;run++)
-        {
-            foreach(var batch in batches)await db.Execute(batch);
-            foreach(var (role,user) in new[]{("docai_operator","packageOperator"),("docai_modelteam","packageModels"),("docai_quota_operator","packageQuota")})Assert.That(await db.Scalar<int>($"SELECT IS_ROLEMEMBER('{role}','{user}')"),Is.EqualTo(1));
-            Assert.That(await db.Scalar<int>("SELECT IS_ROLEMEMBER('docai_runtime','packageOperator')"),Is.Zero);
-        }
-        async Task AsQuota(PageRequest r)=>await db.Execute("EXECUTE AS USER='packageQuota'; BEGIN TRY "+PageSql.Generate(r)+" REVERT; END TRY BEGIN CATCH REVERT; THROW; END CATCH;");
+        async Task AsOwner(PageRequest r)=>await db.Execute(PageSql.Generate(r));
         PageRequest R(string action)=>OperatorPureTests.Request(action) with {Consumer="FWD-UNF",RequestId=Guid.NewGuid()};
         var topup=R("SetMode") with {Mode="Prepaid",TopUpPages=12};
-        await AsQuota(topup); await AsQuota(R("Status")); await AsQuota(R("Adjust") with {Pages=-2});
-        await AsQuota(R("SetWarningPercent") with {Percent=20}); await AsQuota(R("SetMode") with {Mode="Unlimited"});
-        var grant=await db.Scalar<long>($"SELECT GrantId FROM dbo.PageAllowanceGrants WHERE RequestId='{topup.RequestId}' AND Kind='TopUp' AND ConsumerId=(SELECT ConsumerId FROM dbo.Consumers WHERE Code='{topup.Consumer}')"); await AsQuota(R("Reverse") with {GrantId=grant,AllowDebt=true});
-        Assert.ThrowsAsync<SqlException>(async()=>await db.Execute("EXECUTE AS USER='runtime_test'; BEGIN TRY INSERT dbo.PageAllowanceGrants(ConsumerId,Pages,Kind,OperatorIdentity,Note,RequestId) SELECT ConsumerId,1,'TopUp','runtime','forbidden',NEWID() FROM dbo.Consumers; REVERT; END TRY BEGIN CATCH REVERT; THROW; END CATCH;"));
-    }
-    [Test]
-    public async Task Fresh_migrated_and_legacy_upgrade_quota_permissions_are_identical()
-    {
-        await using var db=new ProvisioningDatabase(); await db.Initialize();
-        const string permissions="SELECT OBJECT_NAME(major_id) ObjectName,COL_NAME(major_id,minor_id) ColumnName,permission_name,state_desc FROM sys.database_permissions WHERE grantee_principal_id=DATABASE_PRINCIPAL_ID('docai_quota_operator') ORDER BY OBJECT_NAME(major_id),minor_id,permission_name FOR JSON PATH,INCLUDE_NULL_VALUES";
-        var before=await db.Scalar<string>(permissions);
-        var root=Path.Combine(RepositoryPaths.ISTDocAiRoot,"ISTDocAi.Infrastructure.Tests/Fixtures/LegacySql");
-        foreach(var name in new[]{"06_page_quota_upgrade.sql","08_operator_cost_report_upgrade.sql"})
-            foreach(var batch in Regex.Split(await File.ReadAllTextAsync(Path.Combine(root,name)),@"^\s*GO\s*$",RegexOptions.Multiline|RegexOptions.IgnoreCase))
-                if(!string.IsNullOrWhiteSpace(batch))await db.Execute(batch);
-        Assert.That(await db.Scalar<string>(permissions),Is.EqualTo(before));
-        // Independent legacy fresh-grants oracle, on the same disposable migrated schema, in a separate role.
-        await db.Execute("CREATE ROLE quota_oracle");
-        var fresh=await File.ReadAllTextAsync(Path.Combine(root,"02_docai_grants.sql"));
-        var grants=Regex.Matches(fresh,@"(?im)^(?:GRANT|DENY)\s+[^;]+?\s+TO\s+docai_quota_operator;").Select(m=>m.Value.Replace("docai_quota_operator","quota_oracle",StringComparison.Ordinal)).ToArray();
-        Assert.That(grants,Is.Not.Empty); foreach(var grant in grants)await db.Execute(grant);
-        Assert.That(await db.Scalar<string>(permissions.Replace("'docai_quota_operator'","'quota_oracle'",StringComparison.Ordinal)),Is.EqualTo(before));
+        await AsOwner(topup); await AsOwner(R("Status")); await AsOwner(R("Adjust") with {Pages=-2});
+        await AsOwner(R("SetWarningPercent") with {Percent=20}); await AsOwner(R("SetMode") with {Mode="Unlimited"});
+        var grant=await db.Scalar<long>($"SELECT GrantId FROM dbo.PageAllowanceGrants WHERE RequestId='{topup.RequestId}' AND Kind='TopUp' AND ConsumerId=(SELECT ConsumerId FROM dbo.Consumers WHERE Code='{topup.Consumer}')"); await AsOwner(R("Reverse") with {GrantId=grant,AllowDebt=true});
     }
 
     [Test]

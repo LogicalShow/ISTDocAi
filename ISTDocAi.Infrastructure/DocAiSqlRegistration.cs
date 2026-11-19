@@ -53,6 +53,7 @@ public static class DocAiSqlRegistration
         services.TryAddScoped<ISignalReader>(s => s.GetRequiredService<SqlSignalReaderRepository>());
         services.TryAddSingleton<IModelThresholdReader, ModelThresholdCache>();
         services.TryAddSingleton<ICallbackDirectory, CallbackDirectory>();
+        services.TryAddScoped<IAzurePriceCheckStore>(s => new SqlAzurePriceCheckRepository(s.GetRequiredService<SqlExecution>()));
         return services;
     }
 }

@@ -1,4 +1,4 @@
--- Target: DocAi database. Required: db_owner OR docai_operator + docai_quota_operator.
+-- Target: DocAi database. Required: db_owner on the DocAi database.
 -- Registers a Prepaid consumer with one initial TopUp. Safe to rerun unchanged.
 SET NOCOUNT ON; SET XACT_ABORT ON;
 DECLARE @Code nvarchar(max)=N'FWD-UNF',

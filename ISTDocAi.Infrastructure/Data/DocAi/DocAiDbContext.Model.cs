@@ -15,6 +15,7 @@ public sealed partial class DocAiDbContext
     public DbSet<AzureOperation> AzureOperations { get; set; } = null!;
     public DbSet<JobResult> JobResults { get; set; } = null!;
     public DbSet<WebhookDelivery> WebhookDeliveries { get; set; } = null!;
+    public DbSet<AzurePriceCheck> AzurePriceChecks { get; set; } = null!;
     public DbSet<AzureMeterPrice> AzureMeterPrices { get; set; } = null!;
     public DbSet<UsageLedger> UsageLedger { get; set; } = null!;
     public DbSet<BillingPeriod> BillingPeriods { get; set; } = null!;

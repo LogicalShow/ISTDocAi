@@ -9,6 +9,15 @@ namespace ISTDocAi.Tools.Tests;
 [Category("Pure")]
 public sealed class ServerSetupTests
 {
+    [Test]
+    public async Task Production_enables_price_refresh_with_approved_defaults()
+    {
+        var env = new Fake(); await Install(env);
+        var root = JsonNode.Parse(env.Files[@"C:\install\appsettings.Production.json"])!;
+        Assert.That((bool)root["AzurePriceRefresh"]!["Enabled"]!, Is.True);
+        Assert.That((string)root["AzurePriceRefresh"]!["Interval"]!, Is.EqualTo("12:00:00"));
+        Assert.That((string)root["AzurePriceRefresh"]!["StartupDelay"]!, Is.EqualTo("00:01:00"));
+    }
     internal sealed class Input(params string[] lines) : IProvisionConsole
     {
         private readonly Queue<string> input = new(lines);

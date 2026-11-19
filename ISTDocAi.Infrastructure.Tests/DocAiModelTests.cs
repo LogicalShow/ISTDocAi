@@ -29,12 +29,14 @@ public sealed class DocAiModelTests
         using var context = new DocAiDesignTimeFactory().CreateDbContext([]);
         Assert.That(context.Database.HasPendingModelChanges(), Is.False);
         Assert.That(context.Database.GetMigrations(), Is.EqualTo(new[] {
-            "20261101000000_InitialSchema", "20261103000000_ModelMappingProfiles", "20261115000000_JobCancellation" }));
+            "20261101000000_InitialSchema", "20261103000000_ModelMappingProfiles", "20261115000000_JobCancellation", "20261116000000_AzurePriceRefresh", "20261118090316_RemoveDocAiRoles" }));
         var files = Directory.GetFiles(Path.Combine(Root, "ISTDocAi.Infrastructure", "Migrations", "DocAi"), "*.cs")
             .Select(Path.GetFileName).Order().ToArray();
         Assert.That(files, Is.EquivalentTo(new[] { "20261101000000_InitialSchema.cs",
             "20261101000000_InitialSchema.Designer.cs", "20261103000000_ModelMappingProfiles.cs",
-            "20261115000000_JobCancellation.cs", "DocAiDbContextModelSnapshot.cs" }));
+            "20261115000000_JobCancellation.cs", "20261115000000_JobCancellation.Designer.cs", "20261116000000_AzurePriceRefresh.cs",
+            // EF-generated migrations (dotnet ef migrations add) carry their Designer file.
+            "20261116000000_AzurePriceRefresh.Designer.cs", "20261118090316_RemoveDocAiRoles.cs", "20261118090316_RemoveDocAiRoles.Designer.cs", "DocAiDbContextModelSnapshot.cs" }));
     }
 
     [Test]
@@ -46,7 +48,7 @@ public sealed class DocAiModelTests
         var model = context.GetService<IDesignTimeModel>().Model;
         var expected = SchemaCatalog.Parse(File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "Fixtures", "fresh-schema-security.json"))).Structure.Select(s => JsonNode.Parse(s)!.AsObject()).ToArray();
         var tables = expected.Where(r => r.ContainsKey("temporal_type")).Select(r => (string)r["name"]!).Order().ToArray();
-        Assert.That(tables, Has.Length.EqualTo(20));
+        Assert.That(tables, Has.Length.EqualTo(21));
         Assert.That(model.GetEntityTypes().Select(e => e.GetTableName()).Order(), Is.EqualTo(tables));
         Assert.That(model.GetEntityTypes().All(e => e.GetSchema() == "dbo"), Is.True);
         Assert.That(iam.Model.GetEntityTypes().Select(e => e.GetTableName()).Intersect(tables), Is.Empty);

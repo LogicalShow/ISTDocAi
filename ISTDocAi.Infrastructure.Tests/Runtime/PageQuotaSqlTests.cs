@@ -263,19 +263,9 @@ public sealed partial class PageQuotaSqlTests
     }
 
     [Test, Category("Sql")]
-    public async Task Runtime_cannot_write_allowances_and_audit_rows_cannot_be_edited()
+    public async Task Database_owner_cannot_edit_allowance_audit_rows()
     {
         SqlTestGuard.Require();
-        await db.Execute("IF DATABASE_PRINCIPAL_ID(N'docai_runtime') IS NULL CREATE ROLE docai_runtime; CREATE USER quota_runtime WITHOUT LOGIN; ALTER ROLE docai_runtime ADD MEMBER quota_runtime;");
-        await db.Execute(await File.ReadAllTextAsync(Path.Combine(AppContext.BaseDirectory,"06_page_quota_upgrade.sql")));
-        var error=await Assert.ThrowsAsync<SqlException>(()=>db.Execute("""
-            EXECUTE AS USER='quota_runtime';
-            BEGIN TRY
-            INSERT dbo.PageAllowanceGrants(ConsumerId,Pages,Kind,OperatorIdentity,Note,RequestId) VALUES(1,10,'TopUp','runtime','invalid',NEWID());
-            REVERT;
-            END TRY BEGIN CATCH REVERT; THROW; END CATCH;
-            """));
-        Assert.Equal(229,error.Number);
         await Grant(10);
         Assert.Equal(50017,(await Assert.ThrowsAsync<SqlException>(()=>db.Execute("UPDATE dbo.PageAllowanceGrants SET Pages=99"))).Number);
         Assert.Equal(50017,(await Assert.ThrowsAsync<SqlException>(()=>db.Execute("DELETE dbo.PageAllowanceGrants"))).Number);

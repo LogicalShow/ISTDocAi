@@ -189,16 +189,13 @@ public sealed partial class MappingProfilesTests
     }
 
     [Test, Category("Sql")]
-    public async Task Draft_edits_roles_activation_and_retirement_preserve_sealing()
+    public async Task Draft_edits_activation_and_retirement_preserve_sealing()
     {
         SqlTestGuard.Require();
         using var timeout = new CancellationTokenSource(TimeSpan.FromMinutes(5)); var ct = timeout.Token;
         await using var db = new DisposableDatabase();
         await Latest(db, ct);
-        await db.Execute("CREATE USER mappingRuntime WITHOUT LOGIN; ALTER ROLE docai_runtime ADD MEMBER mappingRuntime; CREATE USER mappingTeam WITHOUT LOGIN; ALTER ROLE docai_modelteam ADD MEMBER mappingTeam;", ct);
-        Assert.ThrowsAsync<SqlException>(() => db.Execute("EXECUTE AS USER='mappingRuntime'; INSERT dbo.MappingFields SELECT ProfileId,'Field','extra','Extra' FROM dbo.MappingProfiles WHERE ProfileCode='legacy'; REVERT;", ct));
         await db.Execute("""
-            EXECUTE AS USER='mappingTeam';
             INSERT dbo.ModelRegistry(ModelId,Kind,DocumentTypeCode,Version,Status) VALUES ('new-draft','extract','BL',1,'Draft');
             INSERT dbo.MappingProfiles(ProfileCode,ProfileVersion,DocumentTypeCode,MappingShape,ContainersField,ContainerNumberField,SealNumberField,BillsOfLadingField,ChangeReference)
              VALUES ('new-draft',1,'BL','ModelProfile','Containers','containerNumber','sealNumber','BillsOfLading','test');
@@ -206,7 +203,6 @@ public sealed partial class MappingProfilesTests
             INSERT dbo.ModelMappingBindings SELECT 'new-draft',ProfileId FROM dbo.MappingProfiles WHERE ProfileCode='new-draft';
             UPDATE dbo.MappingFields SET AzureName='Edited' WHERE ProfileId=(SELECT ProfileId FROM dbo.MappingProfiles WHERE ProfileCode='new-draft');
             UPDATE dbo.MappingProfiles SET ChangeReference='edited' WHERE ProfileCode='new-draft';
-            REVERT;
             """, ct);
         await db.Execute("UPDATE dbo.ModelRegistry SET Status='Testing',TestFieldAccuracy=1 WHERE ModelId='new-draft'", ct);
         await db.Execute("DECLARE @newModelId varchar(64)='new-draft', @minimumAccuracy decimal(5,4)=0.95;\n" + new SqlStatementCatalog()["S14"], ct);

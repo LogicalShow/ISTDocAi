@@ -15,7 +15,7 @@ namespace ISTDocAi.ArchitectureTests.TestCases;
 public sealed class DocAiWebhookBoundaryTests
 {
     [Test]
-    public void Complete_DocAi_host_has_exactly_the_six_expected_background_services()
+    public void Complete_DocAi_host_has_exactly_the_seven_expected_background_services()
     {
         var services = new ServiceCollection();
         var configuration = new ConfigurationBuilder().Build();
@@ -23,7 +23,7 @@ public sealed class DocAiWebhookBoundaryTests
         services.AddDocAiAzure(new Environment(), configuration);
         services.AddDocAiWorker(configuration);
         var expected = new[] { typeof(DatabaseInitializationService), typeof(CertificateExpiryService),
-            typeof(JobProcessorService), typeof(WebhookSenderService), typeof(RetentionService), typeof(SignalsService) };
+            typeof(JobProcessorService), typeof(WebhookSenderService), typeof(RetentionService), typeof(SignalsService), typeof(AzurePriceRefreshService) };
         Assert.That(services.Where(d => d.ServiceType == typeof(IHostedService)).Select(d => d.ImplementationType), Is.EqualTo(expected));
         foreach (var type in expected)
         {

@@ -186,6 +186,116 @@ namespace ISTDocAi.Infrastructure.Migrations.DocAi
                         });
                 });
 
+            modelBuilder.Entity("ISTDocAi.Domain.Entities.DocAi.AzurePriceCheck", b =>
+                {
+                    b.Property<Guid>("CheckId")
+                        .HasColumnType("uniqueidentifier")
+                        .HasColumnName("CheckId")
+                        .HasColumnOrder(0);
+
+                    b.Property<string>("MeterCode")
+                        .HasColumnType("varchar(30)")
+                        .HasColumnName("MeterCode")
+                        .HasColumnOrder(1);
+
+                    b.Property<DateTime?>("AzureEffectiveFrom")
+                        .HasColumnType("datetime2(3)")
+                        .HasColumnName("AzureEffectiveFrom")
+                        .HasColumnOrder(16);
+
+                    b.Property<DateTime>("CheckedAtUtc")
+                        .HasColumnType("datetime2(3)")
+                        .HasColumnName("CheckedAtUtc")
+                        .HasColumnOrder(3);
+
+                    b.Property<string>("Currency")
+                        .HasColumnType("nvarchar(64)")
+                        .HasColumnName("Currency")
+                        .HasColumnOrder(11);
+
+                    b.Property<decimal?>("CurrentPrice")
+                        .HasColumnType("decimal(9,4)")
+                        .HasColumnName("CurrentPrice")
+                        .HasColumnOrder(7);
+
+                    b.Property<int?>("MatchedRowCount")
+                        .HasColumnType("int")
+                        .HasColumnName("MatchedRowCount")
+                        .HasColumnOrder(9);
+
+                    b.Property<string>("MeterId")
+                        .HasColumnType("nvarchar(64)")
+                        .HasColumnName("MeterId")
+                        .HasColumnOrder(10);
+
+                    b.Property<decimal?>("ObservedPrice")
+                        .HasColumnType("decimal(19,8)")
+                        .HasColumnName("ObservedPrice")
+                        .HasColumnOrder(6);
+
+                    b.Property<string>("Outcome")
+                        .IsRequired()
+                        .HasColumnType("varchar(16)")
+                        .HasColumnName("Outcome")
+                        .HasColumnOrder(4);
+
+                    b.Property<DateTime?>("ProposedEffectiveFrom")
+                        .HasColumnType("date")
+                        .HasColumnName("ProposedEffectiveFrom")
+                        .HasColumnOrder(8);
+
+                    b.Property<string>("ReasonCode")
+                        .HasColumnType("varchar(64)")
+                        .HasColumnName("ReasonCode")
+                        .HasColumnOrder(5);
+
+                    b.Property<string>("Region")
+                        .HasColumnType("nvarchar(64)")
+                        .HasColumnName("Region")
+                        .HasColumnOrder(12);
+
+                    b.Property<DateTime>("StartedAtUtc")
+                        .HasColumnType("datetime2(3)")
+                        .HasColumnName("StartedAtUtc")
+                        .HasColumnOrder(2);
+
+                    b.Property<decimal?>("TierMinimumUnits")
+                        .HasColumnType("decimal(19,8)")
+                        .HasColumnName("TierMinimumUnits")
+                        .HasColumnOrder(15);
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(64)")
+                        .HasColumnName("Type")
+                        .HasColumnOrder(14);
+
+                    b.Property<string>("Unit")
+                        .HasColumnType("nvarchar(64)")
+                        .HasColumnName("Unit")
+                        .HasColumnOrder(13);
+
+                    b.Property<byte[]>("WarningFingerprint")
+                        .HasColumnType("binary(32)")
+                        .HasColumnName("WarningFingerprint")
+                        .HasColumnOrder(17);
+
+                    b.HasKey("CheckId", "MeterCode")
+                        .HasName("PK_AzurePriceChecks");
+
+                    SqlServerKeyBuilderExtensions.IsClustered(b.HasKey("CheckId", "MeterCode"));
+
+                    b.HasIndex("CheckedAtUtc")
+                        .IsDescending()
+                        .HasDatabaseName("IX_AzurePriceChecks_CheckedAtUtc");
+
+                    b.ToTable("AzurePriceChecks", "dbo", t =>
+                        {
+                            t.HasCheckConstraint("CK_AzurePriceChecks_MeterCode", "(MeterCode IN ('DI_CUSTOM_EXTRACT', 'DI_CUSTOM_CLASSIFY'))");
+
+                            t.HasCheckConstraint("CK_AzurePriceChecks_Outcome", "(Outcome IN ('NoChange','Updated','Refused','Failed'))");
+                        });
+                });
+
             modelBuilder.Entity("ISTDocAi.Domain.Entities.DocAi.BillingPeriod", b =>
                 {
                     b.Property<string>("Period")
@@ -848,6 +958,10 @@ namespace ISTDocAi.Infrastructure.Migrations.DocAi
                         .HasColumnName("RunNo")
                         .HasColumnOrder(3);
 
+                    b.Property<DateTime?>("CancelRequestedAtUtc")
+                        .HasColumnType("datetime2(3)")
+                        .HasColumnOrder(16);
+
                     b.Property<string>("ChangesJson")
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("ChangesJson")
@@ -857,10 +971,6 @@ namespace ISTDocAi.Infrastructure.Migrations.DocAi
                         .HasColumnType("varchar(100)")
                         .HasColumnName("ClientRequestId")
                         .HasColumnOrder(7);
-
-                    b.Property<DateTime?>("CancelRequestedAtUtc")
-                        .HasColumnType("datetime2(3)")
-                        .HasColumnOrder(16);
 
                     b.Property<DateTime?>("CompletedAtUtc")
                         .HasColumnType("datetime2(3)")

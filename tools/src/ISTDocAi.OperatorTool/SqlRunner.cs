@@ -59,5 +59,22 @@ public sealed class SqlRunner(string server, string database, bool trust) : IAsy
         if (text.Length == 0) throw new ArgumentException("Cycle or cursor not found for this consumer.");
         return Reports.Parse(text, r.Customer);
     }
+    public async Task Stream(string query, Func<Dictionary<string, object?>, Task> rowCallback)
+    {
+        if (connection is null)
+        {
+            connection = new SqlConnection(ConnectionString(server, database, trust));
+            try { await connection.OpenAsync(); }
+            catch (SqlException) { throw new InvalidOperationException("Cannot connect to SQL Server. Check Windows permissions, database, encryption and certificate trust."); }
+        }
+        using var command = new SqlCommand(query, connection) { CommandTimeout = 30 };
+        await using var reader = await command.ExecuteReaderAsync(CommandBehavior.SequentialAccess);
+        while (await reader.ReadAsync())
+        {
+            var row = new Dictionary<string, object?>();
+            for (var i = 0; i < reader.FieldCount; i++) row[reader.GetName(i)] = await reader.IsDBNullAsync(i) ? null : reader.GetValue(i);
+            await rowCallback(row);
+        }
+    }
     public async ValueTask DisposeAsync() { if (connection is not null) await connection.DisposeAsync(); }
 }

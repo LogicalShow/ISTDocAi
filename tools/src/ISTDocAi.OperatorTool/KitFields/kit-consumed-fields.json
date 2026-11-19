@@ -1,0 +1,137 @@
+{
+  "source": "Forwarding.MvcApp/DocAi/DocAiBillProjector.cs (BillNames 22-39, ContainerNames 42-50, inheritance 52-55/184-196, aliases 240-248). Update this resource when the kit projector changes.",
+  "rules": {
+    "cargo-manifest.v1": {
+      "inheritHeader": [
+        "vesselName",
+        "voyageNumber",
+        "portOfLoading",
+        "portOfDischarge"
+      ],
+      "billAliases": {
+        "totalGrossWeightKg": "grossWeight"
+      },
+      "containerAliases": {
+        "grossWeightKg": "grossWeight"
+      },
+      "unsupportedContainerReads": [
+        "measurementCbm"
+      ],
+      "extras": "Unknown field objects are preserved as Extras, but have no typed bill destination."
+    }
+  },
+  "resultTypes": {
+    "bill-of-lading.v1": {
+      "Field": [
+        "billOfLadingNumber",
+        "bookingNumber",
+        "shipperName",
+        "shipperAddress",
+        "consigneeName",
+        "consigneeAddress",
+        "notifyParty",
+        "vesselName",
+        "voyageNumber",
+        "portOfLoading",
+        "portOfDischarge",
+        "totalGrossWeightKg",
+        "issueDate",
+        "hsCode",
+        "freightTerms"
+      ],
+      "Container": [
+        "containerNumber",
+        "sealNumber",
+        "containerType",
+        "packages",
+        "grossWeightKg",
+        "measurementCbm"
+      ]
+    },
+    "cargo-manifest.v1": {
+      "Header": [
+        "vesselName",
+        "voyageNumber",
+        "portOfLoading",
+        "portOfDischarge"
+      ],
+      "Bill": [
+        "billOfLadingNumber",
+        "bookingNumber",
+        "shipperName",
+        "shipperAddress",
+        "consigneeName",
+        "consigneeAddress",
+        "notifyParty",
+        "grossWeight",
+        "issueDate",
+        "hsCode",
+        "freightTerms"
+      ],
+      "Container": [
+        "containerNumber",
+        "sealNumber",
+        "containerType",
+        "packages",
+        "grossWeight",
+        "associationMethod"
+      ]
+    }
+  },
+  "fixtures": {
+    "bl.json": {
+      "resultType": "bill-of-lading.v1",
+      "expectedKeys": {
+        "Field": [
+          "billOfLadingNumber",
+          "bookingNumber",
+          "shipperName",
+          "shipperAddress",
+          "consigneeName",
+          "consigneeAddress",
+          "notifyParty",
+          "portOfLoading",
+          "portOfDischarge",
+          "totalGrossWeightKg",
+          "hsCode",
+          "freightTerms"
+        ],
+        "Container": [
+          "containerNumber",
+          "sealNumber",
+          "containerType",
+          "packages",
+          "grossWeightKg",
+          "measurementCbm"
+        ]
+      }
+    },
+    "manifest-test-A.json": {
+      "resultType": "cargo-manifest.v1",
+      "expectedKeys": {
+        "Header": [
+          "vesselName",
+          "voyageNumber",
+          "portOfLoading",
+          "portOfDischarge"
+        ],
+        "Bill": [
+          "billOfLadingNumber",
+          "bookingNumber",
+          "shipperName",
+          "consigneeName",
+          "notifyParty",
+          "freightTerms"
+        ],
+        "Container": [
+          "containerNumber",
+          "sealNumber",
+          "containerType",
+          "packages",
+          "grossWeight",
+          "associationMethod"
+        ]
+      }
+    }
+  }
+}

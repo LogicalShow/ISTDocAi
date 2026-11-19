@@ -286,20 +286,17 @@ public sealed partial class PageQuotaSqlTests
         Assert.Equal(2,await db.Scalar<int>("SELECT COUNT(*) FROM dbo.PageAllowanceGrants WHERE Kind='Reversal'"));
     }
     [Test, Category("Sql")]
-    public async Task Quota_operator_can_read_both_reports_without_jobs_or_meter_select()
+    public async Task Database_owner_can_read_both_reports_after_legacy_upgrade()
     {
         SqlTestGuard.Require();
         await db.Execute(await File.ReadAllTextAsync(Path.Combine(AppContext.BaseDirectory,"06_page_quota_upgrade.sql")));
         await db.Execute(await File.ReadAllTextAsync(Path.Combine(AppContext.BaseDirectory,"07_topup_reporting_upgrade.sql")));
         await db.Execute(await File.ReadAllTextAsync(Path.Combine(AppContext.BaseDirectory,"08_operator_cost_report_upgrade.sql")));
-        await db.Execute("CREATE USER reporting_operator WITHOUT LOGIN; ALTER ROLE docai_quota_operator ADD MEMBER reporting_operator;");
         foreach(var label in new[] {"S27", "S28"})
         {
             var batch="SET NOCOUNT ON; DECLARE @consumerId smallint=1, @grantId bigint="+(label=="S27"?"NULL":"0")+", @limit int=100, @afterChargeId bigint=NULL;\n"+new SqlStatementCatalog()[label];
-            var text=await db.Scalar<string>("EXECUTE AS USER='reporting_operator'; BEGIN TRY "+batch+" REVERT; END TRY BEGIN CATCH REVERT; THROW; END CATCH;");
+            var text=await db.Scalar<string>(batch);
             PortAssert.StartsWith("{",text);
         }
-        PortAssert.Equal(0,await db.Scalar<int>("EXECUTE AS USER='reporting_operator'; SELECT HAS_PERMS_BY_NAME('dbo.Jobs','OBJECT','SELECT'); REVERT;"));
-        PortAssert.Equal(0,await db.Scalar<int>("EXECUTE AS USER='reporting_operator'; SELECT HAS_PERMS_BY_NAME('dbo.UsageLedger','OBJECT','SELECT'); REVERT;"));
     }
 }

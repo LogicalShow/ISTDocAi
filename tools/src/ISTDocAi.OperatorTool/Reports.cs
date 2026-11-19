@@ -12,6 +12,12 @@ namespace ISTDocAi.OperatorTool;
 
 public static class Reports
 {
+    // Date-range report fields. Allowed ONLY when normalizing tool-built range reports (range: true), so the
+    // grant-based SQL and kit HTTP customer reports keep their original, narrower allow-list.
+    private static readonly HashSet<string> RangeFields = new(StringComparer.Ordinal)
+    {
+        "openingBalance", "closingBalance", "independentClosingBalance", "hasMoreMovements", "movements", "recordedAtUtc", "kind", "originalRecordedAtUtc", "originalPages", "usageByHour", "hourUtc", "runs", "dailyUsage", "date", "period", "utcPeriod", "timeZone"
+    };
     public const string InternalWarning = "IST internal — do not send to the customer";
     private static bool Sensitive(string name) => Regex.IsMatch(name, "usd|cost|price|azure|meter", RegexOptions.IgnoreCase | RegexOptions.CultureInvariant);
     // An allow-list at each DTO object boundary prevents future API fields from leaking into customer exports.
@@ -19,7 +25,7 @@ public static class Reports
     {
         "orderingPolicy", "coverage", "totals", "prelude", "cycles", "hasMoreCycles", "documents", "nextAfterChargeId", "topUpGrantId", "startAtUtc", "nextTopUpGrantId", "endAtUtc", "topUpPages", "isReversed", "recordedAvailableAfterTopUp", "openingLedgerBalance", "adjustmentPages", "reversalPages", "chargedPages", "chargedRuns", "closingLedgerBalance", "grantedPages", "ledgerBalance", "currentReservedPages", "currentAvailablePages", "chargeId", "jobId", "runNo", "pages", "chargedAtUtc", "resolvedDocumentTypeCode", "runReason", "consumerCode", "consumerName"
     };
-    public static JsonNode Normalize(JsonNode node, bool customer)
+    public static JsonNode Normalize(JsonNode node, bool customer, bool range = false)
     {
         if (node is JsonObject obj)
         {
@@ -27,13 +33,13 @@ public static class Reports
             foreach (var (name, value) in obj)
             {
                 var camel = char.ToLowerInvariant(name[0]) + name[1..];
-                if (customer && (!CustomerFields.Contains(camel) || Sensitive(camel))) continue;
+                if (customer && ((!CustomerFields.Contains(camel) && !(range && RangeFields.Contains(camel))) || Sensitive(camel))) continue;
                 if (result.ContainsKey(camel)) throw new ArgumentException("Duplicate reporting field.");
-                result[camel] = value is null ? null : Normalize(value, customer);
+                result[camel] = value is null ? null : Normalize(value, customer, range);
             }
             return result;
         }
-        if (node is JsonArray array) return new JsonArray(array.Select(x => x is null ? null : Normalize(x, customer)).ToArray());
+        if (node is JsonArray array) return new JsonArray(array.Select(x => x is null ? null : Normalize(x, customer, range)).ToArray());
         if (customer && node is JsonValue val && val.TryGetValue<string>(out var text)) return JsonValue.Create(Regex.Replace(text, @"\$|USD|Azure|cost|price|meter", "[omitted]", RegexOptions.IgnoreCase))!;
         return node.DeepClone();
     }
@@ -69,15 +75,15 @@ public static class Reports
         string[] empty = documents ? ["chargeId", "jobId", "runNo", "pages", "chargedAtUtc", "resolvedDocumentTypeCode", "runReason"] : ["topUpGrantId", "startAtUtc", "nextTopUpGrantId", "endAtUtc", "topUpPages", "isReversed", "recordedAvailableAfterTopUp", "openingLedgerBalance", "adjustmentPages", "reversalPages", "chargedPages", "chargedRuns", "closingLedgerBalance"];
         var headers = rows.Count == 0 ? empty.Concat(customer ? [] : new[] { "azureClassifyPages", "azureExtractPages", "azureCostUsd" }).ToArray() : rows.SelectMany(x => x.Select(p => p.Key)).Distinct(StringComparer.Ordinal).ToArray();
         // Quoting alone does not protect spreadsheet consumers from formula execution.
-        static string Quote(string value) => "\"" + ((value.Length > 0 && "=+@\t\r".Contains(value[0])) ? "'" : "") + value.Replace("\"", "\"\"", StringComparison.Ordinal) + "\"";
         static string Cell(JsonNode? value) => value is JsonValue v && v.TryGetValue<string>(out var text) ? text : value?.ToJsonString() ?? "";
-        return string.Join(',', headers.Select(Quote)) + "\r\n" + string.Concat(rows.Select(row => string.Join(',', headers.Select(h => Quote(Cell(row[h])))) + "\r\n"));
+        return string.Join(',', headers.Select(CsvCell)) + "\r\n" + string.Concat(rows.Select(row => string.Join(',', headers.Select(h => CsvCell(Cell(row[h])))) + "\r\n"));
     }
+    public static string CsvCell(string value) => "\"" + ((value.Length > 0 && "=+@\t\r".Contains(value[0])) ? "'" : "") + value.Replace("\"", "\"\"", StringComparison.Ordinal) + "\"";
     public static byte[] Pdf(JsonNode report, JsonNode? documents, bool customer, string kind, string company, string consumer)
     {
         foreach (var font in new[] { "arial.ttf", "arialbd.ttf" })
             if (!File.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), font))) throw new ActionNeededException("Arial fonts missing. Install Windows Arial (arial.ttf and arialbd.ttf) on the rendering server.");
-        var input = new JsonObject { ["report"] = Normalize(report, customer), ["documentReport"] = documents is null ? null : Normalize(documents, customer), ["companyName"] = company, ["consumerCode"] = consumer, ["truncated"] = documents?["nextAfterChargeId"] is not null };
+        var input = new JsonObject { ["report"] = Normalize(report, customer, range: kind == "StatementRange"), ["documentReport"] = documents is null ? null : Normalize(documents, customer), ["companyName"] = company, ["consumerCode"] = consumer, ["truncated"] = documents?["nextAfterChargeId"] is not null };
         using var buffer = new MemoryStream(); ReportRenderer.Render(input.ToJsonString(), customer ? "Customer" : "Ist", kind, buffer); return buffer.ToArray();
     }
 }

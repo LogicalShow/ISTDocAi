@@ -10,5 +10,13 @@
   {
     "migrationId": "20261115000000_JobCancellation",
     "productVersion": "10.0.13"
+  },
+  {
+    "migrationId": "20261116000000_AzurePriceRefresh",
+    "productVersion": "10.0.13"
+  },
+  {
+    "migrationId": "20261118090316_RemoveDocAiRoles",
+    "productVersion": "10.0.13"
   }
 ]

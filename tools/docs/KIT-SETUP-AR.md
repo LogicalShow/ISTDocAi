@@ -41,3 +41,8 @@
 - `ACTION NEEDED`: اعمل اللي مكتوب، وشغّل الأمر تاني.
 - `REFUSED`: وقّف، وابعت الرسالة لمسؤول DocAi.
 - شهادة HTTPS بتاعة DocAi لازم تكون موثوقة على سيرفر الكيت.
+# نشر الأدوات
+
+افتح `ISTDocAi.sln`، وخلي `ISTDocAi.Tools` هو Startup ودوس F5 أو Ctrl+F5 لقائمة النشر بس. اختار الأداة أو All four؛ الناتج في `tools/publish/<Name>` وبيستبدل القديم، فاقفل الـ exe القديم الأول. لازم نسخة الريبو والـ .NET SDK. All four بيكمل باقي الأدوات لو واحدة فشلت وبيطبع ملخص، وبعد النشر تقدر تفتح الفولدر أو تشغل الأداة.
+
+CLI من غير أسئلة: `dotnet run --project tools/src/ISTDocAi.Tools -- publish KitSetup`، أو `publish all`. للـ Debug خلي مشروع الأداة نفسها Startup ودوس F5؛ DevSetup محتاج Visual Studio كـ Administrator.

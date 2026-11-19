@@ -1,3 +1,4 @@
+using ISTDocAi.Application.Services.DocAi.Iso6346Service;
 using ISTDocAi.Application.Common.Interfaces.DocAi.Persistence;
 using ISTDocAi.Infrastructure.Data.Sql.DocAi;
 using ISTDocAi.Infrastructure.Configuration.DocAi;
@@ -32,8 +33,9 @@ public static class AnalyzeResultParser
                     if (item.TryGetProperty("valueObject", out var obj) && obj.TryGetProperty(ContainerName("containerNumber", options.ContainerNumberField), out var number)
                         && ReadField(number, pages) is { } parsed)
                     {
-                        containers.Add(new(parsed with { Value = MappingServices.Iso.Normalize(parsed.Value), RawText = parsed.RawText ?? (MappingServices.Iso.Normalize(parsed.Value) != parsed.Value ? parsed.Value : null) }, obj.TryGetProperty(ContainerName("sealNumber", options.SealNumberField), out var seal) ? ReadField(seal, pages) : null,
-                            Extra("containerType"), Extra("packages"), Extra("grossWeightKg"), Extra("measurementCbm")));
+                        var sealField = obj.TryGetProperty(ContainerName("sealNumber", options.SealNumberField), out var seal) ? ReadField(seal, pages) : null;
+                        var split = ContainerNumberSuffixSplitter.Split(parsed, sealField, Extra("containerType"));
+                        containers.Add(new(split.Number, sealField, split.Type, Extra("packages"), Extra("grossWeightKg"), Extra("measurementCbm")));
                         ExtractedField? Extra(string key) => options.ContainerFieldMap.TryGetValue(key, out var name) && obj.TryGetProperty(name, out var value) ? ReadField(value, pages) : null;
                     }
         }

@@ -34,7 +34,7 @@ public sealed class DocAiPersistenceTests
     {
         Type[] ports = [typeof(IJobRepository), typeof(IJobQueue), typeof(IOperationStore),
             typeof(IWebhookOutbox), typeof(IModelCatalog), typeof(IRetention), typeof(IConsumerSource),
-            typeof(IUsageReader), typeof(IModelThresholdSource), typeof(ICallbackSource), typeof(ISignalReader)];
+            typeof(IUsageReader), typeof(IModelThresholdSource), typeof(ICallbackSource), typeof(ISignalReader), typeof(IAzurePriceCheckStore)];
         var implementations = typeof(SqlJobRepository).Assembly.GetTypes();
         foreach (var port in ports)
         {

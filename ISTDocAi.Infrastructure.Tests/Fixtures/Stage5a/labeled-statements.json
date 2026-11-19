@@ -180,6 +180,21 @@
     "sha256": "993ae57cbe47e1fe3f4048c6bca8c354e6d66c8d5375231a98dfc62b19edb0c6"
   },
   {
+    "file": "03_docai_statements.sql",
+    "label": "S34",
+    "sha256": "5f0ac7113399532f3bbdadda23891612daefa0b5bb9fb13013092b752cacc13e"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S35",
+    "sha256": "925f9f0789e8b894d7429d7edeb01920ae6810c88c49185d8704427e3f84ef21"
+  },
+  {
+    "file": "03_docai_statements.sql",
+    "label": "S36",
+    "sha256": "afe3f9cb0c8070a97db3ed0f7a47c64e63b4d8146198d90d57db9675681c9dd3"
+  },
+  {
     "file": "04_docai_billing.sql",
     "label": "B1",
     "sha256": "00c460dce8ab344123d6f79af9793d391f411f062ac2658da8b208245c5da323"

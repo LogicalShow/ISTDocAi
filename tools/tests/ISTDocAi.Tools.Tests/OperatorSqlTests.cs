@@ -18,7 +18,7 @@ namespace ISTDocAi.Tools.Tests;
 
 // Every test creates and migrates a uniquely named disposable database. Never uses InitialCatalog from DOCAI_TEST_SQL.
 [Category("Sql")]
-public sealed class OperatorSqlTests : GuardedToolTests
+public sealed partial class OperatorSqlTests : GuardedToolTests
 {
     private static async Task Seed(ProvisioningDatabase db)
     {
@@ -173,22 +173,7 @@ public sealed class OperatorSqlTests : GuardedToolTests
         Assert.That(((JsonArray)OperatorReports.Parse(docs, customer)["documents"]!).Count, Is.Zero);
         Assert.That(await db.Scalar<string?>(PageSql.Generate(Request("Documents") with { GrantId = 0, AfterChargeId = long.MaxValue })), Is.Null);
     }
-    [Test]
-    public async Task Quota_role_runs_actions_runtime_cannot_grant_and_memberships_replay()
-    {
-        await using var db = new ProvisioningDatabase(); await Seed(db);
-        await db.Execute("CREATE USER packageOperator WITHOUT LOGIN; CREATE USER packageModels WITHOUT LOGIN; CREATE USER packageQuota WITHOUT LOGIN; CREATE USER runtime_test WITHOUT LOGIN; ALTER ROLE docai_runtime ADD MEMBER runtime_test;");
-        var sql = OperatorGrants.Generate("Disposable", "packageOperator", "packageModels", "packageQuota");
-        var batches = Regex.Split(sql, @"^\s*GO\s*$", RegexOptions.Multiline | RegexOptions.IgnoreCase).Where(b => b.Contains("ALTER ROLE", StringComparison.Ordinal)).ToArray();
-        Assert.That(batches, Has.Length.EqualTo(3));
-        for (var run = 0; run < 2; run++) foreach (var batch in batches) await db.Execute(batch);
-        Assert.That(await db.Scalar<int>("SELECT IS_ROLEMEMBER('docai_operator','packageOperator')"), Is.EqualTo(1));
-        Assert.That(await db.Scalar<int>("SELECT IS_ROLEMEMBER('docai_modelteam','packageModels')"), Is.EqualTo(1));
-        Assert.That(await db.Scalar<int>("SELECT IS_ROLEMEMBER('docai_quota_operator','packageQuota')"), Is.EqualTo(1));
-        await db.Execute("EXECUTE AS USER='packageQuota'; BEGIN TRY " + PageSql.Generate(Request()) + " REVERT; END TRY BEGIN CATCH REVERT; THROW; END CATCH;");
-        Assert.That(await Balance(db), Is.EqualTo(110));
-        Assert.ThrowsAsync<SqlException>(async () => await db.Execute("EXECUTE AS USER='runtime_test'; " + PageSql.Generate(Request())));
-    }
+
     [Test]
     public async Task Model_set_activation_is_atomic_replay_is_noop_and_mapping_conflict_is_refused()
     {

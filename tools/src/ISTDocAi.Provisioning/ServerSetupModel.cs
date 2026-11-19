@@ -68,6 +68,7 @@ public static class ServerSetupModel
         Set("DocAi:Database", new JsonObject { ["MigrateOnStartup"] = true, ["AllowDatabaseCreation"] = true, ["CommandTimeoutSeconds"] = 300, ["InitializationTimeoutSeconds"] = 900 });
         Set("Worker", new JsonObject { ["Enabled"] = true, ["MaxParallelJobs"] = 4 });
         Set("Retention", new JsonObject { ["Enabled"] = true, ["RunAtUtc"] = "02:00:00" });
+        Set("AzurePriceRefresh", new JsonObject { ["Enabled"] = true, ["Interval"] = "12:00:00", ["StartupDelay"] = "00:01:00" });
         Set("Signals", new JsonObject { ["Enabled"] = true }); Set("Webhooks:Enabled", JsonValue.Create(true)!);
         Set("Serilog:Using", new JsonArray("Serilog.Sinks.Console", "Serilog.Sinks.File"));
         Set("Serilog:WriteTo", new JsonArray(new JsonObject { ["Name"] = "Console" }, new JsonObject { ["Name"] = "File", ["Args"] = new JsonObject { ["path"] = Path.Combine(stateRoot, "logs", "istdocai-.log"), ["rollingInterval"] = "Day", ["retainedFileCountLimit"] = 7 } }));

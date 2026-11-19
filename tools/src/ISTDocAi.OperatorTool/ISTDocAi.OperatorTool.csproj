@@ -10,6 +10,9 @@
     <PackageReference Include="Azure.Identity" />
     <EmbeddedResource Include="../../azure/infra/main.json" LogicalName="ISTDocAi.OperatorTool.azure.main.json" />
     <EmbeddedResource Include="Templates/*.sql" />
+    <EmbeddedResource Include="KitFields/kit-consumed-fields.json" LogicalName="ISTDocAi.OperatorTool.KitFields.json" />
+    <EmbeddedResource Include="../../../ISTDocAi.Application/Common/Contracts/DocAi/V1/Schemas/canonical-result-v1.schema.json" LogicalName="ISTDocAi.OperatorTool.Schema.BL.json" />
+    <EmbeddedResource Include="../../../ISTDocAi.Application/Common/Contracts/DocAi/V1/Schemas/canonical-manifest-result-v1.schema.json" LogicalName="ISTDocAi.OperatorTool.Schema.MANIFEST.json" />
     <EmbeddedResource Include="../../../ISTDocAi.Infrastructure/Sql/03_docai_statements.sql" LogicalName="ISTDocAi.OperatorTool.Reference.03_docai_statements.sql" />
     <EmbeddedResource Include="../../sql/operator/*.sql" Link="Operator/%(Filename)%(Extension)" />
     <None Update="THIRD-PARTY-NOTICES.txt" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />

@@ -74,6 +74,7 @@ public sealed class AdoptionTests
             if (tables[i] == "JobRuns") after = after.Replace(",\"CancelRequestedAtUtc\":null", "", StringComparison.Ordinal);
             Assert.That(after, Is.EqualTo(before[i]));
         }
+        Assert.That(await db.ScalarTarget("SELECT COUNT(*) FROM dbo.AzurePriceChecks", ct), Is.EqualTo("0"));
         var snapshot = await db.Snapshot(ct);
         await Initialize(db, ct);
         Assert.That(await db.Snapshot(ct), Is.EqualTo(snapshot));
@@ -153,7 +154,7 @@ public sealed class AdoptionTests
         using var timeout = Timeout(); var ct = timeout.Token;
         await using var db = new DisposableDatabase();
         await Legacy(db, ct);
-        await db.Execute("GRANT DELETE ON dbo.Consumers TO docai_quota_operator", ct);
+        await db.Execute("CREATE ROLE docai_unexpected; GRANT DELETE ON dbo.Consumers TO docai_unexpected", ct);
         var before = await db.Catalog(ct);
         var error = Assert.ThrowsAsync<DatabaseInitializationException>(() => Initialize(db, ct));
         Assert.That(error!.Code, Is.EqualTo("DATABASE_SCHEMA_UNRECOGNIZED"));
@@ -182,7 +183,7 @@ public sealed class AdoptionTests
     }
 
     [Test, Category("Sql")]
-    public async Task EnvironmentalPermissionsAreIgnoredButDocAiPermissionsRemainExact()
+    public async Task Environmental_permissions_survive_adoption_and_subsequent_initialization()
     {
         SqlTestGuard.Require();
         using var timeout = Timeout(); var ct = timeout.Token;
@@ -194,8 +195,9 @@ public sealed class AdoptionTests
         await Initialize(db, ct);
         await db.VerifyHistoryAndRcsi(ct);
         var adopted = await db.Catalog(ct);
-        await db.Execute("GRANT DELETE ON dbo.Consumers TO docai_modelteam;", ct);
-        Assert.That((await db.Catalog(ct)).Security, Is.Not.EqualTo(adopted.Security));
+        await db.Execute("GRANT DELETE ON dbo.Consumers TO environmentRole;", ct);
+        await Initialize(db, ct);
+        Assert.That((await db.Catalog(ct)).Security, Is.EqualTo(adopted.Security));
     }
 
     private const string Seed = """

@@ -121,14 +121,12 @@ public sealed class RegistrationSqlTests : ISTDocAi.Tools.Tests.GuardedToolTests
     }
 
     [Test]
-    public async Task Operator_and_quota_operator_can_run_generated_registration()
+    public async Task Database_owner_can_run_generated_registration()
     {
         await using var db = new ProvisioningDatabase(); await db.Initialize();
-        await db.Execute("CREATE USER registrationOperator WITHOUT LOGIN; ALTER ROLE docai_operator ADD MEMBER registrationOperator; ALTER ROLE docai_quota_operator ADD MEMBER registrationOperator;");
-        Assert.Equal(2, await db.Scalar<int>("SELECT COUNT(*) FROM sys.database_role_members WHERE member_principal_id=USER_ID('registrationOperator')"));
         var sql = Sql();
-        Assert.Contains("Required: db_owner OR docai_operator + docai_quota_operator.", sql);
-        await db.Execute("EXECUTE AS USER='registrationOperator'; BEGIN TRY " + sql + " REVERT; END TRY BEGIN CATCH REVERT; THROW; END CATCH;");
+        Assert.Contains("Required: db_owner on the DocAi database.", sql);
+        await db.Execute(sql);
         Assert.Equal("Prepaid", await db.Scalar<string>("SELECT QuotaMode FROM dbo.Consumers"));
         Assert.Equal(10, await db.Scalar<int>("SELECT QuotaWarningPercent FROM dbo.Consumers"));
         Assert.Equal(1, await db.Scalar<int>("SELECT COUNT(*) FROM dbo.PageAllowanceGrants"));

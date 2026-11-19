@@ -14,7 +14,7 @@ public static class ConsumerRegistration
     public static bool RunNow(string connection, string sql, ProvisionEnvironment environment, IProvisionConsole console)
     {
         var target = new SqlConnectionStringBuilder(connection);
-        if (!ServerSetupRunner.Agree(console, $"Run it now against {target.DataSource}/{target.InitialCatalog} with your Windows login (needs db_owner, or docai_operator + docai_quota_operator)?")) return false;
+        if (!ServerSetupRunner.Agree(console, $"Run it now against {target.DataSource}/{target.InitialCatalog} with your Windows login (needs db_owner on the DocAi database)?")) return false;
         target.IntegratedSecurity = true; target.Remove("User ID"); target.Remove("Password");
         environment.Sql(target.ConnectionString, sql); console.WriteLine("DONE consumer registration"); return true;
     }

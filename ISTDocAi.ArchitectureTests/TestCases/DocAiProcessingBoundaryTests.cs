@@ -30,7 +30,7 @@ public sealed class DocAiProcessingBoundaryTests
         Assert.That(processor.Lifetime, Is.EqualTo(ServiceLifetime.Scoped));
         Assert.That(processor.ImplementationType, Is.EqualTo(typeof(ProcessJob)));
         Assert.That(services.Where(d => d.ServiceType == typeof(IHostedService)).Select(d => d.ImplementationType),
-            Is.EqualTo(new[] { typeof(JobProcessorService), typeof(WebhookSenderService), typeof(RetentionService), typeof(SignalsService) }));
+            Is.EqualTo(new[] { typeof(JobProcessorService), typeof(WebhookSenderService), typeof(RetentionService), typeof(SignalsService), typeof(AzurePriceRefreshService) }));
         Assert.That(services.Any(d => d.ServiceType.FullName?.Contains("Quartz", StringComparison.Ordinal) == true ||
             d.ServiceType.Name.Contains("TaskScheduler", StringComparison.Ordinal)), Is.False);
     }

@@ -25,7 +25,7 @@ DevSetup موجود جوه repo الـ ISTDocAi نفسه (`tools/`)، وهتشغ
 
 ## التجهيز
 1. شغّل DevSetup بطريقة من الاتنين:
-   - **من Visual Studio:** افتح Visual Studio **كـ Administrator** (كليك يمين ← Run as administrator)، وافتح `tools\ISTDocAi.Tools.sln`، واعمل `ISTDocAi.DevSetup` هو الـ Startup Project، ودوس **Ctrl+F5**.
+   - **من Visual Studio:** افتح Visual Studio **كـ Administrator** (كليك يمين ← Run as administrator)، وافتح `ISTDocAi.sln`، واعمل `ISTDocAi.DevSetup` هو الـ Startup Project، ودوس **Ctrl+F5**.
    - **أو من Terminal مفتوح كـ Administrator** في فولدر الـ repo: `dotnet run --project tools/src/ISTDocAi.DevSetup`
 
    لازم صلاحية المسؤول، لأنه بيسطّب الشهادة وبيضبط HTTPS. لو Visual Studio مش مفتوح كـ Administrator، هيطلب يعيد تشغيل نفسه.
@@ -70,3 +70,8 @@ DevSetup موجود جوه repo الـ ISTDocAi نفسه (`tools/`)، وهتشغ
 - **`PFX password is wrong`:** اتأكد من كلمة السر واكتبها تاني.
 - **`Cannot connect to SQL Server`:** اتأكد من اسم الـ SQL Server وإنه شغال. لو كتبت `localhost` جرّب **`.`** بدلها (أو `.\اسم_الـinstance`).
 - **ما تستخدمش `--rotate`** إلا لو Anter قالك.
+# نشر الأدوات من نفس الـ solution
+
+افتح `ISTDocAi.sln`، وخلي `ISTDocAi.Tools` هو Startup Project ودوس F5 أو Ctrl+F5. دي قائمة نشر بس؛ اختار الأداة أو All four. الناتج في `tools/publish/<Name>` وبيستبدل النسخة القديمة، فلازم تقفل الـ exe القديم الأول. لازم نسخة الريبو والـ .NET SDK يكونوا موجودين. All four بيكمل لو أداة فشلت وبيطبع ملخص. بعد النشر تقدر تفتح الفولدر أو تشغل الأداة.
+
+من التيرمينال: `dotnet run --project tools/src/ISTDocAi.Tools -- publish all`، أو بدل `all` اكتب اسم الأداة: `DevSetup` / `ServerSetup` / `KitSetup` / `OperatorTool`. مفيش أسئلة في CLI. للـ Debug خلي مشروع الأداة نفسها Startup ودوس F5. DevSetup محتاج Visual Studio كـ Administrator.

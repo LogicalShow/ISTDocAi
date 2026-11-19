@@ -41,3 +41,17 @@ Read-only reference checked in the sibling kit repository (no kit edits):
 - `DocAiExtract_Label` at line 287: optional friendly labels; the fallback formats unknown camelCase names.
 
 These line numbers refer to the inspected kit snapshot and may move with kit updates. The server never controls these UI lists. Review the normalized kit detail shape (`header`/`fields` arrays) when editing its presentation; it differs from the dictionary-based wire contract.
+
+<!-- kit-fields:start -->
+| Result type | Scope (MapKind) | Canonical keys consumed by kit |
+| --- | --- | --- |
+| bill-of-lading.v1 | Field | `billOfLadingNumber`, `bookingNumber`, `shipperName`, `shipperAddress`, `consigneeName`, `consigneeAddress`, `notifyParty`, `vesselName`, `voyageNumber`, `portOfLoading`, `portOfDischarge`, `totalGrossWeightKg`, `issueDate`, `hsCode`, `freightTerms` |
+| bill-of-lading.v1 | Container | `containerNumber`, `sealNumber`, `containerType`, `packages`, `grossWeightKg`, `measurementCbm` |
+| cargo-manifest.v1 | Header | `vesselName`, `voyageNumber`, `portOfLoading`, `portOfDischarge` |
+| cargo-manifest.v1 | Bill | `billOfLadingNumber`, `bookingNumber`, `shipperName`, `shipperAddress`, `consigneeName`, `consigneeAddress`, `notifyParty`, `grossWeight`, `issueDate`, `hsCode`, `freightTerms` |
+| cargo-manifest.v1 | Container | `containerNumber`, `sealNumber`, `containerType`, `packages`, `grossWeight`, `associationMethod` |
+<!-- kit-fields:end -->
+
+Generated from OperatorTool `KitFields/kit-consumed-fields.json`; update that resource when `Forwarding.MvcApp/DocAi/DocAiBillProjector.cs` changes. MANIFEST routing fields inherit from header, `totalGrossWeightKg` aliases `grossWeight`, and container `grossWeightKg` aliases `grossWeight`. `associationMethod` is metadata read by the projector. The kit also attempts MANIFEST container `measurementCbm`, which is absent from the fixed schema; it is recorded separately as an unsupported read, not a valid canonical mapping target. Unknown field objects are retained as Extras, without a typed bill save destination. BLUE means typed display/save integration still requires kit changes and publication.
+
+Schema note: the BL container item schema declares its 6 properties but omits `additionalProperties`. The verdict therefore treats any scope that declares properties without an explicit `additionalProperties` schema (or `true`) as FIXED, matching the fixed product ContainerFields DTO: a new BL container key is RED (product DTO/projection change + kit change), never BLUE. MANIFEST containers explicitly set `additionalProperties: false`. Known gap: the kit reads MANIFEST container `measurementCbm`, which the MANIFEST contract does not define, so that kit field is always empty for manifests today.

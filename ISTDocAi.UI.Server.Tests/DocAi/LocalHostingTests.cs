@@ -66,7 +66,7 @@ public sealed class LocalHostingTests
                 ["DocAi:KeyVault:Url"] = "https://docailocaltest.vault.azure.net/",
                 ["Worker:Enabled"] = "true", ["Worker:MaxParallelJobs"] = "4",
                 ["Retention:Enabled"] = "true", ["Retention:RunAtUtc"] = "02:00:00",
-                ["Signals:Enabled"] = "true", ["Webhooks:Enabled"] = "false"
+                ["AzurePriceRefresh:Enabled"] = "false", ["Signals:Enabled"] = "true", ["Webhooks:Enabled"] = "false"
             }));
             builder.ConfigureTestServices(services => {
                 services.AddHostedService<JobProcessorService>();

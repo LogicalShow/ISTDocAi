@@ -54,6 +54,16 @@ public sealed class UnifiedInitializationTests
         var mapping = SqlBatchReader.ReadResource("ModelMappingProfiles.sql");
         foreach (Match match in Regex.Matches(mapping, @"(?i)(?:TABLE|PROCEDURE|FUNCTION|VIEW|TRIGGER|CONSTRAINT|INDEX|ROLE)\s+(?:dbo\.)?\[?(\w+)"))
             docNames.Add(match.Groups[1].Value);
+        // Post-baseline DocAi objects come from EF-generated migrations: take their names from the DocAi model.
+        using (var docai = new ISTDocAi.Infrastructure.Data.DocAi.DocAiDesignTimeFactory().CreateDbContext([]))
+            // Check constraints are only kept in the design-time model.
+            foreach (var table in docai.GetService<Microsoft.EntityFrameworkCore.Metadata.IDesignTimeModel>().Model.GetRelationalModel().Tables)
+            {
+                docNames.Add(table.Name);
+                foreach (var name in table.UniqueConstraints.Select(k => k.Name).Concat(table.ForeignKeyConstraints.Select(k => k.Name))
+                    .Concat(table.Indexes.Select(i => i.Name)).Concat(table.CheckConstraints.Select(c => c.Name!)))
+                    docNames.Add(name);
+            }
         Assert.That(iamNames.Intersect(docNames, StringComparer.OrdinalIgnoreCase), Is.Empty);
         var sql = context.GetService<IMigrator>().GenerateScript();
         var migrationObjects = Regex.Matches(sql, @"(?i)(?:CREATE TABLE|CONSTRAINT|CREATE(?: UNIQUE)? INDEX)\s+\[([^\]]+)\](?:\.\[([^\]]+)\])?")

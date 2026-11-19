@@ -122,12 +122,16 @@ public sealed class OperatorPureTests
         finally { Directory.Delete(folder, true); }
     }
     [Test]
-    public void Operator_templates_export_unchanged_and_all_roles_are_least_privilege()
+    public void Retired_operator_grants_command_is_rejected_before_IO()
+    {
+        Assert.Throws<ArgumentException>(() => OperatorArguments.Parse(["operators", "--operator-group", @"DOMAIN\ops"]));
+        Assert.That(OperatorCli.Help, Does.Not.Contain("operators "));
+    }
+
+    [Test]
+    public void Operator_templates_export_unchanged_and_manifest_runs_as_invoker()
     {
         foreach (var name in new[] { "TopUp-Pages.sql", "Reverse-TopUp.sql" }) Assert.That(SqlResources.Bytes(name), Is.EqualTo(File.ReadAllBytes(Path.Combine(RepositoryPaths.ToolsRoot, "sql/operator", name))));
-        var sql = OperatorGrants.Generate("ISTDocAi", @"DOMAIN\operators", @"DOMAIN\models", @"DOMAIN\quota");
-        Assert.That(sql, Does.Contain("docai_operator").And.Contain("docai_modelteam").And.Contain("docai_quota_operator").And.Not.Contain("db_owner").And.Not.Contain("dbcreator").And.Not.Contain("docai_runtime"));
-        Assert.Throws<ArgumentException>(() => OperatorGrants.Generate("bad]", "group")); Assert.Throws<ArgumentException>(() => OperatorGrants.Generate("ISTDocAi", "bad'"));
         var manifest = XDocument.Load(Path.Combine(RepositoryPaths.ToolsRoot, "src/ISTDocAi.OperatorTool/app.manifest"));
         Assert.That(manifest.Descendants().Single(e => e.Name.LocalName == "requestedExecutionLevel").Attribute("level")!.Value, Is.EqualTo("asInvoker"));
     }
@@ -166,7 +170,7 @@ public sealed class OperatorPureTests
     public void Model_set_is_one_outer_transaction_and_keeps_BL_MANIFEST_AUTO_order()
     {
         var sql = ModelSql.Set(new("bl-op", .97m) { ManifestModelId = "manifest-op", ManifestTestFieldAccuracy = .92m, ClassifierModelId = "router-op", ClassifierTestFieldAccuracy = .91m });
-        Assert.That(sql, Does.StartWith("-- Target: DocAi").And.Contain("docai_modelteam").And.Contain("already Active; no changes").And.Contain("SELECT ModelId, DocumentTypeCode").And.Not.Contain("\nGO\n").And.Not.Contain("$("));
+        Assert.That(sql, Does.StartWith("-- Target: DocAi").And.Contain("db_owner on the DocAi database").And.Contain("already Active; no changes").And.Contain("SELECT ModelId, DocumentTypeCode").And.Not.Contain("\nGO\n").And.Not.Contain("$("));
         Assert.That(sql.All(c => c <= 127), Is.True);
         Assert.That(sql.IndexOf("Router models/classes registered", StringComparison.Ordinal), Is.LessThan(sql.IndexOf("bl-op activated", StringComparison.Ordinal)));
         Assert.That(sql.IndexOf("bl-op activated", StringComparison.Ordinal), Is.LessThan(sql.IndexOf("manifest-op activated", StringComparison.Ordinal)));

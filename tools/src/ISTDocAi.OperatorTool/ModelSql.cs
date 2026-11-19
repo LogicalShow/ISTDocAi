@@ -129,7 +129,7 @@ public static class ModelSql
         var body = string.Join("\n", batches.Select(Execute));
         body += "\nSELECT ModelId, DocumentTypeCode, ShippingLineCode, Kind, Version, Status, MinFieldConfidence, TestFieldAccuracy FROM dbo.ModelRegistry WHERE ModelId IN (" + string.Join(',', ids.Select(x => "'" + x + "'")) + ") ORDER BY ModelId;";
         if (r.ClassifierModelId.Length > 0) body += $"\nSELECT ClassifierModelId, ClassName, TargetDocumentTypeCode, ShippingLineCode FROM dbo.ClassifierClasses WHERE ClassifierModelId='{r.ClassifierModelId}' ORDER BY ClassName;";
-        return "-- Target: DocAi database; run after database.migration_completed. Required role: docai_modelteam.\n-- All registration and activation batches commit atomically.\n" + Regex.Replace(Transaction(body), @"[^\x00-\x7F]", "-") + "\n";
+        return "-- Target: DocAi database; run after database.migration_completed. Required: db_owner on the DocAi database.\n-- All registration and activation batches commit atomically.\n" + Regex.Replace(Transaction(body), @"[^\x00-\x7F]", "-") + "\n";
     }
     private static string Execute(string sql) => "EXEC sys.sp_executesql N'" + SqlResources.Escape(sql) + "';";
     private static string Transaction(string body) => "SET NOCOUNT ON; SET XACT_ABORT ON;\nBEGIN TRY\nBEGIN TRANSACTION;\n" + body + "\nCOMMIT;\nEND TRY\nBEGIN CATCH\nIF XACT_STATE()<>0 ROLLBACK;\nTHROW;\nEND CATCH;";

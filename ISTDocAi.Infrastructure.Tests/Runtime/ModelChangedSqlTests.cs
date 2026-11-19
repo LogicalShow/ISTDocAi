@@ -178,7 +178,7 @@ public sealed class ModelChangedSqlTests
         db = new SqlDatabase { UseSchemaScript = true };
         await db.InitializeAsync();
         // This legacy script oracle uses the current worker statements after applying the new column migration.
-        await db.Execute(ISTDocAi.Infrastructure.Startup.DatabaseMigration.DocAi.SqlBatchReader.ReadResource("JobCancellation.sql"));
+        await db.Execute("ALTER TABLE dbo.JobRuns ADD CancelRequestedAtUtc datetime2(3) NULL;");
         var upgrade = await File.ReadAllTextAsync(Path.Combine(AppContext.BaseDirectory, "05_run_mapping_fingerprint_upgrade.sql"));
         var original = await Completed();
         await db.Execute(upgrade);

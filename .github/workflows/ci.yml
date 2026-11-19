@@ -16,7 +16,7 @@ defaults:
 jobs:
   build-test:
     runs-on: windows-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
@@ -24,34 +24,17 @@ jobs:
           global-json-file: global.json
       - name: Check configuration
         run: bash .github/scripts/check-config.sh
-      - name: Locked backend restore
+      - name: Locked solution restore
         run: dotnet restore ISTDocAi.sln --locked-mode
-      - name: Release backend build with warnings as errors
+      - name: Release solution build with warnings as errors
         run: dotnet build ISTDocAi.sln -c Release --no-restore -warnaserror
-      - name: Test backend without SQL or Machine prerequisites
+      - name: Test solution without SQL or Machine prerequisites
         run: dotnet test ISTDocAi.sln -c Release --no-build --no-restore --filter 'TestCategory!=Sql&TestCategory!=Machine' --logger trx --results-directory TestResults/ci
       - name: Architecture tests
         run: dotnet test ISTDocAi.ArchitectureTests -c Release --no-build --no-restore
       - name: Summarize tests and reject skips
         if: always()
         run: python .github/scripts/check-trx.py TestResults/ci
-  tools:
-    runs-on: windows-latest
-    timeout-minutes: 30
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: actions/setup-dotnet@a98b56852c35b8e3190ac28c8c2271da59106c68 # v6.0.0
-        with:
-          global-json-file: global.json
-      - name: Locked restore
-        run: dotnet restore tools/ISTDocAi.Tools.sln --locked-mode
-      - name: Release build with warnings as errors
-        run: dotnet build tools/ISTDocAi.Tools.sln -c Release --no-restore -warnaserror
-      - name: Test without SQL or Machine prerequisites
-        run: dotnet test tools/tests/ISTDocAi.Tools.Tests/ISTDocAi.Tools.Tests.csproj -c Release --no-build --no-restore --filter 'TestCategory!=Sql&TestCategory!=Machine' --logger trx --results-directory TestResults/tools-ci
-      - name: Summarize tests and reject skips
-        if: always()
-        run: python .github/scripts/check-trx.py TestResults/tools-ci
   secrets:
     runs-on: ubuntu-24.04
     timeout-minutes: 10

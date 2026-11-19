@@ -19,6 +19,22 @@ namespace ISTDocAi.Infrastructure.Tests.DocAi.Runtime;
 public sealed class ManifestResultTests
 {
     [Test]
+    public void Glued_suffix_survives_manifest_mapping_and_requests_review()
+    {
+        const string json = """{"pages":[{}],"documents":[{"fields":{"Containers":{"valueArray":[{"valueObject":{"Number":{"valueString":"CSKU8653579/40HC/unknown","confidence":0.99},"Seal":{"valueString":"999"}}}]}}}]}""";
+        var profile = new AnalyzeResultMappingProfile { ContainersField = "Containers", ContainerFieldMap = new() { ["containerNumber"] = "Number", ["sealNumber"] = "Seal" } };
+        var parsed = ManifestAnalyzeResultParser.Parse(json, null, "m", profile);
+        var result = Map(parsed);
+        var container = Assert.Single(result.UnassignedContainers);
+        Assert.Equal("CSKU8653579", container.Fields["containerNumber"].Value);
+        Assert.Equal("CSKU8653579/40HC/unknown", container.Fields["containerNumber"].RawText);
+        Assert.Equal(.5, container.Fields["containerNumber"].Confidence);
+        Assert.Equal("40HC", container.Fields["containerType"].Value);
+        Assert.Equal("999", container.Fields["sealNumber"].Value);
+        Assert.Contains(result.Flags, f => f.Reason == FlagReasons.LowConfidence && f.Field.Contains("containerNumber"));
+    }
+
+    [Test]
     public void Spaced_container_associates_once_and_preserves_printed_text()
     {
         const string json = """

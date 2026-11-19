@@ -17,7 +17,7 @@ public static class RegisterConsumerSql
         Codes.Text(operatorIdentity, "OperatorIdentity", 200); Codes.Text(note, "Note", 400);
         static string Literal(string value) => "N'" + value.Replace("'", "''", StringComparison.Ordinal) + "'";
         return $$"""
-            -- Target: DocAi database. Required: db_owner OR docai_operator + docai_quota_operator.
+            -- Target: DocAi database. Required: db_owner on the DocAi database.
             -- Registers a Prepaid consumer with one initial TopUp. Safe to rerun unchanged.
             SET NOCOUNT ON; SET XACT_ABORT ON;
             DECLARE @Code nvarchar(max)={{Literal(pairing.ConsumerCode)}},

@@ -29,17 +29,19 @@ internal sealed class SqlParameters : SqlMapper.IDynamicParameters
     }
     private static (SqlDbType Type, int Size, byte Precision, byte Scale) Metadata(string name) => name switch
     {
-        "jobId" or "leaseToken" or "eventId" => (SqlDbType.UniqueIdentifier, 0, 0, 0),
+        "checkId" or "jobId" or "leaseToken" or "eventId" => (SqlDbType.UniqueIdentifier, 0, 0, 0),
         "expectedRunNo" or "consumerId" or "runNo" or "pageCount" or "flaggedFields" or "statusCode" => (SqlDbType.SmallInt, 0, 0, 0),
         "grantId" or "afterChargeId" or "operationId" or "deliveryId" => (SqlDbType.BigInt, 0, 0, 0),
         "limit" or "months" or "fileSizeBytes" or "pages" or "retryAfterSeconds" or "delaySeconds" => (SqlDbType.Int, 0, 0, 0),
         "reprocess" or "countsAsAttempt" => (SqlDbType.Bit, 0, 0, 0),
         "fileSha256" => (SqlDbType.Binary, 32, 0, 0),
-        "asOfUtc" or "azureCompletedAtUtc" => (SqlDbType.DateTime2, 0, 0, 3),
+        "startedAtUtc" or "checkedAtUtc" or "asOfUtc" or "azureCompletedAtUtc" => (SqlDbType.DateTime2, 0, 0, 3),
         "minimumAccuracy" => (SqlDbType.Decimal, 0, 5, 4),
         "classConfidence" => (SqlDbType.Decimal, 0, 4, 3),
         "expectedDocumentType" or "expectedLine" or "resolvedDocumentTypeCode" or "documentTypeCode" or "requestedLine" or "idemLine" or "resolvedLine" => (SqlDbType.VarChar, 20, 0, 0),
         "mappingFingerprint" or "activeMappingFingerprint" => (SqlDbType.Char, 64, 0, 0),
+        "outcome" => (SqlDbType.VarChar, 16, 0, 0),
+        "reasonCode" => (SqlDbType.VarChar, 64, 0, 0),
         "resultType" => (SqlDbType.VarChar, 32, 0, 0),
         "kind" or "state" => (SqlDbType.VarChar, 10, 0, 0),
         "activeClassifierModelId" or "activeExtractModelId" or "modelId" or "classifierModelId" or "newModelId" or "className" or "correlationId" => (SqlDbType.VarChar, 64, 0, 0),

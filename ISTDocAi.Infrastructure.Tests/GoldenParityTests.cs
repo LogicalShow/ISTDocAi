@@ -67,7 +67,7 @@ public sealed class GoldenParityTests
         var expected = golden.RootElement.EnumerateArray().Where(r => r.GetProperty("assembly").GetString() == "DocAi.Database").ToArray();
         var assembly = typeof(DocAiDbContext).Assembly;
         Assert.That(assembly.GetManifestResourceNames().Where(n => n.StartsWith("DocAi.Database.Migrations.Sql.", StringComparison.Ordinal)),
-            Is.EquivalentTo(expected.Select(r => r.GetProperty("name").GetString()).Append("DocAi.Database.Migrations.Sql.JobCancellation.sql")));
+            Is.EquivalentTo(expected.Select(r => r.GetProperty("name").GetString())));
         foreach (var row in expected)
         {
             using var stream = assembly.GetManifestResourceStream(row.GetProperty("name").GetString()!)!;
@@ -79,7 +79,7 @@ public sealed class GoldenParityTests
     public void Both_contexts_have_separate_migration_chains_without_connecting()
     {
         using var docai = new DocAiDesignTimeFactory().CreateDbContext([]);
-        Assert.That(docai.Database.GetMigrations(), Is.EqualTo(new[] { "20261101000000_InitialSchema", "20261103000000_ModelMappingProfiles", "20261115000000_JobCancellation" }));
+        Assert.That(docai.Database.GetMigrations(), Is.EqualTo(new[] { "20261101000000_InitialSchema", "20261103000000_ModelMappingProfiles", "20261115000000_JobCancellation", "20261116000000_AzurePriceRefresh", "20261118090316_RemoveDocAiRoles" }));
         using var template = new AppDbContext(new DbContextOptionsBuilder<AppDbContext>()
             .UseSqlServer("Server=127.0.0.1;Database=OfflineOnly;Integrated Security=true").Options);
         Assert.That(template.Database.GetMigrations(), Is.EqualTo(new[] { "20261011062423_InitialCreate" }));
@@ -108,7 +108,13 @@ public sealed class GoldenParityTests
                     text = text.Replace("Null/empty means use ConnectionStrings:DefaultConnection during startup.",
                         "Null/empty means use DocAi:Sql:ConnectionString during startup.", StringComparison.Ordinal);
                 if (row.GetProperty("source").GetString() == "src/DocAi.Database/Migrations/DocAiDbContextModelSnapshot.cs")
+                {
+                    var start = text.IndexOf("            modelBuilder.Entity(\"ISTDocAi.Domain.Entities.DocAi.AzurePriceCheck\"", StringComparison.Ordinal);
+                    var end = text.IndexOf("            modelBuilder.Entity(", start + 1, StringComparison.Ordinal);
+                    Assert.That(start, Is.GreaterThanOrEqualTo(0));
+                    text = text.Remove(start, end - start);
                     text = text.Replace("                    b.Property<DateTime?>(\"CancelRequestedAtUtc\")\r\n                        .HasColumnType(\"datetime2(3)\")\r\n                        .HasColumnOrder(16);\r\n\r\n", "", StringComparison.Ordinal);
+                }
                 // Stage 5d adds schema metadata in a separate partial; preserve the frozen context-shell hash.
                 if (row.GetProperty("source").GetString() == "src/DocAi.Database/DocAiDbContext.cs")
                     text = text.Replace("sealed partial class DocAiDbContext", "sealed class DocAiDbContext", StringComparison.Ordinal);

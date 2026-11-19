@@ -1,24 +1,31 @@
-using ISTDocAi.Infrastructure.Data.DocAi;
-using ISTDocAi.Infrastructure.Startup.DatabaseMigration.DocAi;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Infrastructure;
+using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace ISTDocAi.Infrastructure.Migrations.DocAi;
+#nullable disable
 
-[DbContext(typeof(DocAiDbContext))]
-[Migration("20261115000000_JobCancellation")]
-public sealed class JobCancellation : Migration
+namespace ISTDocAi.Infrastructure.Migrations.DocAi
 {
-    protected override void Up(MigrationBuilder migrationBuilder)
+    /// <inheritdoc />
+    public partial class JobCancellation : Migration
     {
-        foreach (var batch in SqlBatchReader.Split(SqlBatchReader.ReadResource("JobCancellation.sql")))
-            migrationBuilder.Sql(SqlBatchReader.PrepareBatch(batch));
+        /// <inheritdoc />
+        protected override void Up(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.AddColumn<DateTime>(
+                name: "CancelRequestedAtUtc",
+                schema: "dbo",
+                table: "JobRuns",
+                type: "datetime2(3)",
+                nullable: true);
+        }
+
+        /// <inheritdoc />
+        protected override void Down(MigrationBuilder migrationBuilder)
+        {
+            migrationBuilder.DropColumn(
+                name: "CancelRequestedAtUtc",
+                schema: "dbo",
+                table: "JobRuns");
+        }
     }
-
-    protected override void BuildTargetModel(ModelBuilder modelBuilder) =>
-        modelBuilder.HasAnnotation("ProductVersion", "10.0.13");
-
-    protected override void Down(MigrationBuilder migrationBuilder) =>
-        throw new NotSupportedException("Job cancellation audit cannot be rolled back.");
 }

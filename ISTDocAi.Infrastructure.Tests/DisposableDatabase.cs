@@ -62,7 +62,7 @@ internal sealed class DisposableDatabase : IAsyncDisposable
     public async Task VerifyHistoryAndRcsi(CancellationToken ct, bool baselineOnly = false)
     {
         Assert.That(await ScalarMaster($"SELECT CONVERT(int,is_read_committed_snapshot_on) FROM sys.databases WHERE name=N'{Name}'", ct), Is.EqualTo("1"));
-        Assert.That(await Scalar(target, "SELECT COUNT(*) FROM dbo.__EFMigrationsHistory", ct), Is.EqualTo(baselineOnly ? "1" : "3"));
+        Assert.That(await Scalar(target, "SELECT COUNT(*) FROM dbo.__EFMigrationsHistory", ct), Is.EqualTo(baselineOnly ? "1" : "5"));
         Assert.That(await Scalar(target,
             "SELECT MigrationId+'|'+ProductVersion FROM dbo.__EFMigrationsHistory WHERE MigrationId='20261101000000_InitialSchema'", ct), Is.EqualTo("20261101000000_InitialSchema|10.0.13"));
     }

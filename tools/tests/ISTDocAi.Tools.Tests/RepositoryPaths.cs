@@ -2,7 +2,7 @@ namespace ISTDocAi.Tools.Tests;
 internal static class RepositoryPaths
 {
     internal static string ISTDocAiRoot => FindRoot("ISTDocAi.sln");
-    internal static string ToolsRoot => Path.Combine(FindRoot("tools/ISTDocAi.Tools.sln"), "tools");
+    internal static string ToolsRoot => Path.Combine(FindRoot("ISTDocAi.sln"), "tools");
     private static string FindRoot(string marker)
     {
         for (var folder = new DirectoryInfo(AppContext.BaseDirectory); folder is not null; folder = folder.Parent)

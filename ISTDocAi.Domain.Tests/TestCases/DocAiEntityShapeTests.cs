@@ -13,7 +13,7 @@ public sealed class DocAiEntityShapeTests
         var types = typeof(Job).Assembly.GetTypes()
             .Where(t => t.Namespace is "ISTDocAi.Domain.Entities.DocAi" or
                 "ISTDocAi.Domain.Common.Shared.DocAi.Snapshots").ToArray();
-        Assert.That(types, Has.Length.EqualTo(24));
+        Assert.That(types, Has.Length.EqualTo(25));
         foreach (var type in types)
         {
             var accessors = type.GetProperties(BindingFlags.Instance | BindingFlags.Static |

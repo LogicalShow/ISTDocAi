@@ -24,6 +24,21 @@ namespace ISTDocAi.Infrastructure.Tests.DocAi.Runtime;
 public sealed class AnalyzeResultParserTests
 {
     [Test]
+    public void Glued_suffix_survives_mapping_and_requests_review()
+    {
+        const string json = """{"pages":[{}],"documents":[{"fields":{"containers":{"valueArray":[{"valueObject":{"containerNumber":{"valueString":"CSKU8653579/40HC/unknown","confidence":0.99},"sealNumber":{"valueString":"999"},"Type":{"valueString":"DRY VAN"}}}]}}}]}""";
+        var parsed = AnalyzeResultParser.Parse(json, "BL", null, "m", new() { ContainerFieldMap = new() { ["containerType"] = "Type" } });
+        var result = MappingServices.Bill.Map(parsed, .8).Value!;
+        var container = PortAssert.Single(result.Containers);
+        PortAssert.Equal("CSKU8653579", container.ContainerNumber.Value);
+        PortAssert.Equal("CSKU8653579/40HC/unknown", container.ContainerNumber.RawText);
+        PortAssert.Equal(.5, container.ContainerNumber.Confidence);
+        PortAssert.Equal("40HC DRY VAN", container.ContainerType!.Value);
+        PortAssert.Equal("999", container.SealNumber!.Value);
+        PortAssert.Contains(result.Flags, f => f.Reason == FlagReasons.LowConfidence && f.Field.Contains("containerNumber"));
+    }
+
+    [Test]
     public void Spaced_container_maps_through_model_mapper_with_original_text()
     {
         const string json = """{"pages":[{},{}],"documents":[{"fields":{"containers":{"valueArray":[{"valueObject":{"containerNumber":{"valueString":"UACU 5636100","content":"UACU 5636100","confidence":0.99,"boundingRegions":[{"pageNumber":2}]}}}]}}}]}""";

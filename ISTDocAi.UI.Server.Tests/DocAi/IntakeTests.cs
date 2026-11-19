@@ -44,7 +44,7 @@ internal class ApiFactory : ISTDocAi.UI.Server.Tests.BackendFactory
         base.ConfigureWebHost(builder);
         builder.ConfigureAppConfiguration((_, configuration) => configuration.AddInMemoryCollection(new Dictionary<string, string?> {
                 ["DocAi:Mapping:Source"] = "Sql",
-            ["Signals:Enabled"] = "false", ["Retention:Enabled"] = "false", ["Worker:Enabled"] = "false", ["Webhooks:Enabled"] = "false", ["DocAi:KeyVault:Url"] = "https://docai-test.vault.azure.net", ["DocAi:RateLimit:TokenLimit"] = Tokens.ToString(), ["DocAi:RateLimit:TokensPerPeriod"] = "1", ["DocAi:RateLimit:PeriodSeconds"] = "3600" }));
+            ["AzurePriceRefresh:Enabled"] = "false", ["Signals:Enabled"] = "false", ["Retention:Enabled"] = "false", ["Worker:Enabled"] = "false", ["Webhooks:Enabled"] = "false", ["DocAi:KeyVault:Url"] = "https://docai-test.vault.azure.net", ["DocAi:RateLimit:TokenLimit"] = Tokens.ToString(), ["DocAi:RateLimit:TokensPerPeriod"] = "1", ["DocAi:RateLimit:PeriodSeconds"] = "3600" }));
         builder.ConfigureLogging(logging => logging.ClearProviders());
         builder.ConfigureTestServices(services =>
         {

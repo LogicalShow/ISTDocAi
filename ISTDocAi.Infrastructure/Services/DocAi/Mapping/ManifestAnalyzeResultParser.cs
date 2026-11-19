@@ -1,3 +1,4 @@
+using ISTDocAi.Application.Services.DocAi.Iso6346Service;
 using ISTDocAi.Application.Common.Interfaces.DocAi.Persistence;
 using ISTDocAi.Infrastructure.Data.Sql.DocAi;
 using ISTDocAi.Infrastructure.Configuration.DocAi;
@@ -42,9 +43,15 @@ public static class ManifestAnalyzeResultParser
                         foreach (var cell in obj.EnumerateObject()) geometry.Add(cell.Name, ReadRegions(cell.Value));
                         foreach (var (key, model) in map.OrderBy(p => p.Key, StringComparer.Ordinal))
                             if (obj.TryGetProperty(model, out var field) && ReadField(field, pages) is { } value) {
-                                values.Add(key, key == "containerNumber" ? value with { Value = MappingServices.Iso.Normalize(value.Value), RawText = value.RawText ?? (MappingServices.Iso.Normalize(value.Value) != value.Value ? value.Value : null) } : value);
+                                values.Add(key, value);
                                 geometry[key] = ReadRegions(field);
                             }
+                    }
+                    if (values.TryGetValue("containerNumber", out var number))
+                    {
+                        var split = ContainerNumberSuffixSplitter.Split(number, values.GetValueOrDefault("sealNumber"), values.GetValueOrDefault("containerType"));
+                        values["containerNumber"] = split.Number;
+                        if (split.Type is not null) values["containerType"] = split.Type;
                     }
                     target.Add(new(index++, values.ToImmutable(), geometry.ToImmutable()));
                 }

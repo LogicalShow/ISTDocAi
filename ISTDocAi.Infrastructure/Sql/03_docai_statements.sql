@@ -1020,3 +1020,87 @@ BEGIN
 END;
 COMMIT;
 SELECT @applied;
+-- [S34] Finalize a validated Azure price pair and append history atomically.
+SET NOCOUNT ON;
+SET XACT_ABORT ON;
+BEGIN TRY
+    BEGIN TRANSACTION;
+    DECLARE @lockResult int;
+    EXEC @lockResult = sys.sp_getapplock @Resource = 'docai.azure-price-refresh', @LockMode = 'Exclusive', @LockOwner = 'Transaction', @LockTimeout = 30000;
+    IF @lockResult < 0 THROW 50018, 'Azure price check lock unavailable.', 1;
+    IF EXISTS (SELECT 1 FROM dbo.AzurePriceChecks WHERE CheckId = @checkId)
+    BEGIN
+        SELECT MeterCode, Outcome, ReasonCode FROM dbo.AzurePriceChecks WHERE CheckId = @checkId ORDER BY MeterCode;
+        COMMIT; RETURN;
+    END;
+    DECLARE @today date = CONVERT(date, SYSUTCDATETIME()), @tomorrow date;
+    SET @tomorrow = DATEADD(day, 1, @today);
+    DECLARE @rows TABLE (MeterCode varchar(30) PRIMARY KEY, MatchedRowCount int, MeterId nvarchar(64), Currency nvarchar(64), Region nvarchar(64), Unit nvarchar(64), Type nvarchar(64), TierMinimumUnits decimal(19,8), ObservedPrice decimal(19,8), AzureEffectiveFrom datetime2(3), Source nvarchar(200), NormalizedObservation nvarchar(max), CurrentPrice decimal(9,4), Outcome varchar(16));
+    INSERT @rows (MeterCode,MatchedRowCount,MeterId,Currency,Region,Unit,Type,TierMinimumUnits,ObservedPrice,AzureEffectiveFrom,Source,NormalizedObservation)
+    SELECT * FROM OPENJSON(@payloadJson) WITH (
+        MeterCode varchar(30), MatchedRowCount int, MeterId nvarchar(64), Currency nvarchar(64), Region nvarchar(64), Unit nvarchar(64), Type nvarchar(64), TierMinimumUnits decimal(19,8), ObservedPrice decimal(19,8), AzureEffectiveFrom datetime2(3), Source nvarchar(200), NormalizedObservation nvarchar(max));
+    IF (SELECT COUNT(*) FROM @rows) <> 2 OR EXISTS (SELECT 1 FROM @rows WHERE MeterCode NOT IN ('DI_CUSTOM_EXTRACT','DI_CUSTOM_CLASSIFY')) THROW 50019, 'Invalid price check pair.', 1;
+    UPDATE r SET CurrentPrice = p.PricePer1000 FROM @rows r OUTER APPLY (
+        SELECT TOP(1) PricePer1000 FROM dbo.AzureMeterPrices WITH (UPDLOCK,HOLDLOCK)
+        WHERE MeterCode = r.MeterCode AND EffectiveFrom <= @today ORDER BY EffectiveFrom DESC) p;
+    IF EXISTS (SELECT 1 FROM @rows WHERE CurrentPrice IS NULL) SET @reasonCode = 'NO_CURRENT_BASELINE';
+    IF @reasonCode IS NULL AND EXISTS (SELECT 1 FROM @rows r JOIN dbo.AzureMeterPrices p WITH (UPDLOCK,HOLDLOCK) ON p.MeterCode=r.MeterCode AND p.EffectiveFrom=@tomorrow WHERE p.PricePer1000<>r.ObservedPrice)
+        SET @reasonCode = 'EXISTING_EFFECTIVE_DATE_CONFLICT';
+    IF @reasonCode IS NULL AND EXISTS (SELECT 1 FROM @rows r JOIN dbo.AzureMeterPrices p WITH (UPDLOCK,HOLDLOCK) ON p.MeterCode=r.MeterCode AND p.EffectiveFrom>@tomorrow WHERE r.CurrentPrice<>r.ObservedPrice)
+        SET @reasonCode = 'FUTURE_PRICE_SCHEDULE_EXISTS';
+    UPDATE r SET Outcome = CASE WHEN @reasonCode IS NOT NULL THEN 'Refused'
+        WHEN CurrentPrice=ObservedPrice OR EXISTS (SELECT 1 FROM dbo.AzureMeterPrices p WHERE p.MeterCode=r.MeterCode AND p.EffectiveFrom=@tomorrow AND p.PricePer1000=r.ObservedPrice) THEN 'NoChange' ELSE 'Updated' END FROM @rows r;
+    INSERT dbo.AzureMeterPrices (MeterCode,EffectiveFrom,PricePer1000,Currency,Source)
+    SELECT MeterCode,@tomorrow,ObservedPrice,'USD',Source FROM @rows WHERE Outcome='Updated';
+    INSERT dbo.AzurePriceChecks (CheckId,MeterCode,StartedAtUtc,CheckedAtUtc,Outcome,ReasonCode,ObservedPrice,CurrentPrice,ProposedEffectiveFrom,MatchedRowCount,MeterId,Currency,Region,Unit,Type,TierMinimumUnits,AzureEffectiveFrom,WarningFingerprint)
+    SELECT @checkId,MeterCode,@startedAtUtc,@checkedAtUtc,Outcome,@reasonCode,ObservedPrice,CurrentPrice,
+        CASE WHEN @outcome = 'NoChange' THEN @tomorrow END,MatchedRowCount,MeterId,Currency,Region,Unit,Type,TierMinimumUnits,AzureEffectiveFrom,
+        CASE WHEN @reasonCode IS NOT NULL THEN HASHBYTES('SHA2_256',CONCAT(@reasonCode,'|',MeterCode,'|',CONVERT(varchar(40),CurrentPrice),'|',NormalizedObservation)) END
+    FROM @rows;
+    COMMIT;
+    SELECT MeterCode,Outcome,ReasonCode FROM dbo.AzurePriceChecks WHERE CheckId = @checkId ORDER BY MeterCode;
+END TRY
+BEGIN CATCH
+    IF @@TRANCOUNT > 0 ROLLBACK;
+    THROW;
+END CATCH;
+
+-- [S35] Append failed/refused observation history without changing prices.
+SET NOCOUNT ON;
+SET XACT_ABORT ON;
+BEGIN TRY
+    BEGIN TRANSACTION;
+    DECLARE @lockResult int;
+    EXEC @lockResult = sys.sp_getapplock @Resource = 'docai.azure-price-refresh', @LockMode = 'Exclusive', @LockOwner = 'Transaction', @LockTimeout = 30000;
+    IF @lockResult < 0 THROW 50018, 'Azure price check lock unavailable.', 1;
+    IF EXISTS (SELECT 1 FROM dbo.AzurePriceChecks WHERE CheckId = @checkId)
+    BEGIN
+        SELECT MeterCode, Outcome, ReasonCode FROM dbo.AzurePriceChecks WHERE CheckId = @checkId ORDER BY MeterCode;
+        COMMIT; RETURN;
+    END;
+    DECLARE @today date = CONVERT(date, SYSUTCDATETIME()), @tomorrow date;
+    SET @tomorrow = DATEADD(day, 1, @today);
+    DECLARE @rows TABLE (MeterCode varchar(30) PRIMARY KEY, MatchedRowCount int, MeterId nvarchar(64), Currency nvarchar(64), Region nvarchar(64), Unit nvarchar(64), Type nvarchar(64), TierMinimumUnits decimal(19,8), ObservedPrice decimal(19,8), AzureEffectiveFrom datetime2(3), Source nvarchar(200), NormalizedObservation nvarchar(max), CurrentPrice decimal(9,4), Outcome varchar(16));
+    INSERT @rows (MeterCode,MatchedRowCount,MeterId,Currency,Region,Unit,Type,TierMinimumUnits,ObservedPrice,AzureEffectiveFrom,Source,NormalizedObservation)
+    SELECT * FROM OPENJSON(@payloadJson) WITH (
+        MeterCode varchar(30), MatchedRowCount int, MeterId nvarchar(64), Currency nvarchar(64), Region nvarchar(64), Unit nvarchar(64), Type nvarchar(64), TierMinimumUnits decimal(19,8), ObservedPrice decimal(19,8), AzureEffectiveFrom datetime2(3), Source nvarchar(200), NormalizedObservation nvarchar(max));
+    IF (SELECT COUNT(*) FROM @rows) <> 2 OR EXISTS (SELECT 1 FROM @rows WHERE MeterCode NOT IN ('DI_CUSTOM_EXTRACT','DI_CUSTOM_CLASSIFY')) THROW 50019, 'Invalid price check pair.', 1;
+    UPDATE r SET CurrentPrice = p.PricePer1000 FROM @rows r OUTER APPLY (
+        SELECT TOP(1) PricePer1000 FROM dbo.AzureMeterPrices WITH (UPDLOCK,HOLDLOCK)
+        WHERE MeterCode = r.MeterCode AND EffectiveFrom <= @today ORDER BY EffectiveFrom DESC) p;
+    UPDATE @rows SET Outcome = @outcome;
+    INSERT dbo.AzurePriceChecks (CheckId,MeterCode,StartedAtUtc,CheckedAtUtc,Outcome,ReasonCode,ObservedPrice,CurrentPrice,ProposedEffectiveFrom,MatchedRowCount,MeterId,Currency,Region,Unit,Type,TierMinimumUnits,AzureEffectiveFrom,WarningFingerprint)
+    SELECT @checkId,MeterCode,@startedAtUtc,@checkedAtUtc,Outcome,@reasonCode,ObservedPrice,CurrentPrice,
+        CASE WHEN @outcome = 'NoChange' THEN @tomorrow END,MatchedRowCount,MeterId,Currency,Region,Unit,Type,TierMinimumUnits,AzureEffectiveFrom,
+        CASE WHEN @reasonCode IS NOT NULL THEN HASHBYTES('SHA2_256',CONCAT(@reasonCode,'|',MeterCode,'|',CONVERT(varchar(40),CurrentPrice),'|',NormalizedObservation)) END
+    FROM @rows;
+    COMMIT;
+    SELECT MeterCode,Outcome,ReasonCode FROM dbo.AzurePriceChecks WHERE CheckId = @checkId ORDER BY MeterCode;
+END TRY
+BEGIN CATCH
+    IF @@TRANCOUNT > 0 ROLLBACK;
+    THROW;
+END CATCH;
+
+-- [S36] Latest completed durable check (a check always has two rows).
+SELECT MAX(CheckedAtUtc) FROM (SELECT MAX(CheckedAtUtc) AS CheckedAtUtc FROM dbo.AzurePriceChecks GROUP BY CheckId HAVING COUNT(*) = 2) completed;
