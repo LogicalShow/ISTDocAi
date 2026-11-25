@@ -11,8 +11,6 @@ public sealed class SubmitJob(IJobRepository jobs, IDocumentStore documents, IFi
         if (file.DocumentType == "AUTO" && file.ShippingLine is not null)
             throw new IntakeException(422, "INVALID_REQUEST", "Invalid AUTO route", "AUTO cannot specify a shipping line.");
         var info = inspector.Inspect(file.Path, ct);
-        if (file.DocumentType == "AUTO" && info.ContentType != "application/pdf")
-            throw new IntakeException(415, "UNSUPPORTED_FILE_TYPE", "Unsupported AUTO document", "AUTO accepts PDF documents only.");
         if (info.PageCount > consumer.MaxPagesPerJob)
             throw new IntakeException(422, "TOO_MANY_PAGES", "The document has more pages than allowed", $"{info.PageCount} pages; the limit for this consumer is {consumer.MaxPagesPerJob}.");
         if (info.PageCount < 1) throw IntakeException.Invalid();

@@ -42,26 +42,64 @@ public sealed class AutoManifestApiTests
         Assert.Contains(catalog.AutoDetect, c => c.DocumentTypeCode == "AUTO");
     }
 
-    [Test]
-    public async Task AUTO_with_line_returns_422_before_catalog_or_upload()
+    private static readonly byte[] Png = [137, 80, 78, 71, 13, 10, 26, 10];
+
+    [TestCase(false)]
+    [TestCase(true)]
+    public async Task AUTO_with_line_returns_422_before_catalog_or_upload(bool image)
     {
         using var app = new ApiFactory();
-        var response = await app.Client().PostAsync("/api/v2/jobs", IntakeTests.Form(type: "AUTO", line: "MAERSK"));
-        Assert.Equal(HttpStatusCode.UnprocessableEntity, response.StatusCode);
-        Assert.Empty(app.Ports.Requests); Assert.Equal(0, app.Ports.Uploads); Assert.Equal(0, app.Ports.CatalogReads);
+        app.Ports.Models.Add(new("AUTO", null, "classify", "router", .8m));
+        using var form = IntakeTests.Form(image ? Png : null, type: "AUTO", line: "MAERSK");
+        using var response = await app.Client().PostAsync("/api/v2/jobs", form);
+        await IntakeTests.Error(response, 422, "INVALID_REQUEST");
+        Assert.Empty(app.Ports.Requests);
+        Assert.Equal(0, app.Ports.Uploads);
+        Assert.Equal(0, app.Ports.CatalogReads);
+    }
+
+    [TestCase("png", "image/png", 1)]
+    [TestCase("jpg", "image/jpeg", 1)]
+    [TestCase("tif", "image/tiff", 2)]
+    public async Task AUTO_accepts_images_by_magic_bytes(string extension, string contentType, int pageCount)
+    {
+        byte[] bytes = extension switch
+        {
+            "png" => Png,
+            "jpg" => [255, 216, 255, 224],
+            // Little-endian TIFF with two chained image file directories.
+            "tif" => [73, 73, 42, 0, 8, 0, 0, 0, 0, 0, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            _ => throw new ArgumentOutOfRangeException(nameof(extension))
+        };
+        using var app = new ApiFactory();
+        app.Ports.Models.Add(new("AUTO", null, "classify", "router", .8m));
+        // The form's PDF filename and media type must not override the bytes.
+        using var form = IntakeTests.Form(bytes, type: "AUTO");
+        using var response = await app.Client().PostAsync("/api/v2/jobs", form);
+
+        Assert.Equal(HttpStatusCode.Accepted, response.StatusCode);
+        Assert.Equal(pageCount, (await response.ReadValue<SubmitJobResponse>())!.PageCount);
+        Assert.Equal(contentType, app.Ports.UploadedContentType);
+        Assert.True(app.Ports.UploadedPath!.EndsWith("." + extension, StringComparison.Ordinal));
+        Assert.Equal(new[] { "probe", "cap", "upload", "commit" }, app.Ports.Calls);
+        Assert.All(app.Ports.Requests, request =>
+        {
+            Assert.Equal("AUTO", request.DocumentTypeCode);
+            Assert.Null(request.RequestedLine);
+            Assert.Equal(contentType, request.ContentType);
+            Assert.Equal(pageCount, request.PageCount);
+        });
     }
 
     [Test]
-    public async Task AUTO_rejects_images_but_explicit_BL_keeps_its_existing_file_policy()
+    public async Task Explicit_BL_still_accepts_png()
     {
-        byte[] png = [137, 80, 78, 71, 13, 10, 26, 10];
-        using var app = new ApiFactory(); app.Ports.Models.Add(new("AUTO", null, "classify", "router", .8m));
-        var response = await app.Client().PostAsync("/api/v2/jobs", IntakeTests.Form(png, type: "AUTO"));
-        Assert.Equal(HttpStatusCode.UnsupportedMediaType, response.StatusCode); Assert.Empty(app.Ports.Requests);
-        response = await app.Client().PostAsync("/api/v2/jobs", IntakeTests.Form(png, type: "BL"));
-        Assert.Equal(HttpStatusCode.Accepted, response.StatusCode); Assert.Equal("image/png", app.Ports.UploadedContentType);
+        using var app = new ApiFactory();
+        using var form = IntakeTests.Form(Png, type: "BL");
+        using var response = await app.Client().PostAsync("/api/v2/jobs", form);
+        Assert.Equal(HttpStatusCode.Accepted, response.StatusCode);
+        Assert.Equal("image/png", app.Ports.UploadedContentType);
     }
-
 
     [Test]
     public async Task GET_large_manifest_is_not_subject_to_the_webhook_body_limit()

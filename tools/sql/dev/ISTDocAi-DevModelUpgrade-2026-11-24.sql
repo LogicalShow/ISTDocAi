@@ -1,5 +1,6 @@
--- ISTDocAi development database: model upgrade of 2026-11-18.
---   AUTO     : IST-Classifier-v6 -> IST-Classifier-v7  (held-out 16/17; v6 11/17)
+-- ISTDocAi development database: model upgrade of 2026-11-24.
+--   AUTO     : IST-Classifier-v6 (or v7) -> IST-Classifier-v8  (held-out 17/17 with split=none; also NADIA,
+--              ALSEEF, Print (1), wships. v7 is skipped: it missed v6's real manifests and rejected NADIA.)
 --   MANIFEST : manifest-v3       -> manifest-v4        (held-out 87.7%; v3 86.3%; NADIA label fixes)
 --   BL       : bl-v3 unchanged.
 -- Run in SSMS against your migrated ISTDocAi development database (the one DevSetup seeded). No SQLCMD mode.
@@ -15,9 +16,9 @@ DECLARE @activeAuto varchar(64) = (SELECT ModelId FROM dbo.ModelRegistry WITH(UP
     WHERE DocumentTypeCode='AUTO' AND Kind='classify' AND ShippingLineCode IS NULL AND Status='Active');
 DECLARE @activeManifest varchar(64) = (SELECT ModelId FROM dbo.ModelRegistry WITH(UPDLOCK,HOLDLOCK)
     WHERE DocumentTypeCode='MANIFEST' AND Kind='extract' AND ShippingLineCode IS NULL AND Status='Active');
-IF ISNULL(@activeAuto,'') NOT IN ('IST-Classifier-v6','IST-Classifier-v7')
+IF ISNULL(@activeAuto,'') NOT IN ('IST-Classifier-v6','IST-Classifier-v7','IST-Classifier-v8')
 BEGIN
-    SET @msg = CONCAT(N'Active AUTO classifier is ', ISNULL(@activeAuto, N'(none)'), N'; expected IST-Classifier-v6. Nothing was changed.');
+    SET @msg = CONCAT(N'Active AUTO classifier is ', ISNULL(@activeAuto, N'(none)'), N'; expected IST-Classifier-v6 or v7. Nothing was changed.');
     THROW 50018, @msg, 1;
 END;
 IF ISNULL(@activeManifest,'') NOT IN ('manifest-v3','manifest-v4')
@@ -26,14 +27,14 @@ BEGIN
     THROW 50018, @msg, 1;
 END;
 
-IF @activeAuto = 'IST-Classifier-v6'
+IF @activeAuto IN ('IST-Classifier-v6','IST-Classifier-v7')
 BEGIN
-IF EXISTS(SELECT 1 FROM dbo.ModelRegistry WITH(UPDLOCK,HOLDLOCK) WHERE ModelId='IST-Classifier-v7')
+IF EXISTS(SELECT 1 FROM dbo.ModelRegistry WITH(UPDLOCK,HOLDLOCK) WHERE ModelId='IST-Classifier-v8')
     THROW 50018,'New model ID already exists; use a new ID.',1;
 SELECT @version=ISNULL(MAX(CONVERT(int,Version)),0)+1 FROM dbo.ModelRegistry WITH(UPDLOCK,HOLDLOCK) WHERE DocumentTypeCode='AUTO' AND Kind='classify' AND ShippingLineCode IS NULL;
 INSERT dbo.ModelRegistry(ModelId,DocumentTypeCode,ShippingLineCode,Kind,Version,Status,TestFieldAccuracy,MinFieldConfidence)
-VALUES('IST-Classifier-v7','AUTO',NULL,'classify',@version,'Testing',0.94,0.5);
-INSERT dbo.ClassifierClasses(ClassifierModelId,ClassName,TargetDocumentTypeCode,ShippingLineCode) VALUES('IST-Classifier-v7','bill-of-lading','BL',NULL),('IST-Classifier-v7','cargo-manifest','MANIFEST',NULL),('IST-Classifier-v7','other',NULL,NULL);
+VALUES('IST-Classifier-v8','AUTO',NULL,'classify',@version,'Testing',1.0,0.5);
+INSERT dbo.ClassifierClasses(ClassifierModelId,ClassName,TargetDocumentTypeCode,ShippingLineCode) VALUES('IST-Classifier-v8','bill-of-lading','BL',NULL),('IST-Classifier-v8','cargo-manifest','MANIFEST',NULL),('IST-Classifier-v8','other',NULL,NULL);
 EXEC sys.sp_executesql N'SET XACT_ABORT ON;
 BEGIN TRANSACTION;
 
@@ -73,7 +74,7 @@ WHERE DocumentTypeCode = @doc AND Kind = @kind AND Status = ''Active''
 UPDATE dbo.ModelRegistry SET Status = ''Active'', ActivatedAtUtc = SYSUTCDATETIME() WHERE ModelId = @newModelId;
 COMMIT;
 
-',N'@newModelId varchar(64),@minimumAccuracy decimal(5,4)',@newModelId='IST-Classifier-v7',@minimumAccuracy=0.6;
+',N'@newModelId varchar(64),@minimumAccuracy decimal(5,4)',@newModelId='IST-Classifier-v8',@minimumAccuracy=0.6;
 END;
 
 IF @activeManifest = 'manifest-v3'
@@ -154,7 +155,7 @@ COMMIT;
 END;
 
 SELECT DocumentTypeCode, ModelId, Kind, Version, MinFieldConfidence, TestFieldAccuracy, ActivatedAtUtc,
-    CASE WHEN ModelId IN ('IST-Classifier-v7','manifest-v4','bl-v3') THEN 'OK' ELSE 'CHECK' END Result
+    CASE WHEN ModelId IN ('IST-Classifier-v8','manifest-v4','bl-v3') THEN 'OK' ELSE 'CHECK' END Result
 FROM dbo.ModelRegistry WHERE Status='Active' AND ShippingLineCode IS NULL ORDER BY DocumentTypeCode;
 COMMIT;
 END TRY
